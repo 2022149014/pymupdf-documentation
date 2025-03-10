@@ -1,0 +1,7 @@
+pdf2docx.page.RawPageFitz module
+================================
+
+.. automodule:: pdf2docx.page.RawPageFitz
+   :members:
+   :show-inheritance:
+   :undoc-members:
