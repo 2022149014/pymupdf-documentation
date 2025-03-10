@@ -1,0 +1,4821 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JZTN4VTL9M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JZTN4VTL9M');
+    </script>
+    <link rel="author" title="About these documents" href="about.html" /><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" />
+
+    <link rel="shortcut icon" href="_static/PyMuPDF.ico"/><!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 --><title>Index - PyMuPDF 1.25.3 documentation</title>
+<link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=74643500" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">PyMuPDF 1.25.3 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo only-light" src="_static/sidebar-logo-dark.svg" alt="Light Logo"/>
+    <img class="sidebar-logo only-dark" src="_static/sidebar-logo-light.svg" alt="Dark Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">PyMuPDF 1.25.3 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="about.html">Features Comparison</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#performance">Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#license-and-copyright">License and Copyright</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pymupdf4llm/index.html">PyMuPDF4LLM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pymupdf-pro.html">PyMuPDF Pro</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="the-basics.html">The Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rag.html">PyMuPDF, LLM &amp; RAG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How to Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="how-to-open-a-file.html">Opening Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-text.html">Text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-images.html">Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-annotations.html">Annotations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-drawing-and-graphics.html">Drawing and Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-stories.html">Stories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-journalling.html">Journalling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-multiprocessing.html">Multiprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-ocr.html">OCR - Optical Character Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-optional-content.html">Optional Content Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-low-level-interfaces.html">Low-Level Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-common-issues-and-their-solutions.html">Common Issues and their Solutions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="module.html">Command line interface</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="classes.html">Classes</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Classes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="annot.html">Annot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archive-class.html">Archive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="colorspace.html">Colorspace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="displaylist.html">DisplayList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="document.html">Document</a></li>
+<li class="toctree-l2"><a class="reference internal" href="document-writer-class.html">DocumentWriter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="font.html">Font</a></li>
+<li class="toctree-l2"><a class="reference internal" href="identity.html">Identity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="irect.html">IRect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="link.html">Link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linkdest.html">linkDest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matrix.html">Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outline.html">Outline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page.html">Page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pixmap.html">Pixmap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="point.html">Point</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quad.html">Quad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rect.html">Rect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shape.html">Shape</a></li>
+<li class="toctree-l2"><a class="reference internal" href="story-class.html">Story</a></li>
+<li class="toctree-l2"><a class="reference internal" href="textpage.html">TextPage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="textwriter.html">TextWriter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="widget.html">Widget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xml-class.html">Xml</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="algebra.html">Operator Algebra for Geometry Objects</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="lowlevel.html">Low Level Functions and Classes</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Low Level Functions and Classes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="device.html">Device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coop_low.html">Working together: DisplayList and TextPage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vars.html">Constants and Enumerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="colors.html">Color Database</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="app1.html">Appendix 1: Details on Text Extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="app2.html">Appendix 2: Considerations on Embedded Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="app3.html">Appendix 3: Assorted Technical Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="app4.html">Appendix 4: Performance Comparison Methodology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changes.html">Change Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="znames.html">Deprecated Names</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          
+<section class="genindex-section">
+  <h1 id="index">Index</h1>
+  <div class="genindex-jumpbox"><a href="#_"><strong>_</strong></a> | <a href="#A"><strong>A</strong></a> | <a href="#B"><strong>B</strong></a> | <a href="#C"><strong>C</strong></a> | <a href="#D"><strong>D</strong></a> | <a href="#E"><strong>E</strong></a> | <a href="#F"><strong>F</strong></a> | <a href="#G"><strong>G</strong></a> | <a href="#H"><strong>H</strong></a> | <a href="#I"><strong>I</strong></a> | <a href="#J"><strong>J</strong></a> | <a href="#K"><strong>K</strong></a> | <a href="#L"><strong>L</strong></a> | <a href="#M"><strong>M</strong></a> | <a href="#N"><strong>N</strong></a> | <a href="#O"><strong>O</strong></a> | <a href="#P"><strong>P</strong></a> | <a href="#Q"><strong>Q</strong></a> | <a href="#R"><strong>R</strong></a> | <a href="#S"><strong>S</strong></a> | <a href="#T"><strong>T</strong></a> | <a href="#U"><strong>U</strong></a> | <a href="#V"><strong>V</strong></a> | <a href="#W"><strong>W</strong></a> | <a href="#X"><strong>X</strong></a> | <a href="#Y"><strong>Y</strong></a> | <a href="#Z"><strong>Z</strong></a></div>
+</section>
+<section id="_" class="genindex-section">
+  <h2>_</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="archive-class.html#Archive.__init__">__init__() (Archive method)</a>
+
+        <ul>
+          <li><a href="colorspace.html#Colorspace.__init__">(Colorspace method)</a>
+</li>
+          <li><a href="device.html#Device.__init__">(Device method)</a>, <a href="device.html#id0">[1]</a>
+</li>
+          <li><a href="displaylist.html#DisplayList.__init__">(DisplayList method)</a>
+</li>
+          <li><a href="document.html#Document.__init__">(Document method)</a>
+</li>
+          <li><a href="document-writer-class.html#DocumentWriter.__init__">(DocumentWriter method)</a>
+</li>
+          <li><a href="irect.html#IRect.__init__">(IRect method)</a>, <a href="irect.html#id0">[1]</a>, <a href="irect.html#id2">[2]</a>, <a href="irect.html#id3">[3]</a>
+</li>
+          <li><a href="matrix.html#Matrix.__init__">(Matrix method)</a>, <a href="matrix.html#id0">[1]</a>, <a href="matrix.html#id2">[2]</a>, <a href="matrix.html#id3">[3]</a>, <a href="matrix.html#id4">[4]</a>, <a href="matrix.html#id5">[5]</a>, <a href="matrix.html#id6">[6]</a>
+</li>
+          <li><a href="pixmap.html#Pixmap.__init__">(Pixmap method)</a>, <a href="pixmap.html#id0">[1]</a>, <a href="pixmap.html#id2">[2]</a>, <a href="pixmap.html#id3">[3]</a>, <a href="pixmap.html#id4">[4]</a>, <a href="pixmap.html#id5">[5]</a>, <a href="pixmap.html#id6">[6]</a>, <a href="pixmap.html#id7">[7]</a>, <a href="pixmap.html#id8">[8]</a>
+</li>
+          <li><a href="point.html#Point.__init__">(Point method)</a>, <a href="point.html#id0">[1]</a>, <a href="point.html#id2">[2]</a>, <a href="point.html#id3">[3]</a>
+</li>
+          <li><a href="quad.html#Quad.__init__">(Quad method)</a>, <a href="quad.html#id0">[1]</a>, <a href="quad.html#id2">[2]</a>, <a href="quad.html#id3">[3]</a>
+</li>
+          <li><a href="rect.html#Rect.__init__">(Rect method)</a>, <a href="rect.html#id0">[1]</a>, <a href="rect.html#id2">[2]</a>, <a href="rect.html#id3">[3]</a>, <a href="rect.html#id4">[4]</a>, <a href="rect.html#id5">[5]</a>, <a href="rect.html#id6">[6]</a>
+</li>
+          <li><a href="shape.html#Shape.__init__">(Shape method)</a>
+</li>
+          <li><a href="story-class.html#Story.__init__">(Story method)</a>
+</li>
+          <li><a href="textwriter.html#TextWriter.__init__">(TextWriter method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="A" class="genindex-section">
+  <h2>A</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="matrix.html#Matrix.a">a (Matrix attribute)</a>
+</li>
+        <li><a href="point.html#Point.abs_unit">abs_unit (Point attribute)</a>
+</li>
+        <li><a href="archive-class.html#Archive.add">add() (Archive method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.add_bullet_list">add_bullet_list() (Xml method)</a>
+</li>
+        <li><a href="page.html#Page.add_caret_annot">add_caret_annot() (Page method)</a>
+</li>
+        <li><a href="page.html#Page.add_circle_annot">add_circle_annot() (Page method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.add_class">add_class() (Xml method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.add_code">add_code() (Xml method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.add_codeblock">add_codeblock() (Xml method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.add_description_list">add_description_list() (Xml method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.add_division">add_division() (Xml method)</a>
+</li>
+        <li>
+    add_file_annot
+
+        <ul>
+          <li><a href="recipes-images.html#index-6">examples</a>
+</li>
+        </ul></li>
+        <li><a href="page.html#Page.add_file_annot">add_file_annot() (Page method)</a>
+</li>
+        <li>
+    add_freetext_annot
+
+        <ul>
+          <li><a href="page.html#index-0">align</a>
+</li>
+          <li><a href="page.html#index-0">border_width</a>
+</li>
+          <li><a href="page.html#index-0">callout</a>
+</li>
+          <li><a href="page.html#index-0">dashes</a>
+</li>
+          <li><a href="page.html#index-0">fill_color</a>
+</li>
+          <li><a href="page.html#index-0">fontname</a>
+</li>
+          <li><a href="page.html#index-0">fontsize</a>
+</li>
+          <li><a href="page.html#index-0">line_end</a>
+</li>
+          <li><a href="page.html#index-0">opacity</a>
+</li>
+          <li><a href="page.html#index-0">rect</a>
+</li>
+          <li><a href="page.html#index-0">richtext</a>
+</li>
+          <li><a href="page.html#index-0">rotate</a>
+</li>
+          <li><a href="page.html#index-0">style</a>
+</li>
+          <li><a href="page.html#index-0">text_color</a>
+</li>
+        </ul></li>
+        <li><a href="page.html#Page.add_freetext_annot">add_freetext_annot() (Page method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.add_header">add_header() (Xml method)</a>
+</li>
+        <li><a href="page.html#Page.add_highlight_annot">add_highlight_annot() (Page method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.add_horizontal_line">add_horizontal_line() (Xml method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.add_image">add_image() (Xml method)</a>
+</li>
+        <li><a href="page.html#Page.add_ink_annot">add_ink_annot() (Page method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.add_kbd">add_kbd() (Xml method)</a>
+</li>
+        <li><a href="document.html#Document.add_layer">add_layer() (Document method)</a>
+</li>
+        <li><a href="page.html#Page.add_line_annot">add_line_annot() (Page method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.add_link">add_link() (Xml method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.add_number_list">add_number_list() (Xml method)</a>
+</li>
+        <li><a href="document.html#Document.add_ocg">add_ocg() (Document method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.add_paragraph">add_paragraph() (Xml method)</a>
+</li>
+        <li><a href="page.html#Page.add_polygon_annot">add_polygon_annot() (Page method)</a>
+</li>
+        <li><a href="page.html#Page.add_polyline_annot">add_polyline_annot() (Page method)</a>
+</li>
+        <li><a href="page.html#Page.add_rect_annot">add_rect_annot() (Page method)</a>
+</li>
+        <li><a href="page.html#Page.add_redact_annot">add_redact_annot() (Page method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.add_samp">add_samp() (Xml method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.add_span">add_span() (Xml method)</a>
+</li>
+        <li><a href="page.html#Page.add_squiggly_annot">add_squiggly_annot() (Page method)</a>
+</li>
+        <li><a href="page.html#Page.add_stamp_annot">add_stamp_annot() (Page method)</a>
+</li>
+        <li><a href="page.html#Page.add_strikeout_annot">add_strikeout_annot() (Page method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.add_style">add_style() (Xml method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.add_subscript">add_subscript() (Xml method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.add_superscript">add_superscript() (Xml method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.add_text">add_text() (Xml method)</a>
+</li>
+        <li><a href="page.html#Page.add_text_annot">add_text_annot() (Page method)</a>
+</li>
+        <li><a href="page.html#Page.add_underline_annot">add_underline_annot() (Page method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.add_var">add_var() (Xml method)</a>
+</li>
+        <li><a href="page.html#Page.add_widget">add_widget() (Page method)</a>
+</li>
+        <li>
+    adjust
+
+        <ul>
+          <li><a href="page.html#index-3">insert_htmlbox</a>
+</li>
+        </ul></li>
+        <li><a href="functions.html#adobe_glyph_names">adobe_glyph_names()</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="functions.html#adobe_glyph_unicodes">adobe_glyph_unicodes()</a>
+</li>
+        <li>
+    align
+
+        <ul>
+          <li><a href="page.html#index-0">add_freetext_annot</a>
+</li>
+          <li><a href="page.html#index-2">insert_textbox</a>, <a href="shape.html#index-5">[1]</a>
+</li>
+        </ul></li>
+        <li>
+    alpha
+
+        <ul>
+          <li><a href="annot.html#index-0">Annot.get_pixmap</a>
+</li>
+          <li><a href="displaylist.html#index-0">DisplayList.get_pixmap</a>
+</li>
+          <li><a href="page.html#index-27">get_pixmap</a>
+</li>
+        </ul></li>
+        <li><a href="pixmap.html#Pixmap.alpha">alpha (Pixmap attribute)</a>
+</li>
+        <li><a href="annot.html#Annot">Annot (built-in class)</a>
+</li>
+        <li>
+    Annot.get_pixmap
+
+        <ul>
+          <li><a href="annot.html#index-0">alpha</a>
+</li>
+          <li><a href="annot.html#index-0">colorspace</a>
+</li>
+          <li><a href="annot.html#index-0">dpi</a>
+</li>
+          <li><a href="annot.html#index-0">matrix</a>
+</li>
+        </ul></li>
+        <li>
+    Annot.get_text
+
+        <ul>
+          <li><a href="annot.html#index-1">blocks</a>
+</li>
+          <li><a href="annot.html#index-1">clip</a>
+</li>
+          <li><a href="annot.html#index-1">dict</a>
+</li>
+          <li><a href="annot.html#index-1">flags</a>
+</li>
+          <li><a href="annot.html#index-1">html</a>
+</li>
+          <li><a href="annot.html#index-1">json</a>
+</li>
+          <li><a href="annot.html#index-1">rawdict</a>
+</li>
+          <li><a href="annot.html#index-1">text</a>
+</li>
+          <li><a href="annot.html#index-1">words</a>
+</li>
+          <li><a href="annot.html#index-1">xhtml</a>
+</li>
+          <li><a href="annot.html#index-1">xml</a>
+</li>
+        </ul></li>
+        <li>
+    Annot.update
+
+        <ul>
+          <li><a href="annot.html#index-2">blend_mode</a>
+</li>
+          <li><a href="annot.html#index-2">border_color</a>
+</li>
+          <li><a href="annot.html#index-2">cross_out</a>
+</li>
+          <li><a href="annot.html#index-2">fill_color</a>
+</li>
+          <li><a href="annot.html#index-2">fontsize</a>
+</li>
+          <li><a href="annot.html#index-2">rotate</a>
+</li>
+          <li><a href="annot.html#index-2">text_color</a>
+</li>
+        </ul></li>
+        <li>
+    Annot.update_file
+
+        <ul>
+          <li><a href="annot.html#index-3">buffer</a>
+</li>
+          <li><a href="annot.html#index-3">desc</a>
+</li>
+          <li><a href="annot.html#index-3">filename</a>
+</li>
+          <li><a href="annot.html#index-3">ufilename</a>
+</li>
+        </ul></li>
+        <li><a href="page.html#Page.annot_names">annot_names() (Page method)</a>
+</li>
+        <li><a href="page.html#Page.annot_xrefs">annot_xrefs() (Page method)</a>
+</li>
+        <li>
+    annots
+
+        <ul>
+          <li><a href="document.html#index-4">Document.insert_file</a>
+</li>
+          <li><a href="document.html#index-3">Document.insert_pdf</a>
+</li>
+          <li><a href="page.html#index-27">get_pixmap</a>
+</li>
+        </ul></li>
+        <li><a href="page.html#Page.annots">annots() (Page method)</a>
+</li>
+        <li>
+    append
+
+        <ul>
+          <li><a href="document.html#index-4">Document.insert_file</a>
+</li>
+          <li><a href="document.html#index-3">Document.insert_pdf</a>
+</li>
+        </ul></li>
+        <li><a href="textwriter.html#TextWriter.append">append() (TextWriter method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.append_child">append_child() (Xml method)</a>
+</li>
+        <li><a href="textwriter.html#TextWriter.appendv">appendv() (TextWriter method)</a>
+</li>
+        <li><a href="page.html#Page.apply_redactions">apply_redactions() (Page method)</a>
+</li>
+        <li>
+    archive
+
+        <ul>
+          <li><a href="page.html#index-3">insert_htmlbox</a>
+</li>
+        </ul></li>
+        <li><a href="archive-class.html#Archive">Archive (built-in class)</a>
+</li>
+        <li><a href="page.html#Page.artbox">artbox (Page attribute)</a>
+</li>
+        <li><a href="font.html#Font.ascender">ascender (Font attribute)</a>
+</li>
+        <li>
+    attach
+
+        <ul>
+          <li><a href="the-basics.html#index-0">embed file</a>, <a href="the-basics.html#index-1">[1]</a>
+</li>
+        </ul></li>
+        <li><a href="document.html#Document.authenticate">authenticate() (Document method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="B" class="genindex-section">
+  <h2>B</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="matrix.html#Matrix.b">b (Matrix attribute)</a>
+</li>
+        <li><a href="document.html#Document.bake">bake() (Document method)</a>
+</li>
+        <li><a href="vars.html#Base14_Fonts">Base14_Fonts (built-in variable)</a>
+</li>
+        <li><a href="font.html#Font.bbox">bbox (Font attribute)</a>
+</li>
+        <li><a href="document-writer-class.html#DocumentWriter.begin_page">begin_page() (DocumentWriter method)</a>
+</li>
+        <li><a href="irect.html#IRect.bl">bl (IRect attribute)</a>
+
+        <ul>
+          <li><a href="rect.html#Rect.bl">(Rect attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="page.html#Page.bleedbox">bleedbox (Page attribute)</a>
+</li>
+        <li>
+    blend_mode
+
+        <ul>
+          <li><a href="annot.html#index-2">Annot.update</a>
+</li>
+        </ul></li>
+        <li><a href="annot.html#Annot.blendmode">blendmode (Annot attribute)</a>
+</li>
+        <li>
+    blocks
+
+        <ul>
+          <li><a href="annot.html#index-1">Annot.get_text</a>
+</li>
+          <li><a href="page.html#index-19">Page.get_text</a>
+</li>
+        </ul></li>
+        <li><a href="story-class.html#Story.body">body (Story attribute)</a>
+</li>
+        <li><a href="annot.html#Annot.border">border (Annot attribute)</a>
+
+        <ul>
+          <li><a href="link.html#Link.border">(Link attribute)</a>
+</li>
+        </ul></li>
+        <li>
+    border_color
+
+        <ul>
+          <li><a href="annot.html#index-2">Annot.update</a>
+</li>
+        </ul></li>
+        <li><a href="widget.html#Widget.border_color">border_color (Widget attribute)</a>
+</li>
+        <li><a href="widget.html#Widget.border_dashes">border_dashes (Widget attribute)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="widget.html#Widget.border_style">border_style (Widget attribute)</a>
+</li>
+        <li>
+    border_width
+
+        <ul>
+          <li><a href="page.html#index-0">add_freetext_annot</a>
+</li>
+          <li><a href="page.html#index-1">insert_text</a>, <a href="shape.html#index-4">[1]</a>
+</li>
+          <li><a href="page.html#index-2">insert_textbox</a>, <a href="shape.html#index-5">[1]</a>
+</li>
+        </ul></li>
+        <li><a href="widget.html#Widget.border_width">border_width (Widget attribute)</a>
+</li>
+        <li><a href="irect.html#IRect.bottom_left">bottom_left (IRect attribute)</a>
+
+        <ul>
+          <li><a href="rect.html#Rect.bottom_left">(Rect attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="irect.html#IRect.bottom_right">bottom_right (IRect attribute)</a>
+
+        <ul>
+          <li><a href="rect.html#Rect.bottom_right">(Rect attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="page.html#Page.bound">bound() (Page method)</a>
+</li>
+        <li><a href="irect.html#IRect.br">br (IRect attribute)</a>
+
+        <ul>
+          <li><a href="rect.html#Rect.br">(Rect attribute)</a>
+</li>
+        </ul></li>
+        <li>
+    breadth
+
+        <ul>
+          <li><a href="page.html#index-6">draw_squiggle</a>, <a href="shape.html#index-0">[1]</a>
+</li>
+          <li><a href="page.html#index-5">draw_zigzag</a>, <a href="shape.html#index-1">[1]</a>
+</li>
+        </ul></li>
+        <li>
+    buffer
+
+        <ul>
+          <li><a href="annot.html#index-3">Annot.update_file</a>
+</li>
+        </ul></li>
+        <li><a href="font.html#Font.buffer">buffer (Font attribute)</a>
+</li>
+        <li><a href="widget.html#Widget.button_caption">button_caption (Widget attribute)</a>
+</li>
+        <li><a href="widget.html#Widget.button_states">button_states() (Widget method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="C" class="genindex-section">
+  <h2>C</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="matrix.html#Matrix.c">c (Matrix attribute)</a>
+</li>
+        <li>
+    callout
+
+        <ul>
+          <li><a href="page.html#index-0">add_freetext_annot</a>
+</li>
+        </ul></li>
+        <li><a href="document.html#Document.can_save_incrementally">can_save_incrementally() (Document method)</a>
+</li>
+        <li><a href="glossary.html#catalog">catalog (built-in variable)</a>
+</li>
+        <li><a href="document.html#Document.chapter_count">chapter_count (Document attribute)</a>
+</li>
+        <li><a href="document.html#Document.chapter_page_count">chapter_page_count() (Document method)</a>
+</li>
+        <li><a href="font.html#Font.char_lengths">char_lengths() (Font method)</a>
+</li>
+        <li><a href="widget.html#Widget.choice_values">choice_values (Widget attribute)</a>
+</li>
+        <li><a href="functions.html#Annot.clean_contents">clean_contents() (Annot method)</a>
+
+        <ul>
+          <li><a href="functions.html#Page.clean_contents">(Page method)</a>
+</li>
+        </ul></li>
+        <li><a href="pixmap.html#Pixmap.clear_with">clear_with() (Pixmap method)</a>
+</li>
+        <li>
+    clip
+
+        <ul>
+          <li><a href="annot.html#index-1">Annot.get_text</a>
+</li>
+          <li><a href="displaylist.html#index-0">DisplayList.get_pixmap</a>
+</li>
+          <li><a href="page.html#index-27">get_pixmap</a>
+</li>
+          <li><a href="page.html#index-21">get_textpage</a>
+</li>
+          <li><a href="page.html#index-19">Page.get_text</a>
+</li>
+          <li><a href="page.html#index-30">search_for</a>
+</li>
+          <li><a href="page.html#index-29">show_pdf_page</a>
+</li>
+        </ul></li>
+        <li><a href="xml-class.html#Xml.clone">clone() (Xml method)</a>
+</li>
+        <li><a href="document.html#Document.close">close() (Document method)</a>
+
+        <ul>
+          <li><a href="document-writer-class.html#DocumentWriter.close">(DocumentWriter method)</a>
+</li>
+        </ul></li>
+        <li>
+    closePath
+
+        <ul>
+          <li><a href="page.html#index-11">draw_bezier</a>
+</li>
+          <li><a href="page.html#index-7">draw_circle</a>
+</li>
+          <li><a href="page.html#index-12">draw_curve</a>
+</li>
+          <li><a href="page.html#index-4">draw_line</a>
+</li>
+          <li><a href="page.html#index-8">draw_oval</a>
+</li>
+          <li><a href="page.html#index-10">draw_polyline</a>
+</li>
+          <li><a href="page.html#index-14">draw_quad</a>
+</li>
+          <li><a href="page.html#index-13">draw_rect</a>
+</li>
+          <li><a href="page.html#index-9">draw_sector</a>
+</li>
+          <li><a href="page.html#index-6">draw_squiggle</a>
+</li>
+          <li><a href="page.html#index-5">draw_zigzag</a>
+</li>
+          <li><a href="shape.html#index-3">finish</a>
+</li>
+        </ul></li>
+        <li><a href="page.html#Page.cluster_drawings">cluster_drawings() (Page method)</a>
+</li>
+        <li>
+    color
+
+        <ul>
+          <li><a href="document.html#index-6">Document.insert_page</a>
+</li>
+          <li><a href="page.html#index-11">draw_bezier</a>
+</li>
+          <li><a href="page.html#index-7">draw_circle</a>
+</li>
+          <li><a href="page.html#index-12">draw_curve</a>
+</li>
+          <li><a href="page.html#index-4">draw_line</a>
+</li>
+          <li><a href="page.html#index-8">draw_oval</a>
+</li>
+          <li><a href="page.html#index-10">draw_polyline</a>
+</li>
+          <li><a href="page.html#index-14">draw_quad</a>
+</li>
+          <li><a href="page.html#index-13">draw_rect</a>
+</li>
+          <li><a href="page.html#index-9">draw_sector</a>
+</li>
+          <li><a href="page.html#index-6">draw_squiggle</a>
+</li>
+          <li><a href="page.html#index-5">draw_zigzag</a>
+</li>
+          <li><a href="shape.html#index-3">finish</a>
+</li>
+          <li><a href="page.html#index-1">insert_text</a>, <a href="shape.html#index-4">[1]</a>
+</li>
+          <li><a href="page.html#index-2">insert_textbox</a>, <a href="shape.html#index-5">[1]</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="textwriter.html#TextWriter.color">color (TextWriter attribute)</a>
+</li>
+        <li><a href="pixmap.html#Pixmap.color_count">color_count() (Pixmap method)</a>
+</li>
+        <li><a href="pixmap.html#Pixmap.color_topusage">color_topusage() (Pixmap method)</a>
+</li>
+        <li><a href="annot.html#Annot.colors">colors (Annot attribute)</a>
+
+        <ul>
+          <li><a href="link.html#Link.colors">(Link attribute)</a>
+</li>
+        </ul></li>
+        <li>
+    colorspace
+
+        <ul>
+          <li><a href="annot.html#index-0">Annot.get_pixmap</a>
+</li>
+          <li><a href="displaylist.html#index-0">DisplayList.get_pixmap</a>
+</li>
+          <li><a href="page.html#index-27">get_pixmap</a>
+</li>
+        </ul></li>
+        <li><a href="colorspace.html#Colorspace">Colorspace (built-in class)</a>
+</li>
+        <li><a href="pixmap.html#Pixmap.colorspace">colorspace (Pixmap attribute)</a>
+</li>
+        <li>
+    commit
+
+        <ul>
+          <li><a href="shape.html#index-6">overlay</a>
+</li>
+        </ul></li>
+        <li><a href="shape.html#Shape.commit">commit() (Shape method)</a>
+</li>
+        <li><a href="matrix.html#Matrix.concat">concat() (Matrix method)</a>
+</li>
+        <li><a href="irect.html#IRect.contains">contains() (IRect method)</a>
+
+        <ul>
+          <li><a href="rect.html#Rect.contains">(Rect method)</a>
+</li>
+        </ul></li>
+        <li><a href="glossary.html#contents">contents (built-in variable)</a>
+</li>
+        <li><a href="functions.html#ConversionHeader">ConversionHeader()</a>
+</li>
+        <li><a href="functions.html#ConversionTrailer">ConversionTrailer()</a>
+</li>
+        <li>
+    convert_to_pdf
+
+        <ul>
+          <li><a href="recipes-images.html#index-4">examples</a>
+</li>
+        </ul></li>
+        <li><a href="document.html#Document.convert_to_pdf">convert_to_pdf() (Document method)</a>
+</li>
+        <li><a href="glossary.html#coordinate">coordinate (built-in variable)</a>
+</li>
+        <li>
+    copy
+
+        <ul>
+          <li><a href="recipes-images.html#index-10">examples</a>, <a href="recipes-images.html#index-9">[1]</a>
+</li>
+        </ul></li>
+        <li><a href="pixmap.html#Pixmap.copy">copy() (Pixmap method)</a>
+</li>
+        <li><a href="document.html#Document.copy_page">copy_page() (Document method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.create_element">create_element() (Xml method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.create_text_node">create_text_node() (Xml method)</a>
+</li>
+        <li><a href="glossary.html#CropBox">CropBox (built-in variable)</a>
+</li>
+        <li><a href="page.html#Page.cropbox">cropbox (Page attribute)</a>
+</li>
+        <li><a href="page.html#Page.cropbox_position">cropbox_position (Page attribute)</a>
+</li>
+        <li>
+    cross_out
+
+        <ul>
+          <li><a href="annot.html#index-2">Annot.update</a>
+</li>
+        </ul></li>
+        <li><a href="vars.html#CS_CMYK">CS_CMYK (built-in variable)</a>
+</li>
+        <li><a href="vars.html#CS_GRAY">CS_GRAY (built-in variable)</a>
+</li>
+        <li><a href="vars.html#CS_RGB">CS_RGB (built-in variable)</a>
+</li>
+        <li><a href="vars.html#csCMYK">csCMYK (built-in variable)</a>
+</li>
+        <li><a href="vars.html#csGRAY">csGRAY (built-in variable)</a>
+</li>
+        <li><a href="vars.html#csRGB">csRGB (built-in variable)</a>
+</li>
+        <li>
+    css
+
+        <ul>
+          <li><a href="page.html#index-3">insert_htmlbox</a>
+</li>
+        </ul></li>
+        <li><a href="functions.html#css_for_pymupdf_font">css_for_pymupdf_font()</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="D" class="genindex-section">
+  <h2>D</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="matrix.html#Matrix.d">d (Matrix attribute)</a>
+</li>
+        <li>
+    dashes
+
+        <ul>
+          <li><a href="page.html#index-0">add_freetext_annot</a>
+</li>
+          <li><a href="page.html#index-11">draw_bezier</a>
+</li>
+          <li><a href="page.html#index-7">draw_circle</a>
+</li>
+          <li><a href="page.html#index-12">draw_curve</a>
+</li>
+          <li><a href="page.html#index-4">draw_line</a>
+</li>
+          <li><a href="page.html#index-8">draw_oval</a>
+</li>
+          <li><a href="page.html#index-10">draw_polyline</a>
+</li>
+          <li><a href="page.html#index-14">draw_quad</a>
+</li>
+          <li><a href="page.html#index-13">draw_rect</a>
+</li>
+          <li><a href="page.html#index-9">draw_sector</a>
+</li>
+          <li><a href="page.html#index-6">draw_squiggle</a>
+</li>
+          <li><a href="page.html#index-5">draw_zigzag</a>
+</li>
+          <li><a href="shape.html#index-3">finish</a>
+</li>
+        </ul></li>
+        <li><a href="xml-class.html#Xml.debug">debug() (Xml method)</a>
+</li>
+        <li><a href="document.html#Document.del_toc_item">del_toc_item() (Document method)</a>
+</li>
+        <li><a href="functions.html#Document.del_xml_metadata">del_xml_metadata() (Document method)</a>
+</li>
+        <li><a href="page.html#Page.delete_annot">delete_annot() (Page method)</a>
+</li>
+        <li>
+    delete_image
+
+        <ul>
+          <li><a href="page.html#index-18">xref</a>
+</li>
+        </ul></li>
+        <li><a href="page.html#Page.delete_image">delete_image() (Page method)</a>
+</li>
+        <li><a href="page.html#Page.delete_link">delete_link() (Page method)</a>
+</li>
+        <li><a href="document.html#Document.delete_page">delete_page() (Document method)</a>
+</li>
+        <li><a href="document.html#Document.delete_pages">delete_pages() (Document method)</a>
+</li>
+        <li><a href="annot.html#Annot.delete_responses">delete_responses() (Annot method)</a>
+</li>
+        <li><a href="page.html#Page.delete_widget">delete_widget() (Page method)</a>
+</li>
+        <li>
+    delimiters
+
+        <ul>
+          <li><a href="page.html#index-19">Page.get_text</a>
+</li>
+        </ul></li>
+        <li><a href="page.html#Page.derotation_matrix">derotation_matrix (Page attribute)</a>
+</li>
+        <li>
+    desc
+
+        <ul>
+          <li><a href="annot.html#index-3">Annot.update_file</a>
+</li>
+          <li><a href="document.html#index-7">Document.embfile_add</a>
+</li>
+          <li><a href="document.html#index-8">Document.embfile_upd</a>
+</li>
+        </ul></li>
+        <li><a href="font.html#Font.descender">descender (Font attribute)</a>
+</li>
+        <li><a href="link.html#Link.dest">dest (Link attribute)</a>
+
+        <ul>
+          <li><a href="linkdest.html#linkDest.dest">(linkDest attribute)</a>
+</li>
+          <li><a href="outline.html#Outline.dest">(Outline attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="device.html#Device">Device (built-in class)</a>
+</li>
+        <li>
+    dict
+
+        <ul>
+          <li><a href="annot.html#index-1">Annot.get_text</a>
+</li>
+          <li><a href="page.html#index-19">Page.get_text</a>
+</li>
+        </ul></li>
+        <li><a href="glossary.html#dictionary">dictionary (built-in variable)</a>
+</li>
+        <li><a href="pixmap.html#Pixmap.digest">digest (Pixmap attribute)</a>
+</li>
+        <li><a href="displaylist.html#DisplayList">DisplayList (built-in class)</a>
+</li>
+        <li>
+    DisplayList.get_pixmap
+
+        <ul>
+          <li><a href="displaylist.html#index-0">alpha</a>
+</li>
+          <li><a href="displaylist.html#index-0">clip</a>
+</li>
+          <li><a href="displaylist.html#index-0">colorspace</a>
+</li>
+          <li><a href="displaylist.html#index-0">matrix</a>
+</li>
+        </ul></li>
+        <li><a href="point.html#Point.distance_to">distance_to() (Point method)</a>
+</li>
+        <li><a href="shape.html#Shape.doc">doc (Shape attribute)</a>
+</li>
+        <li>
+    Document
+
+        <ul>
+          <li><a href="document.html#index-0">filename</a>
+</li>
+          <li><a href="document.html#index-0">filetype</a>
+</li>
+          <li><a href="document.html#index-0">fontsize</a>
+</li>
+          <li><a href="document.html#index-0">open</a>
+</li>
+          <li><a href="document.html#index-0">rect</a>
+</li>
+          <li><a href="document.html#index-0">stream</a>
+</li>
+        </ul></li>
+        <li><a href="document.html#Document">Document (built-in class)</a>
+</li>
+        <li>
+    Document.convert_to_pdf
+
+        <ul>
+          <li><a href="document.html#index-1">from_page</a>
+</li>
+          <li><a href="document.html#index-1">rotate</a>
+</li>
+          <li><a href="document.html#index-1">to_page</a>
+</li>
+        </ul></li>
+        <li>
+    Document.embfile_add
+
+        <ul>
+          <li><a href="document.html#index-7">desc</a>
+</li>
+          <li><a href="document.html#index-7">filename</a>
+</li>
+          <li><a href="document.html#index-7">ufilename</a>
+</li>
+        </ul></li>
+        <li>
+    Document.embfile_upd
+
+        <ul>
+          <li><a href="document.html#index-8">desc</a>
+</li>
+          <li><a href="document.html#index-8">filename</a>
+</li>
+          <li><a href="document.html#index-8">ufilename</a>
+</li>
+        </ul></li>
+        <li>
+    Document.insert_file
+
+        <ul>
+          <li><a href="document.html#index-4">annots</a>
+</li>
+          <li><a href="document.html#index-4">append</a>
+</li>
+          <li><a href="document.html#index-4">from_page</a>
+</li>
+          <li><a href="document.html#index-4">join</a>
+</li>
+          <li><a href="document.html#index-4">links</a>
+</li>
+          <li><a href="document.html#index-4">merge</a>
+</li>
+          <li><a href="document.html#index-4">rotate</a>
+</li>
+          <li><a href="document.html#index-4">show_progress</a>
+</li>
+          <li><a href="document.html#index-4">start_at</a>
+</li>
+          <li><a href="document.html#index-4">to_page</a>
+</li>
+        </ul></li>
+        <li>
+    Document.insert_page
+
+        <ul>
+          <li><a href="document.html#index-6">color</a>
+</li>
+          <li><a href="document.html#index-6">fontfile</a>
+</li>
+          <li><a href="document.html#index-6">fontname</a>
+</li>
+          <li><a href="document.html#index-6">fontsize</a>
+</li>
+          <li><a href="document.html#index-6">height</a>
+</li>
+          <li><a href="document.html#index-6">width</a>
+</li>
+        </ul></li>
+        <li>
+    Document.insert_pdf
+
+        <ul>
+          <li><a href="document.html#index-3">annots</a>
+</li>
+          <li><a href="document.html#index-3">append</a>
+</li>
+          <li><a href="document.html#index-3">from_page</a>
+</li>
+          <li><a href="document.html#index-3">join</a>
+</li>
+          <li><a href="document.html#index-3">join_duplicates</a>
+</li>
+          <li><a href="document.html#index-3">links</a>
+</li>
+          <li><a href="document.html#index-3">merge</a>
+</li>
+          <li><a href="document.html#index-3">rotate</a>
+</li>
+          <li><a href="document.html#index-3">show_progress</a>
+</li>
+          <li><a href="document.html#index-3">start_at</a>
+</li>
+          <li><a href="document.html#index-3">to_page</a>
+</li>
+          <li><a href="document.html#index-3">widgets</a>
+</li>
+        </ul></li>
+        <li>
+    Document.layout
+
+        <ul>
+          <li><a href="document.html#index-2">fontsize</a>
+</li>
+          <li><a href="document.html#index-2">height</a>
+</li>
+          <li><a href="document.html#index-2">rect</a>
+</li>
+          <li><a href="document.html#index-2">width</a>
+</li>
+        </ul></li>
+        <li>
+    Document.new_page
+
+        <ul>
+          <li><a href="document.html#index-5">height</a>
+</li>
+          <li><a href="document.html#index-5">width</a>
+</li>
+        </ul></li>
+        <li><a href="document-writer-class.html#DocumentWriter">DocumentWriter (built-in class)</a>
+</li>
+        <li><a href="outline.html#Outline.down">down (Outline attribute)</a>
+</li>
+        <li>
+    dpi
+
+        <ul>
+          <li><a href="annot.html#index-0">Annot.get_pixmap</a>
+</li>
+          <li><a href="page.html#index-27">get_pixmap</a>
+</li>
+          <li><a href="page.html#index-22">get_textpage_ocr</a>
+</li>
+        </ul></li>
+        <li><a href="story-class.html#Story.draw">draw() (Story method)</a>
+</li>
+        <li>
+    draw_bezier
+
+        <ul>
+          <li><a href="page.html#index-11">closePath</a>
+</li>
+          <li><a href="page.html#index-11">color</a>
+</li>
+          <li><a href="page.html#index-11">dashes</a>
+</li>
+          <li><a href="page.html#index-11">fill</a>
+</li>
+          <li><a href="page.html#index-11">fill_opacity</a>
+</li>
+          <li><a href="page.html#index-11">lineCap</a>
+</li>
+          <li><a href="page.html#index-11">lineJoin</a>
+</li>
+          <li><a href="page.html#index-11">morph</a>
+</li>
+          <li><a href="page.html#index-11">oc</a>
+</li>
+          <li><a href="page.html#index-11">overlay</a>
+</li>
+          <li><a href="page.html#index-11">stroke_opacity</a>
+</li>
+          <li><a href="page.html#index-11">width</a>
+</li>
+        </ul></li>
+        <li><a href="page.html#Page.draw_bezier">draw_bezier() (Page method)</a>
+
+        <ul>
+          <li><a href="shape.html#Shape.draw_bezier">(Shape method)</a>
+</li>
+        </ul></li>
+        <li>
+    draw_circle
+
+        <ul>
+          <li><a href="page.html#index-7">closePath</a>
+</li>
+          <li><a href="page.html#index-7">color</a>
+</li>
+          <li><a href="page.html#index-7">dashes</a>
+</li>
+          <li><a href="page.html#index-7">fill</a>
+</li>
+          <li><a href="page.html#index-7">fill_opacity</a>
+</li>
+          <li><a href="page.html#index-7">lineCap</a>
+</li>
+          <li><a href="page.html#index-7">lineJoin</a>
+</li>
+          <li><a href="page.html#index-7">morph</a>
+</li>
+          <li><a href="page.html#index-7">oc</a>
+</li>
+          <li><a href="page.html#index-7">overlay</a>
+</li>
+          <li><a href="page.html#index-7">stroke_opacity</a>
+</li>
+          <li><a href="page.html#index-7">width</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="page.html#Page.draw_circle">draw_circle() (Page method)</a>
+
+        <ul>
+          <li><a href="shape.html#Shape.draw_circle">(Shape method)</a>
+</li>
+        </ul></li>
+        <li><a href="shape.html#Shape.draw_cont">draw_cont (Shape attribute)</a>
+</li>
+        <li>
+    draw_curve
+
+        <ul>
+          <li><a href="page.html#index-12">closePath</a>
+</li>
+          <li><a href="page.html#index-12">color</a>
+</li>
+          <li><a href="page.html#index-12">dashes</a>
+</li>
+          <li><a href="page.html#index-12">fill</a>
+</li>
+          <li><a href="page.html#index-12">fill_opacity</a>
+</li>
+          <li><a href="page.html#index-12">lineCap</a>
+</li>
+          <li><a href="page.html#index-12">lineJoin</a>
+</li>
+          <li><a href="page.html#index-12">morph</a>
+</li>
+          <li><a href="page.html#index-12">oc</a>
+</li>
+          <li><a href="page.html#index-12">overlay</a>
+</li>
+          <li><a href="page.html#index-12">stroke_opacity</a>
+</li>
+          <li><a href="page.html#index-12">width</a>
+</li>
+        </ul></li>
+        <li><a href="page.html#Page.draw_curve">draw_curve() (Page method)</a>
+
+        <ul>
+          <li><a href="shape.html#Shape.draw_curve">(Shape method)</a>
+</li>
+        </ul></li>
+        <li>
+    draw_line
+
+        <ul>
+          <li><a href="page.html#index-4">closePath</a>
+</li>
+          <li><a href="page.html#index-4">color</a>
+</li>
+          <li><a href="page.html#index-4">dashes</a>
+</li>
+          <li><a href="page.html#index-4">fill</a>
+</li>
+          <li><a href="page.html#index-4">fill_opacity</a>
+</li>
+          <li><a href="page.html#index-4">lineCap</a>
+</li>
+          <li><a href="page.html#index-4">lineJoin</a>, <a href="page.html#index-4">[1]</a>
+</li>
+          <li><a href="page.html#index-4">morph</a>
+</li>
+          <li><a href="page.html#index-4">oc</a>
+</li>
+          <li><a href="page.html#index-4">overlay</a>
+</li>
+          <li><a href="page.html#index-4">stroke_opacity</a>
+</li>
+          <li><a href="page.html#index-4">width</a>
+</li>
+        </ul></li>
+        <li><a href="page.html#Page.draw_line">draw_line() (Page method)</a>
+
+        <ul>
+          <li><a href="shape.html#Shape.draw_line">(Shape method)</a>
+</li>
+        </ul></li>
+        <li>
+    draw_oval
+
+        <ul>
+          <li><a href="page.html#index-8">closePath</a>
+</li>
+          <li><a href="page.html#index-8">color</a>
+</li>
+          <li><a href="page.html#index-8">dashes</a>
+</li>
+          <li><a href="page.html#index-8">fill</a>
+</li>
+          <li><a href="page.html#index-8">fill_opacity</a>
+</li>
+          <li><a href="page.html#index-8">lineCap</a>
+</li>
+          <li><a href="page.html#index-8">lineJoin</a>
+</li>
+          <li><a href="page.html#index-8">morph</a>
+</li>
+          <li><a href="page.html#index-8">oc</a>
+</li>
+          <li><a href="page.html#index-8">overlay</a>
+</li>
+          <li><a href="page.html#index-8">stroke_opacity</a>
+</li>
+          <li><a href="page.html#index-8">width</a>
+</li>
+        </ul></li>
+        <li><a href="page.html#Page.draw_oval">draw_oval() (Page method)</a>
+
+        <ul>
+          <li><a href="shape.html#Shape.draw_oval">(Shape method)</a>
+</li>
+        </ul></li>
+        <li>
+    draw_polyline
+
+        <ul>
+          <li><a href="page.html#index-10">closePath</a>
+</li>
+          <li><a href="page.html#index-10">color</a>
+</li>
+          <li><a href="page.html#index-10">dashes</a>
+</li>
+          <li><a href="page.html#index-10">fill</a>
+</li>
+          <li><a href="page.html#index-10">fill_opacity</a>
+</li>
+          <li><a href="page.html#index-10">lineCap</a>
+</li>
+          <li><a href="page.html#index-10">lineJoin</a>
+</li>
+          <li><a href="page.html#index-10">morph</a>
+</li>
+          <li><a href="page.html#index-10">oc</a>
+</li>
+          <li><a href="page.html#index-10">overlay</a>
+</li>
+          <li><a href="page.html#index-10">stroke_opacity</a>
+</li>
+          <li><a href="page.html#index-10">width</a>
+</li>
+        </ul></li>
+        <li><a href="page.html#Page.draw_polyline">draw_polyline() (Page method)</a>
+
+        <ul>
+          <li><a href="shape.html#Shape.draw_polyline">(Shape method)</a>
+</li>
+        </ul></li>
+        <li>
+    draw_quad
+
+        <ul>
+          <li><a href="page.html#index-14">closePath</a>
+</li>
+          <li><a href="page.html#index-14">color</a>
+</li>
+          <li><a href="page.html#index-14">dashes</a>
+</li>
+          <li><a href="page.html#index-14">fill</a>
+</li>
+          <li><a href="page.html#index-14">fill_opacity</a>
+</li>
+          <li><a href="page.html#index-14">lineCap</a>
+</li>
+          <li><a href="page.html#index-14">lineJoin</a>
+</li>
+          <li><a href="page.html#index-14">morph</a>
+</li>
+          <li><a href="page.html#index-14">oc</a>
+</li>
+          <li><a href="page.html#index-14">overlay</a>
+</li>
+          <li><a href="page.html#index-14">stroke_opacity</a>
+</li>
+          <li><a href="page.html#index-14">width</a>
+</li>
+        </ul></li>
+        <li><a href="page.html#Page.draw_quad">draw_quad() (Page method)</a>
+
+        <ul>
+          <li><a href="shape.html#Shape.draw_quad">(Shape method)</a>
+</li>
+        </ul></li>
+        <li>
+    draw_rect
+
+        <ul>
+          <li><a href="page.html#index-13">closePath</a>
+</li>
+          <li><a href="page.html#index-13">color</a>
+</li>
+          <li><a href="page.html#index-13">dashes</a>
+</li>
+          <li><a href="page.html#index-13">fill</a>
+</li>
+          <li><a href="page.html#index-13">fill_opacity</a>
+</li>
+          <li><a href="page.html#index-13">lineCap</a>
+</li>
+          <li><a href="page.html#index-13">lineJoin</a>
+</li>
+          <li><a href="page.html#index-13">morph</a>
+</li>
+          <li><a href="page.html#index-13">oc</a>
+</li>
+          <li><a href="page.html#index-13">overlay</a>
+</li>
+          <li><a href="page.html#index-13">radius</a>
+</li>
+          <li><a href="page.html#index-13">stroke_opacity</a>
+</li>
+          <li><a href="page.html#index-13">width</a>
+</li>
+        </ul></li>
+        <li><a href="page.html#Page.draw_rect">draw_rect() (Page method)</a>
+
+        <ul>
+          <li><a href="shape.html#Shape.draw_rect">(Shape method)</a>
+</li>
+        </ul></li>
+        <li>
+    draw_sector
+
+        <ul>
+          <li><a href="page.html#index-9">closePath</a>
+</li>
+          <li><a href="page.html#index-9">color</a>
+</li>
+          <li><a href="page.html#index-9">dashes</a>
+</li>
+          <li><a href="page.html#index-9">fill</a>
+</li>
+          <li><a href="page.html#index-9">fill_opacity</a>
+</li>
+          <li><a href="page.html#index-9">fullSector</a>, <a href="shape.html#index-2">[1]</a>
+</li>
+          <li><a href="page.html#index-9">lineCap</a>
+</li>
+          <li><a href="page.html#index-9">lineJoin</a>
+</li>
+          <li><a href="page.html#index-9">morph</a>
+</li>
+          <li><a href="page.html#index-9">oc</a>
+</li>
+          <li><a href="page.html#index-9">overlay</a>
+</li>
+          <li><a href="page.html#index-9">stroke_opacity</a>
+</li>
+          <li><a href="page.html#index-9">width</a>
+</li>
+        </ul></li>
+        <li><a href="page.html#Page.draw_sector">draw_sector() (Page method)</a>
+
+        <ul>
+          <li><a href="shape.html#Shape.draw_sector">(Shape method)</a>
+</li>
+        </ul></li>
+        <li>
+    draw_squiggle
+
+        <ul>
+          <li><a href="page.html#index-6">breadth</a>, <a href="shape.html#index-0">[1]</a>
+</li>
+          <li><a href="page.html#index-6">closePath</a>
+</li>
+          <li><a href="page.html#index-6">color</a>
+</li>
+          <li><a href="page.html#index-6">dashes</a>
+</li>
+          <li><a href="page.html#index-6">fill</a>
+</li>
+          <li><a href="page.html#index-6">fill_opacity</a>
+</li>
+          <li><a href="page.html#index-6">lineCap</a>
+</li>
+          <li><a href="page.html#index-6">lineJoin</a>
+</li>
+          <li><a href="page.html#index-6">morph</a>
+</li>
+          <li><a href="page.html#index-6">oc</a>
+</li>
+          <li><a href="page.html#index-6">overlay</a>
+</li>
+          <li><a href="page.html#index-6">stroke_opacity</a>
+</li>
+          <li><a href="page.html#index-6">width</a>
+</li>
+        </ul></li>
+        <li><a href="page.html#Page.draw_squiggle">draw_squiggle() (Page method)</a>
+
+        <ul>
+          <li><a href="shape.html#Shape.draw_squiggle">(Shape method)</a>
+</li>
+        </ul></li>
+        <li>
+    draw_zigzag
+
+        <ul>
+          <li><a href="page.html#index-5">breadth</a>, <a href="shape.html#index-1">[1]</a>
+</li>
+          <li><a href="page.html#index-5">closePath</a>
+</li>
+          <li><a href="page.html#index-5">color</a>
+</li>
+          <li><a href="page.html#index-5">dashes</a>
+</li>
+          <li><a href="page.html#index-5">fill</a>
+</li>
+          <li><a href="page.html#index-5">fill_opacity</a>
+</li>
+          <li><a href="page.html#index-5">lineCap</a>
+</li>
+          <li><a href="page.html#index-5">lineJoin</a>
+</li>
+          <li><a href="page.html#index-5">morph</a>
+</li>
+          <li><a href="page.html#index-5">oc</a>
+</li>
+          <li><a href="page.html#index-5">overlay</a>
+</li>
+          <li><a href="page.html#index-5">stroke_opacity</a>
+</li>
+          <li><a href="page.html#index-5">width</a>
+</li>
+        </ul></li>
+        <li><a href="page.html#Page.draw_zigzag">draw_zigzag() (Page method)</a>
+
+        <ul>
+          <li><a href="shape.html#Shape.draw_zigzag">(Shape method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="E" class="genindex-section">
+  <h2>E</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="matrix.html#Matrix.e">e (Matrix attribute)</a>
+</li>
+        <li><a href="story-class.html#Story.element_positions">element_positions() (Story method)</a>
+</li>
+        <li>
+    embed
+
+        <ul>
+          <li><a href="the-basics.html#index-0">file, attach</a>, <a href="the-basics.html#index-1">[1]</a>
+</li>
+          <li><a href="recipes-images.html#index-6">PDF, picture</a>
+</li>
+        </ul></li>
+        <li>
+    embfile_add
+
+        <ul>
+          <li><a href="recipes-images.html#index-6">examples</a>, <a href="recipes-images.html#index-7">[1]</a>
+</li>
+        </ul></li>
+        <li><a href="document.html#Document.embfile_add">embfile_add() (Document method)</a>
+</li>
+        <li><a href="document.html#Document.embfile_count">embfile_count() (Document method)</a>
+</li>
+        <li><a href="document.html#Document.embfile_del">embfile_del() (Document method)</a>
+</li>
+        <li><a href="document.html#Document.embfile_get">embfile_get() (Document method)</a>
+</li>
+        <li><a href="document.html#Document.embfile_info">embfile_info() (Document method)</a>
+</li>
+        <li><a href="document.html#Document.embfile_names">embfile_names() (Document method)</a>
+</li>
+        <li><a href="document.html#Document.embfile_upd">embfile_upd() (Document method)</a>
+</li>
+        <li><a href="functions.html#EMPTY_IRECT">EMPTY_IRECT()</a>
+</li>
+        <li><a href="functions.html#EMPTY_QUAD">EMPTY_QUAD()</a>
+</li>
+        <li><a href="functions.html#EMPTY_RECT">EMPTY_RECT()</a>
+</li>
+        <li>
+    encoding
+
+        <ul>
+          <li><a href="page.html#index-15">insert_font</a>
+</li>
+          <li><a href="page.html#index-1">insert_text</a>, <a href="shape.html#index-4">[1]</a>
+</li>
+          <li><a href="page.html#index-2">insert_textbox</a>, <a href="shape.html#index-5">[1]</a>
+</li>
+        </ul></li>
+        <li><a href="document-writer-class.html#DocumentWriter.end_page">end_page() (DocumentWriter method)</a>
+</li>
+        <li><a href="archive-class.html#Archive.entry_list">entry_list (Archive attribute)</a>
+</li>
+        <li>
+    even_odd
+
+        <ul>
+          <li><a href="shape.html#index-3">finish</a>
+</li>
+        </ul></li>
+        <li>
+    examples
+
+        <ul>
+          <li><a href="recipes-images.html#index-6">add_file_annot</a>
+</li>
+          <li><a href="recipes-images.html#index-4">convert_to_pdf</a>
+</li>
+          <li><a href="recipes-images.html#index-10">copy</a>, <a href="recipes-images.html#index-9">[1]</a>
+</li>
+          <li><a href="recipes-images.html#index-6">embfile_add</a>, <a href="recipes-images.html#index-7">[1]</a>
+</li>
+          <li><a href="recipes-images.html#index-5">extract_image</a>
+</li>
+          <li><a href="recipes-images.html#index-6">insert_image</a>, <a href="recipes-images.html#index-7">[1]</a>
+</li>
+          <li><a href="recipes-images.html#index-10">invert_irect</a>
+</li>
+          <li><a href="recipes-images.html#index-8">JPEG</a>
+</li>
+          <li><a href="recipes-images.html#index-8">PhotoImage</a>
+</li>
+          <li><a href="recipes-images.html#index-8">Photoshop</a>
+</li>
+          <li><a href="recipes-images.html#index-8">Postscript</a>
+</li>
+          <li><a href="recipes-images.html#index-10">save</a>, <a href="recipes-images.html#index-8">[1]</a>
+</li>
+          <li><a href="recipes-images.html#index-10">set_rect</a>
+</li>
+          <li><a href="recipes-images.html#index-6">show_pdf_page</a>, <a href="recipes-images.html#index-7">[1]</a>
+</li>
+          <li><a href="recipes-images.html#index-8">tobytes</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    expandtabs
+
+        <ul>
+          <li><a href="page.html#index-2">insert_textbox</a>, <a href="shape.html#index-5">[1]</a>
+</li>
+        </ul></li>
+        <li>
+    extract
+
+        <ul>
+          <li><a href="recipes-images.html#index-4">image non-PDF</a>
+</li>
+          <li><a href="recipes-images.html#index-5">image PDF</a>
+</li>
+          <li><a href="recipes-text.html#index-3">table</a>
+</li>
+          <li><a href="recipes-text.html#index-1">text rectangle</a>
+</li>
+        </ul></li>
+        <li><a href="document.html#Document.extract_font">extract_font() (Document method)</a>
+</li>
+        <li>
+    extract_image
+
+        <ul>
+          <li><a href="recipes-images.html#index-5">examples</a>
+</li>
+        </ul></li>
+        <li><a href="document.html#Document.extract_image">extract_image() (Document method)</a>
+</li>
+        <li><a href="textpage.html#TextPage.extractBLOCKS">extractBLOCKS() (TextPage method)</a>
+</li>
+        <li><a href="textpage.html#TextPage.extractDICT">extractDICT() (TextPage method)</a>
+</li>
+        <li><a href="textpage.html#TextPage.extractHTML">extractHTML() (TextPage method)</a>
+</li>
+        <li><a href="textpage.html#TextPage.extractJSON">extractJSON() (TextPage method)</a>
+</li>
+        <li><a href="textpage.html#TextPage.extractRAWDICT">extractRAWDICT() (TextPage method)</a>
+</li>
+        <li><a href="textpage.html#TextPage.extractRAWJSON">extractRAWJSON() (TextPage method)</a>
+</li>
+        <li><a href="textpage.html#TextPage.extractTEXT">extractTEXT() (TextPage method)</a>
+</li>
+        <li><a href="textpage.html#TextPage.extractText">extractText() (TextPage method)</a>
+</li>
+        <li><a href="textpage.html#TextPage.extractWORDS">extractWORDS() (TextPage method)</a>
+</li>
+        <li><a href="textpage.html#TextPage.extractXHTML">extractXHTML() (TextPage method)</a>
+</li>
+        <li><a href="textpage.html#TextPage.extractXML">extractXML() (TextPage method)</a>
+</li>
+        <li><a href="document.html#Document.ez_save">ez_save() (Document method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="F" class="genindex-section">
+  <h2>F</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="matrix.html#Matrix.f">f (Matrix attribute)</a>
+</li>
+        <li><a href="widget.html#Widget.field_flags">field_flags (Widget attribute)</a>
+</li>
+        <li><a href="widget.html#Widget.field_label">field_label (Widget attribute)</a>
+</li>
+        <li><a href="widget.html#Widget.field_name">field_name (Widget attribute)</a>
+</li>
+        <li><a href="widget.html#Widget.field_type">field_type (Widget attribute)</a>
+</li>
+        <li><a href="widget.html#Widget.field_type_string">field_type_string (Widget attribute)</a>
+</li>
+        <li><a href="widget.html#Widget.field_value">field_value (Widget attribute)</a>
+</li>
+        <li>
+    file
+
+        <ul>
+          <li><a href="the-basics.html#index-0">attach embed</a>, <a href="the-basics.html#index-1">[1]</a>
+</li>
+        </ul></li>
+        <li>
+    file extension
+
+        <ul>
+          <li><a href="how-to-open-a-file.html#index-0">wrong</a>
+</li>
+        </ul></li>
+        <li><a href="annot.html#Annot.file_info">file_info (Annot attribute)</a>
+</li>
+        <li>
+    filename
+
+        <ul>
+          <li><a href="annot.html#index-3">Annot.update_file</a>
+</li>
+          <li><a href="document.html#index-0">Document</a>
+</li>
+          <li><a href="document.html#index-7">Document.embfile_add</a>
+</li>
+          <li><a href="document.html#index-8">Document.embfile_upd</a>
+</li>
+          <li><a href="page.html#index-16">insert_image</a>
+</li>
+          <li><a href="document.html#index-0">open</a>
+</li>
+          <li><a href="page.html#index-17">replace_image</a>
+</li>
+        </ul></li>
+        <li><a href="linkdest.html#linkDest.fileSpec">fileSpec (linkDest attribute)</a>
+</li>
+        <li>
+    filetype
+
+        <ul>
+          <li><a href="document.html#index-0">Document</a>
+</li>
+          <li><a href="document.html#index-0">open</a>
+</li>
+        </ul></li>
+        <li>
+    fill
+
+        <ul>
+          <li><a href="page.html#index-11">draw_bezier</a>
+</li>
+          <li><a href="page.html#index-7">draw_circle</a>
+</li>
+          <li><a href="page.html#index-12">draw_curve</a>
+</li>
+          <li><a href="page.html#index-4">draw_line</a>
+</li>
+          <li><a href="page.html#index-8">draw_oval</a>
+</li>
+          <li><a href="page.html#index-10">draw_polyline</a>
+</li>
+          <li><a href="page.html#index-14">draw_quad</a>
+</li>
+          <li><a href="page.html#index-13">draw_rect</a>
+</li>
+          <li><a href="page.html#index-9">draw_sector</a>
+</li>
+          <li><a href="page.html#index-6">draw_squiggle</a>
+</li>
+          <li><a href="page.html#index-5">draw_zigzag</a>
+</li>
+          <li><a href="shape.html#index-3">finish</a>
+</li>
+          <li><a href="page.html#index-1">insert_text</a>, <a href="shape.html#index-4">[1]</a>
+</li>
+          <li><a href="page.html#index-2">insert_textbox</a>, <a href="shape.html#index-5">[1]</a>
+</li>
+        </ul></li>
+        <li>
+    fill_color
+
+        <ul>
+          <li><a href="page.html#index-0">add_freetext_annot</a>
+</li>
+          <li><a href="annot.html#index-2">Annot.update</a>
+</li>
+        </ul></li>
+        <li><a href="widget.html#Widget.fill_color">fill_color (Widget attribute)</a>
+</li>
+        <li>
+    fill_opacity
+
+        <ul>
+          <li><a href="page.html#index-11">draw_bezier</a>
+</li>
+          <li><a href="page.html#index-7">draw_circle</a>
+</li>
+          <li><a href="page.html#index-12">draw_curve</a>
+</li>
+          <li><a href="page.html#index-4">draw_line</a>
+</li>
+          <li><a href="page.html#index-8">draw_oval</a>
+</li>
+          <li><a href="page.html#index-10">draw_polyline</a>
+</li>
+          <li><a href="page.html#index-14">draw_quad</a>
+</li>
+          <li><a href="page.html#index-13">draw_rect</a>
+</li>
+          <li><a href="page.html#index-9">draw_sector</a>
+</li>
+          <li><a href="page.html#index-6">draw_squiggle</a>
+</li>
+          <li><a href="page.html#index-5">draw_zigzag</a>
+</li>
+          <li><a href="shape.html#index-3">finish</a>
+</li>
+          <li><a href="page.html#index-1">insert_text</a>, <a href="shape.html#index-4">[1]</a>
+</li>
+          <li><a href="page.html#index-2">insert_textbox</a>
+</li>
+        </ul></li>
+        <li><a href="textwriter.html#TextWriter.fill_textbox">fill_textbox() (TextWriter method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.find">find() (Xml method)</a>
+</li>
+        <li><a href="document.html#Document.find_bookmark">find_bookmark() (Document method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.find_next">find_next() (Xml method)</a>
+</li>
+        <li><a href="page.html#Page.find_tables">find_tables() (Page method)</a>
+</li>
+        <li>
+    finish
+
+        <ul>
+          <li><a href="shape.html#index-3">closePath</a>
+</li>
+          <li><a href="shape.html#index-3">color</a>
+</li>
+          <li><a href="shape.html#index-3">dashes</a>
+</li>
+          <li><a href="shape.html#index-3">even_odd</a>
+</li>
+          <li><a href="shape.html#index-3">fill</a>
+</li>
+          <li><a href="shape.html#index-3">fill_opacity</a>
+</li>
+          <li><a href="shape.html#index-3">lineCap</a>
+</li>
+          <li><a href="shape.html#index-3">lineJoin</a>
+</li>
+          <li><a href="shape.html#index-3">morph</a>
+</li>
+          <li><a href="shape.html#index-3">oc</a>
+</li>
+          <li><a href="shape.html#index-3">stroke_opacity</a>
+</li>
+          <li><a href="shape.html#index-3">width</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="shape.html#Shape.finish">finish() (Shape method)</a>
+</li>
+        <li><a href="page.html#Page.first_annot">first_annot (Page attribute)</a>
+</li>
+        <li><a href="xml-class.html#Xml.first_child">first_child (Xml attribute)</a>
+</li>
+        <li><a href="page.html#Page.first_link">first_link (Page attribute)</a>
+</li>
+        <li><a href="page.html#Page.first_widget">first_widget (Page attribute)</a>
+</li>
+        <li><a href="story-class.html#Story.fit">fit() (Story method)</a>
+</li>
+        <li><a href="story-class.html#Story.fit_height">fit_height() (Story method)</a>
+</li>
+        <li><a href="story-class.html#Story.fit_scale">fit_scale() (Story method)</a>
+</li>
+        <li><a href="story-class.html#Story.fit_width">fit_width() (Story method)</a>
+</li>
+        <li><a href="tools.html#Tools.fitz_config">fitz_config (Tools attribute)</a>
+</li>
+        <li><a href="functions.html#fitz_fontdescriptors">fitz_fontdescriptors</a>
+</li>
+        <li>
+    flags
+
+        <ul>
+          <li><a href="annot.html#index-1">Annot.get_text</a>
+</li>
+          <li><a href="page.html#index-21">get_textpage</a>
+</li>
+          <li><a href="page.html#index-22">get_textpage_ocr</a>
+</li>
+          <li><a href="page.html#index-19">Page.get_text</a>
+</li>
+          <li><a href="page.html#index-30">search_for</a>
+</li>
+        </ul></li>
+        <li><a href="annot.html#Annot.flags">flags (Annot attribute)</a>
+
+        <ul>
+          <li><a href="font.html#Font.flags">(Font attribute)</a>
+</li>
+          <li><a href="link.html#Link.flags">(Link attribute)</a>
+</li>
+          <li><a href="linkdest.html#linkDest.flags">(linkDest attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="font.html#Font">Font (built-in class)</a>
+</li>
+        <li>
+    fontbuffer
+
+        <ul>
+          <li><a href="page.html#index-15">insert_font</a>
+</li>
+        </ul></li>
+        <li>
+    fontfile
+
+        <ul>
+          <li><a href="document.html#index-6">Document.insert_page</a>
+</li>
+          <li><a href="page.html#index-15">insert_font</a>
+</li>
+          <li><a href="page.html#index-1">insert_text</a>, <a href="shape.html#index-4">[1]</a>
+</li>
+          <li><a href="page.html#index-2">insert_textbox</a>, <a href="shape.html#index-5">[1]</a>
+</li>
+        </ul></li>
+        <li>
+    fontname
+
+        <ul>
+          <li><a href="page.html#index-0">add_freetext_annot</a>
+</li>
+          <li><a href="document.html#index-6">Document.insert_page</a>
+</li>
+          <li><a href="page.html#index-15">insert_font</a>
+</li>
+          <li><a href="page.html#index-1">insert_text</a>, <a href="shape.html#index-4">[1]</a>
+</li>
+          <li><a href="page.html#index-2">insert_textbox</a>, <a href="shape.html#index-5">[1]</a>
+</li>
+        </ul></li>
+        <li>
+    fontsize
+
+        <ul>
+          <li><a href="page.html#index-0">add_freetext_annot</a>
+</li>
+          <li><a href="annot.html#index-2">Annot.update</a>
+</li>
+          <li><a href="document.html#index-0">Document</a>
+</li>
+          <li><a href="document.html#index-6">Document.insert_page</a>
+</li>
+          <li><a href="document.html#index-2">Document.layout</a>
+</li>
+          <li><a href="page.html#index-1">insert_text</a>, <a href="shape.html#index-4">[1]</a>
+</li>
+          <li><a href="page.html#index-2">insert_textbox</a>, <a href="shape.html#index-5">[1]</a>
+</li>
+          <li><a href="document.html#index-0">open</a>
+</li>
+        </ul></li>
+        <li><a href="glossary.html#fontsize">fontsize (built-in variable)</a>
+</li>
+        <li><a href="document.html#Document.FormFonts">FormFonts (Document attribute)</a>
+</li>
+        <li>
+    from_page
+
+        <ul>
+          <li><a href="document.html#index-1">Document.convert_to_pdf</a>
+</li>
+          <li><a href="document.html#index-4">Document.insert_file</a>
+</li>
+          <li><a href="document.html#index-3">Document.insert_pdf</a>
+</li>
+        </ul></li>
+        <li>
+    full
+
+        <ul>
+          <li><a href="page.html#index-22">get_textpage_ocr</a>
+</li>
+        </ul></li>
+        <li><a href="document.html#Document.fullcopy_page">fullcopy_page() (Document method)</a>
+</li>
+        <li>
+    fullSector
+
+        <ul>
+          <li><a href="page.html#index-9">draw_sector</a>, <a href="shape.html#index-2">[1]</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="G" class="genindex-section">
+  <h2>G</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="pixmap.html#Pixmap.gamma_with">gamma_with() (Pixmap method)</a>
+</li>
+        <li><a href="tools.html#Tools.gen_id">gen_id() (Tools method)</a>
+</li>
+        <li><a href="irect.html#IRect.get_area">get_area() (IRect method)</a>
+
+        <ul>
+          <li><a href="rect.html#Rect.get_area">(Rect method)</a>
+</li>
+        </ul></li>
+        <li><a href="xml-class.html#Xml.get_attribute_value">get_attribute_value() (Xml method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.get_attributes">get_attributes() (Xml method)</a>
+</li>
+        <li><a href="functions.html#Page.get_bboxlog">get_bboxlog() (Page method)</a>
+</li>
+        <li><a href="page.html#Page.get_cdrawings">get_cdrawings() (Page method)</a>
+</li>
+        <li><a href="functions.html#Document.get_char_widths">get_char_widths() (Document method)</a>
+</li>
+        <li><a href="functions.html#Page.get_contents">get_contents() (Page method)</a>
+</li>
+        <li><a href="functions.html#Page.get_displaylist">get_displaylist() (Page method)</a>
+</li>
+        <li><a href="page.html#Page.get_drawings">get_drawings() (Page method)</a>
+</li>
+        <li><a href="annot.html#Annot.get_file">get_file() (Annot method)</a>
+</li>
+        <li><a href="page.html#Page.get_fonts">get_fonts() (Page method)</a>
+</li>
+        <li>
+    get_image_bbox
+
+        <ul>
+          <li><a href="page.html#index-25">transform</a>
+</li>
+        </ul></li>
+        <li><a href="page.html#Page.get_image_bbox">get_image_bbox() (Page method)</a>
+</li>
+        <li>
+    get_image_info
+
+        <ul>
+          <li><a href="page.html#index-23">hashes</a>
+</li>
+          <li><a href="page.html#index-23">xrefs</a>
+</li>
+        </ul></li>
+        <li><a href="page.html#Page.get_image_info">get_image_info() (Page method)</a>
+</li>
+        <li>
+    get_image_rects
+
+        <ul>
+          <li><a href="page.html#index-24">transform</a>
+</li>
+        </ul></li>
+        <li><a href="page.html#Page.get_image_rects">get_image_rects() (Page method)</a>
+</li>
+        <li><a href="page.html#Page.get_images">get_images() (Page method)</a>
+</li>
+        <li><a href="page.html#Page.get_label">get_label() (Page method)</a>
+</li>
+        <li><a href="document.html#Document.get_layer">get_layer() (Document method)</a>
+</li>
+        <li><a href="document.html#Document.get_layers">get_layers() (Document method)</a>
+</li>
+        <li><a href="page.html#Page.get_links">get_links() (Page method)</a>
+</li>
+        <li><a href="functions.html#Document.get_new_xref">get_new_xref() (Document method)</a>
+</li>
+        <li><a href="annot.html#Annot.get_oc">get_oc() (Annot method)</a>
+
+        <ul>
+          <li><a href="document.html#Document.get_oc">(Document method)</a>
+</li>
+        </ul></li>
+        <li><a href="document.html#Document.get_ocgs">get_ocgs() (Document method)</a>
+</li>
+        <li><a href="document.html#Document.get_ocmd">get_ocmd() (Document method)</a>
+</li>
+        <li><a href="document.html#Document.get_page_fonts">get_page_fonts() (Document method)</a>
+</li>
+        <li><a href="document.html#Document.get_page_images">get_page_images() (Document method)</a>
+</li>
+        <li><a href="document.html#Document.get_page_labels">get_page_labels() (Document method)</a>
+</li>
+        <li><a href="document.html#Document.get_page_numbers">get_page_numbers() (Document method)</a>
+</li>
+        <li><a href="document.html#Document.get_page_pixmap">get_page_pixmap() (Document method)</a>
+</li>
+        <li><a href="document.html#Document.get_page_text">get_page_text() (Document method)</a>
+</li>
+        <li><a href="document.html#Document.get_page_xobjects">get_page_xobjects() (Document method)</a>
+</li>
+        <li><a href="functions.html#get_pdf_now">get_pdf_now()</a>
+</li>
+        <li><a href="functions.html#get_pdf_str">get_pdf_str()</a>
+</li>
+        <li>
+    get_pixmap
+
+        <ul>
+          <li><a href="page.html#index-27">alpha</a>
+</li>
+          <li><a href="page.html#index-27">annots</a>
+</li>
+          <li><a href="page.html#index-27">clip</a>
+</li>
+          <li><a href="page.html#index-27">colorspace</a>
+</li>
+          <li><a href="page.html#index-27">dpi</a>
+</li>
+          <li><a href="page.html#index-27">matrix</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="annot.html#Annot.get_pixmap">get_pixmap() (Annot method)</a>
+
+        <ul>
+          <li><a href="displaylist.html#DisplayList.get_pixmap">(DisplayList method)</a>
+</li>
+          <li><a href="page.html#Page.get_pixmap">(Page method)</a>
+</li>
+        </ul></li>
+        <li><a href="document.html#Document.get_sigflags">get_sigflags() (Document method)</a>
+</li>
+        <li><a href="annot.html#Annot.get_sound">get_sound() (Annot method)</a>
+</li>
+        <li>
+    get_svg_image
+
+        <ul>
+          <li><a href="page.html#index-26">matrix</a>
+</li>
+        </ul></li>
+        <li><a href="page.html#Page.get_svg_image">get_svg_image() (Page method)</a>
+</li>
+        <li><a href="functions.html#get_tessdata">get_tessdata()</a>
+</li>
+        <li><a href="annot.html#Annot.get_text">get_text() (Annot method)</a>
+
+        <ul>
+          <li><a href="page.html#Page.get_text">(Page method)</a>
+</li>
+        </ul></li>
+        <li><a href="functions.html#Page.get_text_blocks">get_text_blocks() (Page method)</a>
+</li>
+        <li><a href="functions.html#get_text_length">get_text_length()</a>
+</li>
+        <li><a href="functions.html#Page.get_text_words">get_text_words() (Page method)</a>
+</li>
+        <li>
+    get_textbox
+
+        <ul>
+          <li><a href="page.html#index-20">rect</a>
+</li>
+          <li><a href="page.html#index-20">textpage</a>
+</li>
+        </ul></li>
+        <li><a href="annot.html#Annot.get_textbox">get_textbox() (Annot method)</a>
+
+        <ul>
+          <li><a href="page.html#Page.get_textbox">(Page method)</a>
+</li>
+        </ul></li>
+        <li>
+    get_textpage
+
+        <ul>
+          <li><a href="page.html#index-21">clip</a>
+</li>
+          <li><a href="page.html#index-21">flags</a>
+</li>
+        </ul></li>
+        <li><a href="displaylist.html#DisplayList.get_textpage">get_textpage() (DisplayList method)</a>
+
+        <ul>
+          <li><a href="page.html#Page.get_textpage">(Page method)</a>
+</li>
+        </ul></li>
+        <li>
+    get_textpage_ocr
+
+        <ul>
+          <li><a href="page.html#index-22">dpi</a>
+</li>
+          <li><a href="page.html#index-22">flags</a>
+</li>
+          <li><a href="page.html#index-22">full</a>
+</li>
+          <li><a href="page.html#index-22">language</a>
+</li>
+          <li><a href="page.html#index-22">tessdata</a>
+</li>
+        </ul></li>
+        <li><a href="page.html#Page.get_textpage_ocr">get_textpage_ocr() (Page method)</a>
+</li>
+        <li><a href="functions.html#Page.get_texttrace">get_texttrace() (Page method)</a>
+</li>
+        <li><a href="document.html#Document.get_toc">get_toc() (Document method)</a>
+</li>
+        <li><a href="document.html#Document.get_xml_metadata">get_xml_metadata() (Document method)</a>
+</li>
+        <li><a href="page.html#Page.get_xobjects">get_xobjects() (Page method)</a>
+</li>
+        <li><a href="font.html#Font.glyph_advance">glyph_advance() (Font method)</a>
+</li>
+        <li><a href="font.html#Font.glyph_bbox">glyph_bbox() (Font method)</a>
+</li>
+        <li><a href="font.html#Font.glyph_count">glyph_count (Font attribute)</a>
+</li>
+        <li><a href="functions.html#glyph_name_to_unicode">glyph_name_to_unicode()</a>
+
+        <ul>
+          <li><a href="font.html#Font.glyph_name_to_unicode">(Font method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="H" class="genindex-section">
+  <h2>H</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="pixmap.html#Pixmap.h">h (Pixmap attribute)</a>
+</li>
+        <li><a href="document.html#Document.has_annots">has_annots() (Document method)</a>
+</li>
+        <li><a href="archive-class.html#Archive.has_entry">has_entry() (Archive method)</a>
+</li>
+        <li><a href="font.html#Font.has_glyph">has_glyph() (Font method)</a>
+</li>
+        <li><a href="document.html#Document.has_links">has_links() (Document method)</a>
+</li>
+        <li><a href="annot.html#Annot.has_popup">has_popup (Annot attribute)</a>
+</li>
+        <li>
+    hashes
+
+        <ul>
+          <li><a href="page.html#index-23">get_image_info</a>
+</li>
+        </ul></li>
+        <li>
+    height
+
+        <ul>
+          <li><a href="document.html#index-6">Document.insert_page</a>
+</li>
+          <li><a href="document.html#index-2">Document.layout</a>
+</li>
+          <li><a href="document.html#index-5">Document.new_page</a>
+</li>
+          <li><a href="document.html#index-0">open</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="irect.html#IRect.height">height (IRect attribute)</a>
+
+        <ul>
+          <li><a href="pixmap.html#Pixmap.height">(Pixmap attribute)</a>
+</li>
+          <li><a href="quad.html#Quad.height">(Quad attribute)</a>
+</li>
+          <li><a href="rect.html#Rect.height">(Rect attribute)</a>
+</li>
+          <li><a href="shape.html#Shape.height">(Shape attribute)</a>
+</li>
+        </ul></li>
+        <li>
+    html
+
+        <ul>
+          <li><a href="annot.html#index-1">Annot.get_text</a>
+</li>
+          <li><a href="page.html#index-19">Page.get_text</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="I" class="genindex-section">
+  <h2>I</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    image
+
+        <ul>
+          <li><a href="recipes-images.html#index-4">non-PDF, extract</a>
+</li>
+          <li><a href="recipes-images.html#index-5">PDF, extract</a>
+</li>
+          <li><a href="recipes-images.html#index-0">resolution</a>
+</li>
+          <li><a href="recipes-images.html#index-7">SVG, vector</a>
+</li>
+        </ul></li>
+        <li><a href="functions.html#image_profile">image_profile()</a>
+</li>
+        <li><a href="rect.html#Rect.include_point">include_point() (Rect method)</a>
+</li>
+        <li><a href="rect.html#Rect.include_rect">include_rect() (Rect method)</a>
+</li>
+        <li><a href="functions.html#INFINITE_IRECT">INFINITE_IRECT()</a>
+</li>
+        <li><a href="functions.html#INFINITE_QUAD">INFINITE_QUAD()</a>
+</li>
+        <li><a href="functions.html#INFINITE_RECT">INFINITE_RECT()</a>
+</li>
+        <li><a href="annot.html#Annot.info">info (Annot attribute)</a>
+</li>
+        <li><a href="glossary.html#inheritable">inheritable (built-in variable)</a>
+</li>
+        <li><a href="xml-class.html#Xml.insert_after">insert_after() (Xml method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.insert_before">insert_before() (Xml method)</a>
+</li>
+        <li><a href="document.html#Document.insert_file">insert_file() (Document method)</a>
+</li>
+        <li>
+    insert_font
+
+        <ul>
+          <li><a href="page.html#index-15">encoding</a>
+</li>
+          <li><a href="page.html#index-15">fontbuffer</a>
+</li>
+          <li><a href="page.html#index-15">fontfile</a>
+</li>
+          <li><a href="page.html#index-15">fontname</a>
+</li>
+          <li><a href="page.html#index-15">set_simple</a>
+</li>
+        </ul></li>
+        <li><a href="page.html#Page.insert_font">insert_font() (Page method)</a>
+</li>
+        <li>
+    insert_htmlbox
+
+        <ul>
+          <li><a href="page.html#index-3">adjust</a>
+</li>
+          <li><a href="page.html#index-3">archive</a>
+</li>
+          <li><a href="page.html#index-3">css</a>
+</li>
+          <li><a href="page.html#index-3">morph</a>
+</li>
+          <li><a href="page.html#index-3">oc</a>
+</li>
+          <li><a href="page.html#index-3">opacity</a>
+</li>
+          <li><a href="page.html#index-3">overlay</a>
+</li>
+          <li><a href="page.html#index-3">rect</a>
+</li>
+          <li><a href="page.html#index-3">rotate</a>
+</li>
+          <li><a href="page.html#index-3">text</a>
+</li>
+        </ul></li>
+        <li><a href="page.html#Page.insert_htmlbox">insert_htmlbox() (Page method)</a>
+</li>
+        <li>
+    insert_image
+
+        <ul>
+          <li><a href="recipes-images.html#index-6">examples</a>, <a href="recipes-images.html#index-7">[1]</a>
+</li>
+          <li><a href="page.html#index-16">filename</a>
+</li>
+          <li><a href="page.html#index-16">keep_proportion</a>
+</li>
+          <li><a href="page.html#index-16">mask</a>
+</li>
+          <li><a href="page.html#index-16">oc</a>
+</li>
+          <li><a href="page.html#index-16">overlay</a>
+</li>
+          <li><a href="page.html#index-16">pixmap</a>
+</li>
+          <li><a href="page.html#index-16">rotate</a>
+</li>
+          <li><a href="page.html#index-16">stream</a>
+</li>
+          <li><a href="page.html#index-16">xref</a>
+</li>
+        </ul></li>
+        <li><a href="page.html#Page.insert_image">insert_image() (Page method)</a>
+</li>
+        <li><a href="page.html#Page.insert_link">insert_link() (Page method)</a>
+</li>
+        <li><a href="document.html#Document.insert_page">insert_page() (Document method)</a>
+</li>
+        <li><a href="document.html#Document.insert_pdf">insert_pdf() (Document method)</a>
+</li>
+        <li>
+    insert_text
+
+        <ul>
+          <li><a href="page.html#index-1">border_width</a>, <a href="shape.html#index-4">[1]</a>
+</li>
+          <li><a href="page.html#index-1">color</a>, <a href="shape.html#index-4">[1]</a>
+</li>
+          <li><a href="page.html#index-1">encoding</a>, <a href="shape.html#index-4">[1]</a>
+</li>
+          <li><a href="page.html#index-1">fill</a>, <a href="shape.html#index-4">[1]</a>
+</li>
+          <li><a href="page.html#index-1">fill_opacity</a>, <a href="shape.html#index-4">[1]</a>
+</li>
+          <li><a href="page.html#index-1">fontfile</a>, <a href="shape.html#index-4">[1]</a>
+</li>
+          <li><a href="page.html#index-1">fontname</a>, <a href="shape.html#index-4">[1]</a>
+</li>
+          <li><a href="page.html#index-1">fontsize</a>, <a href="shape.html#index-4">[1]</a>
+</li>
+          <li><a href="shape.html#index-4">lineheight</a>
+</li>
+          <li><a href="page.html#index-1">miter_limit</a>, <a href="shape.html#index-4">[1]</a>
+</li>
+          <li><a href="page.html#index-1">morph</a>, <a href="shape.html#index-4">[1]</a>
+</li>
+          <li><a href="page.html#index-1">oc</a>, <a href="shape.html#index-4">[1]</a>
+</li>
+          <li><a href="page.html#index-1">overlay</a>
+</li>
+          <li><a href="page.html#index-1">render_mode</a>, <a href="shape.html#index-4">[1]</a>
+</li>
+          <li><a href="page.html#index-1">rotate</a>, <a href="shape.html#index-4">[1]</a>
+</li>
+          <li><a href="page.html#index-1">stroke_opacity</a>, <a href="shape.html#index-4">[1]</a>
+</li>
+        </ul></li>
+        <li><a href="page.html#Page.insert_text">insert_text() (Page method)</a>
+
+        <ul>
+          <li><a href="shape.html#Shape.insert_text">(Shape method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    insert_textbox
+
+        <ul>
+          <li><a href="page.html#index-2">align</a>, <a href="shape.html#index-5">[1]</a>
+</li>
+          <li><a href="page.html#index-2">border_width</a>, <a href="shape.html#index-5">[1]</a>
+</li>
+          <li><a href="page.html#index-2">color</a>, <a href="shape.html#index-5">[1]</a>
+</li>
+          <li><a href="page.html#index-2">encoding</a>, <a href="shape.html#index-5">[1]</a>
+</li>
+          <li><a href="page.html#index-2">expandtabs</a>, <a href="shape.html#index-5">[1]</a>
+</li>
+          <li><a href="page.html#index-2">fill</a>, <a href="shape.html#index-5">[1]</a>
+</li>
+          <li><a href="page.html#index-2">fill_opacity</a>
+</li>
+          <li><a href="page.html#index-2">fontfile</a>, <a href="shape.html#index-5">[1]</a>
+</li>
+          <li><a href="page.html#index-2">fontname</a>, <a href="shape.html#index-5">[1]</a>
+</li>
+          <li><a href="page.html#index-2">fontsize</a>, <a href="shape.html#index-5">[1]</a>
+</li>
+          <li><a href="shape.html#index-5">lineheight</a>
+</li>
+          <li><a href="page.html#index-2">miter_limit</a>, <a href="shape.html#index-5">[1]</a>
+</li>
+          <li><a href="page.html#index-2">morph</a>, <a href="shape.html#index-5">[1]</a>
+</li>
+          <li><a href="page.html#index-2">oc</a>, <a href="shape.html#index-5">[1]</a>
+</li>
+          <li><a href="page.html#index-2">overlay</a>
+</li>
+          <li><a href="page.html#index-2">render_mode</a>, <a href="shape.html#index-5">[1]</a>
+</li>
+          <li><a href="page.html#index-2">rotate</a>, <a href="shape.html#index-5">[1]</a>
+</li>
+          <li><a href="page.html#index-2">stroke_opacity</a>
+</li>
+        </ul></li>
+        <li><a href="page.html#Page.insert_textbox">insert_textbox() (Page method)</a>
+
+        <ul>
+          <li><a href="shape.html#Shape.insert_textbox">(Shape method)</a>
+</li>
+        </ul></li>
+        <li><a href="pixmap.html#Pixmap.interpolate">interpolate (Pixmap attribute)</a>
+</li>
+        <li><a href="irect.html#IRect.intersect">intersect() (IRect method)</a>
+
+        <ul>
+          <li><a href="rect.html#Rect.intersect">(Rect method)</a>
+</li>
+        </ul></li>
+        <li><a href="irect.html#IRect.intersects">intersects() (IRect method)</a>
+
+        <ul>
+          <li><a href="rect.html#Rect.intersects">(Rect method)</a>
+</li>
+        </ul></li>
+        <li><a href="matrix.html#Matrix.invert">invert() (Matrix method)</a>
+</li>
+        <li>
+    invert_irect
+
+        <ul>
+          <li><a href="recipes-images.html#index-10">examples</a>
+</li>
+        </ul></li>
+        <li><a href="pixmap.html#Pixmap.invert_irect">invert_irect() (Pixmap method)</a>
+</li>
+        <li><a href="irect.html#IRect">IRect (built-in class)</a>
+</li>
+        <li><a href="pixmap.html#Pixmap.irect">irect (Pixmap attribute)</a>
+
+        <ul>
+          <li><a href="rect.html#Rect.irect">(Rect attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="glossary.html#irect_like">irect_like (built-in variable)</a>
+</li>
+        <li><a href="annot.html#Annot.irt_xref">irt_xref (Annot attribute)</a>
+</li>
+        <li><a href="font.html#Font.is_bold">is_bold (Font attribute)</a>
+</li>
+        <li><a href="document.html#Document.is_closed">is_closed (Document attribute)</a>
+</li>
+        <li><a href="quad.html#Quad.is_convex">is_convex (Quad attribute)</a>
+</li>
+        <li><a href="document.html#Document.is_dirty">is_dirty (Document attribute)</a>
+</li>
+        <li><a href="irect.html#IRect.is_empty">is_empty (IRect attribute)</a>
+
+        <ul>
+          <li><a href="quad.html#Quad.is_empty">(Quad attribute)</a>
+</li>
+          <li><a href="rect.html#Rect.is_empty">(Rect attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="document.html#Document.is_encrypted">is_encrypted (Document attribute)</a>
+</li>
+        <li><a href="link.html#Link.is_external">is_external (Link attribute)</a>
+
+        <ul>
+          <li><a href="outline.html#Outline.is_external">(Outline attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="document.html#Document.is_fast_webaccess">is_fast_webaccess (Document attribute)</a>
+</li>
+        <li><a href="document.html#Document.is_form_pdf">is_form_pdf (Document attribute)</a>
+</li>
+        <li><a href="irect.html#IRect.is_infinite">is_infinite (IRect attribute)</a>
+
+        <ul>
+          <li><a href="rect.html#Rect.is_infinite">(Rect attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="font.html#Font.is_italic">is_italic (Font attribute)</a>
+</li>
+        <li><a href="pixmap.html#Pixmap.is_monochrome">is_monochrome (Pixmap attribute)</a>
+</li>
+        <li><a href="font.html#Font.is_monospaced">is_monospaced (Font attribute)</a>
+</li>
+        <li><a href="annot.html#Annot.is_open">is_open (Annot attribute)</a>
+
+        <ul>
+          <li><a href="outline.html#Outline.is_open">(Outline attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="document.html#Document.is_pdf">is_pdf (Document attribute)</a>
+</li>
+        <li><a href="quad.html#Quad.is_rectangular">is_rectangular (Quad attribute)</a>
+</li>
+        <li><a href="matrix.html#Matrix.is_rectilinear">is_rectilinear (Matrix attribute)</a>
+</li>
+        <li><a href="document.html#Document.is_reflowable">is_reflowable (Document attribute)</a>
+</li>
+        <li><a href="document.html#Document.is_repaired">is_repaired (Document attribute)</a>
+</li>
+        <li><a href="font.html#Font.is_serif">is_serif (Font attribute)</a>
+</li>
+        <li><a href="widget.html#Widget.is_signed">is_signed (Widget attribute)</a>
+</li>
+        <li><a href="functions.html#Document.is_stream">is_stream() (Document method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.is_text">is_text (Xml attribute)</a>
+</li>
+        <li><a href="pixmap.html#Pixmap.is_unicolor">is_unicolor (Pixmap attribute)</a>
+</li>
+        <li><a href="rect.html#Rect.is_valid">is_valid (Rect attribute)</a>
+</li>
+        <li><a href="functions.html#Page.is_wrapped">is_wrapped (Page attribute)</a>
+</li>
+        <li><a href="linkdest.html#linkDest.isMap">isMap (linkDest attribute)</a>
+</li>
+        <li><a href="linkdest.html#linkDest.isUri">isUri (linkDest attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="J" class="genindex-section">
+  <h2>J</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    join
+
+        <ul>
+          <li><a href="document.html#index-4">Document.insert_file</a>
+</li>
+          <li><a href="document.html#index-3">Document.insert_pdf</a>
+</li>
+        </ul></li>
+        <li>
+    join_duplicates
+
+        <ul>
+          <li><a href="document.html#index-3">Document.insert_pdf</a>
+</li>
+        </ul></li>
+        <li><a href="document.html#Document.journal_can_do">journal_can_do() (Document method)</a>
+</li>
+        <li><a href="document.html#Document.journal_enable">journal_enable() (Document method)</a>
+</li>
+        <li><a href="document.html#Document.journal_load">journal_load() (Document method)</a>
+</li>
+        <li><a href="document.html#Document.journal_op_name">journal_op_name() (Document method)</a>
+</li>
+        <li><a href="document.html#Document.journal_position">journal_position() (Document method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="document.html#Document.journal_redo">journal_redo() (Document method)</a>
+</li>
+        <li><a href="document.html#Document.journal_save">journal_save() (Document method)</a>
+</li>
+        <li><a href="document.html#Document.journal_start_op">journal_start_op() (Document method)</a>
+</li>
+        <li><a href="document.html#Document.journal_stop_op">journal_stop_op() (Document method)</a>
+</li>
+        <li><a href="document.html#Document.journal_undo">journal_undo() (Document method)</a>
+</li>
+        <li>
+    JPEG
+
+        <ul>
+          <li><a href="recipes-images.html#index-8">examples</a>
+</li>
+        </ul></li>
+        <li>
+    json
+
+        <ul>
+          <li><a href="annot.html#index-1">Annot.get_text</a>
+</li>
+          <li><a href="page.html#index-19">Page.get_text</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="K" class="genindex-section">
+  <h2>K</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    keep_proportion
+
+        <ul>
+          <li><a href="page.html#index-16">insert_image</a>
+</li>
+          <li><a href="page.html#index-29">show_pdf_page</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    key-value
+
+        <ul>
+          <li><a href="recipes-text.html#index-0">lookup text</a>
+</li>
+        </ul></li>
+        <li><a href="linkdest.html#linkDest.kind">kind (linkDest attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="L" class="genindex-section">
+  <h2>L</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    language
+
+        <ul>
+          <li><a href="page.html#index-22">get_textpage_ocr</a>
+</li>
+        </ul></li>
+        <li><a href="xml-class.html#Xml.last_child">last_child (Xml attribute)</a>
+</li>
+        <li><a href="document.html#Document.last_location">last_location (Document attribute)</a>
+</li>
+        <li><a href="textwriter.html#TextWriter.last_point">last_point (TextWriter attribute)</a>
+</li>
+        <li><a href="shape.html#Shape.lastPoint">lastPoint (Shape attribute)</a>
+</li>
+        <li><a href="document.html#Document.layer_ui_configs">layer_ui_configs() (Document method)</a>
+</li>
+        <li><a href="document.html#Document.layout">layout() (Document method)</a>
+</li>
+        <li><a href="glossary.html#ligature">ligature (built-in variable)</a>
+</li>
+        <li>
+    line_end
+
+        <ul>
+          <li><a href="page.html#index-0">add_freetext_annot</a>
+</li>
+        </ul></li>
+        <li><a href="annot.html#Annot.line_ends">line_ends (Annot attribute)</a>
+</li>
+        <li>
+    lineCap
+
+        <ul>
+          <li><a href="page.html#index-11">draw_bezier</a>
+</li>
+          <li><a href="page.html#index-7">draw_circle</a>
+</li>
+          <li><a href="page.html#index-12">draw_curve</a>
+</li>
+          <li><a href="page.html#index-4">draw_line</a>
+</li>
+          <li><a href="page.html#index-8">draw_oval</a>
+</li>
+          <li><a href="page.html#index-10">draw_polyline</a>
+</li>
+          <li><a href="page.html#index-14">draw_quad</a>
+</li>
+          <li><a href="page.html#index-13">draw_rect</a>
+</li>
+          <li><a href="page.html#index-9">draw_sector</a>
+</li>
+          <li><a href="page.html#index-6">draw_squiggle</a>
+</li>
+          <li><a href="page.html#index-5">draw_zigzag</a>
+</li>
+          <li><a href="shape.html#index-3">finish</a>
+</li>
+        </ul></li>
+        <li>
+    lineheight
+
+        <ul>
+          <li><a href="shape.html#index-4">insert_text</a>
+</li>
+          <li><a href="shape.html#index-5">insert_textbox</a>
+</li>
+        </ul></li>
+        <li>
+    lineJoin
+
+        <ul>
+          <li><a href="page.html#index-11">draw_bezier</a>
+</li>
+          <li><a href="page.html#index-7">draw_circle</a>
+</li>
+          <li><a href="page.html#index-12">draw_curve</a>
+</li>
+          <li><a href="page.html#index-4">draw_line</a>, <a href="page.html#index-4">[1]</a>
+</li>
+          <li><a href="page.html#index-8">draw_oval</a>
+</li>
+          <li><a href="page.html#index-10">draw_polyline</a>
+</li>
+          <li><a href="page.html#index-14">draw_quad</a>
+</li>
+          <li><a href="page.html#index-13">draw_rect</a>
+</li>
+          <li><a href="page.html#index-9">draw_sector</a>
+</li>
+          <li><a href="page.html#index-6">draw_squiggle</a>
+</li>
+          <li><a href="page.html#index-5">draw_zigzag</a>
+</li>
+          <li><a href="shape.html#index-3">finish</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="link.html#Link">Link (built-in class)</a>
+</li>
+        <li><a href="vars.html#LINK_FLAG_B_VALID">LINK_FLAG_B_VALID (built-in variable)</a>
+</li>
+        <li><a href="vars.html#LINK_FLAG_FIT_H">LINK_FLAG_FIT_H (built-in variable)</a>
+</li>
+        <li><a href="vars.html#LINK_FLAG_FIT_V">LINK_FLAG_FIT_V (built-in variable)</a>
+</li>
+        <li><a href="vars.html#LINK_FLAG_L_VALID">LINK_FLAG_L_VALID (built-in variable)</a>
+</li>
+        <li><a href="vars.html#LINK_FLAG_R_IS_ZOOM">LINK_FLAG_R_IS_ZOOM (built-in variable)</a>
+</li>
+        <li><a href="vars.html#LINK_FLAG_R_VALID">LINK_FLAG_R_VALID (built-in variable)</a>
+</li>
+        <li><a href="vars.html#LINK_FLAG_T_VALID">LINK_FLAG_T_VALID (built-in variable)</a>
+</li>
+        <li><a href="vars.html#LINK_GOTO">LINK_GOTO (built-in variable)</a>
+</li>
+        <li><a href="vars.html#LINK_GOTOR">LINK_GOTOR (built-in variable)</a>
+</li>
+        <li><a href="vars.html#LINK_LAUNCH">LINK_LAUNCH (built-in variable)</a>
+</li>
+        <li><a href="vars.html#LINK_NAMED">LINK_NAMED (built-in variable)</a>
+</li>
+        <li><a href="vars.html#LINK_NONE">LINK_NONE (built-in variable)</a>
+</li>
+        <li><a href="vars.html#LINK_URI">LINK_URI (built-in variable)</a>
+</li>
+        <li><a href="linkdest.html#linkDest">linkDest (built-in class)</a>
+</li>
+        <li>
+    links
+
+        <ul>
+          <li><a href="document.html#index-4">Document.insert_file</a>
+</li>
+          <li><a href="document.html#index-3">Document.insert_pdf</a>
+</li>
+        </ul></li>
+        <li><a href="page.html#Page.links">links() (Page method)</a>
+</li>
+        <li><a href="quad.html#Quad.ll">ll (Quad attribute)</a>
+</li>
+        <li><a href="pymupdf4llm/api.html#LlamaMarkdownReader">LlamaMarkdownReader()</a>
+</li>
+        <li><a href="page.html#Page.load_annot">load_annot() (Page method)</a>
+</li>
+        <li><a href="pymupdf4llm/api.html#pdf_markdown_reader.PDFMarkdownReader.load_data">load_data() (pdf_markdown_reader.PDFMarkdownReader method)</a>
+</li>
+        <li><a href="page.html#Page.load_links">load_links() (Page method)</a>
+</li>
+        <li><a href="document.html#Document.load_page">load_page() (Document method)</a>
+</li>
+        <li><a href="page.html#Page.load_widget">load_widget() (Page method)</a>
+</li>
+        <li>
+    lookup
+
+        <ul>
+          <li><a href="recipes-text.html#index-0">text key-value</a>
+</li>
+        </ul></li>
+        <li><a href="quad.html#Quad.lr">lr (Quad attribute)</a>
+</li>
+        <li><a href="linkdest.html#linkDest.lt">lt (linkDest attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="M" class="genindex-section">
+  <h2>M</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="document.html#Document.make_bookmark">make_bookmark() (Document method)</a>
+</li>
+        <li><a href="functions.html#make_table">make_table()</a>
+</li>
+        <li><a href="document.html#Document.markinfo">markinfo (Document attribute)</a>
+</li>
+        <li>
+    mask
+
+        <ul>
+          <li><a href="page.html#index-16">insert_image</a>
+</li>
+        </ul></li>
+        <li>
+    matrix
+
+        <ul>
+          <li><a href="annot.html#index-0">Annot.get_pixmap</a>
+</li>
+          <li><a href="displaylist.html#index-0">DisplayList.get_pixmap</a>
+</li>
+          <li><a href="page.html#index-27">get_pixmap</a>
+</li>
+          <li><a href="page.html#index-26">get_svg_image</a>
+</li>
+        </ul></li>
+        <li><a href="matrix.html#Matrix">Matrix (built-in class)</a>
+</li>
+        <li><a href="glossary.html#matrix_like">matrix_like (built-in variable)</a>
+</li>
+        <li><a href="glossary.html#MediaBox">MediaBox (built-in variable)</a>
+</li>
+        <li><a href="page.html#Page.mediabox">mediabox (Page attribute)</a>
+</li>
+        <li><a href="page.html#Page.mediabox_size">mediabox_size (Page attribute)</a>
+</li>
+        <li>
+    merge
+
+        <ul>
+          <li><a href="document.html#index-4">Document.insert_file</a>
+</li>
+          <li><a href="document.html#index-3">Document.insert_pdf</a>
+</li>
+        </ul></li>
+        <li><a href="document.html#Document.metadata">metadata (Document attribute)</a>
+</li>
+        <li>
+    miter_limit
+
+        <ul>
+          <li><a href="page.html#index-1">insert_text</a>, <a href="shape.html#index-4">[1]</a>
+</li>
+          <li><a href="page.html#index-2">insert_textbox</a>, <a href="shape.html#index-5">[1]</a>
+</li>
+        </ul></li>
+        <li>
+    morph
+
+        <ul>
+          <li><a href="page.html#index-11">draw_bezier</a>
+</li>
+          <li><a href="page.html#index-7">draw_circle</a>
+</li>
+          <li><a href="page.html#index-12">draw_curve</a>
+</li>
+          <li><a href="page.html#index-4">draw_line</a>
+</li>
+          <li><a href="page.html#index-8">draw_oval</a>
+</li>
+          <li><a href="page.html#index-10">draw_polyline</a>
+</li>
+          <li><a href="page.html#index-14">draw_quad</a>
+</li>
+          <li><a href="page.html#index-13">draw_rect</a>
+</li>
+          <li><a href="page.html#index-9">draw_sector</a>
+</li>
+          <li><a href="page.html#index-6">draw_squiggle</a>
+</li>
+          <li><a href="page.html#index-5">draw_zigzag</a>
+</li>
+          <li><a href="shape.html#index-3">finish</a>
+</li>
+          <li><a href="page.html#index-3">insert_htmlbox</a>
+</li>
+          <li><a href="page.html#index-1">insert_text</a>, <a href="shape.html#index-4">[1]</a>
+</li>
+          <li><a href="page.html#index-2">insert_textbox</a>, <a href="shape.html#index-5">[1]</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="irect.html#IRect.morph">morph() (IRect method)</a>
+
+        <ul>
+          <li><a href="quad.html#Quad.morph">(Quad method)</a>
+</li>
+          <li><a href="rect.html#Rect.morph">(Rect method)</a>
+</li>
+        </ul></li>
+        <li><a href="document.html#Document.move_page">move_page() (Document method)</a>
+</li>
+        <li><a href="tools.html#Tools.mupdf_display_errors">mupdf_display_errors() (Tools method)</a>
+</li>
+        <li><a href="tools.html#Tools.mupdf_display_warnings">mupdf_display_warnings() (Tools method)</a>
+</li>
+        <li><a href="vars.html#mupdf_version">mupdf_version (built-in variable)</a>
+</li>
+        <li><a href="vars.html#mupdf_version_tuple">mupdf_version_tuple (built-in variable)</a>
+</li>
+        <li><a href="tools.html#Tools.mupdf_warnings">mupdf_warnings() (Tools method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="N" class="genindex-section">
+  <h2>N</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="colorspace.html#Colorspace.n">n (Colorspace attribute)</a>
+
+        <ul>
+          <li><a href="pixmap.html#Pixmap.n">(Pixmap attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="colorspace.html#Colorspace.name">name (Colorspace attribute)</a>
+
+        <ul>
+          <li><a href="document.html#Document.name">(Document attribute)</a>
+</li>
+          <li><a href="font.html#Font.name">(Font attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="linkdest.html#linkDest.named">named (linkDest attribute)</a>
+</li>
+        <li><a href="document.html#Document.need_appearances">need_appearances() (Document method)</a>
+</li>
+        <li><a href="document.html#Document.needs_pass">needs_pass (Document attribute)</a>
+</li>
+        <li><a href="document.html#Document.new_page">new_page() (Document method)</a>
+</li>
+        <li><a href="page.html#Page.new_shape">new_shape() (Page method)</a>
+</li>
+        <li><a href="linkdest.html#linkDest.newWindow">newWindow (linkDest attribute)</a>
+</li>
+        <li><a href="annot.html#Annot.next">next (Annot attribute)</a>
+
+        <ul>
+          <li><a href="link.html#Link.next">(Link attribute)</a>
+</li>
+          <li><a href="outline.html#Outline.next">(Outline attribute)</a>
+</li>
+          <li><a href="widget.html#Widget.next">(Widget attribute)</a>
+</li>
+          <li><a href="xml-class.html#Xml.next">(Xml attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="document.html#Document.next_location">next_location() (Document method)</a>
+</li>
+        <li>
+    non-PDF
+
+        <ul>
+          <li><a href="recipes-images.html#index-4">extract image</a>
+</li>
+        </ul></li>
+        <li><a href="irect.html#IRect.norm">norm() (IRect method)</a>
+
+        <ul>
+          <li><a href="matrix.html#Matrix.norm">(Matrix method)</a>
+</li>
+          <li><a href="point.html#Point.norm">(Point method)</a>
+</li>
+          <li><a href="rect.html#Rect.norm">(Rect method)</a>
+</li>
+        </ul></li>
+        <li><a href="irect.html#IRect.normalize">normalize() (IRect method)</a>
+
+        <ul>
+          <li><a href="rect.html#Rect.normalize">(Rect method)</a>
+</li>
+        </ul></li>
+        <li><a href="page.html#Page.number">number (Page attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="O" class="genindex-section">
+  <h2>O</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="glossary.html#object">object (built-in variable)</a>
+</li>
+        <li>
+    oc
+
+        <ul>
+          <li><a href="page.html#index-11">draw_bezier</a>
+</li>
+          <li><a href="page.html#index-7">draw_circle</a>
+</li>
+          <li><a href="page.html#index-12">draw_curve</a>
+</li>
+          <li><a href="page.html#index-4">draw_line</a>
+</li>
+          <li><a href="page.html#index-8">draw_oval</a>
+</li>
+          <li><a href="page.html#index-10">draw_polyline</a>
+</li>
+          <li><a href="page.html#index-14">draw_quad</a>
+</li>
+          <li><a href="page.html#index-13">draw_rect</a>
+</li>
+          <li><a href="page.html#index-9">draw_sector</a>
+</li>
+          <li><a href="page.html#index-6">draw_squiggle</a>
+</li>
+          <li><a href="page.html#index-5">draw_zigzag</a>
+</li>
+          <li><a href="shape.html#index-3">finish</a>
+</li>
+          <li><a href="page.html#index-3">insert_htmlbox</a>
+</li>
+          <li><a href="page.html#index-16">insert_image</a>
+</li>
+          <li><a href="page.html#index-1">insert_text</a>, <a href="shape.html#index-4">[1]</a>
+</li>
+          <li><a href="page.html#index-2">insert_textbox</a>, <a href="shape.html#index-5">[1]</a>
+</li>
+        </ul></li>
+        <li><a href="glossary.html#OCCD">OCCD (built-in variable)</a>
+</li>
+        <li><a href="glossary.html#OCG">OCG (built-in variable)</a>
+</li>
+        <li><a href="glossary.html#OCMD">OCMD (built-in variable)</a>
+</li>
+        <li><a href="glossary.html#OCPD">OCPD (built-in variable)</a>
+</li>
+        <li><a href="widget.html#Widget.on_state">on_state() (Widget method)</a>
+</li>
+        <li>
+    opacity
+
+        <ul>
+          <li><a href="page.html#index-0">add_freetext_annot</a>
+</li>
+          <li><a href="page.html#index-3">insert_htmlbox</a>
+</li>
+        </ul></li>
+        <li><a href="annot.html#Annot.opacity">opacity (Annot attribute)</a>
+
+        <ul>
+          <li><a href="textwriter.html#TextWriter.opacity">(TextWriter attribute)</a>
+</li>
+        </ul></li>
+        <li>
+    open
+
+        <ul>
+          <li><a href="document.html#index-0">Document</a>
+</li>
+          <li><a href="document.html#index-0">filename</a>
+</li>
+          <li><a href="document.html#index-0">filetype</a>
+</li>
+          <li><a href="document.html#index-0">fontsize</a>
+</li>
+          <li><a href="document.html#index-0">height</a>
+</li>
+          <li><a href="document.html#index-0">rect</a>
+</li>
+          <li><a href="document.html#index-0">stream</a>
+</li>
+          <li><a href="document.html#index-0">width</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="outline.html#Outline">Outline (built-in class)</a>
+</li>
+        <li><a href="document.html#Document.outline">outline (Document attribute)</a>
+</li>
+        <li><a href="document.html#Document.outline_xref">outline_xref() (Document method)</a>
+</li>
+        <li>
+    overlay
+
+        <ul>
+          <li><a href="shape.html#index-6">commit</a>
+</li>
+          <li><a href="page.html#index-11">draw_bezier</a>
+</li>
+          <li><a href="page.html#index-7">draw_circle</a>
+</li>
+          <li><a href="page.html#index-12">draw_curve</a>
+</li>
+          <li><a href="page.html#index-4">draw_line</a>
+</li>
+          <li><a href="page.html#index-8">draw_oval</a>
+</li>
+          <li><a href="page.html#index-10">draw_polyline</a>
+</li>
+          <li><a href="page.html#index-14">draw_quad</a>
+</li>
+          <li><a href="page.html#index-13">draw_rect</a>
+</li>
+          <li><a href="page.html#index-9">draw_sector</a>
+</li>
+          <li><a href="page.html#index-6">draw_squiggle</a>
+</li>
+          <li><a href="page.html#index-5">draw_zigzag</a>
+</li>
+          <li><a href="page.html#index-3">insert_htmlbox</a>
+</li>
+          <li><a href="page.html#index-16">insert_image</a>
+</li>
+          <li><a href="page.html#index-1">insert_text</a>
+</li>
+          <li><a href="page.html#index-2">insert_textbox</a>
+</li>
+          <li><a href="page.html#index-29">show_pdf_page</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="P" class="genindex-section">
+  <h2>P</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="page.html#Page">Page (built-in class)</a>
+</li>
+        <li><a href="glossary.html#page">page (built-in variable)</a>
+
+        <ul>
+          <li><a href="linkdest.html#linkDest.page">(linkDest attribute)</a>
+</li>
+          <li><a href="outline.html#Outline.page">(Outline attribute)</a>
+</li>
+          <li><a href="shape.html#Shape.page">(Shape attribute)</a>
+</li>
+        </ul></li>
+        <li>
+    Page.get_text
+
+        <ul>
+          <li><a href="page.html#index-19">blocks</a>
+</li>
+          <li><a href="page.html#index-19">clip</a>
+</li>
+          <li><a href="page.html#index-19">delimiters</a>
+</li>
+          <li><a href="page.html#index-19">dict</a>
+</li>
+          <li><a href="page.html#index-19">flags</a>
+</li>
+          <li><a href="page.html#index-19">html</a>
+</li>
+          <li><a href="page.html#index-19">json</a>
+</li>
+          <li><a href="page.html#index-19">rawdict</a>
+</li>
+          <li><a href="page.html#index-19">sort</a>
+</li>
+          <li><a href="page.html#index-19">text</a>
+</li>
+          <li><a href="page.html#index-19">textpage</a>
+</li>
+          <li><a href="page.html#index-19">words</a>
+</li>
+          <li><a href="page.html#index-19">xhtml</a>
+</li>
+          <li><a href="page.html#index-19">xml</a>
+</li>
+        </ul></li>
+        <li><a href="document.html#Document.page_count">page_count (Document attribute)</a>
+</li>
+        <li><a href="document.html#Document.page_cropbox">page_cropbox() (Document method)</a>
+</li>
+        <li><a href="document.html#Document.page_xref">page_xref() (Document method)</a>
+</li>
+        <li><a href="document.html#Document.pagelayout">pagelayout (Document attribute)</a>
+</li>
+        <li><a href="document.html#Document.pagemode">pagemode (Document attribute)</a>
+</li>
+        <li><a href="document.html#Document.pages">pages() (Document method)</a>
+</li>
+        <li><a href="glossary.html#pagetree">pagetree (built-in variable)</a>
+</li>
+        <li><a href="functions.html#paper_rect">paper_rect()</a>
+</li>
+        <li><a href="functions.html#paper_size">paper_size()</a>
+</li>
+        <li><a href="functions.html#paper_sizes">paper_sizes()</a>
+</li>
+        <li><a href="annot.html#Annot.parent">parent (Annot attribute)</a>
+
+        <ul>
+          <li><a href="page.html#Page.parent">(Page attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="recipes-images.html#index-3">Partial Pixmaps</a>
+</li>
+        <li>
+    PDF
+
+        <ul>
+          <li><a href="recipes-images.html#index-5">extract image</a>
+</li>
+          <li><a href="recipes-images.html#index-6">picture embed</a>
+</li>
+        </ul></li>
+        <li><a href="document.html#Document.pdf_catalog">pdf_catalog() (Document method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="pymupdf4llm/api.html#pdf_markdown_reader.PDFMarkdownReader">pdf_markdown_reader.PDFMarkdownReader (built-in class)</a>
+</li>
+        <li><a href="document.html#Document.pdf_trailer">pdf_trailer() (Document method)</a>
+</li>
+        <li><a href="functions.html#pdfcolor">pdfcolor</a>
+</li>
+        <li><a href="pixmap.html#Pixmap.pdfocr_save">pdfocr_save() (Pixmap method)</a>
+</li>
+        <li><a href="pixmap.html#Pixmap.pdfocr_tobytes">pdfocr_tobytes() (Pixmap method)</a>
+</li>
+        <li><a href="document.html#Document.permissions">permissions (Document attribute)</a>
+</li>
+        <li>
+    PhotoImage
+
+        <ul>
+          <li><a href="recipes-images.html#index-8">examples</a>
+</li>
+        </ul></li>
+        <li>
+    Photoshop
+
+        <ul>
+          <li><a href="recipes-images.html#index-8">examples</a>
+</li>
+        </ul></li>
+        <li>
+    picture
+
+        <ul>
+          <li><a href="recipes-images.html#index-6">embed PDF</a>
+</li>
+        </ul></li>
+        <li><a href="pixmap.html#Pixmap.pil_image">pil_image() (Pixmap method)</a>
+</li>
+        <li><a href="pixmap.html#Pixmap.pil_save">pil_save() (Pixmap method)</a>
+</li>
+        <li><a href="pixmap.html#Pixmap.pil_tobytes">pil_tobytes() (Pixmap method)</a>
+</li>
+        <li><a href="pixmap.html#Pixmap.pixel">pixel() (Pixmap method)</a>
+</li>
+        <li>
+    pixmap
+
+        <ul>
+          <li><a href="page.html#index-16">insert_image</a>
+</li>
+          <li><a href="page.html#index-17">replace_image</a>
+</li>
+        </ul></li>
+        <li><a href="pixmap.html#Pixmap">Pixmap (built-in class)</a>
+</li>
+        <li><a href="story-class.html#Story.place">place() (Story method)</a>
+</li>
+        <li><a href="functions.html#planish_line">planish_line()</a>
+</li>
+        <li><a href="point.html#Point">Point (built-in class)</a>
+</li>
+        <li><a href="glossary.html#point_like">point_like (built-in variable)</a>
+</li>
+        <li><a href="annot.html#Annot.popup_rect">popup_rect (Annot attribute)</a>
+</li>
+        <li><a href="annot.html#Annot.popup_xref">popup_xref (Annot attribute)</a>
+</li>
+        <li>
+    Postscript
+
+        <ul>
+          <li><a href="recipes-images.html#index-8">examples</a>
+</li>
+        </ul></li>
+        <li><a href="matrix.html#Matrix.prerotate">prerotate() (Matrix method)</a>
+</li>
+        <li><a href="matrix.html#Matrix.prescale">prescale() (Matrix method)</a>
+</li>
+        <li><a href="matrix.html#Matrix.preshear">preshear() (Matrix method)</a>
+</li>
+        <li><a href="matrix.html#Matrix.pretranslate">pretranslate() (Matrix method)</a>
+</li>
+        <li><a href="document.html#Document.prev_location">prev_location() (Document method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.previous">previous (Xml attribute)</a>
+</li>
+        <li><a href="vars.html#pymupdf_date">pymupdf_date (built-in variable)</a>
+</li>
+        <li><a href="functions.html#PYMUPDF_MESSAGE">PYMUPDF_MESSAGE</a>
+</li>
+        <li><a href="vars.html#pymupdf_version">pymupdf_version (built-in variable)</a>
+</li>
+        <li><a href="vars.html#pymupdf_version_tuple">pymupdf_version_tuple (built-in variable)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="Q" class="genindex-section">
+  <h2>Q</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="quad.html#Quad">Quad (built-in class)</a>
+</li>
+        <li><a href="irect.html#IRect.quad">quad (IRect attribute)</a>
+
+        <ul>
+          <li><a href="rect.html#Rect.quad">(Rect attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="glossary.html#quad_like">quad_like (built-in variable)</a>
+</li>
+        <li>
+    quads
+
+        <ul>
+          <li><a href="page.html#index-30">search_for</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="R" class="genindex-section">
+  <h2>R</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    radius
+
+        <ul>
+          <li><a href="page.html#index-13">draw_rect</a>
+</li>
+        </ul></li>
+        <li>
+    rawdict
+
+        <ul>
+          <li><a href="annot.html#index-1">Annot.get_text</a>
+</li>
+          <li><a href="page.html#index-19">Page.get_text</a>
+</li>
+        </ul></li>
+        <li><a href="linkdest.html#linkDest.rb">rb (linkDest attribute)</a>
+</li>
+        <li><a href="functions.html#Page.read_contents">read_contents() (Page method)</a>
+</li>
+        <li><a href="archive-class.html#Archive.read_entry">read_entry() (Archive method)</a>
+</li>
+        <li>
+    reading order
+
+        <ul>
+          <li><a href="recipes-text.html#index-2">text</a>
+</li>
+        </ul></li>
+        <li><a href="functions.html#recover_char_quad">recover_char_quad()</a>
+</li>
+        <li><a href="functions.html#recover_line_quad">recover_line_quad()</a>
+</li>
+        <li><a href="functions.html#recover_quad">recover_quad()</a>
+</li>
+        <li><a href="functions.html#recover_span_quad">recover_span_quad()</a>
+</li>
+        <li>
+    rect
+
+        <ul>
+          <li><a href="page.html#index-0">add_freetext_annot</a>
+</li>
+          <li><a href="document.html#index-0">Document</a>
+</li>
+          <li><a href="document.html#index-2">Document.layout</a>
+</li>
+          <li><a href="page.html#index-20">get_textbox</a>
+</li>
+          <li><a href="page.html#index-3">insert_htmlbox</a>
+</li>
+          <li><a href="document.html#index-0">open</a>
+</li>
+        </ul></li>
+        <li><a href="annot.html#Annot.rect">rect (Annot attribute)</a>
+</li>
+        <li><a href="rect.html#Rect">Rect (built-in class)</a>
+</li>
+        <li><a href="displaylist.html#DisplayList.rect">rect (DisplayList attribute)</a>
+
+        <ul>
+          <li><a href="irect.html#IRect.rect">(IRect attribute)</a>
+</li>
+          <li><a href="link.html#Link.rect">(Link attribute)</a>
+</li>
+          <li><a href="page.html#Page.rect">(Page attribute)</a>
+</li>
+          <li><a href="quad.html#Quad.rect">(Quad attribute)</a>
+</li>
+          <li><a href="shape.html#Shape.rect">(Shape attribute)</a>
+</li>
+          <li><a href="textpage.html#TextPage.rect">(TextPage attribute)</a>
+</li>
+          <li><a href="textwriter.html#TextWriter.rect">(TextWriter attribute)</a>
+</li>
+          <li><a href="widget.html#Widget.rect">(Widget attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="annot.html#Annot.rect_delta">rect_delta (Annot attribute)</a>
+</li>
+        <li><a href="glossary.html#rect_like">rect_like (built-in variable)</a>
+</li>
+        <li>
+    rectangle
+
+        <ul>
+          <li><a href="recipes-text.html#index-1">extract text</a>
+</li>
+        </ul></li>
+        <li><a href="document.html#Document.reload_page">reload_page() (Document method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.remove">remove() (Xml method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.remove_attribute">remove_attribute() (Xml method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="page.html#Page.remove_rotation">remove_rotation() (Page method)</a>
+</li>
+        <li>
+    render_mode
+
+        <ul>
+          <li><a href="page.html#index-1">insert_text</a>, <a href="shape.html#index-4">[1]</a>
+</li>
+          <li><a href="page.html#index-2">insert_textbox</a>, <a href="shape.html#index-5">[1]</a>
+</li>
+        </ul></li>
+        <li>
+    replace_image
+
+        <ul>
+          <li><a href="page.html#index-17">filename</a>
+</li>
+          <li><a href="page.html#index-17">pixmap</a>
+</li>
+          <li><a href="page.html#index-17">stream</a>
+</li>
+          <li><a href="page.html#index-17">xref</a>
+</li>
+        </ul></li>
+        <li><a href="page.html#Page.replace_image">replace_image() (Page method)</a>
+</li>
+        <li><a href="story-class.html#Story.reset">reset() (Story method)</a>
+
+        <ul>
+          <li><a href="widget.html#Widget.reset">(Widget method)</a>
+</li>
+        </ul></li>
+        <li><a href="tools.html#Tools.reset_mupdf_warnings">reset_mupdf_warnings() (Tools method)</a>
+</li>
+        <li>
+    resolution
+
+        <ul>
+          <li><a href="recipes-images.html#index-0">image</a>
+</li>
+          <li><a href="recipes-images.html#index-2">zoom</a>
+</li>
+        </ul></li>
+        <li><a href="glossary.html#resolution">resolution (built-in variable)</a>
+</li>
+        <li><a href="document.html#Document.resolve_names">resolve_names() (Document method)</a>
+</li>
+        <li><a href="glossary.html#resources">resources (built-in variable)</a>
+</li>
+        <li>
+    richtext
+
+        <ul>
+          <li><a href="page.html#index-0">add_freetext_annot</a>
+</li>
+        </ul></li>
+        <li><a href="xml-class.html#Xml.root">root (Xml attribute)</a>
+</li>
+        <li>
+    rotate
+
+        <ul>
+          <li><a href="page.html#index-0">add_freetext_annot</a>
+</li>
+          <li><a href="annot.html#index-2">Annot.update</a>
+</li>
+          <li><a href="document.html#index-1">Document.convert_to_pdf</a>
+</li>
+          <li><a href="document.html#index-4">Document.insert_file</a>
+</li>
+          <li><a href="document.html#index-3">Document.insert_pdf</a>
+</li>
+          <li><a href="page.html#index-3">insert_htmlbox</a>
+</li>
+          <li><a href="page.html#index-16">insert_image</a>
+</li>
+          <li><a href="page.html#index-1">insert_text</a>, <a href="shape.html#index-4">[1]</a>
+</li>
+          <li><a href="page.html#index-2">insert_textbox</a>, <a href="shape.html#index-5">[1]</a>
+</li>
+          <li><a href="page.html#index-28">set_rotation</a>
+</li>
+          <li><a href="page.html#index-29">show_pdf_page</a>
+</li>
+        </ul></li>
+        <li><a href="annot.html#Annot.rotation">rotation (Annot attribute)</a>
+
+        <ul>
+          <li><a href="page.html#Page.rotation">(Page attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="page.html#Page.rotation_matrix">rotation_matrix (Page attribute)</a>
+</li>
+        <li><a href="rect.html#Rect.round">round() (Rect method)</a>
+</li>
+        <li><a href="displaylist.html#DisplayList.run">run() (DisplayList method)</a>
+
+        <ul>
+          <li><a href="functions.html#Page.run">(Page method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="S" class="genindex-section">
+  <h2>S</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="pixmap.html#Pixmap.samples">samples (Pixmap attribute)</a>
+</li>
+        <li><a href="pixmap.html#Pixmap.samples_mv">samples_mv (Pixmap attribute)</a>
+</li>
+        <li><a href="pixmap.html#Pixmap.samples_ptr">samples_ptr (Pixmap attribute)</a>
+</li>
+        <li>
+    save
+
+        <ul>
+          <li><a href="recipes-images.html#index-10">examples</a>, <a href="recipes-images.html#index-8">[1]</a>
+</li>
+        </ul></li>
+        <li><a href="document.html#Document.save">save() (Document method)</a>
+
+        <ul>
+          <li><a href="pixmap.html#Pixmap.save">(Pixmap method)</a>
+</li>
+        </ul></li>
+        <li><a href="document.html#Document.save_snapshot">save_snapshot() (Document method)</a>
+</li>
+        <li><a href="document.html#Document.saveIncr">saveIncr() (Document method)</a>
+</li>
+        <li><a href="widget.html#Widget.script">script (Widget attribute)</a>
+</li>
+        <li><a href="widget.html#Widget.script_blur">script_blur (Widget attribute)</a>
+</li>
+        <li><a href="widget.html#Widget.script_calc">script_calc (Widget attribute)</a>
+</li>
+        <li><a href="widget.html#Widget.script_change">script_change (Widget attribute)</a>
+</li>
+        <li><a href="widget.html#Widget.script_focus">script_focus (Widget attribute)</a>
+</li>
+        <li><a href="widget.html#Widget.script_format">script_format (Widget attribute)</a>
+</li>
+        <li><a href="widget.html#Widget.script_stroke">script_stroke (Widget attribute)</a>
+</li>
+        <li><a href="document.html#Document.scrub">scrub() (Document method)</a>
+</li>
+        <li><a href="textpage.html#TextPage.search">search() (TextPage method)</a>
+</li>
+        <li>
+    search_for
+
+        <ul>
+          <li><a href="page.html#index-30">clip</a>
+</li>
+          <li><a href="page.html#index-30">flags</a>
+</li>
+          <li><a href="page.html#index-30">quads</a>
+</li>
+          <li><a href="page.html#index-30">textpage</a>
+</li>
+        </ul></li>
+        <li><a href="page.html#Page.search_for">search_for() (Page method)</a>
+</li>
+        <li><a href="document.html#Document.search_page_for">search_page_for() (Document method)</a>
+</li>
+        <li><a href="document.html#Document.select">select() (Document method)</a>
+</li>
+        <li><a href="tools.html#Tools.set_aa_level">set_aa_level() (Tools method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.set_align">set_align() (Xml method)</a>
+</li>
+        <li><a href="pixmap.html#Pixmap.set_alpha">set_alpha() (Pixmap method)</a>
+</li>
+        <li><a href="tools.html#Tools.set_annot_stem">set_annot_stem() (Tools method)</a>
+</li>
+        <li><a href="page.html#Page.set_artbox">set_artbox() (Page method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.set_attribute">set_attribute() (Xml method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.set_bgcolor">set_bgcolor() (Xml method)</a>
+</li>
+        <li><a href="page.html#Page.set_bleedbox">set_bleedbox() (Page method)</a>
+</li>
+        <li><a href="annot.html#Annot.set_blendmode">set_blendmode() (Annot method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.set_bold">set_bold() (Xml method)</a>
+</li>
+        <li><a href="annot.html#Annot.set_border">set_border() (Annot method)</a>
+
+        <ul>
+          <li><a href="link.html#Link.set_border">(Link method)</a>
+</li>
+        </ul></li>
+        <li><a href="xml-class.html#Xml.set_color">set_color() (Xml method)</a>
+</li>
+        <li><a href="annot.html#Annot.set_colors">set_colors() (Annot method)</a>
+
+        <ul>
+          <li><a href="link.html#Link.set_colors">(Link method)</a>
+</li>
+        </ul></li>
+        <li><a href="xml-class.html#Xml.set_columns">set_columns() (Xml method)</a>
+</li>
+        <li><a href="functions.html#Page.set_contents">set_contents() (Page method)</a>
+</li>
+        <li><a href="page.html#Page.set_cropbox">set_cropbox() (Page method)</a>
+</li>
+        <li><a href="pixmap.html#Pixmap.set_dpi">set_dpi() (Pixmap method)</a>
+</li>
+        <li><a href="annot.html#Annot.set_flags">set_flags() (Annot method)</a>
+
+        <ul>
+          <li><a href="link.html#Link.set_flags">(Link method)</a>
+</li>
+        </ul></li>
+        <li><a href="xml-class.html#Xml.set_font">set_font() (Xml method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.set_fontsize">set_fontsize() (Xml method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.set_id">set_id() (Xml method)</a>
+</li>
+        <li><a href="annot.html#Annot.set_info">set_info() (Annot method)</a>
+</li>
+        <li><a href="annot.html#Annot.set_irt_xref">set_irt_xref() (Annot method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.set_italic">set_italic() (Xml method)</a>
+</li>
+        <li><a href="document.html#Document.set_layer">set_layer() (Document method)</a>
+</li>
+        <li><a href="document.html#Document.set_layer_ui_config">set_layer_ui_config() (Document method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.set_leading">set_leading() (Xml method)</a>
+</li>
+        <li><a href="annot.html#Annot.set_line_ends">set_line_ends() (Annot method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.set_lineheight">set_lineheight() (Xml method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.set_margins">set_margins() (Xml method)</a>
+</li>
+        <li><a href="document.html#Document.set_markinfo">set_markinfo() (Document method)</a>
+</li>
+        <li><a href="page.html#Page.set_mediabox">set_mediabox() (Page method)</a>
+</li>
+        <li><a href="functions.html#set_messages">set_messages()</a>
+</li>
+        <li><a href="document.html#Document.set_metadata">set_metadata() (Document method)</a>
+</li>
+        <li><a href="annot.html#Annot.set_name">set_name() (Annot method)</a>
+</li>
+        <li><a href="annot.html#Annot.set_oc">set_oc() (Annot method)</a>
+
+        <ul>
+          <li><a href="document.html#Document.set_oc">(Document method)</a>
+</li>
+        </ul></li>
+        <li><a href="document.html#Document.set_ocmd">set_ocmd() (Document method)</a>
+</li>
+        <li><a href="annot.html#Annot.set_opacity">set_opacity() (Annot method)</a>
+</li>
+        <li><a href="annot.html#Annot.set_open">set_open() (Annot method)</a>
+</li>
+        <li><a href="pixmap.html#Pixmap.set_origin">set_origin() (Pixmap method)</a>
+</li>
+        <li><a href="document.html#Document.set_page_labels">set_page_labels() (Document method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.set_pagebreak_after">set_pagebreak_after() (Xml method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.set_pagebreak_before">set_pagebreak_before() (Xml method)</a>
+</li>
+        <li><a href="document.html#Document.set_pagelayout">set_pagelayout() (Document method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="document.html#Document.set_pagemode">set_pagemode() (Document method)</a>
+</li>
+        <li><a href="pixmap.html#Pixmap.set_pixel">set_pixel() (Pixmap method)</a>
+</li>
+        <li><a href="annot.html#Annot.set_popup">set_popup() (Annot method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.set_properties">set_properties() (Xml method)</a>
+</li>
+        <li>
+    set_rect
+
+        <ul>
+          <li><a href="recipes-images.html#index-10">examples</a>
+</li>
+        </ul></li>
+        <li><a href="annot.html#Annot.set_rect">set_rect() (Annot method)</a>
+
+        <ul>
+          <li><a href="pixmap.html#Pixmap.set_rect">(Pixmap method)</a>
+</li>
+        </ul></li>
+        <li>
+    set_rotation
+
+        <ul>
+          <li><a href="page.html#index-28">rotate</a>
+</li>
+        </ul></li>
+        <li><a href="annot.html#Annot.set_rotation">set_rotation() (Annot method)</a>
+
+        <ul>
+          <li><a href="page.html#Page.set_rotation">(Page method)</a>
+</li>
+        </ul></li>
+        <li>
+    set_simple
+
+        <ul>
+          <li><a href="page.html#index-15">insert_font</a>
+</li>
+        </ul></li>
+        <li><a href="tools.html#Tools.set_small_glyph_heights">set_small_glyph_heights() (Tools method)</a>
+</li>
+        <li><a href="tools.html#Tools.set_subset_fontnames">set_subset_fontnames() (Tools method)</a>
+</li>
+        <li><a href="xml-class.html#Xml.set_text_indent">set_text_indent() (Xml method)</a>
+</li>
+        <li><a href="document.html#Document.set_toc">set_toc() (Document method)</a>
+</li>
+        <li><a href="document.html#Document.set_toc_item">set_toc_item() (Document method)</a>
+</li>
+        <li><a href="page.html#Page.set_trimbox">set_trimbox() (Page method)</a>
+</li>
+        <li><a href="document.html#Document.set_xml_metadata">set_xml_metadata() (Document method)</a>
+</li>
+        <li><a href="shape.html#Shape">Shape (built-in class)</a>
+</li>
+        <li><a href="tools.html#Tools.show_aa_level">show_aa_level() (Tools method)</a>
+</li>
+        <li>
+    show_pdf_page
+
+        <ul>
+          <li><a href="page.html#index-29">clip</a>
+</li>
+          <li><a href="recipes-images.html#index-6">examples</a>, <a href="recipes-images.html#index-7">[1]</a>
+</li>
+          <li><a href="page.html#index-29">keep_proportion</a>
+</li>
+          <li><a href="page.html#index-29">overlay</a>
+</li>
+          <li><a href="page.html#index-29">rotate</a>
+</li>
+        </ul></li>
+        <li><a href="page.html#Page.show_pdf_page">show_pdf_page() (Page method)</a>
+</li>
+        <li>
+    show_progress
+
+        <ul>
+          <li><a href="document.html#index-4">Document.insert_file</a>
+</li>
+          <li><a href="document.html#index-3">Document.insert_pdf</a>
+</li>
+        </ul></li>
+        <li><a href="pixmap.html#Pixmap.shrink">shrink() (Pixmap method)</a>
+</li>
+        <li><a href="pixmap.html#Pixmap.size">size (Pixmap attribute)</a>
+</li>
+        <li>
+    sort
+
+        <ul>
+          <li><a href="page.html#index-19">Page.get_text</a>
+</li>
+        </ul></li>
+        <li><a href="functions.html#sRGB_to_pdf">sRGB_to_pdf()</a>
+</li>
+        <li><a href="functions.html#sRGB_to_rgb">sRGB_to_rgb()</a>
+</li>
+        <li>
+    start_at
+
+        <ul>
+          <li><a href="document.html#index-4">Document.insert_file</a>
+</li>
+          <li><a href="document.html#index-3">Document.insert_pdf</a>
+</li>
+        </ul></li>
+        <li><a href="tools.html#Tools.store_maxsize">store_maxsize (Tools attribute)</a>
+</li>
+        <li><a href="tools.html#Tools.store_shrink">store_shrink() (Tools method)</a>
+</li>
+        <li><a href="tools.html#Tools.store_size">store_size (Tools attribute)</a>
+</li>
+        <li><a href="story-class.html#Story">Story (built-in class)</a>
+</li>
+        <li><a href="story-class.html#Story.FitResult">Story.FitResult (built-in class)</a>
+</li>
+        <li>
+    stream
+
+        <ul>
+          <li><a href="document.html#index-0">Document</a>
+</li>
+          <li><a href="page.html#index-16">insert_image</a>
+</li>
+          <li><a href="document.html#index-0">open</a>
+</li>
+          <li><a href="page.html#index-17">replace_image</a>
+</li>
+        </ul></li>
+        <li><a href="glossary.html#stream">stream (built-in variable)</a>
+</li>
+        <li><a href="pixmap.html#Pixmap.stride">stride (Pixmap attribute)</a>
+</li>
+        <li>
+    stroke_opacity
+
+        <ul>
+          <li><a href="page.html#index-11">draw_bezier</a>
+</li>
+          <li><a href="page.html#index-7">draw_circle</a>
+</li>
+          <li><a href="page.html#index-12">draw_curve</a>
+</li>
+          <li><a href="page.html#index-4">draw_line</a>
+</li>
+          <li><a href="page.html#index-8">draw_oval</a>
+</li>
+          <li><a href="page.html#index-10">draw_polyline</a>
+</li>
+          <li><a href="page.html#index-14">draw_quad</a>
+</li>
+          <li><a href="page.html#index-13">draw_rect</a>
+</li>
+          <li><a href="page.html#index-9">draw_sector</a>
+</li>
+          <li><a href="page.html#index-6">draw_squiggle</a>
+</li>
+          <li><a href="page.html#index-5">draw_zigzag</a>
+</li>
+          <li><a href="shape.html#index-3">finish</a>
+</li>
+          <li><a href="page.html#index-1">insert_text</a>, <a href="shape.html#index-4">[1]</a>
+</li>
+          <li><a href="page.html#index-2">insert_textbox</a>
+</li>
+        </ul></li>
+        <li>
+    style
+
+        <ul>
+          <li><a href="page.html#index-0">add_freetext_annot</a>
+</li>
+        </ul></li>
+        <li><a href="document.html#Document.subset_fonts">subset_fonts() (Document method)</a>
+</li>
+        <li>
+    SVG
+
+        <ul>
+          <li><a href="recipes-images.html#index-7">vector image</a>
+</li>
+        </ul></li>
+        <li><a href="document.html#Document.switch_layer">switch_layer() (Document method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="T" class="genindex-section">
+  <h2>T</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    table
+
+        <ul>
+          <li><a href="recipes-text.html#index-3">extract</a>
+</li>
+        </ul></li>
+        <li><a href="xml-class.html#Xml.tagname">tagname (Xml attribute)</a>
+</li>
+        <li>
+    tessdata
+
+        <ul>
+          <li><a href="page.html#index-22">get_textpage_ocr</a>
+</li>
+        </ul></li>
+        <li>
+    text
+
+        <ul>
+          <li><a href="annot.html#index-1">Annot.get_text</a>
+</li>
+          <li><a href="page.html#index-3">insert_htmlbox</a>
+</li>
+          <li><a href="recipes-text.html#index-0">key-value, lookup</a>
+</li>
+          <li><a href="page.html#index-19">Page.get_text</a>
+</li>
+          <li><a href="recipes-text.html#index-2">reading order</a>
+</li>
+          <li><a href="recipes-text.html#index-1">rectangle, extract</a>
+</li>
+        </ul></li>
+        <li><a href="xml-class.html#Xml.text">text (Xml attribute)</a>
+</li>
+        <li><a href="vars.html#TEXT_ACCURATE_BBOXES">TEXT_ACCURATE_BBOXES (built-in variable)</a>, <a href="vars.html#id0">[1]</a>
+</li>
+        <li><a href="vars.html#TEXT_ALIGN_CENTER">TEXT_ALIGN_CENTER (built-in variable)</a>
+</li>
+        <li><a href="vars.html#TEXT_ALIGN_JUSTIFY">TEXT_ALIGN_JUSTIFY (built-in variable)</a>
+</li>
+        <li><a href="vars.html#TEXT_ALIGN_LEFT">TEXT_ALIGN_LEFT (built-in variable)</a>
+</li>
+        <li><a href="vars.html#TEXT_ALIGN_RIGHT">TEXT_ALIGN_RIGHT (built-in variable)</a>
+</li>
+        <li><a href="vars.html#TEXT_CID_FOR_UNKNOWN_UNICODE">TEXT_CID_FOR_UNKNOWN_UNICODE (built-in variable)</a>
+</li>
+        <li><a href="vars.html#TEXT_COLLECT_STRUCTURE">TEXT_COLLECT_STRUCTURE (built-in variable)</a>
+</li>
+        <li><a href="vars.html#TEXT_COLLECT_VECTORS">TEXT_COLLECT_VECTORS (built-in variable)</a>
+</li>
+        <li>
+    text_color
+
+        <ul>
+          <li><a href="page.html#index-0">add_freetext_annot</a>
+</li>
+          <li><a href="annot.html#index-2">Annot.update</a>
+</li>
+        </ul></li>
+        <li><a href="widget.html#Widget.text_color">text_color (Widget attribute)</a>
+</li>
+        <li><a href="shape.html#Shape.text_cont">text_cont (Shape attribute)</a>
+</li>
+        <li><a href="vars.html#TEXT_DEHYPHENATE">TEXT_DEHYPHENATE (built-in variable)</a>
+</li>
+        <li><a href="widget.html#Widget.text_font">text_font (Widget attribute)</a>
+</li>
+        <li><a href="vars.html#TEXT_FONT_BOLD">TEXT_FONT_BOLD (built-in variable)</a>
+</li>
+        <li><a href="vars.html#TEXT_FONT_ITALIC">TEXT_FONT_ITALIC (built-in variable)</a>
+</li>
+        <li><a href="vars.html#TEXT_FONT_MONOSPACED">TEXT_FONT_MONOSPACED (built-in variable)</a>
+</li>
+        <li><a href="vars.html#TEXT_FONT_SERIFED">TEXT_FONT_SERIFED (built-in variable)</a>
+</li>
+        <li><a href="vars.html#TEXT_FONT_SUPERSCRIPT">TEXT_FONT_SUPERSCRIPT (built-in variable)</a>
+</li>
+        <li><a href="widget.html#Widget.text_fontsize">text_fontsize (Widget attribute)</a>
+</li>
+        <li><a href="vars.html#TEXT_IGNORE_ACTUALTEXT">TEXT_IGNORE_ACTUALTEXT (built-in variable)</a>, <a href="vars.html#id1">[1]</a>
+</li>
+        <li><a href="vars.html#TEXT_INHIBIT_SPACES">TEXT_INHIBIT_SPACES (built-in variable)</a>
+</li>
+        <li><a href="font.html#Font.text_length">text_length() (Font method)</a>
+</li>
+        <li><a href="widget.html#Widget.text_maxlen">text_maxlen (Widget attribute)</a>
+</li>
+        <li><a href="vars.html#TEXT_MEDIABOX_CLIP">TEXT_MEDIABOX_CLIP (built-in variable)</a>
+</li>
+        <li><a href="vars.html#TEXT_PRESERVE_IMAGES">TEXT_PRESERVE_IMAGES (built-in variable)</a>
+</li>
+        <li><a href="vars.html#TEXT_PRESERVE_LIGATURES">TEXT_PRESERVE_LIGATURES (built-in variable)</a>
+</li>
+        <li><a href="vars.html#TEXT_PRESERVE_SPANS">TEXT_PRESERVE_SPANS (built-in variable)</a>
+</li>
+        <li><a href="vars.html#TEXT_PRESERVE_WHITESPACE">TEXT_PRESERVE_WHITESPACE (built-in variable)</a>
+</li>
+        <li><a href="textwriter.html#TextWriter.text_rect">text_rect (TextWriter attribute)</a>
+</li>
+        <li><a href="vars.html#TEXT_STEXT_SEGMENT">TEXT_STEXT_SEGMENT (built-in variable)</a>
+</li>
+        <li><a href="widget.html#Widget.text_type">text_type (Widget attribute)</a>
+</li>
+        <li><a href="vars.html#TEXTFLAGS_BLOCKS">TEXTFLAGS_BLOCKS (built-in variable)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="vars.html#TEXTFLAGS_DICT">TEXTFLAGS_DICT (built-in variable)</a>
+</li>
+        <li><a href="vars.html#TEXTFLAGS_HTML">TEXTFLAGS_HTML (built-in variable)</a>
+</li>
+        <li><a href="vars.html#TEXTFLAGS_RAWDICT">TEXTFLAGS_RAWDICT (built-in variable)</a>
+</li>
+        <li><a href="vars.html#TEXTFLAGS_SEARCH">TEXTFLAGS_SEARCH (built-in variable)</a>
+</li>
+        <li><a href="vars.html#TEXTFLAGS_TEXT">TEXTFLAGS_TEXT (built-in variable)</a>
+</li>
+        <li><a href="vars.html#TEXTFLAGS_WORDS">TEXTFLAGS_WORDS (built-in variable)</a>
+</li>
+        <li><a href="vars.html#TEXTFLAGS_XHTML">TEXTFLAGS_XHTML (built-in variable)</a>
+</li>
+        <li><a href="vars.html#TEXTFLAGS_XML">TEXTFLAGS_XML (built-in variable)</a>
+</li>
+        <li>
+    textpage
+
+        <ul>
+          <li><a href="page.html#index-20">get_textbox</a>
+</li>
+          <li><a href="page.html#index-19">Page.get_text</a>
+</li>
+          <li><a href="page.html#index-30">search_for</a>
+</li>
+        </ul></li>
+        <li><a href="textpage.html#TextPage">TextPage (built-in class)</a>
+</li>
+        <li><a href="textwriter.html#TextWriter">TextWriter (built-in class)</a>
+</li>
+        <li><a href="pixmap.html#Pixmap.tint_with">tint_with() (Pixmap method)</a>
+</li>
+        <li><a href="outline.html#Outline.title">title (Outline attribute)</a>
+</li>
+        <li><a href="irect.html#IRect.tl">tl (IRect attribute)</a>
+
+        <ul>
+          <li><a href="rect.html#Rect.tl">(Rect attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="pymupdf4llm/api.html#to_markdown">to_markdown()</a>
+</li>
+        <li>
+    to_page
+
+        <ul>
+          <li><a href="document.html#index-1">Document.convert_to_pdf</a>
+</li>
+          <li><a href="document.html#index-4">Document.insert_file</a>
+</li>
+          <li><a href="document.html#index-3">Document.insert_pdf</a>
+</li>
+        </ul></li>
+        <li>
+    tobytes
+
+        <ul>
+          <li><a href="recipes-images.html#index-8">examples</a>
+</li>
+        </ul></li>
+        <li><a href="document.html#Document.tobytes">tobytes() (Document method)</a>
+
+        <ul>
+          <li><a href="pixmap.html#Pixmap.tobytes">(Pixmap method)</a>
+</li>
+        </ul></li>
+        <li><a href="tools.html#Tools">Tools (built-in class)</a>
+</li>
+        <li><a href="irect.html#IRect.top_left">top_left (IRect attribute)</a>
+
+        <ul>
+          <li><a href="rect.html#Rect.top_left">(Rect attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="irect.html#IRect.top_right">top_right (IRect attribute)</a>
+
+        <ul>
+          <li><a href="rect.html#Rect.top_right">(Rect attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="irect.html#IRect.torect">torect() (IRect method)</a>
+
+        <ul>
+          <li><a href="rect.html#Rect.torect">(Rect method)</a>
+</li>
+        </ul></li>
+        <li><a href="shape.html#Shape.totalcont">totalcont (Shape attribute)</a>
+</li>
+        <li><a href="irect.html#IRect.tr">tr (IRect attribute)</a>
+
+        <ul>
+          <li><a href="rect.html#Rect.tr">(Rect attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="glossary.html#trailer">trailer (built-in variable)</a>
+</li>
+        <li>
+    transform
+
+        <ul>
+          <li><a href="page.html#index-25">get_image_bbox</a>
+</li>
+          <li><a href="page.html#index-24">get_image_rects</a>
+</li>
+        </ul></li>
+        <li><a href="point.html#Point.transform">transform() (Point method)</a>
+
+        <ul>
+          <li><a href="quad.html#Quad.transform">(Quad method)</a>
+</li>
+          <li><a href="rect.html#Rect.transform">(Rect method)</a>
+</li>
+        </ul></li>
+        <li><a href="page.html#Page.transformation_matrix">transformation_matrix (Page attribute)</a>
+</li>
+        <li><a href="page.html#Page.trimbox">trimbox (Page attribute)</a>
+</li>
+        <li><a href="annot.html#Annot.type">type (Annot attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="U" class="genindex-section">
+  <h2>U</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    ufilename
+
+        <ul>
+          <li><a href="annot.html#index-3">Annot.update_file</a>
+</li>
+          <li><a href="document.html#index-7">Document.embfile_add</a>
+</li>
+          <li><a href="document.html#index-8">Document.embfile_upd</a>
+</li>
+        </ul></li>
+        <li><a href="quad.html#Quad.ul">ul (Quad attribute)</a>
+</li>
+        <li><a href="functions.html#unicode_to_glyph_name">unicode_to_glyph_name()</a>
+
+        <ul>
+          <li><a href="font.html#Font.unicode_to_glyph_name">(Font method)</a>
+</li>
+        </ul></li>
+        <li><a href="point.html#Point.unit">unit (Point attribute)</a>
+</li>
+        <li><a href="glossary.html#unitvector">unitvector (built-in variable)</a>
+</li>
+        <li><a href="tools.html#Tools.unset_quad_corrections">unset_quad_corrections() (Tools method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="annot.html#Annot.update">update() (Annot method)</a>
+
+        <ul>
+          <li><a href="widget.html#Widget.update">(Widget method)</a>
+</li>
+        </ul></li>
+        <li><a href="annot.html#Annot.update_file">update_file() (Annot method)</a>
+</li>
+        <li><a href="page.html#Page.update_link">update_link() (Page method)</a>
+</li>
+        <li><a href="document.html#Document.update_object">update_object() (Document method)</a>
+</li>
+        <li><a href="document.html#Document.update_stream">update_stream() (Document method)</a>
+</li>
+        <li><a href="quad.html#Quad.ur">ur (Quad attribute)</a>
+</li>
+        <li><a href="link.html#Link.uri">uri (Link attribute)</a>
+
+        <ul>
+          <li><a href="linkdest.html#linkDest.uri">(linkDest attribute)</a>
+</li>
+          <li><a href="outline.html#Outline.uri">(Outline attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="V" class="genindex-section">
+  <h2>V</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="font.html#Font.valid_codepoints">valid_codepoints() (Font method)</a>
+</li>
+        <li>
+    vector
+
+        <ul>
+          <li><a href="recipes-images.html#index-7">image SVG</a>
+</li>
+        </ul></li>
+        <li><a href="pymupdf4llm/api.html#version">version</a>
+
+        <ul>
+          <li><a href="vars.html#version">(built-in variable)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="document.html#Document.version_count">version_count (Document attribute)</a>
+</li>
+        <li><a href="vars.html#VersionBind">VersionBind (built-in variable)</a>
+</li>
+        <li><a href="vars.html#VersionDate">VersionDate (built-in variable)</a>
+</li>
+        <li><a href="vars.html#VersionFitz">VersionFitz (built-in variable)</a>
+</li>
+        <li><a href="annot.html#Annot.vertices">vertices (Annot attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="W" class="genindex-section">
+  <h2>W</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="pixmap.html#Pixmap.w">w (Pixmap attribute)</a>
+</li>
+        <li><a href="pixmap.html#Pixmap.warp">warp() (Pixmap method)</a>
+</li>
+        <li><a href="widget.html#Widget">Widget (built-in class)</a>
+</li>
+        <li>
+    widgets
+
+        <ul>
+          <li><a href="document.html#index-3">Document.insert_pdf</a>
+</li>
+        </ul></li>
+        <li><a href="page.html#Page.widgets">widgets() (Page method)</a>
+</li>
+        <li>
+    width
+
+        <ul>
+          <li><a href="document.html#index-6">Document.insert_page</a>
+</li>
+          <li><a href="document.html#index-2">Document.layout</a>
+</li>
+          <li><a href="document.html#index-5">Document.new_page</a>
+</li>
+          <li><a href="page.html#index-11">draw_bezier</a>
+</li>
+          <li><a href="page.html#index-7">draw_circle</a>
+</li>
+          <li><a href="page.html#index-12">draw_curve</a>
+</li>
+          <li><a href="page.html#index-4">draw_line</a>
+</li>
+          <li><a href="page.html#index-8">draw_oval</a>
+</li>
+          <li><a href="page.html#index-10">draw_polyline</a>
+</li>
+          <li><a href="page.html#index-14">draw_quad</a>
+</li>
+          <li><a href="page.html#index-13">draw_rect</a>
+</li>
+          <li><a href="page.html#index-9">draw_sector</a>
+</li>
+          <li><a href="page.html#index-6">draw_squiggle</a>
+</li>
+          <li><a href="page.html#index-5">draw_zigzag</a>
+</li>
+          <li><a href="shape.html#index-3">finish</a>
+</li>
+          <li><a href="document.html#index-0">open</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="irect.html#IRect.width">width (IRect attribute)</a>
+
+        <ul>
+          <li><a href="pixmap.html#Pixmap.width">(Pixmap attribute)</a>
+</li>
+          <li><a href="quad.html#Quad.width">(Quad attribute)</a>
+</li>
+          <li><a href="rect.html#Rect.width">(Rect attribute)</a>
+</li>
+          <li><a href="shape.html#Shape.width">(Shape attribute)</a>
+</li>
+        </ul></li>
+        <li>
+    words
+
+        <ul>
+          <li><a href="annot.html#index-1">Annot.get_text</a>
+</li>
+          <li><a href="page.html#index-19">Page.get_text</a>
+</li>
+        </ul></li>
+        <li><a href="functions.html#Page.wrap_contents">wrap_contents() (Page method)</a>
+</li>
+        <li><a href="story-class.html#Story.write">write() (Story method)</a>
+</li>
+        <li><a href="story-class.html#Story.write_stabilized">write_stabilized() (Story static method)</a>
+</li>
+        <li><a href="story-class.html#Story.write_stabilized_with_links">write_stabilized_with_links() (Story static method)</a>
+</li>
+        <li><a href="page.html#Page.write_text">write_text() (Page method)</a>
+
+        <ul>
+          <li><a href="textwriter.html#TextWriter.write_text">(TextWriter method)</a>
+</li>
+        </ul></li>
+        <li><a href="story-class.html#Story.write_with_links">write_with_links() (Story method)</a>
+</li>
+        <li>
+    wrong
+
+        <ul>
+          <li><a href="how-to-open-a-file.html#index-0">file extension</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="X" class="genindex-section">
+  <h2>X</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="pixmap.html#Pixmap.x">x (Pixmap attribute)</a>
+
+        <ul>
+          <li><a href="point.html#Point.x">(Point attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="irect.html#IRect.x0">x0 (IRect attribute)</a>
+
+        <ul>
+          <li><a href="rect.html#Rect.x0">(Rect attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="irect.html#IRect.x1">x1 (IRect attribute)</a>
+
+        <ul>
+          <li><a href="rect.html#Rect.x1">(Rect attribute)</a>
+</li>
+        </ul></li>
+        <li>
+    xhtml
+
+        <ul>
+          <li><a href="annot.html#index-1">Annot.get_text</a>
+</li>
+          <li><a href="page.html#index-19">Page.get_text</a>
+</li>
+        </ul></li>
+        <li>
+    xml
+
+        <ul>
+          <li><a href="annot.html#index-1">Annot.get_text</a>
+</li>
+          <li><a href="page.html#index-19">Page.get_text</a>
+</li>
+        </ul></li>
+        <li><a href="xml-class.html#Xml">Xml (built-in class)</a>
+</li>
+        <li><a href="functions.html#Document.xml_metadata_xref">xml_metadata_xref() (Document method)</a>
+</li>
+        <li>
+    xref
+
+        <ul>
+          <li><a href="page.html#index-18">delete_image</a>
+</li>
+          <li><a href="page.html#index-16">insert_image</a>
+</li>
+          <li><a href="page.html#index-17">replace_image</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="annot.html#Annot.xref">xref (Annot attribute)</a>
+
+        <ul>
+          <li><a href="glossary.html#xref">(built-in variable)</a>
+</li>
+          <li><a href="link.html#Link.xref">(Link attribute)</a>
+</li>
+          <li><a href="page.html#Page.xref">(Page attribute)</a>
+</li>
+          <li><a href="widget.html#Widget.xref">(Widget attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="document.html#Document.xref_copy">xref_copy() (Document method)</a>
+</li>
+        <li><a href="document.html#Document.xref_get_key">xref_get_key() (Document method)</a>
+</li>
+        <li><a href="document.html#Document.xref_get_keys">xref_get_keys() (Document method)</a>
+</li>
+        <li><a href="functions.html#Document.xref_length">xref_length() (Document method)</a>
+</li>
+        <li><a href="document.html#Document.xref_object">xref_object() (Document method)</a>
+</li>
+        <li><a href="document.html#Document.xref_set_key">xref_set_key() (Document method)</a>
+</li>
+        <li><a href="document.html#Document.xref_stream">xref_stream() (Document method)</a>
+</li>
+        <li><a href="document.html#Document.xref_stream_raw">xref_stream_raw() (Document method)</a>
+</li>
+        <li><a href="document.html#Document.xref_xml_metadata">xref_xml_metadata() (Document method)</a>
+</li>
+        <li>
+    xrefs
+
+        <ul>
+          <li><a href="page.html#index-23">get_image_info</a>
+</li>
+        </ul></li>
+        <li><a href="pixmap.html#Pixmap.xres">xres (Pixmap attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="Y" class="genindex-section">
+  <h2>Y</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="pixmap.html#Pixmap.y">y (Pixmap attribute)</a>
+
+        <ul>
+          <li><a href="point.html#Point.y">(Point attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="irect.html#IRect.y0">y0 (IRect attribute)</a>
+
+        <ul>
+          <li><a href="rect.html#Rect.y0">(Rect attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="irect.html#IRect.y1">y1 (IRect attribute)</a>
+
+        <ul>
+          <li><a href="rect.html#Rect.y1">(Rect attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="pixmap.html#Pixmap.yres">yres (Pixmap attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="Z" class="genindex-section">
+  <h2>Z</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="recipes-images.html#index-1">zoom</a>
+
+        <ul>
+          <li><a href="recipes-images.html#index-2">resolution</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2015-2025, Artifex
+            </div>
+            Made with 
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            <div class="last-updated">
+              Last updated on 10. Mar 2025</div>
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=9ddcf537"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    </body>
+</html>

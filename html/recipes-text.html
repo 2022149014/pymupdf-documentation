@@ -1,0 +1,1243 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="Artifex" name="author" />
+<meta content="PyMuPDF is a high-performance Python library for data extraction, analysis, conversion &amp; manipulation of PDF (and other) documents." name="description" />
+<meta content="PDF Text Extraction, PDF Image Extraction, PDF Conversion, PDF Tables, PDF Splitting, PDF Creation, Pyodide, PyScript" name="keywords" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JZTN4VTL9M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JZTN4VTL9M');
+    </script>
+    <link rel="author" title="About these documents" href="about.html" /><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Images" href="recipes-images.html" /><link rel="prev" title="Opening Files" href="how-to-open-a-file.html" />
+
+    <link rel="shortcut icon" href="_static/PyMuPDF.ico"/><!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
+        <title>Text - PyMuPDF 1.25.3 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=74643500" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">PyMuPDF 1.25.3 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo only-light" src="_static/sidebar-logo-dark.svg" alt="Light Logo"/>
+    <img class="sidebar-logo only-dark" src="_static/sidebar-logo-light.svg" alt="Dark Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">PyMuPDF 1.25.3 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="about.html">Features Comparison</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#performance">Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#license-and-copyright">License and Copyright</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pymupdf4llm/index.html">PyMuPDF4LLM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pymupdf-pro.html">PyMuPDF Pro</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="the-basics.html">The Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rag.html">PyMuPDF, LLM &amp; RAG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How to Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="how-to-open-a-file.html">Opening Files</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-images.html">Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-annotations.html">Annotations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-drawing-and-graphics.html">Drawing and Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-stories.html">Stories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-journalling.html">Journalling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-multiprocessing.html">Multiprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-ocr.html">OCR - Optical Character Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-optional-content.html">Optional Content Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-low-level-interfaces.html">Low-Level Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-common-issues-and-their-solutions.html">Common Issues and their Solutions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="module.html">Command line interface</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="classes.html">Classes</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Classes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="annot.html">Annot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archive-class.html">Archive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="colorspace.html">Colorspace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="displaylist.html">DisplayList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="document.html">Document</a></li>
+<li class="toctree-l2"><a class="reference internal" href="document-writer-class.html">DocumentWriter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="font.html">Font</a></li>
+<li class="toctree-l2"><a class="reference internal" href="identity.html">Identity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="irect.html">IRect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="link.html">Link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linkdest.html">linkDest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matrix.html">Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outline.html">Outline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page.html">Page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pixmap.html">Pixmap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="point.html">Point</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quad.html">Quad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rect.html">Rect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shape.html">Shape</a></li>
+<li class="toctree-l2"><a class="reference internal" href="story-class.html">Story</a></li>
+<li class="toctree-l2"><a class="reference internal" href="textpage.html">TextPage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="textwriter.html">TextWriter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="widget.html">Widget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xml-class.html">Xml</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="algebra.html">Operator Algebra for Geometry Objects</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="lowlevel.html">Low Level Functions and Classes</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Low Level Functions and Classes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="device.html">Device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coop_low.html">Working together: DisplayList and TextPage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vars.html">Constants and Enumerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="colors.html">Color Database</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="app1.html">Appendix 1: Details on Text Extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="app2.html">Appendix 2: Considerations on Embedded Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="app3.html">Appendix 3: Assorted Technical Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="app4.html">Appendix 4: Performance Comparison Methodology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changes.html">Change Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="znames.html">Deprecated Names</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="_sources/recipes-text.rst" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <style>
+
+    #languageToggle {
+        width:25%;
+        margin:8px 10px 0;
+    }
+
+    #button-select-en {
+        padding: 5px 10px;
+        background-color: #fff;
+        border: 1px solid #000;
+        border-radius: 10px 0 0 10px;
+        font-size: 14px;
+    }
+
+    #button-select-ja {
+        padding: 5px 10px;
+        background-color: #fff;
+        border: 1px solid #000;
+        border-radius: 0px 10px 10px 0;
+        border-left: 0;
+        font-size: 14px;
+    }
+
+    #button-select-en , #button-select-ja, #button-select-en:hover , #button-select-ja:hover  {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    /* small screens */
+    @media all and (max-width : 768px)  {
+        #languageToggle {
+            width:50%;
+        }
+    }
+
+    @media all and (max-width : 400px)  {
+        #languageToggle {
+            width:70%;
+        }
+    }
+
+    @media all and (max-width : 375px)  {
+        #button-select-en , #button-select-ja {
+            font-size: 11px;
+        }
+    }
+
+</style>
+
+<div style="display:flex;justify-content:space-between;align-items: center;">
+    <form class="sidebar-search-container top" method="get" action="search.html" role="search" style="width:75%">
+      <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+      <input type="hidden" name="check_keywords" value="yes">
+      <input type="hidden" name="area" value="default">
+    </form>
+    <div id="languageToggle"><span><a id="button-select-en" href="javaScript:changeLanguage('en')">English</a></span><span><a id="button-select-ja" href="javaScript:changeLanguage('ja')">日本語</a></span></div>
+</div>
+
+<div style="display:flex;justify-content:space-between;align-items:center;margin-top:20px;">
+    <div class="discordLink" style="display:flex;align-items:center;margin-top: -5px;">
+        <a href="https://discord.gg/TSpYGBW4eq" id="findOnDiscord" target=_blank>Find <b>#pymupdf</b> on <b>Discord</b></a>
+        <a href="https://discord.gg/TSpYGBW4eq" target=_blank>
+            <div style="width:30px;height:30px;margin-left:5px;">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36">
+                    <defs>
+                        <style>.discordLogoFill{fill:#5865f2;}</style>
+                    </defs>
+                    <g id="Discord_Logo" data-name="Discord Logo">
+                        <path class="discordLogoFill" d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/>
+                    </g>
+                </svg>
+            </div>
+        </a>
+    </div>
+
+    <div class="feedbackLink"><a id="feedbackLinkTop" target=_blank>Do you have any feedback on this page?</b></a></div>
+</div>
+
+<script>
+    // highlightSelectedLanguage
+
+    if (document.getElementsByTagName('html')[0].getAttribute('lang')=="ja") {
+        document.getElementById("button-select-ja").style.backgroundColor = "#ff6600";
+        document.getElementById("button-select-en").style.color = "#000";
+    } else {
+        document.getElementById("button-select-en").style.backgroundColor = "#ff6600";
+        document.getElementById("button-select-ja").style.color = "#000";
+    }
+
+
+    var url_string = window.location.href;
+    var a = document.getElementById('feedbackLinkTop');
+    a.setAttribute("href", "https://artifex.com/contributor/feedback.php?utm_source=rtd-pymupdf&utm_medium=rtd&utm_content=header-link&url="+url_string);
+
+    function changeLanguage(lang) {
+        var new_url;
+
+        if (lang == "en") {
+            new_url = url_string.replace("/ja/", "/en/");
+        } else {
+            new_url = url_string.replace("/en/", "/ja/");
+        }
+
+        window.location.replace(new_url);
+    }
+
+</script><section id="text">
+<span id="recipestext"></span><h1>Text<a class="headerlink" href="#text" title="Link to this heading">¶</a></h1>
+<section id="how-to-extract-all-document-text">
+<span id="recipestext-a"></span><h2>How to Extract all Document Text<a class="headerlink" href="#how-to-extract-all-document-text" title="Link to this heading">¶</a></h2>
+<p>This script will take a document filename and generate a text file from all of its text.</p>
+<p>The document can be any <a class="reference internal" href="how-to-open-a-file.html#supported-file-types"><span class="std std-ref">supported type</span></a>.</p>
+<p>The script works as a command line tool which expects the document filename supplied as a parameter. It generates one text file named “filename.txt” in the script directory. Text of pages is separated by a form feed character:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">pathlib</span><span class="o">,</span> <span class="nn">pymupdf</span>
+<span class="n">fname</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># get document filename</span>
+<span class="k">with</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span> <span class="k">as</span> <span class="n">doc</span><span class="p">:</span>  <span class="c1"># open document</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">page</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span> <span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">])</span>
+<span class="c1"># write as a binary file to support non-ASCII characters</span>
+<span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">fname</span> <span class="o">+</span> <span class="s2">&quot;.txt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">write_bytes</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>The output will be plain text as it is coded in the document. No effort is made to prettify in any way. Specifically for PDF, this may mean output not in usual reading order, unexpected line breaks and so forth.</p>
+<p>You have many options to rectify this – see chapter <a class="reference internal" href="app2.html#appendix2"><span class="std std-ref">Appendix 2: Considerations on Embedded Files</span></a>. Among them are:</p>
+<ol class="arabic simple">
+<li><p>Extract text in HTML format and store it as a HTML document, so it can be viewed in any browser.</p></li>
+<li><p>Extract text as a list of text blocks via <em>Page.get_text(“blocks”)</em>. Each item of this list contains position information for its text, which can be used to establish a convenient reading order.</p></li>
+<li><p>Extract a list of single words via <em>Page.get_text(“words”)</em>. Its items are words with position information. Use it to determine text contained in a given rectangle – see next section.</p></li>
+</ol>
+<p>See the following two sections for examples and further explanations.</p>
+</section>
+<section id="how-to-extract-text-as-markdown">
+<span id="index-0"></span><h2>How to Extract Text as Markdown<a class="headerlink" href="#how-to-extract-text-as-markdown" title="Link to this heading">¶</a></h2>
+<p>This is especially useful for <cite>RAG/LLM</cite> environments - please see <a class="reference internal" href="rag.html#rag-outputting-as-md"><span class="std std-ref">Outputting as Markdown</span></a>.</p>
+</section>
+<section id="how-to-extract-key-value-pairs-from-a-page">
+<span id="recipestext-a1"></span><h2>How to Extract Key-Value Pairs from a Page<a class="headerlink" href="#how-to-extract-key-value-pairs-from-a-page" title="Link to this heading">¶</a></h2>
+<p>If the layout of a page is <em>“predictable”</em> in some sense, then there is a simple way to find the values for a given set of keywords fast and easily – without using regular expressions. Please see <a class="reference external" href="https://github.com/pymupdf/PyMuPDF-Utilities/tree/master/text-extraction/lookup-keywords.py">this example script</a>.</p>
+<p>“Predictable” in this context means:</p>
+<ul class="simple">
+<li><p>Every keyword is followed by its value – no other text is present in between them.</p></li>
+<li><p>The bottom of the value’s boundary box is <strong>not above</strong> the one of the keyword.</p></li>
+<li><p>There are <strong>no other restrictions</strong>: the page layout may or may not be fixed, and the text may also have been stored as one string. Key and value may have any distance from each other.</p></li>
+</ul>
+<p>For example, the following five key-value pairs will be correctly identified:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">key1</span>               <span class="n">value1</span>
+<span class="n">key2</span>
+<span class="n">value2</span>
+<span class="n">key3</span>
+       <span class="n">value3</span> <span class="n">blah</span><span class="p">,</span> <span class="n">blah</span><span class="p">,</span> <span class="n">blah</span> <span class="n">key4</span> <span class="n">value4</span> <span class="n">some</span> <span class="n">other</span> <span class="n">text</span> <span class="n">key5</span> <span class="n">value5</span> <span class="o">...</span>
+</pre></div>
+</div>
+</section>
+<section id="how-to-extract-text-from-within-a-rectangle">
+<span id="recipestext-b"></span><span id="index-1"></span><h2>How to Extract Text from within a Rectangle<a class="headerlink" href="#how-to-extract-text-from-within-a-rectangle" title="Link to this heading">¶</a></h2>
+<p>There is now (v1.18.0) more than one way to achieve this. We therefore have created a <a class="reference external" href="https://github.com/pymupdf/PyMuPDF-Utilities/tree/master/textbox-extraction">folder</a> in the PyMuPDF-Utilities repository specifically dealing with this topic.</p>
+<hr class="docutils" />
+</section>
+<section id="how-to-extract-text-in-natural-reading-order">
+<span id="recipestext-c"></span><span id="index-2"></span><h2>How to Extract Text in Natural Reading Order<a class="headerlink" href="#how-to-extract-text-in-natural-reading-order" title="Link to this heading">¶</a></h2>
+<p>One of the common issues with PDF text extraction is, that text may not appear in any particular reading order.</p>
+<p>This is the responsibility of the PDF creator (software or a human). For example, page headers may have been inserted in a separate step – after the document had been produced. In such a case, the header text will appear at the end of a page text extraction (although it will be correctly shown by PDF viewer software). For example, the following snippet will add some header and footer lines to an existing PDF:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">doc</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;some.pdf&quot;</span><span class="p">)</span>
+<span class="n">header</span> <span class="o">=</span> <span class="s2">&quot;Header&quot;</span>  <span class="c1"># text in header</span>
+<span class="n">footer</span> <span class="o">=</span> <span class="s2">&quot;Page </span><span class="si">%i</span><span class="s2"> of </span><span class="si">%i</span><span class="s2">&quot;</span>  <span class="c1"># text in footer</span>
+<span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">:</span>
+    <span class="n">page</span><span class="o">.</span><span class="n">insert_text</span><span class="p">((</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="n">header</span><span class="p">)</span>  <span class="c1"># insert header</span>
+    <span class="n">page</span><span class="o">.</span><span class="n">insert_text</span><span class="p">(</span>  <span class="c1"># insert footer 50 points above page bottom</span>
+        <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">page</span><span class="o">.</span><span class="n">rect</span><span class="o">.</span><span class="n">height</span> <span class="o">-</span> <span class="mi">50</span><span class="p">),</span>
+        <span class="n">footer</span> <span class="o">%</span> <span class="p">(</span><span class="n">page</span><span class="o">.</span><span class="n">number</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">doc</span><span class="o">.</span><span class="n">page_count</span><span class="p">),</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>The text sequence extracted from a page modified in this way will look like this:</p>
+<ol class="arabic simple">
+<li><p>original text</p></li>
+<li><p>header line</p></li>
+<li><p>footer line</p></li>
+</ol>
+<p>PyMuPDF has several means to re-establish some reading sequence or even to re-generate a layout close to the original:</p>
+<ol class="arabic simple">
+<li><p>Use <code class="xref any docutils literal notranslate"><span class="pre">sort</span></code> parameter of <a class="reference internal" href="page.html#Page.get_text" title="Page.get_text"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Page.get_text()</span></code></a>. It will sort the output from top-left to bottom-right (ignored for XHTML, HTML and XML output).</p></li>
+<li><p>Use the <code class="xref any docutils literal notranslate"><span class="pre">pymupdf</span></code> module in CLI: <code class="xref any docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pymupdf</span> <span class="pre">gettext</span> <span class="pre">...</span></code>, which produces a text file where text has been re-arranged in layout-preserving mode. Many options are available to control the output.</p></li>
+</ol>
+<p>You can also use the above mentioned <a class="reference external" href="https://github.com/pymupdf/PyMuPDF/wiki/How-to-extract-text-from-a-rectangle">script</a> with your modifications.</p>
+<hr class="docutils" />
+</section>
+<section id="how-to-extract-table-content-from-documents">
+<span id="recipestext-d"></span><h2>How to <span class="target" id="index-3"></span>Extract Table Content from Documents<a class="headerlink" href="#how-to-extract-table-content-from-documents" title="Link to this heading">¶</a></h2>
+<p>If you see a table in a document, you are normally not looking at something like an embedded Excel or other identifiable object. It usually is just normal, standard text, formatted to appear as tabular data.</p>
+<p>Extracting tabular data from such a page area therefore means that you must find a way to <strong>identify</strong> the table area (i.e. its boundary box), then <strong>(1)</strong> graphically indicate table and column borders, and <strong>(2)</strong> then extract text based on this information.</p>
+<p>This can be a very complex task, depending on details like the presence or absence of lines, rectangles or other supporting vector graphics.</p>
+<p>Method <a class="reference internal" href="page.html#Page.find_tables" title="Page.find_tables"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Page.find_tables()</span></code></a> does all that for you, with a high table detection precision. Its great advantage is that there are no external library dependencies, nor the need to employ artificial intelligence or machine learning technologies. It also provides an integrated interface to the well-known Python package for data analysis <a class="reference external" href="https://pypi.org/project/pandas/">pandas</a>.</p>
+<p>Please have a look at example <a class="reference external" href="https://github.com/pymupdf/PyMuPDF-Utilities/tree/master/table-analysis">Jupyter notebooks</a>, which cover standard situations like multiple tables on one page or joining table fragments across multiple pages.</p>
+<hr class="docutils" />
+</section>
+<section id="how-to-mark-extracted-text">
+<span id="recipestext-e"></span><h2>How to Mark Extracted Text<a class="headerlink" href="#how-to-mark-extracted-text" title="Link to this heading">¶</a></h2>
+<p>There is a standard search function to search for arbitrary text on a page: <a class="reference internal" href="page.html#Page.search_for" title="Page.search_for"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Page.search_for()</span></code></a>. It returns a list of <a class="reference internal" href="rect.html#rect"><span class="std std-ref">Rect</span></a> objects which surround a found occurrence. These rectangles can for example be used to automatically insert annotations which visibly mark the found text.</p>
+<p>This method has advantages and drawbacks. Pros are:</p>
+<ul class="simple">
+<li><p>The search string can contain blanks and wrap across lines</p></li>
+<li><p>Upper or lower case characters are treated equal</p></li>
+<li><p>Word hyphenation at line ends is detected and resolved</p></li>
+<li><p>Return may also be a list of <a class="reference internal" href="quad.html#quad"><span class="std std-ref">Quad</span></a> objects to precisely locate text that is <strong>not parallel</strong> to either axis – using <a class="reference internal" href="quad.html#quad"><span class="std std-ref">Quad</span></a> output is also recommended, when page rotation is not zero.</p></li>
+</ul>
+<p>But you also have other options:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">pymupdf</span>
+
+<span class="k">def</span> <span class="nf">mark_word</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Underline each word that contains &#39;text&#39;.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">found</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">wlist</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="s2">&quot;words&quot;</span><span class="p">,</span> <span class="n">delimiters</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>  <span class="c1"># make the word list</span>
+    <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">wlist</span><span class="p">:</span>  <span class="c1"># scan through all words on page</span>
+        <span class="k">if</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">w</span><span class="p">[</span><span class="mi">4</span><span class="p">]:</span>  <span class="c1"># w[4] is the word&#39;s string</span>
+            <span class="n">found</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1"># count</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">Rect</span><span class="p">(</span><span class="n">w</span><span class="p">[:</span><span class="mi">4</span><span class="p">])</span>  <span class="c1"># make rect from word bbox</span>
+            <span class="n">page</span><span class="o">.</span><span class="n">add_underline_annot</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>  <span class="c1"># underline</span>
+    <span class="k">return</span> <span class="n">found</span>
+
+<span class="n">fname</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># filename</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># search string</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;underlining words containing &#39;</span><span class="si">%s</span><span class="s2">&#39; in document &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">doc</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+
+<span class="n">new_doc</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># indicator if anything found at all</span>
+
+<span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">:</span>  <span class="c1"># scan through the pages</span>
+    <span class="n">found</span> <span class="o">=</span> <span class="n">mark_word</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>  <span class="c1"># mark the page&#39;s words</span>
+    <span class="k">if</span> <span class="n">found</span><span class="p">:</span>  <span class="c1"># if anything found ...</span>
+        <span class="n">new_doc</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;found &#39;</span><span class="si">%s</span><span class="s2">&#39; </span><span class="si">%i</span><span class="s2"> times on page </span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">found</span><span class="p">,</span> <span class="n">page</span><span class="o">.</span><span class="n">number</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">new_doc</span><span class="p">:</span>
+    <span class="n">doc</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;marked-&quot;</span> <span class="o">+</span> <span class="n">doc</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This script uses <code class="xref any docutils literal notranslate"><span class="pre">Page.get_text(&quot;words&quot;)</span></code> to look for a string, handed in via cli parameter. This method separates a page’s text into “words” using white spaces as delimiters. Further remarks:</p>
+<ul class="simple">
+<li><p>If found, the <strong>complete word containing the string</strong> is marked (underlined) – not only the search string.</p></li>
+<li><p>The search string may <strong>not contain word delimiters</strong>. By default, word delimiters are white spaces and the non-breaking space <code class="xref any docutils literal notranslate"><span class="pre">chr(0xA0)</span></code>. If you use extra delimiting characters like <code class="xref any docutils literal notranslate"><span class="pre">page.get_text(&quot;words&quot;,</span> <span class="pre">delimiters=&quot;./,&quot;)</span></code> then none of these characters should be included in your search string either.</p></li>
+<li><p>As shown here, upper / lower cases are <strong>respected</strong>. But this can be changed by using the string method <em>lower()</em> (or even regular expressions) in function <em>mark_word</em>.</p></li>
+<li><p>There is <strong>no upper limit</strong>: all occurrences will be detected.</p></li>
+<li><p>You can use <strong>anything</strong> to mark the word: ‘Underline’, ‘Highlight’, ‘StrikeThrough’ or ‘Square’ annotations, etc.</p></li>
+<li><p>Here is an example snippet of a page of this manual, where “MuPDF” has been used as the search string. Note that all strings <strong>containing “MuPDF”</strong> have been completely underlined (not just the search string).</p></li>
+</ul>
+<a class="reference internal image-reference" href="_images/img-markedpdf.jpg"><img alt="_images/img-markedpdf.jpg" src="_images/img-markedpdf.jpg" style="width: 439.2px; height: 219.6px;" />
+</a>
+<hr class="docutils" />
+</section>
+<section id="how-to-mark-searched-text">
+<span id="recipestext-f"></span><h2>How to Mark Searched Text<a class="headerlink" href="#how-to-mark-searched-text" title="Link to this heading">¶</a></h2>
+<p>This script searches for text and marks it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="kn">import</span> <span class="nn">pymupdf</span>
+
+<span class="c1"># the document to annotate</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;tilted-text.pdf&quot;</span><span class="p">)</span>
+
+<span class="c1"># the text to be marked</span>
+<span class="n">needle</span> <span class="o">=</span> <span class="s2">&quot;¡La práctica hace el campeón!&quot;</span>
+
+<span class="c1"># work with first page only</span>
+<span class="n">page</span> <span class="o">=</span> <span class="n">doc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># get list of text locations</span>
+<span class="c1"># we use &quot;quads&quot;, not rectangles because text may be tilted!</span>
+<span class="n">rl</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="n">search_for</span><span class="p">(</span><span class="n">needle</span><span class="p">,</span> <span class="n">quads</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># mark all found quads with one annotation</span>
+<span class="n">page</span><span class="o">.</span><span class="n">add_squiggly_annot</span><span class="p">(</span><span class="n">rl</span><span class="p">)</span>
+
+<span class="c1"># save to a new PDF</span>
+<span class="n">doc</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;a-squiggly.pdf&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The result looks like this:</p>
+<a class="reference internal image-reference" href="_images/img-textmarker.jpg"><img alt="_images/img-textmarker.jpg" src="_images/img-textmarker.jpg" style="width: 234.4px; height: 273.6px;" />
+</a>
+<hr class="docutils" />
+</section>
+<section id="how-to-mark-non-horizontal-text">
+<span id="recipestext-g"></span><h2>How to Mark Non-horizontal Text<a class="headerlink" href="#how-to-mark-non-horizontal-text" title="Link to this heading">¶</a></h2>
+<p>The previous section already shows an example for marking non-horizontal text, that was detected by text <strong>searching</strong>.</p>
+<p>But text <strong>extraction</strong> with the “dict” / “rawdict” options of <a class="reference internal" href="page.html#Page.get_text" title="Page.get_text"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Page.get_text()</span></code></a> may also return text with a non-zero angle to the x-axis. This is indicated by the value of the line dictionary’s <code class="xref any docutils literal notranslate"><span class="pre">&quot;dir&quot;</span></code> key: it is the tuple <code class="xref any docutils literal notranslate"><span class="pre">(cosine,</span> <span class="pre">sine)</span></code> for that angle. If <code class="xref any docutils literal notranslate"><span class="pre">line[&quot;dir&quot;]</span> <span class="pre">!=</span> <span class="pre">(1,</span> <span class="pre">0)</span></code>, then the text of all its spans is rotated by (the same) angle != 0.</p>
+<p>The “bboxes” returned by the method however are rectangles only – not quads. So, to mark span text correctly, its quad must be recovered from the data contained in the line and span dictionary. Do this with the following utility function (new in v1.18.9):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">span_quad</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">recover_quad</span><span class="p">(</span><span class="n">line</span><span class="p">[</span><span class="s2">&quot;dir&quot;</span><span class="p">],</span> <span class="n">span</span><span class="p">)</span>
+<span class="n">annot</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="n">add_highlight_annot</span><span class="p">(</span><span class="n">span_quad</span><span class="p">)</span>  <span class="c1"># this will mark the complete span text</span>
+</pre></div>
+</div>
+<p>If you want to <strong>mark the complete line</strong> or a subset of its spans in one go, use the following snippet (works for v1.18.10 or later):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">line_quad</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">recover_line_quad</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">spans</span><span class="o">=</span><span class="n">line</span><span class="p">[</span><span class="s2">&quot;spans&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">page</span><span class="o">.</span><span class="n">add_highlight_annot</span><span class="p">(</span><span class="n">line_quad</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="_images/img-linequad.jpg" src="_images/img-linequad.jpg" />
+<p>The <code class="xref any docutils literal notranslate"><span class="pre">spans</span></code> argument above may specify any sub-list of <code class="xref any docutils literal notranslate"><span class="pre">line[&quot;spans&quot;]</span></code>. In the example above, the second to second-to-last span are marked. If omitted, the complete line is taken.</p>
+<hr class="docutils" />
+</section>
+<section id="how-to-analyze-font-characteristics">
+<span id="recipestext-h"></span><h2>How to Analyze Font Characteristics<a class="headerlink" href="#how-to-analyze-font-characteristics" title="Link to this heading">¶</a></h2>
+<p>To analyze the characteristics of text in a PDF use this elementary script as a starting point:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">import</span> <span class="nn">pymupdf</span>
+
+
+<span class="k">def</span> <span class="nf">flags_decomposer</span><span class="p">(</span><span class="n">flags</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Make font flags human readable.&quot;&quot;&quot;</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="n">flags</span> <span class="o">&amp;</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;superscript&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">flags</span> <span class="o">&amp;</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;italic&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">flags</span> <span class="o">&amp;</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;serifed&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;sans&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">flags</span> <span class="o">&amp;</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;monospaced&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;proportional&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">flags</span> <span class="o">&amp;</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;bold&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+
+
+<span class="n">doc</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">page</span> <span class="o">=</span> <span class="n">doc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># read page text as a dictionary, suppressing extra spaces in CJK fonts</span>
+<span class="n">blocks</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="s2">&quot;dict&quot;</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="mi">11</span><span class="p">)[</span><span class="s2">&quot;blocks&quot;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">blocks</span><span class="p">:</span>  <span class="c1"># iterate through the text blocks</span>
+    <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">b</span><span class="p">[</span><span class="s2">&quot;lines&quot;</span><span class="p">]:</span>  <span class="c1"># iterate through the text lines</span>
+        <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">l</span><span class="p">[</span><span class="s2">&quot;spans&quot;</span><span class="p">]:</span>  <span class="c1"># iterate through the text spans</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+            <span class="n">font_properties</span> <span class="o">=</span> <span class="s2">&quot;Font: &#39;</span><span class="si">%s</span><span class="s2">&#39; (</span><span class="si">%s</span><span class="s2">), size </span><span class="si">%g</span><span class="s2">, color #</span><span class="si">%06x</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span>
+                <span class="n">s</span><span class="p">[</span><span class="s2">&quot;font&quot;</span><span class="p">],</span>  <span class="c1"># font name</span>
+                <span class="n">flags_decomposer</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="s2">&quot;flags&quot;</span><span class="p">]),</span>  <span class="c1"># readable font flags</span>
+                <span class="n">s</span><span class="p">[</span><span class="s2">&quot;size&quot;</span><span class="p">],</span>  <span class="c1"># font size</span>
+                <span class="n">s</span><span class="p">[</span><span class="s2">&quot;color&quot;</span><span class="p">],</span>  <span class="c1"># font color</span>
+            <span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Text: &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="n">s</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">])</span>  <span class="c1"># simple print of text</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">font_properties</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here is the PDF page and the script output:</p>
+<a class="reference internal image-reference" href="_images/img-pdftext.jpg"><img alt="_images/img-pdftext.jpg" src="_images/img-pdftext.jpg" style="width: 1536.8000000000002px; height: 900.0px;" />
+</a>
+<hr class="docutils" />
+</section>
+<section id="how-to-insert-text">
+<span id="recipestext-i"></span><h2>How to Insert Text<a class="headerlink" href="#how-to-insert-text" title="Link to this heading">¶</a></h2>
+<p>PyMuPDF provides ways to insert text on new or existing PDF pages with the following features:</p>
+<ul>
+<li><p>choose the font, including built-in fonts and fonts that are available as files</p></li>
+<li><p>choose text characteristics like bold, italic, font size, font color, etc.</p></li>
+<li><p>position the text in multiple ways:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>either as simple line-oriented output starting at a certain point,</p></li>
+<li><p>or fitting text in a box provided as a rectangle, in which case text alignment choices are also available,</p></li>
+<li><p>choose whether text should be put in foreground (overlay existing content),</p></li>
+<li><p>all text can be arbitrarily “morphed”, i.e. its appearance can be changed via a <a class="reference internal" href="matrix.html#matrix"><span class="std std-ref">Matrix</span></a>, to achieve effects like scaling, shearing or mirroring,</p></li>
+<li><p>independently from morphing and in addition to that, text can be rotated by integer multiples of 90 degrees.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>All of the above is provided by three basic <a class="reference internal" href="page.html#page"><span class="std std-ref">Page</span></a>, resp. <a class="reference internal" href="shape.html#shape"><span class="std std-ref">Shape</span></a> methods:</p>
+<ul>
+<li><p><a class="reference internal" href="page.html#Page.insert_font" title="Page.insert_font"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Page.insert_font()</span></code></a> – install a font for the page for later reference. The result is reflected in the output of <a class="reference internal" href="document.html#Document.get_page_fonts" title="Document.get_page_fonts"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Document.get_page_fonts()</span></code></a>. The font can be:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>provided as a file,</p></li>
+<li><p>via <a class="reference internal" href="font.html#font"><span class="std std-ref">Font</span></a> (then use <a class="reference internal" href="font.html#Font.buffer" title="Font.buffer"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Font.buffer</span></code></a>)</p></li>
+<li><p>already present somewhere in <strong>this or another</strong> PDF, or</p></li>
+<li><p>be a <strong>built-in</strong> font.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><a class="reference internal" href="page.html#Page.insert_text" title="Page.insert_text"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Page.insert_text()</span></code></a> – write some lines of text. Internally, this uses <a class="reference internal" href="shape.html#Shape.insert_text" title="Shape.insert_text"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Shape.insert_text()</span></code></a>.</p></li>
+<li><p><a class="reference internal" href="page.html#Page.insert_textbox" title="Page.insert_textbox"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Page.insert_textbox()</span></code></a> – fit text in a given rectangle. Here you can choose text alignment features (left, right, centered, justified) and you keep control as to whether text actually fits. Internally, this uses <a class="reference internal" href="shape.html#Shape.insert_textbox" title="Shape.insert_textbox"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Shape.insert_textbox()</span></code></a>.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Both text insertion methods automatically install the font as necessary.</p>
+</div>
+<section id="how-to-write-text-lines">
+<span id="recipestext-i-a"></span><h3>How to Write Text Lines<a class="headerlink" href="#how-to-write-text-lines" title="Link to this heading">¶</a></h3>
+<p>Output some text lines on a page:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pymupdf</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>  <span class="c1"># new or existing PDF</span>
+<span class="n">page</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">new_page</span><span class="p">()</span>  <span class="c1"># new or existing page via doc[n]</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">72</span><span class="p">)</span>  <span class="c1"># start point of 1st line</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Some text,</span><span class="se">\n</span><span class="s2">spread across</span><span class="se">\n</span><span class="s2">several lines.&quot;</span>
+<span class="c1"># the same result is achievable by</span>
+<span class="c1"># text = [&quot;Some text&quot;, &quot;spread across&quot;, &quot;several lines.&quot;]</span>
+
+<span class="n">rc</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="n">insert_text</span><span class="p">(</span><span class="n">p</span><span class="p">,</span>  <span class="c1"># bottom-left of 1st char</span>
+                     <span class="n">text</span><span class="p">,</span>  <span class="c1"># the text (honors &#39;\n&#39;)</span>
+                     <span class="n">fontname</span> <span class="o">=</span> <span class="s2">&quot;helv&quot;</span><span class="p">,</span>  <span class="c1"># the default font</span>
+                     <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">11</span><span class="p">,</span>  <span class="c1"># the default font size</span>
+                     <span class="n">rotate</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>  <span class="c1"># also available: 90, 180, 270</span>
+                     <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%i</span><span class="s2"> lines printed on page </span><span class="si">%i</span><span class="s2">.&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">rc</span><span class="p">,</span> <span class="n">page</span><span class="o">.</span><span class="n">number</span><span class="p">))</span>
+
+<span class="n">doc</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;text.pdf&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>With this method, only the <strong>number of lines</strong> will be controlled to not go beyond page height. Surplus lines will not be written and the number of actual lines will be returned. The calculation uses a line height calculated from the <a class="reference internal" href="glossary.html#fontsize" title="fontsize"><code class="xref py py-data docutils literal notranslate"><span class="pre">fontsize</span></code></a> and 36 points (0.5 inches) as bottom margin.</p>
+<p>Line <strong>width is ignored</strong>. The surplus part of a line will simply be invisible.</p>
+<p>However, for built-in fonts there are ways to calculate the line width beforehand - see <a class="reference internal" href="functions.html#get_text_length" title="get_text_length"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_text_length()</span></code></a>.</p>
+<p>Here is another example. It inserts 4 text strings using the four different rotation options, and thereby explains, how the text insertion point must be chosen to achieve the desired result:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pymupdf</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
+<span class="n">page</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">new_page</span><span class="p">()</span>
+<span class="c1"># the text strings, each having 3 lines</span>
+<span class="n">text1</span> <span class="o">=</span> <span class="s2">&quot;rotate=0</span><span class="se">\n</span><span class="s2">Line 2</span><span class="se">\n</span><span class="s2">Line 3&quot;</span>
+<span class="n">text2</span> <span class="o">=</span> <span class="s2">&quot;rotate=90</span><span class="se">\n</span><span class="s2">Line 2</span><span class="se">\n</span><span class="s2">Line 3&quot;</span>
+<span class="n">text3</span> <span class="o">=</span> <span class="s2">&quot;rotate=-90</span><span class="se">\n</span><span class="s2">Line 2</span><span class="se">\n</span><span class="s2">Line 3&quot;</span>
+<span class="n">text4</span> <span class="o">=</span> <span class="s2">&quot;rotate=180</span><span class="se">\n</span><span class="s2">Line 2</span><span class="se">\n</span><span class="s2">Line 3&quot;</span>
+<span class="n">red</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># the color for the red dots</span>
+<span class="c1"># the insertion points, each with a 25 pix distance from the corners</span>
+<span class="n">p1</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="n">page</span><span class="o">.</span><span class="n">rect</span><span class="o">.</span><span class="n">width</span> <span class="o">-</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">p3</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">page</span><span class="o">.</span><span class="n">rect</span><span class="o">.</span><span class="n">height</span> <span class="o">-</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">p4</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="n">page</span><span class="o">.</span><span class="n">rect</span><span class="o">.</span><span class="n">width</span> <span class="o">-</span> <span class="mi">25</span><span class="p">,</span> <span class="n">page</span><span class="o">.</span><span class="n">rect</span><span class="o">.</span><span class="n">height</span> <span class="o">-</span> <span class="mi">25</span><span class="p">)</span>
+<span class="c1"># create a Shape to draw on</span>
+<span class="n">shape</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="n">new_shape</span><span class="p">()</span>
+
+<span class="c1"># draw the insertion points as red, filled dots</span>
+<span class="n">shape</span><span class="o">.</span><span class="n">draw_circle</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">shape</span><span class="o">.</span><span class="n">draw_circle</span><span class="p">(</span><span class="n">p2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">shape</span><span class="o">.</span><span class="n">draw_circle</span><span class="p">(</span><span class="n">p3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">shape</span><span class="o">.</span><span class="n">draw_circle</span><span class="p">(</span><span class="n">p4</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">shape</span><span class="o">.</span><span class="n">finish</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">red</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="n">red</span><span class="p">)</span>
+
+<span class="c1"># insert the text strings</span>
+<span class="n">shape</span><span class="o">.</span><span class="n">insert_text</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">text1</span><span class="p">)</span>
+<span class="n">shape</span><span class="o">.</span><span class="n">insert_text</span><span class="p">(</span><span class="n">p3</span><span class="p">,</span> <span class="n">text2</span><span class="p">,</span> <span class="n">rotate</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">shape</span><span class="o">.</span><span class="n">insert_text</span><span class="p">(</span><span class="n">p2</span><span class="p">,</span> <span class="n">text3</span><span class="p">,</span> <span class="n">rotate</span><span class="o">=-</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">shape</span><span class="o">.</span><span class="n">insert_text</span><span class="p">(</span><span class="n">p4</span><span class="p">,</span> <span class="n">text4</span><span class="p">,</span> <span class="n">rotate</span><span class="o">=</span><span class="mi">180</span><span class="p">)</span>
+
+<span class="c1"># store our work to the page</span>
+<span class="n">shape</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+<span class="n">doc</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This is the result:</p>
+<a class="reference internal image-reference" href="_images/img-inserttext.jpg"><img alt="_images/img-inserttext.jpg" src="_images/img-inserttext.jpg" style="width: 221.76000000000002px; height: 260.7px;" />
+</a>
+<hr class="docutils" />
+</section>
+<section id="how-to-fill-a-text-box">
+<span id="recipestext-i-b"></span><h3>How to Fill a Text Box<a class="headerlink" href="#how-to-fill-a-text-box" title="Link to this heading">¶</a></h3>
+<p>This script fills 4 different rectangles with text, each time choosing a different rotation value:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pymupdf</span>
+
+<span class="n">doc</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>  <span class="c1"># new or existing PDF</span>
+<span class="n">page</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">new_page</span><span class="p">()</span>  <span class="c1"># new page, or choose doc[n]</span>
+
+<span class="c1"># write in this overall area</span>
+<span class="n">rect</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">Rect</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
+
+<span class="c1"># partition the area in 4 equal sub-rectangles</span>
+<span class="n">CELLS</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">make_table</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">rows</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">t1</span> <span class="o">=</span> <span class="s2">&quot;text with rotate = 0.&quot;</span>  <span class="c1"># these texts we will written</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="s2">&quot;text with rotate = 90.&quot;</span>
+<span class="n">t3</span> <span class="o">=</span> <span class="s2">&quot;text with rotate = 180.&quot;</span>
+<span class="n">t4</span> <span class="o">=</span> <span class="s2">&quot;text with rotate = 270.&quot;</span>
+<span class="n">text</span> <span class="o">=</span> <span class="p">[</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">,</span> <span class="n">t3</span><span class="p">,</span> <span class="n">t4</span><span class="p">]</span>
+<span class="n">red</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">pdfcolor</span><span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">]</span>  <span class="c1"># some colors</span>
+<span class="n">gold</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">pdfcolor</span><span class="p">[</span><span class="s2">&quot;gold&quot;</span><span class="p">]</span>
+<span class="n">blue</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">pdfcolor</span><span class="p">[</span><span class="s2">&quot;blue&quot;</span><span class="p">]</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">We use a Shape object (something like a canvas) to output the text and</span>
+<span class="sd">the rectangles surrounding it for demonstration.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">shape</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="n">new_shape</span><span class="p">()</span>  <span class="c1"># create Shape</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">CELLS</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
+    <span class="n">shape</span><span class="o">.</span><span class="n">draw_rect</span><span class="p">(</span><span class="n">CELLS</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">])</span>  <span class="c1"># draw rectangle</span>
+    <span class="n">shape</span><span class="o">.</span><span class="n">insert_textbox</span><span class="p">(</span>
+        <span class="n">CELLS</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">text</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">fontname</span><span class="o">=</span><span class="s2">&quot;hebo&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">blue</span><span class="p">,</span> <span class="n">rotate</span><span class="o">=</span><span class="mi">90</span> <span class="o">*</span> <span class="n">i</span>
+    <span class="p">)</span>
+
+<span class="n">shape</span><span class="o">.</span><span class="n">finish</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">red</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="n">gold</span><span class="p">)</span>
+
+<span class="n">shape</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>  <span class="c1"># write all stuff to the page</span>
+<span class="n">doc</span><span class="o">.</span><span class="n">ez_save</span><span class="p">(</span><span class="vm">__file__</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.py&quot;</span><span class="p">,</span> <span class="s2">&quot;.pdf&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Some default values were used above: font size 11 and text alignment “left”. The result will look like this:</p>
+<a class="reference internal image-reference" href="_images/img-rotate.png"><img alt="_images/img-rotate.png" src="_images/img-rotate.png" style="width: 322.5px; height: 83.5px;" />
+</a>
+<hr class="docutils" />
+</section>
+<section id="how-to-fill-a-box-with-html-text">
+<span id="recipestext-i-c"></span><h3>How to Fill a Box with HTML Text<a class="headerlink" href="#how-to-fill-a-box-with-html-text" title="Link to this heading">¶</a></h3>
+<p>Method <a class="reference internal" href="page.html#Page.insert_htmlbox" title="Page.insert_htmlbox"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Page.insert_htmlbox()</span></code></a> offers a <strong>much more powerful</strong> way to insert text in a rectangle.</p>
+<p>Instead of simple, plain text, this method accepts HTML source, which may not only contain HTML tags but also styling instructions to influence things like font, font weight (bold) and style (italic), color and much more.</p>
+<p>It is also possible to mix multiple fonts and languages, to output HTML tables and to insert images and URI links.</p>
+<p>For even more styling flexibility, an additional CSS source may also be given.</p>
+<p>The method is based on the <a class="reference internal" href="story-class.html#story"><span class="std std-ref">Story</span></a> class. Therefore, complex script systems like Devanagari, Nepali, Tamil and many are supported and written correctly thanks to using the HarfBuzz library - which provides this so-called <strong>“text shaping”</strong> feature.</p>
+<p>Any required fonts to output characters are automatically pulled in from the Google NOTO font library - as a fallback (when the – optionally supplied – user font(s) do not contain some glyphs).</p>
+<p>As a small glimpse into the features offered here, we will output the following HTML-enriched text:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pymupdf</span>
+
+
+<span class="n">rect</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">Rect</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Lorem ipsum dolor sit amet, consectetur adipisici elit, sed</span>
+<span class="s2">    eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad</span>
+<span class="s2">    minim veniam, quis nostrud exercitation &lt;b&gt;ullamco &lt;i&gt;laboris&lt;/i&gt;&lt;/b&gt;</span>
+<span class="s2">    nisi ut aliquid ex ea commodi consequat. Quis aute iure</span>
+<span class="s2">    &lt;span style=&quot;color: #f00;&quot;&gt;reprehenderit&lt;/span&gt;</span>
+<span class="s2">    in &lt;span style=&quot;color: #0f0;font-weight:bold;&quot;&gt;voluptate&lt;/span&gt; velit</span>
+<span class="s2">    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat</span>
+<span class="s2">    cupiditat non proident, sunt in culpa qui</span>
+<span class="s2">    &lt;a href=&quot;https://www.artifex.com&quot;&gt;officia&lt;/a&gt; deserunt mollit anim id</span>
+<span class="s2">    est laborum.&quot;&quot;&quot;</span>
+
+<span class="n">doc</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">Document</span><span class="p">()</span>
+
+<span class="n">page</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">new_page</span><span class="p">()</span>
+<span class="n">page</span><span class="o">.</span><span class="n">insert_htmlbox</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">css</span><span class="o">=</span><span class="s2">&quot;* {font-family: sans-serif;font-size:14px;}&quot;</span><span class="p">)</span>
+
+<span class="n">doc</span><span class="o">.</span><span class="n">ez_save</span><span class="p">(</span><span class="vm">__file__</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.py&quot;</span><span class="p">,</span> <span class="s2">&quot;.pdf&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Please note how the “css” parameter is used to globally select the default “sans-serif” font and a font size of 14.</p>
+<p>The result will look like this:</p>
+<img alt="_images/img-htmlbox1.png" src="_images/img-htmlbox1.png" />
+<section id="how-to-output-html-tables-and-images">
+<h4>How to output HTML tables and images<a class="headerlink" href="#how-to-output-html-tables-and-images" title="Link to this heading">¶</a></h4>
+<p>Here is another example that outputs a table with this method. This time, we are including all the styling in the HTML source itself. Please also note, how it works to include an image - even within a table cell:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pymupdf</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">filedir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span>
+
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;style&gt;</span>
+<span class="s2">body {</span>
+<span class="s2">    font-family: sans-serif;</span>
+<span class="s2">}</span>
+
+<span class="s2">td,</span>
+<span class="s2">th {</span>
+<span class="s2">    border: 1px solid blue;</span>
+<span class="s2">    border-right: none;</span>
+<span class="s2">    border-bottom: none;</span>
+<span class="s2">    padding: 5px;</span>
+<span class="s2">    text-align: center;</span>
+<span class="s2">}</span>
+
+<span class="s2">table {</span>
+<span class="s2">    border-right: 1px solid blue;</span>
+<span class="s2">    border-bottom: 1px solid blue;</span>
+<span class="s2">    border-spacing: 0;</span>
+<span class="s2">}</span>
+<span class="s2">&lt;/style&gt;</span>
+
+<span class="s2">&lt;body&gt;</span>
+<span class="s2">&lt;p&gt;&lt;b&gt;Some Colors&lt;/b&gt;&lt;/p&gt;</span>
+<span class="s2">&lt;table&gt;</span>
+<span class="s2">    &lt;tr&gt;</span>
+<span class="s2">    &lt;th&gt;Lime&lt;/th&gt;</span>
+<span class="s2">    &lt;th&gt;Lemon&lt;/th&gt;</span>
+<span class="s2">    &lt;th&gt;Image&lt;/th&gt;</span>
+<span class="s2">    &lt;th&gt;Mauve&lt;/th&gt;</span>
+<span class="s2">    &lt;/tr&gt;</span>
+<span class="s2">    &lt;tr&gt;</span>
+<span class="s2">    &lt;td&gt;Green&lt;/td&gt;</span>
+<span class="s2">    &lt;td&gt;Yellow&lt;/td&gt;</span>
+<span class="s2">    &lt;td&gt;&lt;img src=&quot;img-cake.png&quot; width=50&gt;&lt;/td&gt;</span>
+<span class="s2">    &lt;td&gt;Between&lt;br&gt;Gray and Purple&lt;/td&gt;</span>
+<span class="s2">    &lt;/tr&gt;</span>
+<span class="s2">&lt;/table&gt;</span>
+<span class="s2">&lt;/body&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">doc</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">Document</span><span class="p">()</span>
+
+<span class="n">page</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">new_page</span><span class="p">()</span>
+<span class="n">rect</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="n">rect</span> <span class="o">+</span> <span class="p">(</span><span class="mi">36</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="o">-</span><span class="mi">36</span><span class="p">,</span> <span class="o">-</span><span class="mi">36</span><span class="p">)</span>
+
+<span class="c1"># we must specify an Archive because of the image</span>
+<span class="n">page</span><span class="o">.</span><span class="n">insert_htmlbox</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">archive</span><span class="o">=</span><span class="n">pymupdf</span><span class="o">.</span><span class="n">Archive</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">))</span>
+
+<span class="n">doc</span><span class="o">.</span><span class="n">ez_save</span><span class="p">(</span><span class="vm">__file__</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.py&quot;</span><span class="p">,</span> <span class="s2">&quot;.pdf&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The result will look like this:</p>
+<img alt="_images/img-htmlbox2.png" src="_images/img-htmlbox2.png" />
+</section>
+<section id="how-to-output-languages-of-the-world">
+<h4>How to Output Languages of the World<a class="headerlink" href="#how-to-output-languages-of-the-world" title="Link to this heading">¶</a></h4>
+<p>Our third example will demonstrate the automatic multi-language support. It includes automatic <strong>text shaping</strong> for complex scripting systems like Devanagari and right-to-left languages:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pymupdf</span>
+
+<span class="n">greetings</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s2">&quot;Hello, World!&quot;</span><span class="p">,</span>  <span class="c1"># english</span>
+    <span class="s2">&quot;Hallo, Welt!&quot;</span><span class="p">,</span>  <span class="c1"># german</span>
+    <span class="s2">&quot;سلام دنیا!&quot;</span><span class="p">,</span>  <span class="c1"># persian</span>
+    <span class="s2">&quot;வணக்கம், உலகம்!&quot;</span><span class="p">,</span>  <span class="c1"># tamil</span>
+    <span class="s2">&quot;สวัสดีชาวโลก!&quot;</span><span class="p">,</span>  <span class="c1"># thai</span>
+    <span class="s2">&quot;Привіт Світ!&quot;</span><span class="p">,</span>  <span class="c1"># ucranian</span>
+    <span class="s2">&quot;שלום עולם!&quot;</span><span class="p">,</span>  <span class="c1"># hebrew</span>
+    <span class="s2">&quot;ওহে বিশ্ব!&quot;</span><span class="p">,</span>  <span class="c1"># bengali</span>
+    <span class="s2">&quot;你好世界！&quot;</span><span class="p">,</span>  <span class="c1"># chinese</span>
+    <span class="s2">&quot;こんにちは世界！&quot;</span><span class="p">,</span>  <span class="c1"># japanese</span>
+    <span class="s2">&quot;안녕하세요, 월드!&quot;</span><span class="p">,</span>  <span class="c1"># korean</span>
+    <span class="s2">&quot;नमस्कार, विश्व !&quot;</span><span class="p">,</span>  <span class="c1"># sanskrit</span>
+    <span class="s2">&quot;हैलो वर्ल्ड!&quot;</span><span class="p">,</span>  <span class="c1"># hindi</span>
+<span class="p">)</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
+<span class="n">page</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">new_page</span><span class="p">()</span>
+<span class="n">rect</span> <span class="o">=</span> <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+
+<span class="c1"># join greetings into one text string</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot; ... &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">greetings</span><span class="p">])</span>
+
+<span class="c1"># the output of the above is simple:</span>
+<span class="n">page</span><span class="o">.</span><span class="n">insert_htmlbox</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="n">doc</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="vm">__file__</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.py&quot;</span><span class="p">,</span> <span class="s2">&quot;.pdf&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>And this is the output:</p>
+<img alt="_images/img-htmlbox3.png" src="_images/img-htmlbox3.png" />
+</section>
+<section id="how-to-specify-your-own-fonts">
+<h4>How to Specify your Own Fonts<a class="headerlink" href="#how-to-specify-your-own-fonts" title="Link to this heading">¶</a></h4>
+<p>Define your font files in CSS syntax using the <code class="xref any docutils literal notranslate"><span class="pre">&#64;font-face</span></code> statement. You need a separate <code class="xref any docutils literal notranslate"><span class="pre">&#64;font-face</span></code> for every combination of font weight and font style (e.g. bold or italic) you want to be supported. The following example uses the famous MS Comic Sans font in its four variants regular, bold, italic and bold-italic.</p>
+<p>As these four font files are located in the system’s folder <code class="xref any docutils literal notranslate"><span class="pre">C:/Windows/Fonts</span></code> the method needs an <a class="reference internal" href="archive-class.html#archive"><span class="std std-ref">Archive</span></a> definition that points to that folder:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">How to use your own fonts with method Page.insert_htmlbox().</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">pymupdf</span>
+
+<span class="c1"># Example text</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Lorem ipsum dolor sit amet, consectetur adipisici elit, sed</span>
+<span class="s2">    eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad</span>
+<span class="s2">    minim veniam, quis nostrud exercitation &lt;b&gt;ullamco &lt;i&gt;laboris&lt;/i&gt;&lt;/b&gt;</span>
+<span class="s2">    nisi ut aliquid ex ea commodi consequat. Quis aute iure</span>
+<span class="s2">    &lt;span style=&quot;color: red;&quot;&gt;reprehenderit&lt;/span&gt;</span>
+<span class="s2">    in &lt;span style=&quot;color: green;font-weight:bold;&quot;&gt;voluptate&lt;/span&gt; velit</span>
+<span class="s2">    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat</span>
+<span class="s2">    cupiditat non proident, sunt in culpa qui</span>
+<span class="s2">    &lt;a href=&quot;https://www.artifex.com&quot;&gt;officia&lt;/a&gt; deserunt mollit anim id</span>
+<span class="s2">    est laborum.&quot;&quot;&quot;</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">We need an Archive object to show where font files are located.</span>
+<span class="sd">We intend to use the font family &quot;MS Comic Sans&quot;.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">arch</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">Archive</span><span class="p">(</span><span class="s2">&quot;C:/Windows/Fonts&quot;</span><span class="p">)</span>
+
+<span class="c1"># These statements define which font file to use for regular, bold,</span>
+<span class="c1"># italic and bold-italic text.</span>
+<span class="c1"># We assign an arbitrary common font-family for all 4 font files.</span>
+<span class="c1"># The Story algorithm will select the right file as required.</span>
+<span class="c1"># We request to use &quot;comic&quot; throughout the text.</span>
+<span class="n">css</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">@font-face {font-family: comic; src: url(comic.ttf);}</span>
+<span class="s2">@font-face {font-family: comic; src: url(comicbd.ttf);font-weight: bold;}</span>
+<span class="s2">@font-face {font-family: comic; src: url(comicz.ttf);font-weight: bold;font-style: italic;}</span>
+<span class="s2">@font-face {font-family: comic; src: url(comici.ttf);font-style: italic;}</span>
+<span class="s2">* {font-family: comic;}</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">doc</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">Document</span><span class="p">()</span>
+<span class="n">page</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">new_page</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>  <span class="c1"># make small page</span>
+
+<span class="n">page</span><span class="o">.</span><span class="n">insert_htmlbox</span><span class="p">(</span><span class="n">page</span><span class="o">.</span><span class="n">rect</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">css</span><span class="o">=</span><span class="n">css</span><span class="p">,</span> <span class="n">archive</span><span class="o">=</span><span class="n">arch</span><span class="p">)</span>
+
+<span class="n">doc</span><span class="o">.</span><span class="n">subset_fonts</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># build subset fonts to reduce file size</span>
+<span class="n">doc</span><span class="o">.</span><span class="n">ez_save</span><span class="p">(</span><span class="vm">__file__</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.py&quot;</span><span class="p">,</span> <span class="s2">&quot;.pdf&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<img alt="_images/img-htmlbox4.png" src="_images/img-htmlbox4.png" />
+</section>
+<section id="how-to-request-text-alignment">
+<h4>How to Request Text Alignment<a class="headerlink" href="#how-to-request-text-alignment" title="Link to this heading">¶</a></h4>
+<p>This example combines multiple requirements:</p>
+<ul class="simple">
+<li><p>Rotate the text by 90 degrees anti-clockwise.</p></li>
+<li><p>Use a font from package <a class="reference external" href="https://pypi.org/project/pymupdf-fonts/">pymupdf-fonts</a>. You will see that the respective CSS definitions are a lot easier in this case.</p></li>
+<li><p>Align the text with the “justify” option.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">How to use a pymupdf font with method Page.insert_htmlbox().</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">pymupdf</span>
+
+<span class="c1"># Example text</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Lorem ipsum dolor sit amet, consectetur adipisici elit, sed</span>
+<span class="s2">    eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad</span>
+<span class="s2">    minim veniam, quis nostrud exercitation &lt;b&gt;ullamco &lt;i&gt;laboris&lt;/i&gt;&lt;/b&gt;</span>
+<span class="s2">    nisi ut aliquid ex ea commodi consequat. Quis aute iure</span>
+<span class="s2">    &lt;span style=&quot;color: red;&quot;&gt;reprehenderit&lt;/span&gt;</span>
+<span class="s2">    in &lt;span style=&quot;color: green;font-weight:bold;&quot;&gt;voluptate&lt;/span&gt; velit</span>
+<span class="s2">    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat</span>
+<span class="s2">    cupiditat non proident, sunt in culpa qui</span>
+<span class="s2">    &lt;a href=&quot;https://www.artifex.com&quot;&gt;officia&lt;/a&gt; deserunt mollit anim id</span>
+<span class="s2">    est laborum.&quot;&quot;&quot;</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This is similar to font file support. However, we can use a convenience</span>
+<span class="sd">function for creating required CSS definitions.</span>
+<span class="sd">We still need an Archive for finding the font binaries.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">arch</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">Archive</span><span class="p">()</span>
+
+<span class="c1"># We request to use &quot;myfont&quot; throughout the text.</span>
+<span class="n">css</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">css_for_pymupdf_font</span><span class="p">(</span><span class="s2">&quot;ubuntu&quot;</span><span class="p">,</span> <span class="n">archive</span><span class="o">=</span><span class="n">arch</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;myfont&quot;</span><span class="p">)</span>
+<span class="n">css</span> <span class="o">+=</span> <span class="s2">&quot;* {font-family: myfont;text-align: justify;}&quot;</span>
+
+<span class="n">doc</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">Document</span><span class="p">()</span>
+
+<span class="n">page</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">new_page</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+
+<span class="n">page</span><span class="o">.</span><span class="n">insert_htmlbox</span><span class="p">(</span><span class="n">page</span><span class="o">.</span><span class="n">rect</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">css</span><span class="o">=</span><span class="n">css</span><span class="p">,</span> <span class="n">archive</span><span class="o">=</span><span class="n">arch</span><span class="p">,</span> <span class="n">rotate</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+
+<span class="n">doc</span><span class="o">.</span><span class="n">subset_fonts</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">doc</span><span class="o">.</span><span class="n">ez_save</span><span class="p">(</span><span class="vm">__file__</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.py&quot;</span><span class="p">,</span> <span class="s2">&quot;.pdf&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<img alt="_images/img-htmlbox5.png" src="_images/img-htmlbox5.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+</section>
+</section>
+<section id="how-to-extract-text-with-color">
+<span id="recipestext-j"></span><h2>How to Extract Text with Color<a class="headerlink" href="#how-to-extract-text-with-color" title="Link to this heading">¶</a></h2>
+<p>Iterate through your text blocks and find the spans of text you need for this information.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">:</span>
+    <span class="n">text_blocks</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="s2">&quot;dict&quot;</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">pymupdf</span><span class="o">.</span><span class="n">TEXTFLAGS_TEXT</span><span class="p">)[</span><span class="s2">&quot;blocks&quot;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="n">text_blocks</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">block</span><span class="p">[</span><span class="s2">&quot;lines&quot;</span><span class="p">]:</span>
+            <span class="k">for</span> <span class="n">span</span> <span class="ow">in</span> <span class="n">line</span><span class="p">[</span><span class="s2">&quot;spans&quot;</span><span class="p">]:</span>
+                <span class="n">text</span> <span class="o">=</span> <span class="n">span</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">]</span>
+                <span class="n">color</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">sRGB_to_rgb</span><span class="p">(</span><span class="n">span</span><span class="p">[</span><span class="s2">&quot;color&quot;</span><span class="p">])</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Text: </span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="s2">, Color: </span><span class="si">{</span><span class="n">color</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="feedbackLink"><a id="feedbackLinkBottom" target=_blank>Do you have any feedback on this page?</b></a></div><hr class="docutils" />
+<script>
+
+   var url_string = window.location.href;
+   var a = document.getElementById('feedbackLinkBottom');
+   a.setAttribute("href", "https://artifex.com/contributor/feedback.php?utm_source=rtd-pymupdf&utm_medium=rtd&utm_content=footer-link&url="+url_string);
+
+</script>
+
+<p style="color:#999" id="footerDisclaimer">This software is provided AS-IS with no warranty, either express or implied. This software is distributed under license and may not be copied, modified or distributed except as expressly authorized under the terms of that license. Refer to licensing information at <a href="https://www.artifex.com?utm_source=rtd-pymupdf&utm_medium=rtd&utm_content=footer-link">artifex.com</a> or contact Artifex Software Inc., 39 Mesa Street, Suite 108A, San Francisco CA 94129, United States for further information.</p>
+
+
+
+<script>
+
+   let docLanguage = document.getElementsByTagName('html')[0].getAttribute('lang');
+
+   function getHeaderAndFooterTranslation(str) {
+       if (docLanguage == "ja") {
+           if (str == "Do you have any feedback on this page?") {
+               return "このページに関するご意見はありますか？";
+           } else if (str == "Find <b>#pymupdf</b> on <b>Discord</b>") {
+               return "<b>Discord</b>の <b>#pymupdf</b> を見つける";
+           } else if (str == "This software is provided AS-IS with no warranty, either express or implied. This software is distributed under license and may not be copied, modified or distributed except as expressly authorized under the terms of that license. Refer to licensing information at <a href='https://www.artifex.com?utm_source=rtd-pymupdf&utm_medium=rtd&utm_content=footer-link'>artifex.com</a> or contact Artifex Software Inc., 39 Mesa Street, Suite 108A, San Francisco CA 94129, United States for further information.") {
+
+               return "このソフトウェアは無保証で提供されており、明示または黙示を問わず、いかなる保証もありません。このソフトウェアはライセンスの下で配布され、ライセンスの条件に明示的に許可されている場合を除き、コピー、変更、または配布してはなりません。ライセンシング情報については、<a href='https://www.artifex.com?utm_source=rtd-pymupdf&utm_medium=rtd&utm_content=footer-link'>artifex.com</a>でライセンス情報を参照するか、アメリカ合衆国カリフォルニア州サンフランシスコのArtifex Software Inc. までお問い合わせください。"
+
+           }
+       }
+
+       return str;
+   }
+
+   document.getElementById("findOnDiscord").innerHTML = getHeaderAndFooterTranslation("Find <b>#pymupdf</b> on <b>Discord</b>");
+   document.getElementById("feedbackLinkTop").innerHTML = getHeaderAndFooterTranslation("Do you have any feedback on this page?");
+   document.getElementById("feedbackLinkBottom").innerHTML = getHeaderAndFooterTranslation("Do you have any feedback on this page?");
+   document.getElementById("footerDisclaimer").innerHTML = getHeaderAndFooterTranslation("This software is provided AS-IS with no warranty, either express or implied. This software is distributed under license and may not be copied, modified or distributed except as expressly authorized under the terms of that license. Refer to licensing information at <a href='https://www.artifex.com?utm_source=rtd-pymupdf&utm_medium=rtd&utm_content=footer-link'>artifex.com</a> or contact Artifex Software Inc., 39 Mesa Street, Suite 108A, San Francisco CA 94129, United States for further information.");
+
+
+   // more translation for admonition-title as the in-built translation isn't great, needs: 注釈 -> 注
+   if (docLanguage == "ja") {
+       const collection = document.getElementsByClassName("admonition-title");
+       for (var i=0;i<collection.length;i++) {
+           collection[i].innerHTML = "注";
+       }
+   }
+
+
+</script><p class="footer-version">This documentation covers all versions up to 1.25.3.</p>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="recipes-images.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Images</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="how-to-open-a-file.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Opening Files</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2015-2025, Artifex
+            </div>
+            Made with 
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            <div class="last-updated">
+              Last updated on 10. Mar 2025</div>
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Text</a><ul>
+<li><a class="reference internal" href="#how-to-extract-all-document-text">How to Extract all Document Text</a></li>
+<li><a class="reference internal" href="#how-to-extract-text-as-markdown">How to Extract Text as Markdown</a></li>
+<li><a class="reference internal" href="#how-to-extract-key-value-pairs-from-a-page">How to Extract Key-Value Pairs from a Page</a></li>
+<li><a class="reference internal" href="#how-to-extract-text-from-within-a-rectangle">How to Extract Text from within a Rectangle</a></li>
+<li><a class="reference internal" href="#how-to-extract-text-in-natural-reading-order">How to Extract Text in Natural Reading Order</a></li>
+<li><a class="reference internal" href="#how-to-extract-table-content-from-documents">How to Extract Table Content from Documents</a></li>
+<li><a class="reference internal" href="#how-to-mark-extracted-text">How to Mark Extracted Text</a></li>
+<li><a class="reference internal" href="#how-to-mark-searched-text">How to Mark Searched Text</a></li>
+<li><a class="reference internal" href="#how-to-mark-non-horizontal-text">How to Mark Non-horizontal Text</a></li>
+<li><a class="reference internal" href="#how-to-analyze-font-characteristics">How to Analyze Font Characteristics</a></li>
+<li><a class="reference internal" href="#how-to-insert-text">How to Insert Text</a><ul>
+<li><a class="reference internal" href="#how-to-write-text-lines">How to Write Text Lines</a></li>
+<li><a class="reference internal" href="#how-to-fill-a-text-box">How to Fill a Text Box</a></li>
+<li><a class="reference internal" href="#how-to-fill-a-box-with-html-text">How to Fill a Box with HTML Text</a><ul>
+<li><a class="reference internal" href="#how-to-output-html-tables-and-images">How to output HTML tables and images</a></li>
+<li><a class="reference internal" href="#how-to-output-languages-of-the-world">How to Output Languages of the World</a></li>
+<li><a class="reference internal" href="#how-to-specify-your-own-fonts">How to Specify your Own Fonts</a></li>
+<li><a class="reference internal" href="#how-to-request-text-alignment">How to Request Text Alignment</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#how-to-extract-text-with-color">How to Extract Text with Color</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=9ddcf537"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    </body>
+</html>

@@ -1,0 +1,1759 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="Artifex" name="author" />
+<meta content="PyMuPDF is a high-performance Python library for data extraction, analysis, conversion &amp; manipulation of PDF (and other) documents." name="description" />
+<meta content="PDF Text Extraction, PDF Image Extraction, PDF Conversion, PDF Tables, PDF Splitting, PDF Creation, Pyodide, PyScript" name="keywords" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JZTN4VTL9M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JZTN4VTL9M');
+    </script>
+    <link rel="author" title="About these documents" href="about.html" /><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Point" href="point.html" /><link rel="prev" title="Page" href="page.html" />
+
+    <link rel="shortcut icon" href="_static/PyMuPDF.ico"/><!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
+        <title>Pixmap - PyMuPDF 1.25.3 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=74643500" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">PyMuPDF 1.25.3 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo only-light" src="_static/sidebar-logo-dark.svg" alt="Light Logo"/>
+    <img class="sidebar-logo only-dark" src="_static/sidebar-logo-light.svg" alt="Dark Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">PyMuPDF 1.25.3 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="about.html">Features Comparison</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#performance">Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#license-and-copyright">License and Copyright</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pymupdf4llm/index.html">PyMuPDF4LLM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pymupdf-pro.html">PyMuPDF Pro</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="the-basics.html">The Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rag.html">PyMuPDF, LLM &amp; RAG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How to Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="how-to-open-a-file.html">Opening Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-text.html">Text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-images.html">Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-annotations.html">Annotations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-drawing-and-graphics.html">Drawing and Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-stories.html">Stories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-journalling.html">Journalling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-multiprocessing.html">Multiprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-ocr.html">OCR - Optical Character Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-optional-content.html">Optional Content Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-low-level-interfaces.html">Low-Level Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-common-issues-and-their-solutions.html">Common Issues and their Solutions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="module.html">Command line interface</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="classes.html">Classes</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Classes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="annot.html">Annot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archive-class.html">Archive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="colorspace.html">Colorspace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="displaylist.html">DisplayList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="document.html">Document</a></li>
+<li class="toctree-l2"><a class="reference internal" href="document-writer-class.html">DocumentWriter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="font.html">Font</a></li>
+<li class="toctree-l2"><a class="reference internal" href="identity.html">Identity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="irect.html">IRect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="link.html">Link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linkdest.html">linkDest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matrix.html">Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outline.html">Outline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page.html">Page</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Pixmap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="point.html">Point</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quad.html">Quad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rect.html">Rect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shape.html">Shape</a></li>
+<li class="toctree-l2"><a class="reference internal" href="story-class.html">Story</a></li>
+<li class="toctree-l2"><a class="reference internal" href="textpage.html">TextPage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="textwriter.html">TextWriter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="widget.html">Widget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xml-class.html">Xml</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="algebra.html">Operator Algebra for Geometry Objects</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="lowlevel.html">Low Level Functions and Classes</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Low Level Functions and Classes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="device.html">Device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coop_low.html">Working together: DisplayList and TextPage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vars.html">Constants and Enumerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="colors.html">Color Database</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="app1.html">Appendix 1: Details on Text Extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="app2.html">Appendix 2: Considerations on Embedded Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="app3.html">Appendix 3: Assorted Technical Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="app4.html">Appendix 4: Performance Comparison Methodology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changes.html">Change Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="znames.html">Deprecated Names</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="_sources/pixmap.rst" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <style>
+
+    #languageToggle {
+        width:25%;
+        margin:8px 10px 0;
+    }
+
+    #button-select-en {
+        padding: 5px 10px;
+        background-color: #fff;
+        border: 1px solid #000;
+        border-radius: 10px 0 0 10px;
+        font-size: 14px;
+    }
+
+    #button-select-ja {
+        padding: 5px 10px;
+        background-color: #fff;
+        border: 1px solid #000;
+        border-radius: 0px 10px 10px 0;
+        border-left: 0;
+        font-size: 14px;
+    }
+
+    #button-select-en , #button-select-ja, #button-select-en:hover , #button-select-ja:hover  {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    /* small screens */
+    @media all and (max-width : 768px)  {
+        #languageToggle {
+            width:50%;
+        }
+    }
+
+    @media all and (max-width : 400px)  {
+        #languageToggle {
+            width:70%;
+        }
+    }
+
+    @media all and (max-width : 375px)  {
+        #button-select-en , #button-select-ja {
+            font-size: 11px;
+        }
+    }
+
+</style>
+
+<div style="display:flex;justify-content:space-between;align-items: center;">
+    <form class="sidebar-search-container top" method="get" action="search.html" role="search" style="width:75%">
+      <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+      <input type="hidden" name="check_keywords" value="yes">
+      <input type="hidden" name="area" value="default">
+    </form>
+    <div id="languageToggle"><span><a id="button-select-en" href="javaScript:changeLanguage('en')">English</a></span><span><a id="button-select-ja" href="javaScript:changeLanguage('ja')">日本語</a></span></div>
+</div>
+
+<div style="display:flex;justify-content:space-between;align-items:center;margin-top:20px;">
+    <div class="discordLink" style="display:flex;align-items:center;margin-top: -5px;">
+        <a href="https://discord.gg/TSpYGBW4eq" id="findOnDiscord" target=_blank>Find <b>#pymupdf</b> on <b>Discord</b></a>
+        <a href="https://discord.gg/TSpYGBW4eq" target=_blank>
+            <div style="width:30px;height:30px;margin-left:5px;">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36">
+                    <defs>
+                        <style>.discordLogoFill{fill:#5865f2;}</style>
+                    </defs>
+                    <g id="Discord_Logo" data-name="Discord Logo">
+                        <path class="discordLogoFill" d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/>
+                    </g>
+                </svg>
+            </div>
+        </a>
+    </div>
+
+    <div class="feedbackLink"><a id="feedbackLinkTop" target=_blank>Do you have any feedback on this page?</b></a></div>
+</div>
+
+<script>
+    // highlightSelectedLanguage
+
+    if (document.getElementsByTagName('html')[0].getAttribute('lang')=="ja") {
+        document.getElementById("button-select-ja").style.backgroundColor = "#ff6600";
+        document.getElementById("button-select-en").style.color = "#000";
+    } else {
+        document.getElementById("button-select-en").style.backgroundColor = "#ff6600";
+        document.getElementById("button-select-ja").style.color = "#000";
+    }
+
+
+    var url_string = window.location.href;
+    var a = document.getElementById('feedbackLinkTop');
+    a.setAttribute("href", "https://artifex.com/contributor/feedback.php?utm_source=rtd-pymupdf&utm_medium=rtd&utm_content=header-link&url="+url_string);
+
+    function changeLanguage(lang) {
+        var new_url;
+
+        if (lang == "en") {
+            new_url = url_string.replace("/ja/", "/en/");
+        } else {
+            new_url = url_string.replace("/en/", "/ja/");
+        }
+
+        window.location.replace(new_url);
+    }
+
+</script><section id="pixmap">
+<span id="id1"></span><h1>Pixmap<a class="headerlink" href="#pixmap" title="Link to this heading">¶</a></h1>
+<p>Pixmaps (“pixel maps”) are objects at the heart of MuPDF’s rendering capabilities. They represent plane rectangular sets of pixels. Each pixel is described by a number of bytes (“components”) defining its color, plus an optional alpha byte defining its transparency.</p>
+<p>In PyMuPDF, there exist several ways to create a pixmap. Except the first one, all of them are available as overloaded constructors. A pixmap can be created …</p>
+<ol class="arabic simple">
+<li><p>from a document page (method <a class="reference internal" href="page.html#Page.get_pixmap" title="Page.get_pixmap"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Page.get_pixmap()</span></code></a>)</p></li>
+<li><p>empty, based on <a class="reference internal" href="colorspace.html#colorspace"><span class="std std-ref">Colorspace</span></a> and <a class="reference internal" href="irect.html#irect"><span class="std std-ref">IRect</span></a> information</p></li>
+<li><p>from a file</p></li>
+<li><p>from an in-memory image</p></li>
+<li><p>from a memory area of plain pixels</p></li>
+<li><p>from an image inside a PDF document</p></li>
+<li><p>as a copy of another pixmap</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A number of image formats is supported as input for points 3. and 4. above. See section <a class="reference internal" href="#imagefiles"><span class="std std-ref">Supported Input Image Formats</span></a>.</p>
+</div>
+<p>Have a look at the <a class="reference internal" href="faq.html#faq"><span class="std std-ref">FAQ</span></a> section to see some pixmap usage “at work”.</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Method / Attribute</strong></p></th>
+<th class="head"><p><strong>Short Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#Pixmap.clear_with" title="Pixmap.clear_with"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Pixmap.clear_with()</span></code></a></p></td>
+<td><p>clear parts of the pixmap</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Pixmap.color_count" title="Pixmap.color_count"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Pixmap.color_count()</span></code></a></p></td>
+<td><p>determine used colors</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Pixmap.color_topusage" title="Pixmap.color_topusage"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Pixmap.color_topusage()</span></code></a></p></td>
+<td><p>determine share of most used color</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Pixmap.copy" title="Pixmap.copy"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Pixmap.copy()</span></code></a></p></td>
+<td><p>copy parts of another pixmap</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Pixmap.gamma_with" title="Pixmap.gamma_with"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Pixmap.gamma_with()</span></code></a></p></td>
+<td><p>apply a gamma factor to the pixmap</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Pixmap.invert_irect" title="Pixmap.invert_irect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Pixmap.invert_irect()</span></code></a></p></td>
+<td><p>invert the pixels of a given area</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Pixmap.pdfocr_save" title="Pixmap.pdfocr_save"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Pixmap.pdfocr_save()</span></code></a></p></td>
+<td><p>save the pixmap as an OCRed 1-page PDF</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Pixmap.pdfocr_tobytes" title="Pixmap.pdfocr_tobytes"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Pixmap.pdfocr_tobytes()</span></code></a></p></td>
+<td><p>save the pixmap as an OCRed 1-page PDF</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Pixmap.pil_image" title="Pixmap.pil_image"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Pixmap.pil_image()</span></code></a></p></td>
+<td><p>create a Pillow Image</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Pixmap.pil_save" title="Pixmap.pil_save"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Pixmap.pil_save()</span></code></a></p></td>
+<td><p>save as a Pillow Image</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Pixmap.pil_tobytes" title="Pixmap.pil_tobytes"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Pixmap.pil_tobytes()</span></code></a></p></td>
+<td><p>write to <code class="xref any docutils literal notranslate"><span class="pre">bytes</span></code> as a Pillow Image</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Pixmap.pixel" title="Pixmap.pixel"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Pixmap.pixel()</span></code></a></p></td>
+<td><p>return the value of a pixel</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Pixmap.save" title="Pixmap.save"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Pixmap.save()</span></code></a></p></td>
+<td><p>save the pixmap in a variety of formats</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Pixmap.set_alpha" title="Pixmap.set_alpha"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Pixmap.set_alpha()</span></code></a></p></td>
+<td><p>set alpha values</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Pixmap.set_dpi" title="Pixmap.set_dpi"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Pixmap.set_dpi()</span></code></a></p></td>
+<td><p>set the image resolution</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Pixmap.set_origin" title="Pixmap.set_origin"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Pixmap.set_origin()</span></code></a></p></td>
+<td><p>set pixmap x,y values</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Pixmap.set_pixel" title="Pixmap.set_pixel"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Pixmap.set_pixel()</span></code></a></p></td>
+<td><p>set color and alpha of a pixel</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Pixmap.set_rect" title="Pixmap.set_rect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Pixmap.set_rect()</span></code></a></p></td>
+<td><p>set color and alpha of all pixels in a rectangle</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Pixmap.shrink" title="Pixmap.shrink"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Pixmap.shrink()</span></code></a></p></td>
+<td><p>reduce size keeping proportions</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Pixmap.tint_with" title="Pixmap.tint_with"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Pixmap.tint_with()</span></code></a></p></td>
+<td><p>tint the pixmap</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Pixmap.tobytes" title="Pixmap.tobytes"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Pixmap.tobytes()</span></code></a></p></td>
+<td><p>return a memory area in a variety of formats</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Pixmap.warp" title="Pixmap.warp"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Pixmap.warp()</span></code></a></p></td>
+<td><p>return a pixmap made from a quad inside</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Pixmap.alpha" title="Pixmap.alpha"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Pixmap.alpha</span></code></a></p></td>
+<td><p>transparency indicator</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Pixmap.colorspace" title="Pixmap.colorspace"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Pixmap.colorspace</span></code></a></p></td>
+<td><p>pixmap’s <a class="reference internal" href="colorspace.html#colorspace"><span class="std std-ref">Colorspace</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Pixmap.digest" title="Pixmap.digest"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Pixmap.digest</span></code></a></p></td>
+<td><p>MD5 hashcode of the pixmap</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Pixmap.height" title="Pixmap.height"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Pixmap.height</span></code></a></p></td>
+<td><p>pixmap height</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Pixmap.interpolate" title="Pixmap.interpolate"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Pixmap.interpolate</span></code></a></p></td>
+<td><p>interpolation method indicator</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Pixmap.is_monochrome" title="Pixmap.is_monochrome"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Pixmap.is_monochrome</span></code></a></p></td>
+<td><p>check if only black and white occur</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Pixmap.is_unicolor" title="Pixmap.is_unicolor"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Pixmap.is_unicolor</span></code></a></p></td>
+<td><p>check if only one color occurs</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Pixmap.irect" title="Pixmap.irect"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Pixmap.irect</span></code></a></p></td>
+<td><p><a class="reference internal" href="irect.html#irect"><span class="std std-ref">IRect</span></a> of the pixmap</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Pixmap.n" title="Pixmap.n"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Pixmap.n</span></code></a></p></td>
+<td><p>bytes per pixel</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Pixmap.samples_mv" title="Pixmap.samples_mv"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Pixmap.samples_mv</span></code></a></p></td>
+<td><p><code class="xref any docutils literal notranslate"><span class="pre">memoryview</span></code> of pixel area</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Pixmap.samples_ptr" title="Pixmap.samples_ptr"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Pixmap.samples_ptr</span></code></a></p></td>
+<td><p>Python pointer to pixel area</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Pixmap.samples" title="Pixmap.samples"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Pixmap.samples</span></code></a></p></td>
+<td><p><code class="xref any docutils literal notranslate"><span class="pre">bytes</span></code> copy of pixel area</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Pixmap.size" title="Pixmap.size"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Pixmap.size</span></code></a></p></td>
+<td><p>pixmap’s total length</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Pixmap.stride" title="Pixmap.stride"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Pixmap.stride</span></code></a></p></td>
+<td><p>size of one image row</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Pixmap.width" title="Pixmap.width"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Pixmap.width</span></code></a></p></td>
+<td><p>pixmap width</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Pixmap.x" title="Pixmap.x"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Pixmap.x</span></code></a></p></td>
+<td><p>X-coordinate of top-left corner</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Pixmap.xres" title="Pixmap.xres"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Pixmap.xres</span></code></a></p></td>
+<td><p>resolution in X-direction</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Pixmap.y" title="Pixmap.y"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Pixmap.y</span></code></a></p></td>
+<td><p>Y-coordinate of top-left corner</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Pixmap.yres" title="Pixmap.yres"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Pixmap.yres</span></code></a></p></td>
+<td><p>resolution in Y-direction</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Class API</strong></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="Pixmap">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Pixmap</span></span><a class="headerlink" href="#Pixmap" title="Link to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="Pixmap.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colorspace</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">irect</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Pixmap.__init__" title="Link to this definition">¶</a></dt>
+<dd><p><strong>New empty pixmap:</strong> Create an empty pixmap of size and origin given by the rectangle. So, <em>irect.top_left</em> designates the top left corner of the pixmap, and its width and height are <em>irect.width</em> resp. <em>irect.height</em>. Note that the image area is <strong>not initialized</strong> and will contain crap data – use eg. <a class="reference internal" href="#Pixmap.clear_with" title="Pixmap.clear_with"><code class="xref py py-meth docutils literal notranslate"><span class="pre">clear_with()</span></code></a> or <a class="reference internal" href="#Pixmap.set_rect" title="Pixmap.set_rect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_rect()</span></code></a> to be sure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>colorspace</strong> (<a class="reference internal" href="colorspace.html#colorspace"><span class="std std-ref">Colorspace</span></a>) – colorspace.</p></li>
+<li><p><strong>irect</strong> (<em>irect_like</em>) – The pixmap’s position and dimension.</p></li>
+<li><p><strong>alpha</strong> (<em>bool</em>) – Specifies whether transparency bytes should be included. Default is <em>False</em>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colorspace</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id0" title="Link to this definition">¶</a></dt>
+<dd><p><strong>Copy and set colorspace:</strong> Copy <em>source</em> pixmap converting colorspace. Any colorspace combination is possible, but source colorspace must not be <em>None</em>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>colorspace</strong> (<a class="reference internal" href="colorspace.html#colorspace"><span class="std std-ref">Colorspace</span></a>) – desired <strong>target</strong> colorspace. This <strong>may also be</strong> <em>None</em>. In this case, a “masking” pixmap is created: its <a class="reference internal" href="#Pixmap.samples" title="Pixmap.samples"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Pixmap.samples</span></code></a> will consist of the source’s alpha bytes only.</p></li>
+<li><p><strong>source</strong> (<em>Pixmap</em>) – the source pixmap.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id2">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id2" title="Link to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>New in v1.18.18</p></li>
+</ul>
+<p><strong>Copy and add image mask:</strong> Copy <em>source</em> pixmap, add an alpha channel with transparency data from a mask pixmap.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source</strong> (<a class="reference internal" href="#pixmap"><span class="std std-ref">Pixmap</span></a>) – pixmap without alpha channel.</p></li>
+<li><p><strong>mask</strong> (<a class="reference internal" href="#pixmap"><span class="std std-ref">Pixmap</span></a>) – a mask pixmap. Must be a graysale pixmap.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id3">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">clip</span></span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#id3" title="Link to this definition">¶</a></dt>
+<dd><p><strong>Copy and scale:</strong> Copy <em>source</em> pixmap, scaling new width and height values – the image will appear stretched or shrunk accordingly. Supports partial copying. The source colorspace may be <em>None</em>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source</strong> (<em>Pixmap</em>) – the source pixmap.</p></li>
+<li><p><strong>width</strong> (<em>float</em>) – desired target width.</p></li>
+<li><p><strong>height</strong> (<em>float</em>) – desired target height.</p></li>
+<li><p><strong>clip</strong> (<em>irect_like</em>) – restrict the resulting pixmap to this region of the <strong>scaled</strong> pixmap.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If width or height do not <em>represent</em> integers (i.e. <code class="xref any docutils literal notranslate"><span class="pre">value.is_integer()</span> <span class="pre">!=</span> <span class="pre">True</span></code>), then the resulting pixmap <strong>will have an alpha channel</strong>.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id4">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id4" title="Link to this definition">¶</a></dt>
+<dd><p><strong>Copy and add or drop alpha:</strong> Copy <em>source</em> and add or drop its alpha channel. Identical copy if <em>alpha</em> equals <em>source.alpha</em>. If an alpha channel is added, its values will be set to 255.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source</strong> (<em>Pixmap</em>) – source pixmap.</p></li>
+<li><p><strong>alpha</strong> (<em>bool</em>) – whether the target will have an alpha channel, default and mandatory if source colorspace is <em>None</em>.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A typical use includes separation of color and transparency bytes in separate pixmaps. Some applications require this like e.g. <em>wx.Bitmap.FromBufferAndAlpha()</em> of <em>wxPython</em>:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># &#39;pix&#39; is an RGBA pixmap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pixcolors</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">Pixmap</span><span class="p">(</span><span class="n">pix</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>    <span class="c1"># extract the RGB part (drop alpha)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pixalpha</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">Pixmap</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">pix</span><span class="p">)</span>  <span class="c1"># extract the alpha part</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bm</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">Bitmap</span><span class="o">.</span><span class="n">FromBufferAndAlpha</span><span class="p">(</span><span class="n">pix</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="n">pix</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="n">pixcolors</span><span class="o">.</span><span class="n">samples</span><span class="p">,</span> <span class="n">pixalpha</span><span class="o">.</span><span class="n">samples</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id5">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id5" title="Link to this definition">¶</a></dt>
+<dd><p><strong>From a file:</strong> Create a pixmap from <em>filename</em>. All properties are inferred from the input. The origin of the resulting pixmap is <em>(0, 0)</em>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – Path of the image file.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id6">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id6" title="Link to this definition">¶</a></dt>
+<dd><p><strong>From memory:</strong> Create a pixmap from a memory area. All properties are inferred from the input. The origin of the resulting pixmap is <em>(0, 0)</em>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>stream</strong> (<em>bytes</em><em>,</em><em>bytearray</em><em>,</em><em>BytesIO</em>) – <p>Data containing a complete, valid image. Could have been created by e.g. <em>stream = bytearray(open(‘image.file’, ‘rb’).read())</em>. Type <em>bytes</em> is supported in <strong>Python 3 only</strong>, because <em>bytes == str</em> in Python 2 and the method will interpret the stream as a filename.</p>
+<p><em>Changed in version 1.14.13:</em> <em>io.BytesIO</em> is now also supported.</p>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id7">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colorspace</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">samples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id7" title="Link to this definition">¶</a></dt>
+<dd><p><strong>From plain pixels:</strong> Create a pixmap from <em>samples</em>. Each pixel must be represented by a number of bytes as controlled by the <em>colorspace</em> and <em>alpha</em> parameters. The origin of the resulting pixmap is <em>(0, 0)</em>. This method is useful when raw image data are provided by some other program – see <a class="reference internal" href="faq.html#faq"><span class="std std-ref">FAQ</span></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>colorspace</strong> (<a class="reference internal" href="colorspace.html#colorspace"><span class="std std-ref">Colorspace</span></a>) – Colorspace of image.</p></li>
+<li><p><strong>width</strong> (<em>int</em>) – image width</p></li>
+<li><p><strong>height</strong> (<em>int</em>) – image height</p></li>
+<li><p><strong>samples</strong> (<em>bytes</em><em>,</em><em>bytearray</em><em>,</em><em>BytesIO</em>) – <p>an area containing all pixels of the image. Must include alpha values if specified.</p>
+<p><em>Changed in version 1.14.13:</em> (1) <em>io.BytesIO</em> can now also be used. (2) Data are now <strong>copied</strong> to the pixmap, so may safely be deleted or become unavailable.</p>
+</p></li>
+<li><p><strong>alpha</strong> (<em>bool</em>) – whether a transparency channel is included.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ol class="arabic simple">
+<li><p>The following equation <strong>must be true</strong>: <em>(colorspace.n + alpha) * width * height == len(samples)</em>.</p></li>
+<li><p>Starting with version 1.14.13, the samples data are <strong>copied</strong> to the pixmap.</p></li>
+</ol>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id8">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">doc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xref</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id8" title="Link to this definition">¶</a></dt>
+<dd><p><strong>From a PDF image:</strong> Create a pixmap from an image <strong>contained in PDF</strong> <em>doc</em> identified by its <a class="reference internal" href="glossary.html#xref" title="xref"><code class="xref py py-data docutils literal notranslate"><span class="pre">xref</span></code></a>. All pimap properties are set by the image. Have a look at <a class="reference external" href="https://github.com/pymupdf/PyMuPDF/tree/master/demo/extract-img1.py">extract-img1.py</a> and <a class="reference external" href="https://github.com/pymupdf/PyMuPDF/tree/master/demo/extract-img2.py">extract-img2.py</a> to see how this can be used to recover all of a PDF’s images.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>doc</strong> (<a class="reference internal" href="document.html#document"><span class="std std-ref">Document</span></a>) – an opened <strong>PDF</strong> document.</p></li>
+<li><p><strong>xref</strong> (<em>int</em>) – the <a class="reference internal" href="glossary.html#xref" title="xref"><code class="xref py py-data docutils literal notranslate"><span class="pre">xref</span></code></a> of an image object. For example, you can make a list of images used on a particular page with <a class="reference internal" href="document.html#Document.get_page_images" title="Document.get_page_images"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Document.get_page_images()</span></code></a>, which also shows the <a class="reference internal" href="glossary.html#xref" title="xref"><code class="xref py py-data docutils literal notranslate"><span class="pre">xref</span></code></a> numbers of each image.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Pixmap.clear_with">
+<span class="sig-name descname"><span class="pre">clear_with</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">irect</span></span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Pixmap.clear_with" title="Link to this definition">¶</a></dt>
+<dd><p>Initialize the samples area.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>int</em>) – if specified, values from 0 to 255 are valid. Each color byte of each pixel will be set to this value, while alpha will be set to 255 (non-transparent) if present. If omitted, then all bytes (including any alpha) are cleared to <em>0x00</em>.</p></li>
+<li><p><strong>irect</strong> (<em>irect_like</em>) – the area to be cleared. Omit to clear the whole pixmap. Can only be specified, if <em>value</em> is also specified.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Pixmap.tint_with">
+<span class="sig-name descname"><span class="pre">tint_with</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">black</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">white</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Pixmap.tint_with" title="Link to this definition">¶</a></dt>
+<dd><p>Colorize a pixmap by replacing black and / or white with colors given as <strong>sRGB integer</strong> values. Only colorspaces <a class="reference internal" href="vars.html#CS_GRAY" title="CS_GRAY"><code class="xref py py-data docutils literal notranslate"><span class="pre">CS_GRAY</span></code></a> and <a class="reference internal" href="vars.html#CS_RGB" title="CS_RGB"><code class="xref py py-data docutils literal notranslate"><span class="pre">CS_RGB</span></code></a> are supported, others are ignored with a warning.</p>
+<p>If the colorspace is <a class="reference internal" href="vars.html#CS_GRAY" title="CS_GRAY"><code class="xref py py-data docutils literal notranslate"><span class="pre">CS_GRAY</span></code></a>, the average <em>(red + green + blue)/3</em> will be taken. The pixmap will be changed in place.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>black</strong> (<em>int</em>) – replace black with this value. Specifying 0x000000 makes no changes.</p></li>
+<li><p><strong>white</strong> (<em>int</em>) – replace white with this value. Specifying 0xFFFFFF makes no changes.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Examples:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="xref any docutils literal notranslate"><span class="pre">tint_with(0x000000,</span> <span class="pre">0xFFFFFF)</span></code> is a no-op.</p></li>
+<li><p><code class="xref any docutils literal notranslate"><span class="pre">tint_with(0x00FF00,</span> <span class="pre">0xFFFFFF)</span></code> changes black to green, leaves white intact.</p></li>
+<li><p><code class="xref any docutils literal notranslate"><span class="pre">tint_with(0xFF0000,</span> <span class="pre">0x0000FF)</span></code> changes black to red and white to blue.</p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Pixmap.gamma_with">
+<span class="sig-name descname"><span class="pre">gamma_with</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gamma</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Pixmap.gamma_with" title="Link to this definition">¶</a></dt>
+<dd><p>Apply a gamma factor to a pixmap, i.e. lighten or darken it. Pixmaps with colorspace <em>None</em> are ignored with a warning.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>gamma</strong> (<em>float</em>) – <em>gamma = 1.0</em> does nothing, <em>gamma &lt; 1.0</em> lightens, <em>gamma &gt; 1.0</em> darkens the image.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Pixmap.shrink">
+<span class="sig-name descname"><span class="pre">shrink</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Pixmap.shrink" title="Link to this definition">¶</a></dt>
+<dd><p>Shrink the pixmap by dividing both, its width and height by 2:sup:<code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>n</strong> (<em>int</em>) – determines the new pixmap (samples) size. For example, a value of 2 divides width and height by 4 and thus results in a size of one 16<sup>th</sup> of the original. Values less than 1 are ignored with a warning.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Use this methods to reduce a pixmap’s size retaining its proportion. The pixmap is changed “in place”. If you want to keep original and also have more granular choices, use the resp. copy constructor above.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Pixmap.pixel">
+<span class="sig-name descname"><span class="pre">pixel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Pixmap.pixel" title="Link to this definition">¶</a></dt>
+<dd><p><em>New in version:: 1.14.5:</em> Return the value of the pixel at location (x, y) (column, line).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>int</em>) – the column number of the pixel. Must be in <code class="xref any docutils literal notranslate"><span class="pre">range(pix.width)</span></code>.</p></li>
+<li><p><strong>y</strong> (<em>int</em>) – the line number of the pixel, Must be in <code class="xref any docutils literal notranslate"><span class="pre">range(pix.height)</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of color values and, potentially the alpha value. Its length and content depend on the pixmap’s colorspace and the presence of an alpha. For RGBA pixmaps the result would e.g. be <em>[r, g, b, a]</em>. All items are integers in <code class="xref any docutils literal notranslate"><span class="pre">range(256)</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Pixmap.set_pixel">
+<span class="sig-name descname"><span class="pre">set_pixel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Pixmap.set_pixel" title="Link to this definition">¶</a></dt>
+<dd><p><em>New in version 1.14.7:</em> Manipulate the pixel at location (x, y) (column, line).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>int</em>) – the column number of the pixel. Must be in <code class="xref any docutils literal notranslate"><span class="pre">range(pix.width)</span></code>.</p></li>
+<li><p><strong>y</strong> (<em>int</em>) – the line number of the pixel. Must be in <code class="xref any docutils literal notranslate"><span class="pre">range(pix.height)</span></code>.</p></li>
+<li><p><strong>color</strong> (<em>sequence</em>) – the desired pixel value given as a sequence of integers in <code class="xref any docutils literal notranslate"><span class="pre">range(256)</span></code>. The length of the sequence must equal <a class="reference internal" href="#Pixmap.n" title="Pixmap.n"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Pixmap.n</span></code></a>, which includes any alpha byte.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Pixmap.set_rect">
+<span class="sig-name descname"><span class="pre">set_rect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">irect</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Pixmap.set_rect" title="Link to this definition">¶</a></dt>
+<dd><p><em>New in version 1.14.8:</em> Set the pixels of a rectangle to a value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>irect</strong> (<em>irect_like</em>) – the rectangle to be filled with the value. The actual area is the intersection of this parameter and <a class="reference internal" href="#Pixmap.irect" title="Pixmap.irect"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Pixmap.irect</span></code></a>. For an empty intersection (or an invalid parameter), no change will happen.</p></li>
+<li><p><strong>color</strong> (<em>sequence</em>) – the desired value, given as a sequence of integers in <code class="xref any docutils literal notranslate"><span class="pre">range(256)</span></code>. The length of the sequence must equal <a class="reference internal" href="#Pixmap.n" title="Pixmap.n"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Pixmap.n</span></code></a>, which includes any alpha byte.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>False</em> if the rectangle was invalid or had an empty intersection with <a class="reference internal" href="#Pixmap.irect" title="Pixmap.irect"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Pixmap.irect</span></code></a>, else <em>True</em>.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ol class="arabic simple">
+<li><p>This method is equivalent to <a class="reference internal" href="#Pixmap.set_pixel" title="Pixmap.set_pixel"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Pixmap.set_pixel()</span></code></a> executed for each pixel in the rectangle, but is obviously <strong>very much faster</strong> if many pixels are involved.</p></li>
+<li><p>This method can be used similar to <a class="reference internal" href="#Pixmap.clear_with" title="Pixmap.clear_with"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Pixmap.clear_with()</span></code></a> to initialize a pixmap with a certain color like this: <em>pix.set_rect(pix.irect, (255, 255, 0))</em> (RGB example, colors the complete pixmap with yellow).</p></li>
+</ol>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Pixmap.set_origin">
+<span class="sig-name descname"><span class="pre">set_origin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Pixmap.set_origin" title="Link to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>New in v1.17.7</p></li>
+</ul>
+<p>Set the x and y values of the pixmap’s top-left point.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>int</em>) – x coordinate</p></li>
+<li><p><strong>y</strong> (<em>int</em>) – y coordinate</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Pixmap.set_dpi">
+<span class="sig-name descname"><span class="pre">set_dpi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xres</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yres</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Pixmap.set_dpi" title="Link to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>New in v1.16.17</p></li>
+<li><p>Changed in v1.18.0: When saving as a PNG image, these values will be stored now.</p></li>
+</ul>
+<p>Set the resolution (dpi) in x and y direction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xres</strong> (<em>int</em>) – resolution in x direction.</p></li>
+<li><p><strong>yres</strong> (<em>int</em>) – resolution in y direction.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Pixmap.set_alpha">
+<span class="sig-name descname"><span class="pre">set_alpha</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alphavalues</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">premultiply</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opaque</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Pixmap.set_alpha" title="Link to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>Changed in v 1.18.13</p></li>
+</ul>
+<p>Change the alpha values. The pixmap must have an alpha channel.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>alphavalues</strong> (<em>bytes</em><em>,</em><em>bytearray</em><em>,</em><em>BytesIO</em>) – the new alpha values. If provided, its length must be at least <em>width * height</em>. If omitted (<code class="xref any docutils literal notranslate"><span class="pre">None</span></code>), all alpha values are set to 255 (no transparency). <em>Changed in version 1.14.13:</em> <em>io.BytesIO</em> is now also accepted.</p></li>
+<li><p><strong>premultiply</strong> (<em>bool</em>) – <em>New in v1.18.13:</em> whether to premultiply color components with the alpha value.</p></li>
+<li><p><strong>opaque</strong> (<em>list</em><em>,</em><em>tuple</em>) – ignore the alpha value and set this color to fully transparent. A sequence of integers in <code class="xref any docutils literal notranslate"><span class="pre">range(256)</span></code> with a length of <a class="reference internal" href="#Pixmap.n" title="Pixmap.n"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Pixmap.n</span></code></a>. Default is <em>None</em>. For example, a typical choice for RGB would be <code class="xref any docutils literal notranslate"><span class="pre">opaque=(255,</span> <span class="pre">255,</span> <span class="pre">255)</span></code> (white).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Pixmap.invert_irect">
+<span class="sig-name descname"><span class="pre">invert_irect</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="n"><span class="pre">irect</span></span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Pixmap.invert_irect" title="Link to this definition">¶</a></dt>
+<dd><p>Invert the color of all pixels in <a class="reference internal" href="irect.html#irect"><span class="std std-ref">IRect</span></a> <em>irect</em>. Will have no effect if colorspace is <em>None</em>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>irect</strong> (<em>irect_like</em>) – The area to be inverted. Omit to invert everything.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Pixmap.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">irect</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Pixmap.copy" title="Link to this definition">¶</a></dt>
+<dd><p>Copy the <em>irect</em> part of the <em>source</em> pixmap into the corresponding area of this one. The two pixmaps may have different dimensions and can each have <a class="reference internal" href="vars.html#CS_GRAY" title="CS_GRAY"><code class="xref py py-data docutils literal notranslate"><span class="pre">CS_GRAY</span></code></a> or <a class="reference internal" href="vars.html#CS_RGB" title="CS_RGB"><code class="xref py py-data docutils literal notranslate"><span class="pre">CS_RGB</span></code></a> colorspaces, but they currently <strong>must</strong> have the same alpha property <a class="footnote-reference brackets" href="#f2" id="id9" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>. The copy mechanism automatically adjusts discrepancies between source and target like so:</p>
+<p>If copying from <a class="reference internal" href="vars.html#CS_GRAY" title="CS_GRAY"><code class="xref py py-data docutils literal notranslate"><span class="pre">CS_GRAY</span></code></a> to <a class="reference internal" href="vars.html#CS_RGB" title="CS_RGB"><code class="xref py py-data docutils literal notranslate"><span class="pre">CS_RGB</span></code></a>, the source gray-shade value will be put into each of the three rgb component bytes. If the other way round, <em>(r + g + b) / 3</em> will be taken as the gray-shade value of the target.</p>
+<p>Between <em>irect</em> and the target pixmap’s rectangle, an “intersection” is calculated at first. This takes into account the rectangle coordinates and the current attribute values <a class="reference internal" href="#Pixmap.x" title="Pixmap.x"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Pixmap.x</span></code></a> and <a class="reference internal" href="#Pixmap.y" title="Pixmap.y"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Pixmap.y</span></code></a> (which you are free to modify for this purpose via <a class="reference internal" href="#Pixmap.set_origin" title="Pixmap.set_origin"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Pixmap.set_origin()</span></code></a>). Then the corresponding data of this intersection are copied. If the intersection is empty, nothing will happen.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source</strong> (<a class="reference internal" href="#pixmap"><span class="std std-ref">Pixmap</span></a>) – source pixmap.</p></li>
+<li><p><strong>irect</strong> (<em>irect_like</em>) – The area to be copied.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Example: Suppose you have two pixmaps, <code class="xref any docutils literal notranslate"><span class="pre">pix1</span></code> and <code class="xref any docutils literal notranslate"><span class="pre">pix2</span></code> and you want to copy the lower right quarter of <code class="xref any docutils literal notranslate"><span class="pre">pix2</span></code> to <code class="xref any docutils literal notranslate"><span class="pre">pix1</span></code> such that it starts at the top-left point of <code class="xref any docutils literal notranslate"><span class="pre">pix1</span></code>. Use the following snippet:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># safeguard: set top-left of pix1 and pix2 to (0, 0)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pix1</span><span class="o">.</span><span class="n">set_origin</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pix2</span><span class="o">.</span><span class="n">set_origin</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># compute top-left coordinates of pix2 region to copy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pix2</span><span class="o">.</span><span class="n">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pix2</span><span class="o">.</span><span class="n">height</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># shift top-left of pix2 such, that the to-be-copied</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># area starts at (0, 0):</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pix2</span><span class="o">.</span><span class="n">set_origin</span><span class="p">(</span><span class="o">-</span><span class="n">x1</span><span class="p">,</span> <span class="o">-</span><span class="n">y1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># now copy ...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pix1</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">pix2</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">))</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/img-pixmapcopy.jpg"><img alt="_images/img-pixmapcopy.jpg" src="_images/img-pixmapcopy.jpg" style="width: 690.6px; height: 303.6px;" />
+</a>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Pixmap.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jpg_quality</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">95</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Pixmap.save" title="Link to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>Changed in v1.22.0: Added <strong>direct support of JPEG</strong> images. Image quality can be controlled via parameter “jpg_quality”.</p></li>
+</ul>
+<p>Save pixmap as an image file. Depending on the output chosen, only some or all colorspaces are supported and different file extensions can be chosen. Please see the table below.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<em>str</em><em>,</em><em>Path</em><em>,</em><em>file</em>) – The file to save to. May be provided as a string, as a <code class="docutils literal notranslate"><span class="pre">pathlib.Path</span></code> or as a Python file object. In the latter two cases, the filename is taken from the resp. object. The filename’s extension determines the image format, which can be overruled by the output parameter.</p></li>
+<li><p><strong>output</strong> (<em>str</em>) – The desired image format. The default is the filename’s extension. If both, this value and the file extension are unsupported, an exception is raised. For possible values see <a class="reference internal" href="#pixmapoutput"><span class="std std-ref">Supported Output Image Formats</span></a>.</p></li>
+<li><p><strong>jpg_quality</strong> (<em>int</em>) – The desired image quality, default 95. Only applies to JPEG images, else ignored. This parameter trades quality against file size. A value of 98 is close to lossless. Higher values should not lead to better quality.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – For unsupported image formats.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Pixmap.tobytes">
+<span class="sig-name descname"><span class="pre">tobytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'png'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jpg_quality</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">95</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Pixmap.tobytes" title="Link to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>New in version 1.14.5: Return the pixmap as a <em>bytes</em> memory object of the specified format – similar to <a class="reference internal" href="#Pixmap.save" title="Pixmap.save"><code class="xref py py-meth docutils literal notranslate"><span class="pre">save()</span></code></a>.</p></li>
+<li><p>Changed in v1.22.0: Added <strong>direct JPEG support</strong>. Image quality can be influenced via new parameter “jpg_quality”.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>output</strong> (<em>str</em>) – The desired image format. The default is “png”. For possible values see <a class="reference internal" href="#pixmapoutput"><span class="std std-ref">Supported Output Image Formats</span></a>.</p></li>
+<li><p><strong>jpg_quality</strong> (<em>int</em>) – The desired image quality, default 95. Only applies to JPEG images, else ignored. This parameter trades quality against file size. A value of 98 is close to lossless. Higher values should not lead to better quality.</p></li>
+<li><p><strong>output</strong> – The requested image format. The default is “png”. For other possible values see <a class="reference internal" href="#pixmapoutput"><span class="std std-ref">Supported Output Image Formats</span></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – For unsupported image formats.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bytes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Pixmap.pdfocr_save">
+<span class="sig-name descname"><span class="pre">pdfocr_save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compress</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">language</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'eng'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tessdata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Pixmap.pdfocr_save" title="Link to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>New in v1.19.0</p></li>
+<li><p>Changed in v1.22.5: Support of new parameter for Tesseract’s tessdata.</p></li>
+</ul>
+<p>Perform text recognition using Tesseract and save the image as a 1-page PDF with an OCR text layer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<em>str</em><em>,</em><em>fp</em>) – identifies the file to save to. May be either a string or a pointer to a file opened with “wb” (includes <code class="xref any docutils literal notranslate"><span class="pre">io.BytesIO()</span></code> objects).</p></li>
+<li><p><strong>compress</strong> (<em>bool</em>) – whether to compress the resulting PDF, default is <code class="xref any docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
+<li><p><strong>language</strong> (<em>str</em>) – the languages occurring in the image. This must be specified in Tesseract format. Default is “eng” for English. Use “+”-separated Tesseract language codes for multiple languages, like “eng+spa” for English and Spanish.</p></li>
+<li><p><strong>tessdata</strong> (<em>str</em>) – folder name of Tesseract’s language support. If omitted, this information must be present as environment variable <code class="xref any docutils literal notranslate"><span class="pre">TESSDATA_PREFIX</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Will fail</strong> if Tesseract is not installed or if the environment variable “TESSDATA_PREFIX” is not set to the <code class="xref any docutils literal notranslate"><span class="pre">tessdata</span></code> folder name and not provided as parameter.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Pixmap.pdfocr_tobytes">
+<span class="sig-name descname"><span class="pre">pdfocr_tobytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">compress</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">language</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'eng'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tessdata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Pixmap.pdfocr_tobytes" title="Link to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>New in v1.19.0</p></li>
+<li><p>Changed in v1.22.5: Support of new parameter for Tesseract’s tessdata.</p></li>
+</ul>
+<p>Perform text recognition using Tesseract and convert the image to a 1-page PDF with an OCR text layer. Internally invokes <a class="reference internal" href="#Pixmap.pdfocr_save" title="Pixmap.pdfocr_save"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Pixmap.pdfocr_save()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><p>A 1-page PDF file in memory. Could be opened like <code class="xref any docutils literal notranslate"><span class="pre">doc=pymupdf.open(&quot;pdf&quot;,</span> <span class="pre">pix.pdfocr_tobytes())</span></code>, and text extractions could be performed on its <code class="xref any docutils literal notranslate"><span class="pre">page=doc[0]</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Another possible use is insertion into some pdf. The following snippet reads the images of a folder and stores them as pages in a new PDF that contain an OCR text layer:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">doc</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">imgfile</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">folder</span><span class="p">):</span>
+   <span class="n">pix</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">Pixmap</span><span class="p">(</span><span class="n">imgfile</span><span class="p">)</span>
+   <span class="n">imgpdf</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;pdf&quot;</span><span class="p">,</span> <span class="n">pix</span><span class="o">.</span><span class="n">pdfocr_tobytes</span><span class="p">())</span>
+   <span class="n">doc</span><span class="o">.</span><span class="n">insert_pdf</span><span class="p">(</span><span class="n">imgpdf</span><span class="p">)</span>
+   <span class="n">pix</span> <span class="o">=</span> <span class="kc">None</span>
+   <span class="n">imgpdf</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">doc</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;ocr-images.pdf&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Pixmap.pil_image">
+<span class="sig-name descname"><span class="pre">pil_image</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Pixmap.pil_image" title="Link to this definition">¶</a></dt>
+<dd><p>Create a Pillow Image from the pixmap. PIL / Pillow must be installed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ImportError</strong> – if Pillow is not installed.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a ˇˇPIL.Imageˇˇ object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Pixmap.pil_save">
+<span class="sig-name descname"><span class="pre">pil_save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unmultiply</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Pixmap.pil_save" title="Link to this definition">¶</a></dt>
+<dd><p>Write the pixmap as an image file using Pillow. Use this method for output unsupported by MuPDF. Examples are</p>
+<ul class="simple">
+<li><p>Formats JPX, J2K, WebP, etc.</p></li>
+<li><p>Storing EXIF information.</p></li>
+<li><p>If you do not provide dpi information, the values <em>xres</em>, <em>yres</em> stored with the pixmap are automatically used.</p></li>
+</ul>
+<p>A simple example: <code class="xref any docutils literal notranslate"><span class="pre">pix.pil_save(&quot;some.webp&quot;,</span> <span class="pre">optimize=True,</span> <span class="pre">dpi=(150,</span> <span class="pre">150))</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>unmultiply</strong> (<em>bool</em>) – If the pixmap’s colorspace is RGB with transparency, the alpha values may or may not already be multiplied into the color components ref/green/blue (called “premultiplied”). To enforce undoing premultiplication, set this parameter to <code class="xref any docutils literal notranslate"><span class="pre">True</span></code>. To learn about some background, e.g. look for “Premultiplied alpha” <a class="reference external" href="https://en.wikipedia.org/wiki/Glossary_of_computer_graphics#P">here</a>.</p>
+</dd>
+</dl>
+<p>For details on other parameters see the Pillow documentation.</p>
+<p>Since v1.22.0, PyMuPDF supports JPEG output directly. We recommended to no longer use this method for JPEG output – for performance reasons and for avoiding unnecessary external dependencies.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ImportError</strong> – if Pillow is not installed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Pixmap.pil_tobytes">
+<span class="sig-name descname"><span class="pre">pil_tobytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unmultiply</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Pixmap.pil_tobytes" title="Link to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>New in v1.17.3</p></li>
+</ul>
+<p>Return an image as a bytes object in the specified format using Pillow. For example <code class="xref any docutils literal notranslate"><span class="pre">stream</span> <span class="pre">=</span> <span class="pre">pix.pil_tobytes(format=&quot;WEBP&quot;,</span> <span class="pre">optimize=True,</span> <span class="pre">dpi=(150,</span> <span class="pre">150))</span></code>. Also see above. For details on other parameters see the Pillow documentation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ImportError</strong> – if Pillow is not installed.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bytes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Pixmap.warp">
+<span class="sig-name descname"><span class="pre">warp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">quad</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Pixmap.warp" title="Link to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>New in v1.19.3</p></li>
+</ul>
+<p>Return a new pixmap by “warping” the quad such that the quad corners become the new pixmap’s corners. The target pixmap’s <a class="reference internal" href="irect.html"><span class="doc">IRect</span></a> will be <code class="xref any docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">0,</span> <span class="pre">width,</span> <span class="pre">height)</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>quad</strong> (<em>quad_like</em>) – a convex quad with coordinates inside <a class="reference internal" href="#Pixmap.irect" title="Pixmap.irect"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Pixmap.irect</span></code></a> (including the border points).</p></li>
+<li><p><strong>width</strong> (<em>int</em>) – desired resulting width.</p></li>
+<li><p><strong>height</strong> (<em>int</em>) – desired resulting height.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A new pixmap where the quad corners are mapped to the pixmap corners in a clockwise fashion: <code class="xref any docutils literal notranslate"><span class="pre">quad.ul</span> <span class="pre">-&gt;</span> <span class="pre">irect.tl</span></code>, <code class="xref any docutils literal notranslate"><span class="pre">quad.ur</span> <span class="pre">-&gt;</span> <span class="pre">irect.tr</span></code>, etc.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><p><a class="reference internal" href="#pixmap"><span class="std std-ref">Pixmap</span></a></p>
+<a class="reference internal" href="_images/img-warp.png"><img alt="_images/img-warp.png" class="align-center" src="_images/img-warp.png" style="width: 632.8000000000001px; height: 258.40000000000003px;" /></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Pixmap.color_count">
+<span class="sig-name descname"><span class="pre">color_count</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">colors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Pixmap.color_count" title="Link to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>New in v1.19.2</p></li>
+<li><p>Changed in v1.19.3</p></li>
+</ul>
+<p>Determine the pixmap’s unique colors and their count.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>colors</strong> (<em>bool</em>) – <em>(changed in v1.19.3)</em> If <code class="xref any docutils literal notranslate"><span class="pre">True</span></code> return a dictionary of color pixels and their usage count, else just the number of unique colors.</p></li>
+<li><p><strong>clip</strong> (<em>rect_like</em>) – a rectangle inside <a class="reference internal" href="#Pixmap.irect" title="Pixmap.irect"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Pixmap.irect</span></code></a>. If provided, only those pixels are considered. This allows inspecting sub-rectangles of a given pixmap directly – instead of building sub-pixmaps.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict or int</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><p>either the number of colors, or a dictionary with the items <code class="xref any docutils literal notranslate"><span class="pre">pixel:</span> <span class="pre">count</span></code>. The pixel key is a <code class="xref any docutils literal notranslate"><span class="pre">bytes</span></code> object of length <a class="reference internal" href="#Pixmap.n" title="Pixmap.n"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Pixmap.n</span></code></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To recover the <strong>tuple</strong> of a pixel, use <code class="xref any docutils literal notranslate"><span class="pre">tuple(colors.keys()[i])</span></code> for the i-th item.</p>
+<ul class="simple">
+<li><p>The response time depends on the pixmap’s samples size and may be more than a second for very large pixmaps.</p></li>
+<li><p>Where applicable, pixels with different alpha values will be treated as different colors.</p></li>
+</ul>
+</div>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Pixmap.color_topusage">
+<span class="sig-name descname"><span class="pre">color_topusage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Pixmap.color_topusage" title="Link to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>New in v1.19.3</p></li>
+</ul>
+<p>Return the most frequently used color and its relative frequency.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>clip</strong> (<em>rect_like</em>) – A rectangle inside <a class="reference internal" href="#Pixmap.irect" title="Pixmap.irect"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Pixmap.irect</span></code></a>. If provided, only those pixels are considered. This allows inspecting sub-rectangles of a given pixmap directly – instead of building sub-pixmaps.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>tuple</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A tuple <code class="xref any docutils literal notranslate"><span class="pre">(ratio,</span> <span class="pre">pixel)</span></code> where <code class="xref any docutils literal notranslate"><span class="pre">0</span> <span class="pre">&lt;</span> <span class="pre">ratio</span> <span class="pre">&lt;=</span> <span class="pre">1</span></code> and <em>pixel</em> is the pixel value of the color. Use this to decide if the image is “almost” unicolor: a response <code class="xref any docutils literal notranslate"><span class="pre">(0.95,</span> <span class="pre">b&quot;x00x00x00&quot;)</span></code> means that 95% of all pixels are black. See an example here <a class="reference internal" href="recipes-images.html#recipesimages-p"><span class="std std-ref">How to Use Pixmaps: Checking Text Visibility</span></a>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Pixmap.alpha">
+<span class="sig-name descname"><span class="pre">alpha</span></span><a class="headerlink" href="#Pixmap.alpha" title="Link to this definition">¶</a></dt>
+<dd><p>Indicates whether the pixmap contains transparency information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Pixmap.digest">
+<span class="sig-name descname"><span class="pre">digest</span></span><a class="headerlink" href="#Pixmap.digest" title="Link to this definition">¶</a></dt>
+<dd><p>The MD5 hashcode (16 bytes) of the pixmap. This is a technical value used for unique identifications.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bytes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Pixmap.colorspace">
+<span class="sig-name descname"><span class="pre">colorspace</span></span><a class="headerlink" href="#Pixmap.colorspace" title="Link to this definition">¶</a></dt>
+<dd><p>The colorspace of the pixmap. This value may be <em>None</em> if the image is to be treated as a so-called <em>image mask</em> or <em>stencil mask</em> (currently happens for extracted PDF document images only).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="colorspace.html#colorspace"><span class="std std-ref">Colorspace</span></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Pixmap.stride">
+<span class="sig-name descname"><span class="pre">stride</span></span><a class="headerlink" href="#Pixmap.stride" title="Link to this definition">¶</a></dt>
+<dd><p>Contains the length of one row of image data in <a class="reference internal" href="#Pixmap.samples" title="Pixmap.samples"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Pixmap.samples</span></code></a>. This is primarily used for calculation purposes. The following expressions are true:</p>
+<ul class="simple">
+<li><p><code class="xref any docutils literal notranslate"><span class="pre">len(samples)</span> <span class="pre">==</span> <span class="pre">height</span> <span class="pre">*</span> <span class="pre">stride</span></code></p></li>
+<li><p><code class="xref any docutils literal notranslate"><span class="pre">width</span> <span class="pre">*</span> <span class="pre">n</span> <span class="pre">==</span> <span class="pre">stride</span></code></p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Pixmap.is_monochrome">
+<span class="sig-name descname"><span class="pre">is_monochrome</span></span><a class="headerlink" href="#Pixmap.is_monochrome" title="Link to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>New in v1.19.2</p></li>
+</ul>
+<p>Is <code class="xref any docutils literal notranslate"><span class="pre">True</span></code> for a gray pixmap which only has the colors black and white.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Pixmap.is_unicolor">
+<span class="sig-name descname"><span class="pre">is_unicolor</span></span><a class="headerlink" href="#Pixmap.is_unicolor" title="Link to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>New in v1.19.2</p></li>
+</ul>
+<p>Is <code class="xref any docutils literal notranslate"><span class="pre">True</span></code> if all pixels are identical (any colorspace). Where applicable, pixels with different alpha values will be treated as different colors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Pixmap.irect">
+<span class="sig-name descname"><span class="pre">irect</span></span><a class="headerlink" href="#Pixmap.irect" title="Link to this definition">¶</a></dt>
+<dd><p>Contains the <a class="reference internal" href="irect.html#irect"><span class="std std-ref">IRect</span></a> of the pixmap.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="irect.html#irect"><span class="std std-ref">IRect</span></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Pixmap.samples">
+<span class="sig-name descname"><span class="pre">samples</span></span><a class="headerlink" href="#Pixmap.samples" title="Link to this definition">¶</a></dt>
+<dd><p>The color and (if <a class="reference internal" href="#Pixmap.alpha" title="Pixmap.alpha"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Pixmap.alpha</span></code></a> is true) transparency values for all pixels. It is an area of <code class="xref any docutils literal notranslate"><span class="pre">width</span> <span class="pre">*</span> <span class="pre">height</span> <span class="pre">*</span> <span class="pre">n</span></code> bytes. Each n bytes define one pixel. Each successive n bytes yield another pixel in scanline order. Subsequent scanlines follow each other with no padding. E.g. for an RGBA colorspace this means, <em>samples</em> is a sequence of bytes like <em>…, R, G, B, A, …</em>, and the four byte values R, G, B, A define one pixel.</p>
+<p>This area can be passed to other graphics libraries like PIL (Python Imaging Library) to do additional processing like saving the pixmap in other image formats.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>The underlying data is typically a <strong>large</strong> memory area, from which a <code class="xref any docutils literal notranslate"><span class="pre">bytes</span></code> copy is made for this attribute … each time you access it: for example an RGB-rendered letter page has a samples size of almost 1.4 MB. So consider assigning a new variable to it or use the <code class="xref any docutils literal notranslate"><span class="pre">memoryview</span></code> version <a class="reference internal" href="#Pixmap.samples_mv" title="Pixmap.samples_mv"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Pixmap.samples_mv</span></code></a> (new in v1.18.17).</p></li>
+<li><p>Any changes to the underlying data are available only after accessing this attribute again. This is different from using the memoryview version.</p></li>
+</ul>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bytes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Pixmap.samples_mv">
+<span class="sig-name descname"><span class="pre">samples_mv</span></span><a class="headerlink" href="#Pixmap.samples_mv" title="Link to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>New in v1.18.17</p></li>
+</ul>
+<p>Like <a class="reference internal" href="#Pixmap.samples" title="Pixmap.samples"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Pixmap.samples</span></code></a>, but in Python <code class="xref any docutils literal notranslate"><span class="pre">memoryview</span></code> format. It is built pointing to the memory in the pixmap – not from a copy of it. So its creation speed is independent from the pixmap size, and any changes to pixels will be available immediately.</p>
+<p>Copies like <code class="xref any docutils literal notranslate"><span class="pre">bytearray(pix.samples_mv)</span></code>, or <code class="xref any docutils literal notranslate"><span class="pre">bytes(pixmap.samples_mv)</span></code> are equivalent to and can be used in place of <code class="xref any docutils literal notranslate"><span class="pre">pix.samples</span></code>.</p>
+<p>We also have <code class="xref any docutils literal notranslate"><span class="pre">len(pix.samples)</span> <span class="pre">==</span> <span class="pre">len(pix.samples_mv)</span></code>.</p>
+<p>Look at this example from a 2 MB JPEG: the memoryview is <strong>ten thousand times faster</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>In [3]: %timeit len(pix.samples_mv)
+367 ns ± 1.75 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
+In [4]: %timeit len(pix.samples)
+3.52 ms ± 57.5 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</pre></div>
+</div>
+<p>After the Pixmap has been destroyed, any attempt to use the memoryview
+will fail with ValueError.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>memoryview</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Pixmap.samples_ptr">
+<span class="sig-name descname"><span class="pre">samples_ptr</span></span><a class="headerlink" href="#Pixmap.samples_ptr" title="Link to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>New in v1.18.17</p></li>
+</ul>
+<p>Python pointer to the pixel area. This is a special integer format, which can be used by supporting applications (such as PyQt) to directly address the samples area and thus build their images extremely fast. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">img</span> <span class="o">=</span> <span class="n">QtGui</span><span class="o">.</span><span class="n">QImage</span><span class="p">(</span><span class="n">pix</span><span class="o">.</span><span class="n">samples</span><span class="p">,</span> <span class="n">pix</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="n">pix</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="nb">format</span><span class="p">)</span> <span class="c1"># (1)</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">QtGui</span><span class="o">.</span><span class="n">QImage</span><span class="p">(</span><span class="n">pix</span><span class="o">.</span><span class="n">samples_ptr</span><span class="p">,</span> <span class="n">pix</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="n">pix</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="nb">format</span><span class="p">)</span> <span class="c1"># (2)</span>
+</pre></div>
+</div>
+<p>Both of the above lead to the same Qt image, but (2) can be <strong>many hundred times faster</strong>, because it avoids an additional copy of the pixel area.</p>
+<p>Warning: after the Pixmap has been destroyed, the Python pointer will be
+invalid and attempting to use it may crash the Python interpreter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Pixmap.size">
+<span class="sig-name descname"><span class="pre">size</span></span><a class="headerlink" href="#Pixmap.size" title="Link to this definition">¶</a></dt>
+<dd><p>Contains <em>len(pixmap)</em>. This will generally equal <em>len(pix.samples)</em> plus some platform-specific value for defining other attributes of the object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Pixmap.width">
+<span class="sig-name descname"><span class="pre">width</span></span><a class="headerlink" href="#Pixmap.width" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Pixmap.w">
+<span class="sig-name descname"><span class="pre">w</span></span><a class="headerlink" href="#Pixmap.w" title="Link to this definition">¶</a></dt>
+<dd><p>Width of the region in pixels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Pixmap.height">
+<span class="sig-name descname"><span class="pre">height</span></span><a class="headerlink" href="#Pixmap.height" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Pixmap.h">
+<span class="sig-name descname"><span class="pre">h</span></span><a class="headerlink" href="#Pixmap.h" title="Link to this definition">¶</a></dt>
+<dd><p>Height of the region in pixels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Pixmap.x">
+<span class="sig-name descname"><span class="pre">x</span></span><a class="headerlink" href="#Pixmap.x" title="Link to this definition">¶</a></dt>
+<dd><p>X-coordinate of top-left corner in pixels. Cannot directly be changed – use <a class="reference internal" href="#Pixmap.set_origin" title="Pixmap.set_origin"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Pixmap.set_origin()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Pixmap.y">
+<span class="sig-name descname"><span class="pre">y</span></span><a class="headerlink" href="#Pixmap.y" title="Link to this definition">¶</a></dt>
+<dd><p>Y-coordinate of top-left corner in pixels. Cannot directly be changed – use <a class="reference internal" href="#Pixmap.set_origin" title="Pixmap.set_origin"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Pixmap.set_origin()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Pixmap.n">
+<span class="sig-name descname"><span class="pre">n</span></span><a class="headerlink" href="#Pixmap.n" title="Link to this definition">¶</a></dt>
+<dd><p>Number of components per pixel. This number depends on colorspace and alpha. If colorspace is not <em>None</em> (stencil masks), then <em>Pixmap.n - Pixmap.alpha == pixmap.colorspace.n</em> is true. If colorspace is <em>None</em>, then <em>n == alpha == 1</em>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Pixmap.xres">
+<span class="sig-name descname"><span class="pre">xres</span></span><a class="headerlink" href="#Pixmap.xres" title="Link to this definition">¶</a></dt>
+<dd><p>Horizontal resolution in dpi (dots per inch). Please also see <a class="reference internal" href="glossary.html#resolution" title="resolution"><code class="xref py py-data docutils literal notranslate"><span class="pre">resolution</span></code></a>. Cannot directly be changed – use <a class="reference internal" href="#Pixmap.set_dpi" title="Pixmap.set_dpi"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Pixmap.set_dpi()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Pixmap.yres">
+<span class="sig-name descname"><span class="pre">yres</span></span><a class="headerlink" href="#Pixmap.yres" title="Link to this definition">¶</a></dt>
+<dd><p>Vertical resolution in dpi (dots per inch). Please also see <a class="reference internal" href="glossary.html#resolution" title="resolution"><code class="xref py py-data docutils literal notranslate"><span class="pre">resolution</span></code></a>. Cannot directly be changed – use <a class="reference internal" href="#Pixmap.set_dpi" title="Pixmap.set_dpi"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Pixmap.set_dpi()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Pixmap.interpolate">
+<span class="sig-name descname"><span class="pre">interpolate</span></span><a class="headerlink" href="#Pixmap.interpolate" title="Link to this definition">¶</a></dt>
+<dd><p>An information-only boolean flag set to <em>True</em> if the image will be drawn using “linear interpolation”. If <em>False</em> “nearest neighbour sampling” will be used.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<section id="supported-input-image-formats">
+<span id="imagefiles"></span><h2>Supported Input Image Formats<a class="headerlink" href="#supported-input-image-formats" title="Link to this heading">¶</a></h2>
+<p>The following file types are supported as <strong>input</strong> to construct pixmaps: <strong>BMP, JPEG, GIF, TIFF, JXR, JPX</strong>, <strong>PNG</strong>, <strong>PAM</strong> and all of the <strong>Portable Anymap</strong> family (<strong>PBM, PGM, PNM, PPM</strong>). This support is two-fold:</p>
+<ol class="arabic simple">
+<li><p>Directly create a pixmap with <em>Pixmap(filename)</em> or <em>Pixmap(byterray)</em>. The pixmap will then have properties as determined by the image.</p></li>
+<li><p>Open such files with <em>pymupdf.open(…)</em>. The result will then appear as a document containing one single page. Creating a pixmap of this page offers all the options available in this context: apply a matrix, choose colorspace and alpha, confine the pixmap to a clip area, etc.</p></li>
+</ol>
+<p><strong>SVG images</strong> are only supported via method 2 above, not directly as pixmaps. But remember: the result of this is a <strong>raster image</strong> as is always the case with pixmaps <a class="footnote-reference brackets" href="#f1" id="id10" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
+</section>
+<section id="supported-output-image-formats">
+<span id="pixmapoutput"></span><h2>Supported Output Image Formats<a class="headerlink" href="#supported-output-image-formats" title="Link to this heading">¶</a></h2>
+<p>A number of image <strong>output</strong> formats are supported. You have the option to either write an image directly to a file (<a class="reference internal" href="#Pixmap.save" title="Pixmap.save"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Pixmap.save()</span></code></a>), or to generate a bytes object (<a class="reference internal" href="#Pixmap.tobytes" title="Pixmap.tobytes"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Pixmap.tobytes()</span></code></a>). Both methods accept a string identifying the desired format (<strong>Format</strong> column below). Please note that not all combinations of pixmap colorspace, transparency support (alpha) and image format are possible.</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Format</strong></p></th>
+<th class="head"><p><strong>Colorspaces</strong></p></th>
+<th class="head"><p><strong>alpha</strong></p></th>
+<th class="head"><p><strong>Extensions</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>jpg, jpeg</p></td>
+<td><p>gray, rgb, cmyk</p></td>
+<td><p>no</p></td>
+<td><p>.jpg, .jpeg</p></td>
+<td><p>Joint Photographic Experts Group</p></td>
+</tr>
+<tr class="row-odd"><td><p>pam</p></td>
+<td><p>gray, rgb, cmyk</p></td>
+<td><p>yes</p></td>
+<td><p>.pam</p></td>
+<td><p>Portable Arbitrary Map</p></td>
+</tr>
+<tr class="row-even"><td><p>pbm</p></td>
+<td><p>gray, rgb</p></td>
+<td><p>no</p></td>
+<td><p>.pbm</p></td>
+<td><p>Portable Bitmap</p></td>
+</tr>
+<tr class="row-odd"><td><p>pgm</p></td>
+<td><p>gray, rgb</p></td>
+<td><p>no</p></td>
+<td><p>.pgm</p></td>
+<td><p>Portable Graymap</p></td>
+</tr>
+<tr class="row-even"><td><p>png</p></td>
+<td><p>gray, rgb</p></td>
+<td><p>yes</p></td>
+<td><p>.png</p></td>
+<td><p>Portable Network Graphics</p></td>
+</tr>
+<tr class="row-odd"><td><p>pnm</p></td>
+<td><p>gray, rgb</p></td>
+<td><p>no</p></td>
+<td><p>.pnm</p></td>
+<td><p>Portable Anymap</p></td>
+</tr>
+<tr class="row-even"><td><p>ppm</p></td>
+<td><p>gray, rgb</p></td>
+<td><p>no</p></td>
+<td><p>.ppm</p></td>
+<td><p>Portable Pixmap</p></td>
+</tr>
+<tr class="row-odd"><td><p>ps</p></td>
+<td><p>gray, rgb, cmyk</p></td>
+<td><p>no</p></td>
+<td><p>.ps</p></td>
+<td><p>Adobe PostScript Image</p></td>
+</tr>
+<tr class="row-even"><td><p>psd</p></td>
+<td><p>gray, rgb, cmyk</p></td>
+<td><p>yes</p></td>
+<td><p>.psd</p></td>
+<td><p>Adobe Photoshop Document</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>Not all image file types are supported (or at least common) on all OS platforms. E.g. PAM and the Portable Anymap formats are rare or even unknown on Windows.</p></li>
+<li><p>Especially pertaining to CMYK colorspaces, you can always convert a CMYK pixmap to an RGB pixmap with <em>rgb_pix = pymupdf.Pixmap(pymupdf.csRGB, cmyk_pix)</em> and then save that in the desired format.</p></li>
+<li><p>As can be seen, MuPDF’s image support range is different for input and output. Among those supported both ways, PNG and JPEG are probably the most popular.</p></li>
+<li><p>We also recommend using “ppm” formats as input to tkinter’s <em>PhotoImage</em> method like this: <em>tkimg = tkinter.PhotoImage(data=pix.tobytes(“ppm”))</em> (also see the tutorial). This is <strong>very</strong> fast (<strong>60 times</strong> faster than PNG).</p></li>
+</ul>
+</div>
+<p class="rubric">Footnotes</p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="f1" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id10">1</a><span class="fn-bracket">]</span></span>
+<p>If you need a <strong>vector image</strong> from the SVG, you must first convert it to a PDF. Try <a class="reference internal" href="document.html#Document.convert_to_pdf" title="Document.convert_to_pdf"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Document.convert_to_pdf()</span></code></a>. If this is not good enough, look for other SVG-to-PDF conversion tools like the Python packages <a class="reference external" href="https://pypi.org/project/svglib">svglib</a>, <a class="reference external" href="https://pypi.org/project/cairosvg">CairoSVG</a>, <a class="reference external" href="https://sk1project.net/modules.php?name=Products&amp;product=uniconvertor&amp;op=download">Uniconvertor</a> or the Java solution <a class="reference external" href="https://github.com/apache/batik">Apache Batik</a>. Have a look at our Wiki for more examples.</p>
+</aside>
+<aside class="footnote brackets" id="f2" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id9">2</a><span class="fn-bracket">]</span></span>
+<p>To also set the alpha property, add an additional step to this method by dropping or adding an alpha channel to the result.</p>
+</aside>
+</aside>
+<div class="feedbackLink"><a id="feedbackLinkBottom" target=_blank>Do you have any feedback on this page?</b></a></div><hr class="docutils" />
+<script>
+
+   var url_string = window.location.href;
+   var a = document.getElementById('feedbackLinkBottom');
+   a.setAttribute("href", "https://artifex.com/contributor/feedback.php?utm_source=rtd-pymupdf&utm_medium=rtd&utm_content=footer-link&url="+url_string);
+
+</script>
+
+<p style="color:#999" id="footerDisclaimer">This software is provided AS-IS with no warranty, either express or implied. This software is distributed under license and may not be copied, modified or distributed except as expressly authorized under the terms of that license. Refer to licensing information at <a href="https://www.artifex.com?utm_source=rtd-pymupdf&utm_medium=rtd&utm_content=footer-link">artifex.com</a> or contact Artifex Software Inc., 39 Mesa Street, Suite 108A, San Francisco CA 94129, United States for further information.</p>
+
+
+
+<script>
+
+   let docLanguage = document.getElementsByTagName('html')[0].getAttribute('lang');
+
+   function getHeaderAndFooterTranslation(str) {
+       if (docLanguage == "ja") {
+           if (str == "Do you have any feedback on this page?") {
+               return "このページに関するご意見はありますか？";
+           } else if (str == "Find <b>#pymupdf</b> on <b>Discord</b>") {
+               return "<b>Discord</b>の <b>#pymupdf</b> を見つける";
+           } else if (str == "This software is provided AS-IS with no warranty, either express or implied. This software is distributed under license and may not be copied, modified or distributed except as expressly authorized under the terms of that license. Refer to licensing information at <a href='https://www.artifex.com?utm_source=rtd-pymupdf&utm_medium=rtd&utm_content=footer-link'>artifex.com</a> or contact Artifex Software Inc., 39 Mesa Street, Suite 108A, San Francisco CA 94129, United States for further information.") {
+
+               return "このソフトウェアは無保証で提供されており、明示または黙示を問わず、いかなる保証もありません。このソフトウェアはライセンスの下で配布され、ライセンスの条件に明示的に許可されている場合を除き、コピー、変更、または配布してはなりません。ライセンシング情報については、<a href='https://www.artifex.com?utm_source=rtd-pymupdf&utm_medium=rtd&utm_content=footer-link'>artifex.com</a>でライセンス情報を参照するか、アメリカ合衆国カリフォルニア州サンフランシスコのArtifex Software Inc. までお問い合わせください。"
+
+           }
+       }
+
+       return str;
+   }
+
+   document.getElementById("findOnDiscord").innerHTML = getHeaderAndFooterTranslation("Find <b>#pymupdf</b> on <b>Discord</b>");
+   document.getElementById("feedbackLinkTop").innerHTML = getHeaderAndFooterTranslation("Do you have any feedback on this page?");
+   document.getElementById("feedbackLinkBottom").innerHTML = getHeaderAndFooterTranslation("Do you have any feedback on this page?");
+   document.getElementById("footerDisclaimer").innerHTML = getHeaderAndFooterTranslation("This software is provided AS-IS with no warranty, either express or implied. This software is distributed under license and may not be copied, modified or distributed except as expressly authorized under the terms of that license. Refer to licensing information at <a href='https://www.artifex.com?utm_source=rtd-pymupdf&utm_medium=rtd&utm_content=footer-link'>artifex.com</a> or contact Artifex Software Inc., 39 Mesa Street, Suite 108A, San Francisco CA 94129, United States for further information.");
+
+
+   // more translation for admonition-title as the in-built translation isn't great, needs: 注釈 -> 注
+   if (docLanguage == "ja") {
+       const collection = document.getElementsByClassName("admonition-title");
+       for (var i=0;i<collection.length;i++) {
+           collection[i].innerHTML = "注";
+       }
+   }
+
+
+</script><p class="footer-version">This documentation covers all versions up to 1.25.3.</p>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="point.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Point</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="page.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Page</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2015-2025, Artifex
+            </div>
+            Made with 
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            <div class="last-updated">
+              Last updated on 10. Mar 2025</div>
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Pixmap</a><ul>
+<li><a class="reference internal" href="#Pixmap"><code class="docutils literal notranslate"><span class="pre">Pixmap</span></code></a><ul>
+<li><a class="reference internal" href="#Pixmap.__init__"><code class="docutils literal notranslate"><span class="pre">Pixmap.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">Pixmap.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">Pixmap.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#id3"><code class="docutils literal notranslate"><span class="pre">Pixmap.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#id4"><code class="docutils literal notranslate"><span class="pre">Pixmap.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#id5"><code class="docutils literal notranslate"><span class="pre">Pixmap.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#id6"><code class="docutils literal notranslate"><span class="pre">Pixmap.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#id7"><code class="docutils literal notranslate"><span class="pre">Pixmap.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#id8"><code class="docutils literal notranslate"><span class="pre">Pixmap.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#Pixmap.clear_with"><code class="docutils literal notranslate"><span class="pre">Pixmap.clear_with()</span></code></a></li>
+<li><a class="reference internal" href="#Pixmap.tint_with"><code class="docutils literal notranslate"><span class="pre">Pixmap.tint_with()</span></code></a></li>
+<li><a class="reference internal" href="#Pixmap.gamma_with"><code class="docutils literal notranslate"><span class="pre">Pixmap.gamma_with()</span></code></a></li>
+<li><a class="reference internal" href="#Pixmap.shrink"><code class="docutils literal notranslate"><span class="pre">Pixmap.shrink()</span></code></a></li>
+<li><a class="reference internal" href="#Pixmap.pixel"><code class="docutils literal notranslate"><span class="pre">Pixmap.pixel()</span></code></a></li>
+<li><a class="reference internal" href="#Pixmap.set_pixel"><code class="docutils literal notranslate"><span class="pre">Pixmap.set_pixel()</span></code></a></li>
+<li><a class="reference internal" href="#Pixmap.set_rect"><code class="docutils literal notranslate"><span class="pre">Pixmap.set_rect()</span></code></a></li>
+<li><a class="reference internal" href="#Pixmap.set_origin"><code class="docutils literal notranslate"><span class="pre">Pixmap.set_origin()</span></code></a></li>
+<li><a class="reference internal" href="#Pixmap.set_dpi"><code class="docutils literal notranslate"><span class="pre">Pixmap.set_dpi()</span></code></a></li>
+<li><a class="reference internal" href="#Pixmap.set_alpha"><code class="docutils literal notranslate"><span class="pre">Pixmap.set_alpha()</span></code></a></li>
+<li><a class="reference internal" href="#Pixmap.invert_irect"><code class="docutils literal notranslate"><span class="pre">Pixmap.invert_irect()</span></code></a></li>
+<li><a class="reference internal" href="#Pixmap.copy"><code class="docutils literal notranslate"><span class="pre">Pixmap.copy()</span></code></a></li>
+<li><a class="reference internal" href="#Pixmap.save"><code class="docutils literal notranslate"><span class="pre">Pixmap.save()</span></code></a></li>
+<li><a class="reference internal" href="#Pixmap.tobytes"><code class="docutils literal notranslate"><span class="pre">Pixmap.tobytes()</span></code></a></li>
+<li><a class="reference internal" href="#Pixmap.pdfocr_save"><code class="docutils literal notranslate"><span class="pre">Pixmap.pdfocr_save()</span></code></a></li>
+<li><a class="reference internal" href="#Pixmap.pdfocr_tobytes"><code class="docutils literal notranslate"><span class="pre">Pixmap.pdfocr_tobytes()</span></code></a></li>
+<li><a class="reference internal" href="#Pixmap.pil_image"><code class="docutils literal notranslate"><span class="pre">Pixmap.pil_image()</span></code></a></li>
+<li><a class="reference internal" href="#Pixmap.pil_save"><code class="docutils literal notranslate"><span class="pre">Pixmap.pil_save()</span></code></a></li>
+<li><a class="reference internal" href="#Pixmap.pil_tobytes"><code class="docutils literal notranslate"><span class="pre">Pixmap.pil_tobytes()</span></code></a></li>
+<li><a class="reference internal" href="#Pixmap.warp"><code class="docutils literal notranslate"><span class="pre">Pixmap.warp()</span></code></a></li>
+<li><a class="reference internal" href="#Pixmap.color_count"><code class="docutils literal notranslate"><span class="pre">Pixmap.color_count()</span></code></a></li>
+<li><a class="reference internal" href="#Pixmap.color_topusage"><code class="docutils literal notranslate"><span class="pre">Pixmap.color_topusage()</span></code></a></li>
+<li><a class="reference internal" href="#Pixmap.alpha"><code class="docutils literal notranslate"><span class="pre">Pixmap.alpha</span></code></a></li>
+<li><a class="reference internal" href="#Pixmap.digest"><code class="docutils literal notranslate"><span class="pre">Pixmap.digest</span></code></a></li>
+<li><a class="reference internal" href="#Pixmap.colorspace"><code class="docutils literal notranslate"><span class="pre">Pixmap.colorspace</span></code></a></li>
+<li><a class="reference internal" href="#Pixmap.stride"><code class="docutils literal notranslate"><span class="pre">Pixmap.stride</span></code></a></li>
+<li><a class="reference internal" href="#Pixmap.is_monochrome"><code class="docutils literal notranslate"><span class="pre">Pixmap.is_monochrome</span></code></a></li>
+<li><a class="reference internal" href="#Pixmap.is_unicolor"><code class="docutils literal notranslate"><span class="pre">Pixmap.is_unicolor</span></code></a></li>
+<li><a class="reference internal" href="#Pixmap.irect"><code class="docutils literal notranslate"><span class="pre">Pixmap.irect</span></code></a></li>
+<li><a class="reference internal" href="#Pixmap.samples"><code class="docutils literal notranslate"><span class="pre">Pixmap.samples</span></code></a></li>
+<li><a class="reference internal" href="#Pixmap.samples_mv"><code class="docutils literal notranslate"><span class="pre">Pixmap.samples_mv</span></code></a></li>
+<li><a class="reference internal" href="#Pixmap.samples_ptr"><code class="docutils literal notranslate"><span class="pre">Pixmap.samples_ptr</span></code></a></li>
+<li><a class="reference internal" href="#Pixmap.size"><code class="docutils literal notranslate"><span class="pre">Pixmap.size</span></code></a></li>
+<li><a class="reference internal" href="#Pixmap.width"><code class="docutils literal notranslate"><span class="pre">Pixmap.width</span></code></a></li>
+<li><a class="reference internal" href="#Pixmap.w"><code class="docutils literal notranslate"><span class="pre">Pixmap.w</span></code></a></li>
+<li><a class="reference internal" href="#Pixmap.height"><code class="docutils literal notranslate"><span class="pre">Pixmap.height</span></code></a></li>
+<li><a class="reference internal" href="#Pixmap.h"><code class="docutils literal notranslate"><span class="pre">Pixmap.h</span></code></a></li>
+<li><a class="reference internal" href="#Pixmap.x"><code class="docutils literal notranslate"><span class="pre">Pixmap.x</span></code></a></li>
+<li><a class="reference internal" href="#Pixmap.y"><code class="docutils literal notranslate"><span class="pre">Pixmap.y</span></code></a></li>
+<li><a class="reference internal" href="#Pixmap.n"><code class="docutils literal notranslate"><span class="pre">Pixmap.n</span></code></a></li>
+<li><a class="reference internal" href="#Pixmap.xres"><code class="docutils literal notranslate"><span class="pre">Pixmap.xres</span></code></a></li>
+<li><a class="reference internal" href="#Pixmap.yres"><code class="docutils literal notranslate"><span class="pre">Pixmap.yres</span></code></a></li>
+<li><a class="reference internal" href="#Pixmap.interpolate"><code class="docutils literal notranslate"><span class="pre">Pixmap.interpolate</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#supported-input-image-formats">Supported Input Image Formats</a></li>
+<li><a class="reference internal" href="#supported-output-image-formats">Supported Output Image Formats</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=9ddcf537"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    </body>
+</html>

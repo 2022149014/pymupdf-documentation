@@ -1,0 +1,811 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="Artifex" name="author" />
+<meta content="PyMuPDF is a high-performance Python library for data extraction, analysis, conversion &amp; manipulation of PDF (and other) documents." name="description" />
+<meta content="PDF Text Extraction, PDF Image Extraction, PDF Conversion, PDF Tables, PDF Splitting, PDF Creation, Pyodide, PyScript" name="keywords" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JZTN4VTL9M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JZTN4VTL9M');
+    </script>
+    <link rel="author" title="About these documents" href="about.html" /><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Constants and Enumerations" href="vars.html" /><link rel="prev" title="Working together: DisplayList and TextPage" href="coop_low.html" />
+
+    <link rel="shortcut icon" href="_static/PyMuPDF.ico"/><!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
+        <title>Glossary - PyMuPDF 1.25.3 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=74643500" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">PyMuPDF 1.25.3 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo only-light" src="_static/sidebar-logo-dark.svg" alt="Light Logo"/>
+    <img class="sidebar-logo only-dark" src="_static/sidebar-logo-light.svg" alt="Dark Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">PyMuPDF 1.25.3 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="about.html">Features Comparison</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#performance">Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#license-and-copyright">License and Copyright</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pymupdf4llm/index.html">PyMuPDF4LLM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pymupdf-pro.html">PyMuPDF Pro</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="the-basics.html">The Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rag.html">PyMuPDF, LLM &amp; RAG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How to Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="how-to-open-a-file.html">Opening Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-text.html">Text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-images.html">Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-annotations.html">Annotations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-drawing-and-graphics.html">Drawing and Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-stories.html">Stories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-journalling.html">Journalling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-multiprocessing.html">Multiprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-ocr.html">OCR - Optical Character Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-optional-content.html">Optional Content Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-low-level-interfaces.html">Low-Level Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-common-issues-and-their-solutions.html">Common Issues and their Solutions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="module.html">Command line interface</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="classes.html">Classes</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Classes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="annot.html">Annot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archive-class.html">Archive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="colorspace.html">Colorspace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="displaylist.html">DisplayList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="document.html">Document</a></li>
+<li class="toctree-l2"><a class="reference internal" href="document-writer-class.html">DocumentWriter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="font.html">Font</a></li>
+<li class="toctree-l2"><a class="reference internal" href="identity.html">Identity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="irect.html">IRect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="link.html">Link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linkdest.html">linkDest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matrix.html">Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outline.html">Outline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page.html">Page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pixmap.html">Pixmap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="point.html">Point</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quad.html">Quad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rect.html">Rect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shape.html">Shape</a></li>
+<li class="toctree-l2"><a class="reference internal" href="story-class.html">Story</a></li>
+<li class="toctree-l2"><a class="reference internal" href="textpage.html">TextPage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="textwriter.html">TextWriter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="widget.html">Widget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xml-class.html">Xml</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="algebra.html">Operator Algebra for Geometry Objects</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="lowlevel.html">Low Level Functions and Classes</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Low Level Functions and Classes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="device.html">Device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coop_low.html">Working together: DisplayList and TextPage</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vars.html">Constants and Enumerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="colors.html">Color Database</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="app1.html">Appendix 1: Details on Text Extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="app2.html">Appendix 2: Considerations on Embedded Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="app3.html">Appendix 3: Assorted Technical Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="app4.html">Appendix 4: Performance Comparison Methodology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changes.html">Change Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="znames.html">Deprecated Names</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="_sources/glossary.rst" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <style>
+
+    #languageToggle {
+        width:25%;
+        margin:8px 10px 0;
+    }
+
+    #button-select-en {
+        padding: 5px 10px;
+        background-color: #fff;
+        border: 1px solid #000;
+        border-radius: 10px 0 0 10px;
+        font-size: 14px;
+    }
+
+    #button-select-ja {
+        padding: 5px 10px;
+        background-color: #fff;
+        border: 1px solid #000;
+        border-radius: 0px 10px 10px 0;
+        border-left: 0;
+        font-size: 14px;
+    }
+
+    #button-select-en , #button-select-ja, #button-select-en:hover , #button-select-ja:hover  {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    /* small screens */
+    @media all and (max-width : 768px)  {
+        #languageToggle {
+            width:50%;
+        }
+    }
+
+    @media all and (max-width : 400px)  {
+        #languageToggle {
+            width:70%;
+        }
+    }
+
+    @media all and (max-width : 375px)  {
+        #button-select-en , #button-select-ja {
+            font-size: 11px;
+        }
+    }
+
+</style>
+
+<div style="display:flex;justify-content:space-between;align-items: center;">
+    <form class="sidebar-search-container top" method="get" action="search.html" role="search" style="width:75%">
+      <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+      <input type="hidden" name="check_keywords" value="yes">
+      <input type="hidden" name="area" value="default">
+    </form>
+    <div id="languageToggle"><span><a id="button-select-en" href="javaScript:changeLanguage('en')">English</a></span><span><a id="button-select-ja" href="javaScript:changeLanguage('ja')">日本語</a></span></div>
+</div>
+
+<div style="display:flex;justify-content:space-between;align-items:center;margin-top:20px;">
+    <div class="discordLink" style="display:flex;align-items:center;margin-top: -5px;">
+        <a href="https://discord.gg/TSpYGBW4eq" id="findOnDiscord" target=_blank>Find <b>#pymupdf</b> on <b>Discord</b></a>
+        <a href="https://discord.gg/TSpYGBW4eq" target=_blank>
+            <div style="width:30px;height:30px;margin-left:5px;">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36">
+                    <defs>
+                        <style>.discordLogoFill{fill:#5865f2;}</style>
+                    </defs>
+                    <g id="Discord_Logo" data-name="Discord Logo">
+                        <path class="discordLogoFill" d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/>
+                    </g>
+                </svg>
+            </div>
+        </a>
+    </div>
+
+    <div class="feedbackLink"><a id="feedbackLinkTop" target=_blank>Do you have any feedback on this page?</b></a></div>
+</div>
+
+<script>
+    // highlightSelectedLanguage
+
+    if (document.getElementsByTagName('html')[0].getAttribute('lang')=="ja") {
+        document.getElementById("button-select-ja").style.backgroundColor = "#ff6600";
+        document.getElementById("button-select-en").style.color = "#000";
+    } else {
+        document.getElementById("button-select-en").style.backgroundColor = "#ff6600";
+        document.getElementById("button-select-ja").style.color = "#000";
+    }
+
+
+    var url_string = window.location.href;
+    var a = document.getElementById('feedbackLinkTop');
+    a.setAttribute("href", "https://artifex.com/contributor/feedback.php?utm_source=rtd-pymupdf&utm_medium=rtd&utm_content=header-link&url="+url_string);
+
+    function changeLanguage(lang) {
+        var new_url;
+
+        if (lang == "en") {
+            new_url = url_string.replace("/ja/", "/en/");
+        } else {
+            new_url = url_string.replace("/en/", "/ja/");
+        }
+
+        window.location.replace(new_url);
+    }
+
+</script><section id="glossary">
+<span id="id1"></span><h1>Glossary<a class="headerlink" href="#glossary" title="Link to this heading">¶</a></h1>
+<dl class="py data">
+<dt class="sig sig-object py" id="coordinate">
+<span class="sig-name descname"><span class="pre">coordinate</span></span><a class="headerlink" href="#coordinate" title="Link to this definition">¶</a></dt>
+<dd><p>This is an essential general mathematical / geometrical term for understanding this documentation. Please see this section for a more detailed discussion: <a class="reference internal" href="app3.html#coordinates"><span class="std std-ref">Coordinates</span></a>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="matrix_like">
+<span class="sig-name descname"><span class="pre">matrix_like</span></span><a class="headerlink" href="#matrix_like" title="Link to this definition">¶</a></dt>
+<dd><p>A Python sequence of 6 numbers.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="rect_like">
+<span class="sig-name descname"><span class="pre">rect_like</span></span><a class="headerlink" href="#rect_like" title="Link to this definition">¶</a></dt>
+<dd><p>A Python sequence of 4 numbers.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="irect_like">
+<span class="sig-name descname"><span class="pre">irect_like</span></span><a class="headerlink" href="#irect_like" title="Link to this definition">¶</a></dt>
+<dd><p>A Python sequence of 4 integers.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="point_like">
+<span class="sig-name descname"><span class="pre">point_like</span></span><a class="headerlink" href="#point_like" title="Link to this definition">¶</a></dt>
+<dd><p>A Python sequence of 2 numbers.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="quad_like">
+<span class="sig-name descname"><span class="pre">quad_like</span></span><a class="headerlink" href="#quad_like" title="Link to this definition">¶</a></dt>
+<dd><p>A Python sequence of 4 <a class="reference internal" href="#point_like" title="point_like"><code class="xref py py-data docutils literal notranslate"><span class="pre">point_like</span></code></a> items.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="inheritable">
+<span class="sig-name descname"><span class="pre">inheritable</span></span><a class="headerlink" href="#inheritable" title="Link to this definition">¶</a></dt>
+<dd><p>A number of values in a PDF can inherited by objects further down in a parent-child relationship. The mediabox (physical size) of pages may for example be specified only once or in some node(s) of the <a class="reference internal" href="#pagetree" title="pagetree"><code class="xref py py-data docutils literal notranslate"><span class="pre">pagetree</span></code></a> and will then be taken as value for all <em>kids</em>, that do not specify their own value.</p>
+</dd></dl>
+
+<dl class="py data" id="glossary-mediabox">
+<dt class="sig sig-object py" id="MediaBox">
+<span class="sig-name descname"><span class="pre">MediaBox</span></span><a class="headerlink" href="#MediaBox" title="Link to this definition">¶</a></dt>
+<dd><p>A PDF array of 4 floats specifying a physical page size – (<a class="reference internal" href="#inheritable" title="inheritable"><code class="xref py py-data docutils literal notranslate"><span class="pre">inheritable</span></code></a>, mandatory). This rectangle should contain all other PDF  – optional – page rectangles, which may be specified in addition: CropBox, TrimBox, ArtBox and BleedBox. Please consult <a class="reference internal" href="app3.html#adobemanual"><span class="std std-ref">Adobe PDF References</span></a> for details. The MediaBox is the only rectangle, for which there is no difference between MuPDF and PDF coordinate systems: <a class="reference internal" href="page.html#Page.mediabox" title="Page.mediabox"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Page.mediabox</span></code></a> will always show the same coordinates as the <code class="xref any docutils literal notranslate"><span class="pre">/MediaBox</span></code> key in a page’s object definition. For all other rectangles, MuPDF transforms y coordinates such that the <strong>top</strong> border is the point of reference. This can sometimes be confusing – you may for example encounter a situation like this one:</p>
+<ul class="simple">
+<li><p>The page definition contains the following identical values: <code class="xref any docutils literal notranslate"><span class="pre">/MediaBox</span> <span class="pre">[</span> <span class="pre">36</span> <span class="pre">45</span> <span class="pre">607.5</span> <span class="pre">765</span> <span class="pre">]</span></code>, <code class="xref any docutils literal notranslate"><span class="pre">/CropBox</span> <span class="pre">[</span> <span class="pre">36</span> <span class="pre">45</span> <span class="pre">607.5</span> <span class="pre">765</span> <span class="pre">]</span></code>.</p></li>
+<li><p>PyMuPDF accordingly shows <code class="xref any docutils literal notranslate"><span class="pre">page.mediabox</span> <span class="pre">=</span> <span class="pre">Rect(36.0,</span> <span class="pre">45.0,</span> <span class="pre">607.5,</span> <span class="pre">765.0)</span></code>.</p></li>
+<li><p><strong>BUT:</strong> <code class="xref any docutils literal notranslate"><span class="pre">page.cropbox</span> <span class="pre">=</span> <span class="pre">Rect(36.0,</span> <span class="pre">0.0,</span> <span class="pre">607.5,</span> <span class="pre">720.0)</span></code>, because the two y-coordinates have been transformed (45 subtracted from both of them).</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="CropBox">
+<span class="sig-name descname"><span class="pre">CropBox</span></span><a class="headerlink" href="#CropBox" title="Link to this definition">¶</a></dt>
+<dd><p>A PDF array of 4 floats specifying a page’s visible area – (<a class="reference internal" href="#inheritable" title="inheritable"><code class="xref py py-data docutils literal notranslate"><span class="pre">inheritable</span></code></a>, optional). It is the default for TrimBox, ArtBox and BleedBox. If not present, it defaults to MediaBox. This value is <strong>not affected</strong> if the page is rotated – in contrast to <a class="reference internal" href="page.html#Page.rect" title="Page.rect"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Page.rect</span></code></a>. Also, other than the page rectangle, the top-left corner of the cropbox may or may not be <em>(0, 0)</em>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="catalog">
+<span class="sig-name descname"><span class="pre">catalog</span></span><a class="headerlink" href="#catalog" title="Link to this definition">¶</a></dt>
+<dd><p>A central PDF <a class="reference internal" href="#dictionary" title="dictionary"><code class="xref py py-data docutils literal notranslate"><span class="pre">dictionary</span></code></a> – also called the “root” – containing document-wide parameters and pointers to many other information. Its <a class="reference internal" href="#xref" title="xref"><code class="xref py py-data docutils literal notranslate"><span class="pre">xref</span></code></a> is returned by <a class="reference internal" href="document.html#Document.pdf_catalog" title="Document.pdf_catalog"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Document.pdf_catalog()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="trailer">
+<span class="sig-name descname"><span class="pre">trailer</span></span><a class="headerlink" href="#trailer" title="Link to this definition">¶</a></dt>
+<dd><p>More precisely, the <strong>PDF trailer</strong> contains information in <a class="reference internal" href="#dictionary" title="dictionary"><code class="xref py py-data docutils literal notranslate"><span class="pre">dictionary</span></code></a> format. It is usually located at the file’s end. In this dictionary, you will find things like the xrefs of the catalog and the metadata, the number of <a class="reference internal" href="#xref" title="xref"><code class="xref py py-data docutils literal notranslate"><span class="pre">xref</span></code></a> numbers, etc. Here is the definition of the PDF spec:</p>
+<p><em>“The trailer of a PDF file enables an application reading the file to quickly find the cross-reference table and certain special objects. Applications should read a PDF file from its end.”</em></p>
+<p>To access the trailer in PyMuPDF, use the usual methods <a class="reference internal" href="document.html#Document.xref_object" title="Document.xref_object"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Document.xref_object()</span></code></a>, <a class="reference internal" href="document.html#Document.xref_get_key" title="Document.xref_get_key"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Document.xref_get_key()</span></code></a> and <a class="reference internal" href="document.html#Document.xref_get_keys" title="Document.xref_get_keys"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Document.xref_get_keys()</span></code></a> with <code class="xref any docutils literal notranslate"><span class="pre">-1</span></code> instead of a positive xref number.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="contents">
+<span class="sig-name descname"><span class="pre">contents</span></span><a class="headerlink" href="#contents" title="Link to this definition">¶</a></dt>
+<dd><p>A <strong>content stream</strong> is a PDF <a class="reference internal" href="#object" title="object"><code class="xref py py-data docutils literal notranslate"><span class="pre">object</span></code></a> with an attached <a class="reference internal" href="#stream" title="stream"><code class="xref py py-data docutils literal notranslate"><span class="pre">stream</span></code></a>, whose data consists of a sequence of instructions describing the graphical elements to be painted on a page, see “Stream Objects” on page 19 of <a class="reference internal" href="app3.html#adobemanual"><span class="std std-ref">Adobe PDF References</span></a>. For an overview of the mini-language used in these streams, see chapter “Operator Summary” on page 643 of the <a class="reference internal" href="app3.html#adobemanual"><span class="std std-ref">Adobe PDF References</span></a>. A PDF <a class="reference internal" href="#page" title="page"><code class="xref py py-data docutils literal notranslate"><span class="pre">page</span></code></a> can have none to many contents objects. If it has none, the page is empty (but still may show annotations). If it has several, they will be interpreted in sequence as if their instructions had been present in one such object (i.e. like in a concatenated string). It should be noted that there are more stream object types which use the same syntax: e.g. appearance dictionaries associated with annotations and Form XObjects.</p>
+<p>PyMuPDF provides a number of methods to deal with contents of PDF pages:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="functions.html#Page.read_contents" title="Page.read_contents"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Page.read_contents()</span></code></a> – reads and concatenates all page contents into one <code class="xref any docutils literal notranslate"><span class="pre">bytes</span></code> object.</p></li>
+<li><p><a class="reference internal" href="functions.html#Page.clean_contents" title="Page.clean_contents"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Page.clean_contents()</span></code></a> – a wrapper of a MuPDF function that reads, concatenates and syntax-cleans all page contents. After this, only one <code class="xref any docutils literal notranslate"><span class="pre">/Contents</span></code> object will exist. In addition, page <a class="reference internal" href="#resources" title="resources"><code class="xref py py-data docutils literal notranslate"><span class="pre">resources</span></code></a> will have been synchronized with it such that it will contain exactly those images, fonts and other objects that the page actually references.</p></li>
+<li><p><a class="reference internal" href="functions.html#Page.get_contents" title="Page.get_contents"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Page.get_contents()</span></code></a> – return a list of <a class="reference internal" href="#xref" title="xref"><code class="xref py py-data docutils literal notranslate"><span class="pre">xref</span></code></a> numbers of a page’s <a class="reference internal" href="#contents" title="contents"><code class="xref py py-data docutils literal notranslate"><span class="pre">contents</span></code></a> objects. May be empty. Use <a class="reference internal" href="document.html#Document.xref_stream" title="Document.xref_stream"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Document.xref_stream()</span></code></a> with one of these xrefs to read the resp. contents section.</p></li>
+<li><p><a class="reference internal" href="functions.html#Page.set_contents" title="Page.set_contents"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Page.set_contents()</span></code></a> – set a page’s <code class="xref any docutils literal notranslate"><span class="pre">/Contents</span></code> key to the provided <a class="reference internal" href="#xref" title="xref"><code class="xref py py-data docutils literal notranslate"><span class="pre">xref</span></code></a> number.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="resources">
+<span class="sig-name descname"><span class="pre">resources</span></span><a class="headerlink" href="#resources" title="Link to this definition">¶</a></dt>
+<dd><p>A <a class="reference internal" href="#dictionary" title="dictionary"><code class="xref py py-data docutils literal notranslate"><span class="pre">dictionary</span></code></a> containing references to any resources (like images or fonts) required by a PDF <a class="reference internal" href="#page" title="page"><code class="xref py py-data docutils literal notranslate"><span class="pre">page</span></code></a> (required, inheritable, <a class="reference internal" href="app3.html#adobemanual"><span class="std std-ref">Adobe PDF References</span></a> p. 81) and certain other objects (Form XObjects). This dictionary appears as a sub-dictionary in the object definition under the key <em>/Resources</em>. Being an inheritable object type, there may exist “parent” resources for all pages or certain subsets of pages.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="dictionary">
+<span class="sig-name descname"><span class="pre">dictionary</span></span><a class="headerlink" href="#dictionary" title="Link to this definition">¶</a></dt>
+<dd><p>A PDF <a class="reference internal" href="#object" title="object"><code class="xref py py-data docutils literal notranslate"><span class="pre">object</span></code></a> type, which is somewhat comparable to the same-named Python notion: “A dictionary object is an associative table containing pairs of objects, known as the dictionary’s entries. The first element of each entry is the key and the second element is the value. The key must be a name (…). The value can be any kind of object, including another dictionary. A dictionary entry whose value is null (…) is equivalent to an absent entry.” (<a class="reference internal" href="app3.html#adobemanual"><span class="std std-ref">Adobe PDF References</span></a> p. 18).</p>
+<p>Dictionaries are the most important <a class="reference internal" href="#object" title="object"><code class="xref py py-data docutils literal notranslate"><span class="pre">object</span></code></a> type in PDF. Here is an example (describing a <a class="reference internal" href="#page" title="page"><code class="xref py py-data docutils literal notranslate"><span class="pre">page</span></code></a>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;&lt;</span>
+<span class="o">/</span><span class="n">Contents</span> <span class="mi">40</span> <span class="mi">0</span> <span class="n">R</span>                  <span class="o">%</span> <span class="n">value</span><span class="p">:</span> <span class="n">an</span> <span class="n">indirect</span> <span class="nb">object</span>
+<span class="o">/</span><span class="n">Type</span><span class="o">/</span><span class="n">Page</span>                        <span class="o">%</span> <span class="n">value</span><span class="p">:</span> <span class="n">a</span> <span class="n">name</span> <span class="nb">object</span>
+<span class="o">/</span><span class="n">MediaBox</span><span class="p">[</span><span class="mi">0</span> <span class="mi">0</span> <span class="mf">595.32</span> <span class="mf">841.92</span><span class="p">]</span>      <span class="o">%</span> <span class="n">value</span><span class="p">:</span> <span class="n">an</span> <span class="n">array</span> <span class="nb">object</span>
+<span class="o">/</span><span class="n">Rotate</span> <span class="mi">0</span>                         <span class="o">%</span> <span class="n">value</span><span class="p">:</span> <span class="n">a</span> <span class="n">number</span> <span class="nb">object</span>
+<span class="o">/</span><span class="n">Parent</span> <span class="mi">12</span> <span class="mi">0</span> <span class="n">R</span>                    <span class="o">%</span> <span class="n">value</span><span class="p">:</span> <span class="n">an</span> <span class="n">indirect</span> <span class="nb">object</span>
+<span class="o">/</span><span class="n">Resources</span><span class="o">&lt;&lt;</span>                      <span class="o">%</span> <span class="n">value</span><span class="p">:</span> <span class="n">a</span> <span class="n">dictionary</span> <span class="nb">object</span>
+    <span class="o">/</span><span class="n">ExtGState</span><span class="o">&lt;&lt;/</span><span class="n">R7</span> <span class="mi">26</span> <span class="mi">0</span> <span class="n">R</span><span class="o">&gt;&gt;</span>
+    <span class="o">/</span><span class="n">Font</span><span class="o">&lt;&lt;</span>
+         <span class="o">/</span><span class="n">R8</span> <span class="mi">27</span> <span class="mi">0</span> <span class="n">R</span><span class="o">/</span><span class="n">R10</span> <span class="mi">21</span> <span class="mi">0</span> <span class="n">R</span><span class="o">/</span><span class="n">R12</span> <span class="mi">24</span> <span class="mi">0</span> <span class="n">R</span><span class="o">/</span><span class="n">R14</span> <span class="mi">15</span> <span class="mi">0</span> <span class="n">R</span>
+         <span class="o">/</span><span class="n">R17</span> <span class="mi">4</span> <span class="mi">0</span> <span class="n">R</span><span class="o">/</span><span class="n">R20</span> <span class="mi">30</span> <span class="mi">0</span> <span class="n">R</span><span class="o">/</span><span class="n">R23</span> <span class="mi">7</span> <span class="mi">0</span> <span class="n">R</span> <span class="o">/</span><span class="n">R27</span> <span class="mi">20</span> <span class="mi">0</span> <span class="n">R</span>
+         <span class="o">&gt;&gt;</span>
+    <span class="o">/</span><span class="n">ProcSet</span><span class="p">[</span><span class="o">/</span><span class="n">PDF</span><span class="o">/</span><span class="n">Text</span><span class="p">]</span>           <span class="o">%</span> <span class="n">value</span><span class="p">:</span> <span class="n">array</span> <span class="n">of</span> <span class="n">two</span> <span class="n">name</span> <span class="n">objects</span>
+    <span class="o">&gt;&gt;</span>
+<span class="o">/</span><span class="n">Annots</span><span class="p">[</span><span class="mi">55</span> <span class="mi">0</span> <span class="n">R</span><span class="p">]</span>                   <span class="o">%</span> <span class="n">value</span><span class="p">:</span> <span class="n">array</span><span class="p">,</span> <span class="n">one</span> <span class="n">entry</span> <span class="p">(</span><span class="n">indirect</span> <span class="nb">object</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span>
+</pre></div>
+</div>
+<p><em>Contents</em>, <em>Type</em>, <em>MediaBox</em>, etc. are <strong>keys</strong>, <em>40 0 R</em>, <em>Page</em>, <em>[0 0 595.32 841.92]</em>, etc. are the respective <strong>values</strong>. The strings <em>“&lt;&lt;”</em> and <em>“&gt;&gt;”</em> are used to enclose object definitions.</p>
+<p>This example also shows the syntax of <strong>nested</strong> dictionary values: <em>Resources</em> has an object as its value, which in turn is a dictionary with keys like <em>ExtGState</em> (with the value <em>&lt;&lt;/R7 26 0 R&gt;&gt;</em>, which is another dictionary), etc.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="page">
+<span class="sig-name descname"><span class="pre">page</span></span><a class="headerlink" href="#page" title="Link to this definition">¶</a></dt>
+<dd><p>A PDF page is a <a class="reference internal" href="#dictionary" title="dictionary"><code class="xref py py-data docutils literal notranslate"><span class="pre">dictionary</span></code></a> object which defines one page in a PDF, see <a class="reference internal" href="app3.html#adobemanual"><span class="std std-ref">Adobe PDF References</span></a> p. 71.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pagetree">
+<span class="sig-name descname"><span class="pre">pagetree</span></span><a class="headerlink" href="#pagetree" title="Link to this definition">¶</a></dt>
+<dd><p>The pages of a document are accessed through a structure known as the page tree, which defines the ordering of pages in the document. The tree structure allows PDF consumer applications, using only limited memory, to quickly open a document containing thousands of pages. The tree contains nodes of two types: intermediate nodes, called page tree nodes, and leaf nodes, called page objects. (<a class="reference internal" href="app3.html#adobemanual"><span class="std std-ref">Adobe PDF References</span></a> p. 75).</p>
+<p>While it is possible to list all page references in just one array, PDFs with many pages are often created using <em>balanced tree</em> structures (“page trees”) for faster access to any single page. In relation to the total number of pages, this can reduce the average page access time by page number from a linear to some logarithmic order of magnitude.</p>
+<p>For fast page access, MuPDF can use its own array in memory – independently from what may or may not be present in the document file. This array is indexed by page number and therefore much faster than even the access via a perfectly balanced page tree.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="object">
+<span class="sig-name descname"><span class="pre">object</span></span><a class="headerlink" href="#object" title="Link to this definition">¶</a></dt>
+<dd><p>Similar to Python, PDF supports the notion <em>object</em>, which can come in eight basic types: boolean values (“true” or “false”), integer and real numbers, strings (<strong>always</strong> enclosed in brackets – either “()”, or “&lt;&gt;” to indicate hexadecimal), names (must always start with a “/”, e.g. <code class="xref any docutils literal notranslate"><span class="pre">/Contents</span></code>), arrays (enclosed in brackets “[]”), dictionaries (enclosed in brackets “&lt;&lt;&gt;&gt;”), streams (enclosed by keywords “stream” / “endstream”), and the null object (“null”) (<a class="reference internal" href="app3.html#adobemanual"><span class="std std-ref">Adobe PDF References</span></a> p. 13). Objects can be made identifiable by assigning a label. This label is then called <em>indirect</em> object. PyMuPDF supports retrieving definitions of indirect objects via their cross reference number via <a class="reference internal" href="document.html#Document.xref_object" title="Document.xref_object"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Document.xref_object()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="stream">
+<span class="sig-name descname"><span class="pre">stream</span></span><a class="headerlink" href="#stream" title="Link to this definition">¶</a></dt>
+<dd><p>A PDF <a class="reference internal" href="#dictionary" title="dictionary"><code class="xref py py-data docutils literal notranslate"><span class="pre">dictionary</span></code></a> <a class="reference internal" href="#object" title="object"><code class="xref py py-data docutils literal notranslate"><span class="pre">object</span></code></a> type which is followed by a sequence of bytes, similar to Python <em>bytes</em>. “However, a PDF application can read a stream incrementally, while a string must be read in its entirety. Furthermore, a stream can be of unlimited length, whereas a string is subject to an implementation limit. For this reason, objects with potentially large amounts of data, such as images and page descriptions, are represented as streams.” “A stream consists of a <a class="reference internal" href="#dictionary" title="dictionary"><code class="xref py py-data docutils literal notranslate"><span class="pre">dictionary</span></code></a> followed by zero or more bytes bracketed between the keywords <em>stream</em> and <em>endstream</em>”:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nnn</span> <span class="mi">0</span> <span class="n">obj</span>
+<span class="o">&lt;&lt;</span>
+   <span class="n">dictionary</span> <span class="n">definition</span>
+<span class="o">&gt;&gt;</span>
+<span class="n">stream</span>
+<span class="p">(</span><span class="n">zero</span> <span class="ow">or</span> <span class="n">more</span> <span class="nb">bytes</span><span class="p">)</span>
+<span class="n">endstream</span>
+<span class="n">endobj</span>
+</pre></div>
+</div>
+<p>See <a class="reference internal" href="app3.html#adobemanual"><span class="std std-ref">Adobe PDF References</span></a> p. 19. PyMuPDF supports retrieving stream content via <a class="reference internal" href="document.html#Document.xref_stream" title="Document.xref_stream"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Document.xref_stream()</span></code></a>. Use <a class="reference internal" href="functions.html#Document.is_stream" title="Document.is_stream"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Document.is_stream()</span></code></a> to determine whether an object is of stream type.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="unitvector">
+<span class="sig-name descname"><span class="pre">unitvector</span></span><a class="headerlink" href="#unitvector" title="Link to this definition">¶</a></dt>
+<dd><p>A mathematical notion meaning a vector of norm (“length”) 1 – usually the Euclidean norm is implied. In PyMuPDF, this term is restricted to <a class="reference internal" href="point.html#point"><span class="std std-ref">Point</span></a> objects, see <a class="reference internal" href="point.html#Point.unit" title="Point.unit"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Point.unit</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="xref">
+<span class="sig-name descname"><span class="pre">xref</span></span><a class="headerlink" href="#xref" title="Link to this definition">¶</a></dt>
+<dd><p>Abbreviation for cross-reference number: this is an integer unique identification for objects in a PDF. There exists a cross-reference table (which may physically consist of several separate segments) in each PDF, which stores the relative position of each object for quick lookup. The cross-reference table is one entry longer than the number of existing object: item zero is reserved and must not be used in any way. Many PyMuPDF classes have an <em>xref</em> attribute (which is zero for non-PDFs), and one can find out the total number of objects in a PDF via <a class="reference internal" href="functions.html#Document.xref_length" title="Document.xref_length"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Document.xref_length()</span></code></a> <em>- 1</em>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="fontsize">
+<span class="sig-name descname"><span class="pre">fontsize</span></span><a class="headerlink" href="#fontsize" title="Link to this definition">¶</a></dt>
+<dd><p>When referring to font size this metric is measured in points where 1 inch = 72 points.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="resolution">
+<span class="sig-name descname"><span class="pre">resolution</span></span><a class="headerlink" href="#resolution" title="Link to this definition">¶</a></dt>
+<dd><p>Images and <a class="reference internal" href="pixmap.html#pixmap"><span class="std std-ref">Pixmap</span></a> objects may contain resolution information provided as “dots per inch”, dpi, in each direction (horizontal and vertical). When MuPDF reads an image from a file or from a PDF object, it will parse this information and put it in <a class="reference internal" href="pixmap.html#Pixmap.xres" title="Pixmap.xres"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Pixmap.xres</span></code></a>, <a class="reference internal" href="pixmap.html#Pixmap.yres" title="Pixmap.yres"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Pixmap.yres</span></code></a>, respectively. If it finds no meaningful information in the input (like non-positive values or values exceeding 4800), it will use “sane” defaults instead. The usual default value is 96, but it may also be 72 in some cases (e.g. for JPX images).</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="OCPD">
+<span class="sig-name descname"><span class="pre">OCPD</span></span><a class="headerlink" href="#OCPD" title="Link to this definition">¶</a></dt>
+<dd><p>Optional content properties dictionary - a sub <a class="reference internal" href="#dictionary" title="dictionary"><code class="xref py py-data docutils literal notranslate"><span class="pre">dictionary</span></code></a> of the PDF <a class="reference internal" href="#catalog" title="catalog"><code class="xref py py-data docutils literal notranslate"><span class="pre">catalog</span></code></a>. The central place to store optional content information, which is identified by the key <code class="xref any docutils literal notranslate"><span class="pre">/OCProperties</span></code>. This dictionary has two required and one optional entry: (1) <code class="xref any docutils literal notranslate"><span class="pre">/OCGs</span></code>, required, an array listing all optional content groups, (2) <code class="xref any docutils literal notranslate"><span class="pre">/D</span></code>, required, the default optional content configuration dictionary (OCCD), (3) <code class="xref any docutils literal notranslate"><span class="pre">/Configs</span></code>, optional, an array of alternative OCCDs.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="OCCD">
+<span class="sig-name descname"><span class="pre">OCCD</span></span><a class="headerlink" href="#OCCD" title="Link to this definition">¶</a></dt>
+<dd><p>Optional content configuration dictionary - a PDF <a class="reference internal" href="#dictionary" title="dictionary"><code class="xref py py-data docutils literal notranslate"><span class="pre">dictionary</span></code></a> inside the PDF <a class="reference internal" href="#OCPD" title="OCPD"><code class="xref py py-data docutils literal notranslate"><span class="pre">OCPD</span></code></a>. It stores a setting of ON / OFF states of OCGs and how they are presented to a PDF viewer program. Selecting a configuration is quick way to achieve temporary mass visibility state changes. After opening a PDF, the <code class="xref any docutils literal notranslate"><span class="pre">/D</span></code> configuration of the <a class="reference internal" href="#OCPD" title="OCPD"><code class="xref py py-data docutils literal notranslate"><span class="pre">OCPD</span></code></a> is always activated. Viewer should offer a way to switch between the <code class="xref any docutils literal notranslate"><span class="pre">/D</span></code>, or one of the optional configurations contained in array <code class="xref any docutils literal notranslate"><span class="pre">/Configs</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="OCG">
+<span class="sig-name descname"><span class="pre">OCG</span></span><a class="headerlink" href="#OCG" title="Link to this definition">¶</a></dt>
+<dd><p>Optional content group – a <a class="reference internal" href="#dictionary" title="dictionary"><code class="xref py py-data docutils literal notranslate"><span class="pre">dictionary</span></code></a> object used to control the visibility of other PDF objects like images or annotations. Independently on which page they are defined, objects with the same OCG can simultaneously be shown or hidden by setting their OCG to ON or OFF. This can be achieved via the user interface provided by many PDF viewers (Adobe Acrobat), or programmatically.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="OCMD">
+<span class="sig-name descname"><span class="pre">OCMD</span></span><a class="headerlink" href="#OCMD" title="Link to this definition">¶</a></dt>
+<dd><p>Optional content membership dictionary – a <a class="reference internal" href="#dictionary" title="dictionary"><code class="xref py py-data docutils literal notranslate"><span class="pre">dictionary</span></code></a> object which can be used like an <a class="reference internal" href="#OCG" title="OCG"><code class="xref py py-data docutils literal notranslate"><span class="pre">OCG</span></code></a>: it has a visibility state. The visibility of an OCMD is <strong>computed:</strong> it is a logical expression, which uses the state of one or more OCGs to produce a boolean value. The expression’s result is interpreted as ON (true) or OFF (false).</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="ligature">
+<span class="sig-name descname"><span class="pre">ligature</span></span><a class="headerlink" href="#ligature" title="Link to this definition">¶</a></dt>
+<dd><p>Some frequent character combinations are represented by their own special glyphs in more advanced fonts. Typical examples are “fi”, “fl”, “ffi” and “ffl”. These compounds are called <em>ligatures</em>. In PyMuPDF text extractions, there is the option to either return the corresponding unicode unchanged, or split ligatures up into their constituent parts: “fi” ==&gt; “f” + “i”, etc.</p>
+</dd></dl>
+
+<div class="feedbackLink"><a id="feedbackLinkBottom" target=_blank>Do you have any feedback on this page?</b></a></div><hr class="docutils" />
+<script>
+
+   var url_string = window.location.href;
+   var a = document.getElementById('feedbackLinkBottom');
+   a.setAttribute("href", "https://artifex.com/contributor/feedback.php?utm_source=rtd-pymupdf&utm_medium=rtd&utm_content=footer-link&url="+url_string);
+
+</script>
+
+<p style="color:#999" id="footerDisclaimer">This software is provided AS-IS with no warranty, either express or implied. This software is distributed under license and may not be copied, modified or distributed except as expressly authorized under the terms of that license. Refer to licensing information at <a href="https://www.artifex.com?utm_source=rtd-pymupdf&utm_medium=rtd&utm_content=footer-link">artifex.com</a> or contact Artifex Software Inc., 39 Mesa Street, Suite 108A, San Francisco CA 94129, United States for further information.</p>
+
+
+
+<script>
+
+   let docLanguage = document.getElementsByTagName('html')[0].getAttribute('lang');
+
+   function getHeaderAndFooterTranslation(str) {
+       if (docLanguage == "ja") {
+           if (str == "Do you have any feedback on this page?") {
+               return "このページに関するご意見はありますか？";
+           } else if (str == "Find <b>#pymupdf</b> on <b>Discord</b>") {
+               return "<b>Discord</b>の <b>#pymupdf</b> を見つける";
+           } else if (str == "This software is provided AS-IS with no warranty, either express or implied. This software is distributed under license and may not be copied, modified or distributed except as expressly authorized under the terms of that license. Refer to licensing information at <a href='https://www.artifex.com?utm_source=rtd-pymupdf&utm_medium=rtd&utm_content=footer-link'>artifex.com</a> or contact Artifex Software Inc., 39 Mesa Street, Suite 108A, San Francisco CA 94129, United States for further information.") {
+
+               return "このソフトウェアは無保証で提供されており、明示または黙示を問わず、いかなる保証もありません。このソフトウェアはライセンスの下で配布され、ライセンスの条件に明示的に許可されている場合を除き、コピー、変更、または配布してはなりません。ライセンシング情報については、<a href='https://www.artifex.com?utm_source=rtd-pymupdf&utm_medium=rtd&utm_content=footer-link'>artifex.com</a>でライセンス情報を参照するか、アメリカ合衆国カリフォルニア州サンフランシスコのArtifex Software Inc. までお問い合わせください。"
+
+           }
+       }
+
+       return str;
+   }
+
+   document.getElementById("findOnDiscord").innerHTML = getHeaderAndFooterTranslation("Find <b>#pymupdf</b> on <b>Discord</b>");
+   document.getElementById("feedbackLinkTop").innerHTML = getHeaderAndFooterTranslation("Do you have any feedback on this page?");
+   document.getElementById("feedbackLinkBottom").innerHTML = getHeaderAndFooterTranslation("Do you have any feedback on this page?");
+   document.getElementById("footerDisclaimer").innerHTML = getHeaderAndFooterTranslation("This software is provided AS-IS with no warranty, either express or implied. This software is distributed under license and may not be copied, modified or distributed except as expressly authorized under the terms of that license. Refer to licensing information at <a href='https://www.artifex.com?utm_source=rtd-pymupdf&utm_medium=rtd&utm_content=footer-link'>artifex.com</a> or contact Artifex Software Inc., 39 Mesa Street, Suite 108A, San Francisco CA 94129, United States for further information.");
+
+
+   // more translation for admonition-title as the in-built translation isn't great, needs: 注釈 -> 注
+   if (docLanguage == "ja") {
+       const collection = document.getElementsByClassName("admonition-title");
+       for (var i=0;i<collection.length;i++) {
+           collection[i].innerHTML = "注";
+       }
+   }
+
+
+</script><p class="footer-version">This documentation covers all versions up to 1.25.3.</p>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="vars.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Constants and Enumerations</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="coop_low.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Working together: DisplayList and TextPage</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2015-2025, Artifex
+            </div>
+            Made with 
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            <div class="last-updated">
+              Last updated on 10. Mar 2025</div>
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Glossary</a><ul>
+<li><a class="reference internal" href="#coordinate"><code class="docutils literal notranslate"><span class="pre">coordinate</span></code></a></li>
+<li><a class="reference internal" href="#matrix_like"><code class="docutils literal notranslate"><span class="pre">matrix_like</span></code></a></li>
+<li><a class="reference internal" href="#rect_like"><code class="docutils literal notranslate"><span class="pre">rect_like</span></code></a></li>
+<li><a class="reference internal" href="#irect_like"><code class="docutils literal notranslate"><span class="pre">irect_like</span></code></a></li>
+<li><a class="reference internal" href="#point_like"><code class="docutils literal notranslate"><span class="pre">point_like</span></code></a></li>
+<li><a class="reference internal" href="#quad_like"><code class="docutils literal notranslate"><span class="pre">quad_like</span></code></a></li>
+<li><a class="reference internal" href="#inheritable"><code class="docutils literal notranslate"><span class="pre">inheritable</span></code></a></li>
+<li><a class="reference internal" href="#MediaBox"><code class="docutils literal notranslate"><span class="pre">MediaBox</span></code></a></li>
+<li><a class="reference internal" href="#CropBox"><code class="docutils literal notranslate"><span class="pre">CropBox</span></code></a></li>
+<li><a class="reference internal" href="#catalog"><code class="docutils literal notranslate"><span class="pre">catalog</span></code></a></li>
+<li><a class="reference internal" href="#trailer"><code class="docutils literal notranslate"><span class="pre">trailer</span></code></a></li>
+<li><a class="reference internal" href="#contents"><code class="docutils literal notranslate"><span class="pre">contents</span></code></a></li>
+<li><a class="reference internal" href="#resources"><code class="docutils literal notranslate"><span class="pre">resources</span></code></a></li>
+<li><a class="reference internal" href="#dictionary"><code class="docutils literal notranslate"><span class="pre">dictionary</span></code></a></li>
+<li><a class="reference internal" href="#page"><code class="docutils literal notranslate"><span class="pre">page</span></code></a></li>
+<li><a class="reference internal" href="#pagetree"><code class="docutils literal notranslate"><span class="pre">pagetree</span></code></a></li>
+<li><a class="reference internal" href="#object"><code class="docutils literal notranslate"><span class="pre">object</span></code></a></li>
+<li><a class="reference internal" href="#stream"><code class="docutils literal notranslate"><span class="pre">stream</span></code></a></li>
+<li><a class="reference internal" href="#unitvector"><code class="docutils literal notranslate"><span class="pre">unitvector</span></code></a></li>
+<li><a class="reference internal" href="#xref"><code class="docutils literal notranslate"><span class="pre">xref</span></code></a></li>
+<li><a class="reference internal" href="#fontsize"><code class="docutils literal notranslate"><span class="pre">fontsize</span></code></a></li>
+<li><a class="reference internal" href="#resolution"><code class="docutils literal notranslate"><span class="pre">resolution</span></code></a></li>
+<li><a class="reference internal" href="#OCPD"><code class="docutils literal notranslate"><span class="pre">OCPD</span></code></a></li>
+<li><a class="reference internal" href="#OCCD"><code class="docutils literal notranslate"><span class="pre">OCCD</span></code></a></li>
+<li><a class="reference internal" href="#OCG"><code class="docutils literal notranslate"><span class="pre">OCG</span></code></a></li>
+<li><a class="reference internal" href="#OCMD"><code class="docutils literal notranslate"><span class="pre">OCMD</span></code></a></li>
+<li><a class="reference internal" href="#ligature"><code class="docutils literal notranslate"><span class="pre">ligature</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=9ddcf537"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    </body>
+</html>

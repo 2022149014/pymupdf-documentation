@@ -1,0 +1,1049 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="Artifex" name="author" />
+<meta content="PyMuPDF is a high-performance Python library for data extraction, analysis, conversion &amp; manipulation of PDF (and other) documents." name="description" />
+<meta content="PDF Text Extraction, PDF Image Extraction, PDF Conversion, PDF Tables, PDF Splitting, PDF Creation, Pyodide, PyScript" name="keywords" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JZTN4VTL9M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JZTN4VTL9M');
+    </script>
+    <link rel="author" title="About these documents" href="about.html" /><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="PyMuPDF, LLM &amp; RAG" href="rag.html" /><link rel="prev" title="The Basics" href="the-basics.html" />
+
+    <link rel="shortcut icon" href="_static/PyMuPDF.ico"/><!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
+        <title>Tutorial - PyMuPDF 1.25.3 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=74643500" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">PyMuPDF 1.25.3 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo only-light" src="_static/sidebar-logo-dark.svg" alt="Light Logo"/>
+    <img class="sidebar-logo only-dark" src="_static/sidebar-logo-light.svg" alt="Dark Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">PyMuPDF 1.25.3 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="about.html">Features Comparison</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#performance">Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#license-and-copyright">License and Copyright</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pymupdf4llm/index.html">PyMuPDF4LLM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pymupdf-pro.html">PyMuPDF Pro</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="the-basics.html">The Basics</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rag.html">PyMuPDF, LLM &amp; RAG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How to Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="how-to-open-a-file.html">Opening Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-text.html">Text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-images.html">Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-annotations.html">Annotations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-drawing-and-graphics.html">Drawing and Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-stories.html">Stories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-journalling.html">Journalling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-multiprocessing.html">Multiprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-ocr.html">OCR - Optical Character Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-optional-content.html">Optional Content Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-low-level-interfaces.html">Low-Level Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-common-issues-and-their-solutions.html">Common Issues and their Solutions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="module.html">Command line interface</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="classes.html">Classes</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Classes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="annot.html">Annot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archive-class.html">Archive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="colorspace.html">Colorspace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="displaylist.html">DisplayList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="document.html">Document</a></li>
+<li class="toctree-l2"><a class="reference internal" href="document-writer-class.html">DocumentWriter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="font.html">Font</a></li>
+<li class="toctree-l2"><a class="reference internal" href="identity.html">Identity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="irect.html">IRect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="link.html">Link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linkdest.html">linkDest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matrix.html">Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outline.html">Outline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page.html">Page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pixmap.html">Pixmap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="point.html">Point</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quad.html">Quad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rect.html">Rect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shape.html">Shape</a></li>
+<li class="toctree-l2"><a class="reference internal" href="story-class.html">Story</a></li>
+<li class="toctree-l2"><a class="reference internal" href="textpage.html">TextPage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="textwriter.html">TextWriter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="widget.html">Widget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xml-class.html">Xml</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="algebra.html">Operator Algebra for Geometry Objects</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="lowlevel.html">Low Level Functions and Classes</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Low Level Functions and Classes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="device.html">Device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coop_low.html">Working together: DisplayList and TextPage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vars.html">Constants and Enumerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="colors.html">Color Database</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="app1.html">Appendix 1: Details on Text Extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="app2.html">Appendix 2: Considerations on Embedded Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="app3.html">Appendix 3: Assorted Technical Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="app4.html">Appendix 4: Performance Comparison Methodology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changes.html">Change Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="znames.html">Deprecated Names</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="_sources/tutorial.rst" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <style>
+
+    #languageToggle {
+        width:25%;
+        margin:8px 10px 0;
+    }
+
+    #button-select-en {
+        padding: 5px 10px;
+        background-color: #fff;
+        border: 1px solid #000;
+        border-radius: 10px 0 0 10px;
+        font-size: 14px;
+    }
+
+    #button-select-ja {
+        padding: 5px 10px;
+        background-color: #fff;
+        border: 1px solid #000;
+        border-radius: 0px 10px 10px 0;
+        border-left: 0;
+        font-size: 14px;
+    }
+
+    #button-select-en , #button-select-ja, #button-select-en:hover , #button-select-ja:hover  {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    /* small screens */
+    @media all and (max-width : 768px)  {
+        #languageToggle {
+            width:50%;
+        }
+    }
+
+    @media all and (max-width : 400px)  {
+        #languageToggle {
+            width:70%;
+        }
+    }
+
+    @media all and (max-width : 375px)  {
+        #button-select-en , #button-select-ja {
+            font-size: 11px;
+        }
+    }
+
+</style>
+
+<div style="display:flex;justify-content:space-between;align-items: center;">
+    <form class="sidebar-search-container top" method="get" action="search.html" role="search" style="width:75%">
+      <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+      <input type="hidden" name="check_keywords" value="yes">
+      <input type="hidden" name="area" value="default">
+    </form>
+    <div id="languageToggle"><span><a id="button-select-en" href="javaScript:changeLanguage('en')">English</a></span><span><a id="button-select-ja" href="javaScript:changeLanguage('ja')">日本語</a></span></div>
+</div>
+
+<div style="display:flex;justify-content:space-between;align-items:center;margin-top:20px;">
+    <div class="discordLink" style="display:flex;align-items:center;margin-top: -5px;">
+        <a href="https://discord.gg/TSpYGBW4eq" id="findOnDiscord" target=_blank>Find <b>#pymupdf</b> on <b>Discord</b></a>
+        <a href="https://discord.gg/TSpYGBW4eq" target=_blank>
+            <div style="width:30px;height:30px;margin-left:5px;">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36">
+                    <defs>
+                        <style>.discordLogoFill{fill:#5865f2;}</style>
+                    </defs>
+                    <g id="Discord_Logo" data-name="Discord Logo">
+                        <path class="discordLogoFill" d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/>
+                    </g>
+                </svg>
+            </div>
+        </a>
+    </div>
+
+    <div class="feedbackLink"><a id="feedbackLinkTop" target=_blank>Do you have any feedback on this page?</b></a></div>
+</div>
+
+<script>
+    // highlightSelectedLanguage
+
+    if (document.getElementsByTagName('html')[0].getAttribute('lang')=="ja") {
+        document.getElementById("button-select-ja").style.backgroundColor = "#ff6600";
+        document.getElementById("button-select-en").style.color = "#000";
+    } else {
+        document.getElementById("button-select-en").style.backgroundColor = "#ff6600";
+        document.getElementById("button-select-ja").style.color = "#000";
+    }
+
+
+    var url_string = window.location.href;
+    var a = document.getElementById('feedbackLinkTop');
+    a.setAttribute("href", "https://artifex.com/contributor/feedback.php?utm_source=rtd-pymupdf&utm_medium=rtd&utm_content=header-link&url="+url_string);
+
+    function changeLanguage(lang) {
+        var new_url;
+
+        if (lang == "en") {
+            new_url = url_string.replace("/ja/", "/en/");
+        } else {
+            new_url = url_string.replace("/en/", "/ja/");
+        }
+
+        window.location.replace(new_url);
+    }
+
+</script><section id="tutorial">
+<span id="id1"></span><h1>Tutorial<a class="headerlink" href="#tutorial" title="Link to this heading">¶</a></h1>
+<p>This tutorial will show you the use of <cite>PyMuPDF</cite>, <cite>MuPDF</cite> in <cite>Python</cite>, step by step.</p>
+<p>Because <cite>MuPDF</cite> supports not only PDF, but also XPS, OpenXPS, CBZ, CBR, FB2 and EPUB formats, so does PyMuPDF <a class="footnote-reference brackets" href="#f1" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>. Nevertheless, for the sake of brevity we will only talk about PDF files. At places where indeed only PDF files are supported, this will be mentioned explicitly.</p>
+<section id="importing-the-bindings">
+<h2>Importing the Bindings<a class="headerlink" href="#importing-the-bindings" title="Link to this heading">¶</a></h2>
+<p>The Python bindings to MuPDF are made available by this import statement. We also show here how your version can be checked:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pymupdf</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">pymupdf</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+<span class="go">PyMuPDF 1.16.0: Python bindings for the MuPDF 1.16.0 library.</span>
+<span class="go">Version date: 2019-07-28 07:30:14.</span>
+<span class="go">Built for Python 3.7 on win32 (64-bit).</span>
+</pre></div>
+</div>
+<section id="note-on-the-name-fitz">
+<h3>Note on the Name <em>fitz</em><a class="headerlink" href="#note-on-the-name-fitz" title="Link to this heading">¶</a></h3>
+<p>Old versions of <cite>PyMuPDF</cite> had their <strong>Python</strong> import name as <code class="xref any docutils literal notranslate"><span class="pre">fitz</span></code>. Newer versions use <code class="xref any docutils literal notranslate"><span class="pre">pymupdf</span></code> instead, and offer <code class="xref any docutils literal notranslate"><span class="pre">fitz</span></code> as a fallback so that old code will still work.</p>
+<p>The reason for the name <code class="xref any docutils literal notranslate"><span class="pre">fitz</span></code> is a historical curiosity:</p>
+<p>The original rendering library for MuPDF was called <em>Libart</em>.</p>
+<p><em>“After Artifex Software acquired the MuPDF project, the development focus shifted on writing a new modern graphics library called “Fitz”. Fitz was originally intended as an R&amp;D project to replace the aging Ghostscript graphics library, but has instead become the rendering engine powering MuPDF.”</em> (Quoted from <a class="reference external" href="https://en.wikipedia.org/wiki/MuPDF">Wikipedia</a>).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Use of legacy name <code class="xref any docutils literal notranslate"><span class="pre">fitz</span></code> can fail if defunct pypi.org package <code class="xref any docutils literal notranslate"><span class="pre">fitz</span></code> is installed; see <a class="reference internal" href="installation.html#problems-after-installation"><span class="std std-ref">Problems after installation</span></a>.</p>
+</div>
+</section>
+</section>
+<section id="opening-a-document">
+<span id="tutorial-opening-a-document"></span><h2>Opening a Document<a class="headerlink" href="#opening-a-document" title="Link to this heading">¶</a></h2>
+<p>To access a <a class="reference internal" href="how-to-open-a-file.html#supported-file-types"><span class="std std-ref">supported document</span></a>, it must be opened with the following statement:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">doc</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>  <span class="c1"># or pymupdf.Document(filename)</span>
+</pre></div>
+</div>
+<p>This creates the <a class="reference internal" href="document.html#document"><span class="std std-ref">Document</span></a> object <em>doc</em>. <em>filename</em> must be a Python string (or a <code class="xref any docutils literal notranslate"><span class="pre">pathlib.Path</span></code>) specifying the name of an existing file.</p>
+<p>It is also possible to open a document from memory data, or to create a new, empty PDF. See <a class="reference internal" href="document.html#document"><span class="std std-ref">Document</span></a> for details. You can also use <a class="reference internal" href="document.html#document"><span class="std std-ref">Document</span></a> as a <em>context manager</em>.</p>
+<p>A document contains many attributes and functions. Among them are meta information (like “author” or “subject”), number of total pages, outline and encryption information.</p>
+</section>
+<section id="some-document-methods-and-attributes">
+<h2>Some <a class="reference internal" href="document.html#document"><span class="std std-ref">Document</span></a> Methods and Attributes<a class="headerlink" href="#some-document-methods-and-attributes" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Method / Attribute</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="document.html#Document.page_count" title="Document.page_count"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Document.page_count</span></code></a></p></td>
+<td><p>the number of pages (<em>int</em>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="document.html#Document.metadata" title="Document.metadata"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Document.metadata</span></code></a></p></td>
+<td><p>the metadata (<em>dict</em>)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="document.html#Document.get_toc" title="Document.get_toc"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Document.get_toc()</span></code></a></p></td>
+<td><p>get the table of contents (<em>list</em>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="document.html#Document.load_page" title="Document.load_page"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Document.load_page()</span></code></a></p></td>
+<td><p>read a <a class="reference internal" href="page.html#page"><span class="std std-ref">Page</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="accessing-meta-data">
+<h2>Accessing Meta Data<a class="headerlink" href="#accessing-meta-data" title="Link to this heading">¶</a></h2>
+<p>PyMuPDF fully supports standard metadata. <a class="reference internal" href="document.html#Document.metadata" title="Document.metadata"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Document.metadata</span></code></a> is a Python dictionary with the following keys. It is available for <strong>all document types</strong>, though not all entries may always contain data. For details of their meanings and formats consult the respective manuals, e.g. <a class="reference internal" href="app3.html#adobemanual"><span class="std std-ref">Adobe PDF References</span></a> for PDF. Further information can also be found in chapter <a class="reference internal" href="document.html#document"><span class="std std-ref">Document</span></a>. The meta data fields are strings or <em>None</em> if not otherwise indicated. Also be aware that not all of them always contain meaningful data – even if they are not <em>None</em>.</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Key</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>producer</p></td>
+<td><p>producer (producing software)</p></td>
+</tr>
+<tr class="row-odd"><td><p>format</p></td>
+<td><p>format: ‘PDF-1.4’, ‘EPUB’, etc.</p></td>
+</tr>
+<tr class="row-even"><td><p>encryption</p></td>
+<td><p>encryption method used if any</p></td>
+</tr>
+<tr class="row-odd"><td><p>author</p></td>
+<td><p>author</p></td>
+</tr>
+<tr class="row-even"><td><p>modDate</p></td>
+<td><p>date of last modification</p></td>
+</tr>
+<tr class="row-odd"><td><p>keywords</p></td>
+<td><p>keywords</p></td>
+</tr>
+<tr class="row-even"><td><p>title</p></td>
+<td><p>title</p></td>
+</tr>
+<tr class="row-odd"><td><p>creationDate</p></td>
+<td><p>date of creation</p></td>
+</tr>
+<tr class="row-even"><td><p>creator</p></td>
+<td><p>creating application</p></td>
+</tr>
+<tr class="row-odd"><td><p>subject</p></td>
+<td><p>subject</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Apart from these standard metadata, <strong>PDF documents</strong> starting from PDF version 1.4 may also contain so-called <em>“metadata streams”</em> (see also <a class="reference internal" href="glossary.html#stream" title="stream"><code class="xref py py-data docutils literal notranslate"><span class="pre">stream</span></code></a>). Information in such streams is coded in XML. PyMuPDF deliberately contains no XML components for this purpose (the <a class="reference internal" href="xml-class.html#xml"><span class="std std-ref">PyMuPDF Xml class</span></a> is a helper class intended to access the DOM content of a <a class="reference internal" href="story-class.html#story"><span class="std std-ref">Story</span></a> object), so we do not directly support access to information contained therein. But you can extract the stream as a whole, inspect or modify it using a package like <a class="reference external" href="https://pypi.org/project/lxml/">lxml</a> and then store the result back into the PDF. If you want, you can also delete this data altogether.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There are two utility scripts in the repository that <a class="reference external" href="https://github.com/pymupdf/PyMuPDF-Utilities/blob/master/examples/import-metadata/import.py">metadata import (PDF only)</a> resp. <a class="reference external" href="https://github.com/pymupdf/PyMuPDF-Utilities/blob/master/examples/export-metadata/export.py">metadata export</a> metadata from resp. to CSV files.</p>
+</div>
+</section>
+<section id="working-with-outlines">
+<h2>Working with Outlines<a class="headerlink" href="#working-with-outlines" title="Link to this heading">¶</a></h2>
+<p>The easiest way to get all outlines (also called “bookmarks”) of a document, is by loading its <em>table of contents</em>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">toc</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">get_toc</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This will return a Python list of lists <em>[[lvl, title, page, …], …]</em> which looks much like a conventional table of contents found in books.</p>
+<p><em>lvl</em> is the hierarchy level of the entry (starting from 1), <em>title</em> is the entry’s title, and <em>page</em> the page number (1-based!). Other parameters describe details of the bookmark target.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There are two utility scripts in the repository that <a class="reference external" href="https://github.com/pymupdf/PyMuPDF-Utilities/blob/master/examples/import-toc/import.py">toc import (PDF only)</a> resp. <a class="reference external" href="https://github.com/pymupdf/PyMuPDF-Utilities/blob/master/examples/export-toc/export.py">toc export</a> table of contents from resp. to CSV files.</p>
+</div>
+</section>
+<section id="working-with-pages">
+<h2>Working with Pages<a class="headerlink" href="#working-with-pages" title="Link to this heading">¶</a></h2>
+<p><a class="reference internal" href="page.html#page"><span class="std std-ref">Page</span></a> handling is at the core of MuPDF’s functionality.</p>
+<ul class="simple">
+<li><p>You can render a page into a raster or vector (SVG) image, optionally zooming, rotating, shifting or shearing it.</p></li>
+<li><p>You can extract a page’s text and images in many formats and search for text strings.</p></li>
+<li><p>For PDF documents many more methods are available to add text or images to pages.</p></li>
+</ul>
+<p>First, a <a class="reference internal" href="page.html#page"><span class="std std-ref">Page</span></a> must be created. This is a method of <a class="reference internal" href="document.html#document"><span class="std std-ref">Document</span></a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">page</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">load_page</span><span class="p">(</span><span class="n">pno</span><span class="p">)</span>  <span class="c1"># loads page number &#39;pno&#39; of the document (0-based)</span>
+<span class="n">page</span> <span class="o">=</span> <span class="n">doc</span><span class="p">[</span><span class="n">pno</span><span class="p">]</span>  <span class="c1"># the short form</span>
+</pre></div>
+</div>
+<p>Any integer <code class="xref any docutils literal notranslate"><span class="pre">-∞</span> <span class="pre">&lt;</span> <span class="pre">pno</span> <span class="pre">&lt;</span> <span class="pre">page_count</span></code> is possible here. Negative numbers count backwards from the end, so <em>doc[-1]</em> is the last page, like with Python sequences.</p>
+<p>Some more advanced way would be using the document as an <strong>iterator</strong> over its pages:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">:</span>
+    <span class="c1"># do something with &#39;page&#39;</span>
+
+<span class="c1"># ... or read backwards</span>
+<span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">doc</span><span class="p">):</span>
+    <span class="c1"># do something with &#39;page&#39;</span>
+
+<span class="c1"># ... or even use &#39;slicing&#39;</span>
+<span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="n">doc</span><span class="o">.</span><span class="n">pages</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">step</span><span class="p">):</span>
+    <span class="c1"># do something with &#39;page&#39;</span>
+</pre></div>
+</div>
+<p>Once you have your page, here is what you would typically do with it:</p>
+<section id="inspecting-the-links-annotations-or-form-fields-of-a-page">
+<h3>Inspecting the Links, Annotations or Form Fields of a Page<a class="headerlink" href="#inspecting-the-links-annotations-or-form-fields-of-a-page" title="Link to this heading">¶</a></h3>
+<p>Links are shown as “hot areas” when a document is displayed with some viewer software. If you click while your cursor shows a hand symbol, you will usually be taken to the target that is encoded in that hot area. Here is how to get all links:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># get all links on a page</span>
+<span class="n">links</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="n">get_links</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><em>links</em> is a Python list of dictionaries. For details see <a class="reference internal" href="page.html#Page.get_links" title="Page.get_links"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Page.get_links()</span></code></a>.</p>
+<p>You can also use an iterator which emits one link at a time:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">link</span> <span class="ow">in</span> <span class="n">page</span><span class="o">.</span><span class="n">links</span><span class="p">():</span>
+    <span class="c1"># do something with &#39;link&#39;</span>
+</pre></div>
+</div>
+<p>If dealing with a PDF document page, there may also exist annotations (<a class="reference internal" href="annot.html#annot"><span class="std std-ref">Annot</span></a>) or form fields (<a class="reference internal" href="widget.html#widget"><span class="std std-ref">Widget</span></a>), each of which have their own iterators:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">annot</span> <span class="ow">in</span> <span class="n">page</span><span class="o">.</span><span class="n">annots</span><span class="p">():</span>
+    <span class="c1"># do something with &#39;annot&#39;</span>
+
+<span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">page</span><span class="o">.</span><span class="n">widgets</span><span class="p">():</span>
+    <span class="c1"># do something with &#39;field&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="rendering-a-page">
+<h3>Rendering a Page<a class="headerlink" href="#rendering-a-page" title="Link to this heading">¶</a></h3>
+<p>This example creates a <strong>raster</strong> image of a page’s content:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pix</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="n">get_pixmap</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><em>pix</em> is a <a class="reference internal" href="pixmap.html#pixmap"><span class="std std-ref">Pixmap</span></a> object which (in this case) contains an <strong>RGB</strong> image of the page, ready to be used for many purposes. Method <a class="reference internal" href="page.html#Page.get_pixmap" title="Page.get_pixmap"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Page.get_pixmap()</span></code></a> offers lots of variations for controlling the image: resolution / DPI, colorspace (e.g. to produce a grayscale image or an image with a subtractive color scheme), transparency, rotation, mirroring, shifting, shearing, etc. For example: to create an <strong>RGBA</strong> image (i.e. containing an alpha channel), specify <em>pix = page.get_pixmap(alpha=True)</em>.</p>
+<p>A <a class="reference internal" href="pixmap.html#pixmap"><span class="std std-ref">Pixmap</span></a> contains a number of methods and attributes which are referenced below. Among them are the integers <em>width</em>, <em>height</em> (each in pixels) and <em>stride</em> (number of bytes of one horizontal image line). Attribute <em>samples</em> represents a rectangular area of bytes representing the image data (a Python <em>bytes</em> object).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can also create a <strong>vector</strong> image of a page by using <a class="reference internal" href="page.html#Page.get_svg_image" title="Page.get_svg_image"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Page.get_svg_image()</span></code></a>. Refer to this <a class="reference external" href="https://github.com/pymupdf/PyMuPDF/wiki/Vector-Image-Support">Vector Image Support page</a> for details.</p>
+</div>
+</section>
+<section id="saving-the-page-image-in-a-file">
+<h3>Saving the Page Image in a File<a class="headerlink" href="#saving-the-page-image-in-a-file" title="Link to this heading">¶</a></h3>
+<p>We can simply store the image in a PNG file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pix</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;page-</span><span class="si">%i</span><span class="s2">.png&quot;</span> <span class="o">%</span> <span class="n">page</span><span class="o">.</span><span class="n">number</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="displaying-the-image-in-guis">
+<h3>Displaying the Image in GUIs<a class="headerlink" href="#displaying-the-image-in-guis" title="Link to this heading">¶</a></h3>
+<p>We can also use it in GUI dialog managers. <a class="reference internal" href="pixmap.html#Pixmap.samples" title="Pixmap.samples"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Pixmap.samples</span></code></a> represents an area of bytes of all the pixels as a Python bytes object. Here are some examples, find more in the <a class="reference external" href="https://github.com/pymupdf/PyMuPDF/tree/master/examples">examples</a> directory.</p>
+<section id="wxpython">
+<h4>wxPython<a class="headerlink" href="#wxpython" title="Link to this heading">¶</a></h4>
+<p>Consult their documentation for adjustments to RGB(A) pixmaps and, potentially, specifics for your wxPython release:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">pix</span><span class="o">.</span><span class="n">alpha</span><span class="p">:</span>
+    <span class="n">bitmap</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">Bitmap</span><span class="o">.</span><span class="n">FromBufferRGBA</span><span class="p">(</span><span class="n">pix</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="n">pix</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="n">pix</span><span class="o">.</span><span class="n">samples</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">bitmap</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">Bitmap</span><span class="o">.</span><span class="n">FromBuffer</span><span class="p">(</span><span class="n">pix</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="n">pix</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="n">pix</span><span class="o">.</span><span class="n">samples</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="tkinter">
+<h4>Tkinter<a class="headerlink" href="#tkinter" title="Link to this heading">¶</a></h4>
+<p>Please also see section 3.19 of the <a class="reference external" href="https://Pillow.readthedocs.io">Pillow documentation</a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">ImageTk</span>
+
+<span class="c1"># set the mode depending on alpha</span>
+<span class="n">mode</span> <span class="o">=</span> <span class="s2">&quot;RGBA&quot;</span> <span class="k">if</span> <span class="n">pix</span><span class="o">.</span><span class="n">alpha</span> <span class="k">else</span> <span class="s2">&quot;RGB&quot;</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">frombytes</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="p">[</span><span class="n">pix</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="n">pix</span><span class="o">.</span><span class="n">height</span><span class="p">],</span> <span class="n">pix</span><span class="o">.</span><span class="n">samples</span><span class="p">)</span>
+<span class="n">tkimg</span> <span class="o">=</span> <span class="n">ImageTk</span><span class="o">.</span><span class="n">PhotoImage</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The following <strong>avoids using Pillow</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># remove alpha if present</span>
+<span class="n">pix1</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">Pixmap</span><span class="p">(</span><span class="n">pix</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="k">if</span> <span class="n">pix</span><span class="o">.</span><span class="n">alpha</span> <span class="k">else</span> <span class="n">pix</span>  <span class="c1"># PPM does not support transparency</span>
+<span class="n">imgdata</span> <span class="o">=</span> <span class="n">pix1</span><span class="o">.</span><span class="n">tobytes</span><span class="p">(</span><span class="s2">&quot;ppm&quot;</span><span class="p">)</span>  <span class="c1"># extremely fast!</span>
+<span class="n">tkimg</span> <span class="o">=</span> <span class="n">tkinter</span><span class="o">.</span><span class="n">PhotoImage</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">imgdata</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you are looking for a complete Tkinter script paging through <strong>any supported</strong> document, <a class="reference external" href="https://github.com/pymupdf/PyMuPDF-Utilities/blob/master/examples/browse-document/browse.py">here it is!</a>. It can also zoom into pages, and it runs under Python 2 or 3. It requires the extremely handy <a class="reference external" href="https://pypi.org/project/PySimpleGUI/">PySimpleGUI</a> pure Python package.</p>
+</section>
+<section id="pyqt4-pyqt5-pyside">
+<h4>PyQt4, PyQt5, PySide<a class="headerlink" href="#pyqt4-pyqt5-pyside" title="Link to this heading">¶</a></h4>
+<p>Please also see section 3.16 of the <a class="reference external" href="https://Pillow.readthedocs.io">Pillow documentation</a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">ImageQt</span>
+
+<span class="c1"># set the mode depending on alpha</span>
+<span class="n">mode</span> <span class="o">=</span> <span class="s2">&quot;RGBA&quot;</span> <span class="k">if</span> <span class="n">pix</span><span class="o">.</span><span class="n">alpha</span> <span class="k">else</span> <span class="s2">&quot;RGB&quot;</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">frombytes</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="p">[</span><span class="n">pix</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="n">pix</span><span class="o">.</span><span class="n">height</span><span class="p">],</span> <span class="n">pix</span><span class="o">.</span><span class="n">samples</span><span class="p">)</span>
+<span class="n">qtimg</span> <span class="o">=</span> <span class="n">ImageQt</span><span class="o">.</span><span class="n">ImageQt</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Again, you also can get along <strong>without using Pillow.</strong> Qt’s <code class="xref any docutils literal notranslate"><span class="pre">QImage</span></code> luckily supports native Python pointers, so the following is the recommended way to create Qt images:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QImage</span>
+
+<span class="c1"># set the correct QImage format depending on alpha</span>
+<span class="n">fmt</span> <span class="o">=</span> <span class="n">QImage</span><span class="o">.</span><span class="n">Format_RGBA8888</span> <span class="k">if</span> <span class="n">pix</span><span class="o">.</span><span class="n">alpha</span> <span class="k">else</span> <span class="n">QImage</span><span class="o">.</span><span class="n">Format_RGB888</span>
+<span class="n">qtimg</span> <span class="o">=</span> <span class="n">QImage</span><span class="p">(</span><span class="n">pix</span><span class="o">.</span><span class="n">samples_ptr</span><span class="p">,</span> <span class="n">pix</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="n">pix</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="n">fmt</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="extracting-text-and-images">
+<h3>Extracting Text and Images<a class="headerlink" href="#extracting-text-and-images" title="Link to this heading">¶</a></h3>
+<p>We can also extract all text, images and other information of a page in many different forms, and levels of detail:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">opt</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Use one of the following strings for <em>opt</em> to obtain different formats <a class="footnote-reference brackets" href="#f2" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>:</p>
+<ul class="simple">
+<li><p><strong>“text”</strong>: (default) plain text with line breaks. No formatting, no text position details, no images.</p></li>
+<li><p><strong>“blocks”</strong>: generate a list of text blocks (= paragraphs).</p></li>
+<li><p><strong>“words”</strong>: generate a list of words (strings not containing spaces).</p></li>
+<li><p><strong>“html”</strong>: creates a full visual version of the page including any images. This can be displayed with your internet browser.</p></li>
+<li><p><strong>“dict”</strong> / <strong>“json”</strong>: same information level as HTML, but provided as a Python dictionary or resp. JSON string. See <a class="reference internal" href="textpage.html#TextPage.extractDICT" title="TextPage.extractDICT"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TextPage.extractDICT()</span></code></a> for details of its structure.</p></li>
+<li><p><strong>“rawdict”</strong> / <strong>“rawjson”</strong>: a super-set of <strong>“dict”</strong> / <strong>“json”</strong>. It additionally provides character detail information like XML. See <a class="reference internal" href="textpage.html#TextPage.extractRAWDICT" title="TextPage.extractRAWDICT"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TextPage.extractRAWDICT()</span></code></a> for details of its structure.</p></li>
+<li><p><strong>“xhtml”</strong>: text information level as the TEXT version but includes images. Can also be displayed by internet browsers.</p></li>
+<li><p><strong>“xml”</strong>: contains no images, but full position and font information down to each single text character. Use an XML module to interpret.</p></li>
+</ul>
+<p>To give you an idea about the output of these alternatives, we did text example extracts. See <a class="reference internal" href="app1.html#appendix1"><span class="std std-ref">Appendix 1: Details on Text Extraction</span></a>.</p>
+</section>
+<section id="searching-for-text">
+<h3>Searching for Text<a class="headerlink" href="#searching-for-text" title="Link to this heading">¶</a></h3>
+<p>You can find out, exactly where on a page a certain text string appears:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">areas</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="n">search_for</span><span class="p">(</span><span class="s2">&quot;mupdf&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This delivers a list of rectangles (see <a class="reference internal" href="rect.html#rect"><span class="std std-ref">Rect</span></a>), each of which surrounds one occurrence of the string “mupdf” (case insensitive). You could use this information to e.g. highlight those areas (PDF only) or create a cross reference of the document.</p>
+<p>Please also do have a look at chapter <a class="reference internal" href="coop_low.html#cooperation"><span class="std std-ref">Working together: DisplayList and TextPage</span></a> and at demo programs <a class="reference external" href="https://github.com/pymupdf/PyMuPDF-Utilities/tree/master/demo/demo.py">demo.py</a> and <a class="reference external" href="https://github.com/pymupdf/PyMuPDF-Utilities/tree/master/demo/demo-lowlevel.py">demo-lowlevel.py</a>. Among other things they contain details on how the <a class="reference internal" href="textpage.html#textpage"><span class="std std-ref">TextPage</span></a>, <a class="reference internal" href="device.html#device"><span class="std std-ref">Device</span></a> and <a class="reference internal" href="displaylist.html#displaylist"><span class="std std-ref">DisplayList</span></a> classes can be used for a more direct control, e.g. when performance considerations suggest it.</p>
+</section>
+</section>
+<section id="stories-generating-pdf-from-html-source">
+<span id="workingwithstories"></span><h2>Stories: Generating PDF from HTML Source<a class="headerlink" href="#stories-generating-pdf-from-html-source" title="Link to this heading">¶</a></h2>
+<p>The <a class="reference internal" href="story-class.html#story"><span class="std std-ref">Story</span></a> class is a new feature of PyMuPDF version 1.21.0. It represents support for MuPDF’s <strong>“story”</strong> interface.</p>
+<p>The following is a quote from the book <a class="reference external" href="https://mupdf.com/docs/mupdf-explored.html">“MuPDF Explored”</a> by Robin Watts from <a class="reference external" href="https://www.artifex.com">Artifex</a>:</p>
+<hr class="docutils" />
+<p><em>Stories provide a way to easily layout styled content for use with devices, such as those offered by Document Writers (…). The concept of a story comes from desktop publishing, which in turn (…) gets it from newspapers. If you consider a traditional newspaper layout, it will consist of various news articles (stories) that are laid out into multiple columns, possibly across multiple pages.</em></p>
+<p><em>Accordingly, MuPDF uses a story to represent a flow of text with styling information. The user of the story can then supply a sequence of rectangles into which the story will be laid out, and the positioned text can then be drawn to an output device. This keeps the concept of the text itself (the story) to be separated from the areas into which the text should be flowed (the layout).</em></p>
+<hr class="docutils" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A Story works somewhat similar to an internet browser: It faithfully parses and renders HTML hypertext and also optional stylesheets (CSS). But its <strong>output is a PDF</strong> – not web pages.</p>
+</div>
+<p>When creating a <a class="reference internal" href="story-class.html#story"><span class="std std-ref">Story</span></a>, the input from up to three different information sources is taken into account. All these items are optional.</p>
+<ol class="arabic simple">
+<li><p>HTML source code, either a Python string or <strong>created by the script</strong> using methods of <a class="reference internal" href="xml-class.html#xml"><span class="std std-ref">Xml</span></a>.</p></li>
+<li><p>CSS (Cascaded Style Sheet) source code, provided as a Python string. CSS can be used to provide styling information (text font size, color, etc.) like it would happen for web pages. Obviously, this string may also be read from a file.</p></li>
+<li><p>An <a class="reference internal" href="archive-class.html#archive"><span class="std std-ref">Archive</span></a> <strong>must be used</strong> whenever the DOM references images, or uses text fonts except the standard <a class="reference internal" href="app3.html#base-14-fonts"><span class="std std-ref">PDF Base 14 Fonts</span></a>, CJK fonts and the NOTO fonts generated into the PyMuPDF binary.</p></li>
+</ol>
+<p>The <a class="reference internal" href="xml-class.html#xml"><span class="std std-ref">API</span></a> allows creating DOMs completely from scratch, including desired styling information. It can also be used to modify or extend <strong>provided</strong> HTML: text can be deleted or replaced, or its styling can be changed. Text – for example extracted from databases – can also be added and fill template-like HTML documents.</p>
+<p>It is <strong>not required</strong> to provide syntactically complete HTML documents: snippets like <code class="xref any docutils literal notranslate"><span class="pre">&lt;b&gt;Hello</span></code> are fully accepted, and many / most syntax errors are automatically corrected.</p>
+<p>After the HTML is considered complete, it can be used to create a PDF document. This happens via the new <a class="reference internal" href="document-writer-class.html#documentwriter"><span class="std std-ref">DocumentWriter</span></a> class. The programmer calls its methods to create a new empty page, and passes rectangles to the Story to fill them.</p>
+<p>The story in turn will return completion codes indicating whether or not more content is waiting to be written. Which part of the content will land in which rectangle or on which page is automatically determined by the story itself – it cannot be influenced other than by providing the rectangles.</p>
+<p>Please see the <a class="reference internal" href="recipes-stories.html#recipesstories"><span class="std std-ref">Stories recipes</span></a> for a number of typical use cases.</p>
+</section>
+<section id="pdf-maintenance">
+<h2>PDF Maintenance<a class="headerlink" href="#pdf-maintenance" title="Link to this heading">¶</a></h2>
+<p>PDFs are the only document type that can be <strong>modified</strong> using PyMuPDF. Other file types are read-only.</p>
+<p>However, you can convert <strong>any document</strong> (including images) to a PDF and then apply all PyMuPDF features to the conversion result. Find out more here <a class="reference internal" href="document.html#Document.convert_to_pdf" title="Document.convert_to_pdf"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Document.convert_to_pdf()</span></code></a>, and also look at the demo script <a class="reference external" href="https://github.com/pymupdf/PyMuPDF-Utilities/blob/master/examples/convert-document/convert.py">pdf-converter.py</a> which can convert any <a class="reference internal" href="how-to-open-a-file.html#supported-file-types"><span class="std std-ref">supported document</span></a> to PDF.</p>
+<p><a class="reference internal" href="document.html#Document.save" title="Document.save"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Document.save()</span></code></a> always stores a PDF in its current (potentially modified) state on disk.</p>
+<p>You normally can choose whether to save to a new file, or just append your modifications to the existing one (“incremental save”), which often is very much faster.</p>
+<p>The following describes ways how you can manipulate PDF documents. This description is by no means complete: much more can be found in the following chapters.</p>
+<section id="modifying-creating-re-arranging-and-deleting-pages">
+<h3>Modifying, Creating, Re-arranging and Deleting Pages<a class="headerlink" href="#modifying-creating-re-arranging-and-deleting-pages" title="Link to this heading">¶</a></h3>
+<p>There are several ways to manipulate the so-called <strong>page tree</strong> (a structure describing all the pages) of a PDF:</p>
+<p><a class="reference internal" href="document.html#Document.delete_page" title="Document.delete_page"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Document.delete_page()</span></code></a> and <a class="reference internal" href="document.html#Document.delete_pages" title="Document.delete_pages"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Document.delete_pages()</span></code></a> delete pages.</p>
+<p><a class="reference internal" href="document.html#Document.copy_page" title="Document.copy_page"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Document.copy_page()</span></code></a>, <a class="reference internal" href="document.html#Document.fullcopy_page" title="Document.fullcopy_page"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Document.fullcopy_page()</span></code></a> and <a class="reference internal" href="document.html#Document.move_page" title="Document.move_page"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Document.move_page()</span></code></a> copy or move a page to other locations within the same document.</p>
+<p><a class="reference internal" href="document.html#Document.select" title="Document.select"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Document.select()</span></code></a> shrinks a PDF down to selected pages. Parameter is a sequence <a class="footnote-reference brackets" href="#f3" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a> of the page numbers that you want to keep. These integers must all be in range <em>0 &lt;= i &lt; page_count</em>. When executed, all pages <strong>missing</strong> in this list will be deleted. Remaining pages will occur <strong>in the sequence and as many times (!) as you specify them</strong>.</p>
+<p>So you can easily create new PDFs with</p>
+<ul class="simple">
+<li><p>the first or last 10 pages,</p></li>
+<li><p>only the odd or only the even pages (for doing double-sided printing),</p></li>
+<li><p>pages that <strong>do</strong> or <strong>don’t</strong> contain a given text,</p></li>
+<li><p>reverse the page sequence, …</p></li>
+</ul>
+<p>… whatever you can think of.</p>
+<p>The saved new document will contain links, annotations and bookmarks that are still valid (i.a.w. either pointing to a selected page or to some external resource).</p>
+<p><a class="reference internal" href="document.html#Document.insert_page" title="Document.insert_page"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Document.insert_page()</span></code></a> and <a class="reference internal" href="document.html#Document.new_page" title="Document.new_page"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Document.new_page()</span></code></a> insert new pages.</p>
+<p>Pages themselves can moreover be modified by a range of methods (e.g. page rotation, annotation and link maintenance, text and image insertion).</p>
+</section>
+<section id="joining-and-splitting-pdf-documents">
+<h3>Joining and Splitting PDF Documents<a class="headerlink" href="#joining-and-splitting-pdf-documents" title="Link to this heading">¶</a></h3>
+<p>Method <a class="reference internal" href="document.html#Document.insert_pdf" title="Document.insert_pdf"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Document.insert_pdf()</span></code></a> copies pages <strong>between different</strong> PDF documents. Here is a simple <strong>joiner</strong> example (<em>doc1</em> and <em>doc2</em> being opened PDFs):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># append complete doc2 to the end of doc1</span>
+<span class="n">doc1</span><span class="o">.</span><span class="n">insert_pdf</span><span class="p">(</span><span class="n">doc2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here is a snippet that <strong>splits</strong> <em>doc1</em>. It creates a new document of its first and its last 10 pages:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">doc2</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>                 <span class="c1"># new empty PDF</span>
+<span class="n">doc2</span><span class="o">.</span><span class="n">insert_pdf</span><span class="p">(</span><span class="n">doc1</span><span class="p">,</span> <span class="n">to_page</span> <span class="o">=</span> <span class="mi">9</span><span class="p">)</span>  <span class="c1"># first 10 pages</span>
+<span class="n">doc2</span><span class="o">.</span><span class="n">insert_pdf</span><span class="p">(</span><span class="n">doc1</span><span class="p">,</span> <span class="n">from_page</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">doc1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">10</span><span class="p">)</span> <span class="c1"># last 10 pages</span>
+<span class="n">doc2</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;first-and-last-10.pdf&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>More can be found in the <a class="reference internal" href="document.html#document"><span class="std std-ref">Document</span></a> chapter. Also have a look at <a class="reference external" href="https://github.com/pymupdf/PyMuPDF-Utilities/blob/master/examples/join-documents/join.py">PDFjoiner.py</a>.</p>
+</section>
+<section id="embedding-data">
+<h3>Embedding Data<a class="headerlink" href="#embedding-data" title="Link to this heading">¶</a></h3>
+<p>PDFs can be used as containers for arbitrary data (executables, other PDFs, text or binary files, etc.) much like ZIP archives.</p>
+<p>PyMuPDF fully supports this feature via <a class="reference internal" href="document.html#document"><span class="std std-ref">Document</span></a> <em>embfile_*</em> methods and attributes. For some detail read <span class="xref std std-ref">Appendix 3</span>, consult the Wiki on <a class="reference external" href="https://github.com/pymupdf/PyMuPDF/wiki/Dealing-with-Embedded-Files">dealing with embedding files</a>, or the example scripts <a class="reference external" href="https://github.com/pymupdf/PyMuPDF-Utilities/blob/master/examples/copy-embedded/copy.py">embedded-copy.py</a>, <a class="reference external" href="https://github.com/pymupdf/PyMuPDF-Utilities/blob/master/examples/export-embedded/export.py">embedded-export.py</a>, <a class="reference external" href="https://github.com/pymupdf/PyMuPDF-Utilities/blob/master/examples/import-embedded/import.py">embedded-import.py</a>, and <a class="reference external" href="https://github.com/pymupdf/PyMuPDF-Utilities/blob/master/examples/list-embedded/list.py">embedded-list.py</a>.</p>
+</section>
+<section id="saving">
+<h3>Saving<a class="headerlink" href="#saving" title="Link to this heading">¶</a></h3>
+<p>As mentioned above, <a class="reference internal" href="document.html#Document.save" title="Document.save"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Document.save()</span></code></a> will <strong>always</strong> save the document in its current state.</p>
+<p>You can write changes back to the <strong>original PDF</strong> by specifying option <em>incremental=True</em>. This process is (usually) <strong>extremely fast</strong>, since changes are <strong>appended to the original file</strong> without completely rewriting it.</p>
+<p><a class="reference internal" href="document.html#Document.save" title="Document.save"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Document.save()</span></code></a> options correspond to options of MuPDF’s command line utility <em>mutool clean</em>, see the following table.</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Save Option</strong></p></th>
+<th class="head"><p><strong>mutool</strong></p></th>
+<th class="head"><p><strong>Effect</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>garbage=1</p></td>
+<td><p>g</p></td>
+<td><p>garbage collect unused objects</p></td>
+</tr>
+<tr class="row-odd"><td><p>garbage=2</p></td>
+<td><p>gg</p></td>
+<td><p>in addition to 1, compact <a class="reference internal" href="glossary.html#xref" title="xref"><code class="xref py py-data docutils literal notranslate"><span class="pre">xref</span></code></a> tables</p></td>
+</tr>
+<tr class="row-even"><td><p>garbage=3</p></td>
+<td><p>ggg</p></td>
+<td><p>in addition to 2, merge duplicate objects</p></td>
+</tr>
+<tr class="row-odd"><td><p>garbage=4</p></td>
+<td><p>gggg</p></td>
+<td><p>in addition to 3, merge duplicate stream content</p></td>
+</tr>
+<tr class="row-even"><td><p>clean=True</p></td>
+<td><p>cs</p></td>
+<td><p>clean and sanitize content streams</p></td>
+</tr>
+<tr class="row-odd"><td><p>deflate=True</p></td>
+<td><p>z</p></td>
+<td><p>deflate uncompressed streams</p></td>
+</tr>
+<tr class="row-even"><td><p>deflate_images=True</p></td>
+<td><p>i</p></td>
+<td><p>deflate image streams</p></td>
+</tr>
+<tr class="row-odd"><td><p>deflate_fonts=True</p></td>
+<td><p>f</p></td>
+<td><p>deflate fontfile streams</p></td>
+</tr>
+<tr class="row-even"><td><p>ascii=True</p></td>
+<td><p>a</p></td>
+<td><p>convert binary data to ASCII format</p></td>
+</tr>
+<tr class="row-odd"><td><p>linear=True</p></td>
+<td><p>l</p></td>
+<td><p>create a linearized version</p></td>
+</tr>
+<tr class="row-even"><td><p>expand=True</p></td>
+<td><p>d</p></td>
+<td><p>decompress all streams</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For an explanation of terms like <em>object, stream, xref</em> consult the <a class="reference internal" href="glossary.html#glossary"><span class="std std-ref">Glossary</span></a> chapter.</p>
+</div>
+<p>For example, <em>mutool clean -ggggz file.pdf</em> yields excellent compression results. It corresponds to <em>doc.save(filename, garbage=4, deflate=True)</em>.</p>
+</section>
+</section>
+<section id="closing">
+<h2>Closing<a class="headerlink" href="#closing" title="Link to this heading">¶</a></h2>
+<p>It is often desirable to “close” a document to relinquish control of the underlying file to the OS, while your program continues.</p>
+<p>This can be achieved by the <a class="reference internal" href="document.html#Document.close" title="Document.close"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Document.close()</span></code></a> method. Apart from closing the underlying file, buffer areas associated with the document will be freed.</p>
+</section>
+<section id="further-reading">
+<h2>Further Reading<a class="headerlink" href="#further-reading" title="Link to this heading">¶</a></h2>
+<p>Also have a look at PyMuPDF’s <a class="reference external" href="https://github.com/pymupdf/PyMuPDF/wiki">Wiki</a> pages. Especially those named in the sidebar under title <strong>“Recipes”</strong> cover over 15 topics written in “How-To” style.</p>
+<p>This document also contains a <a class="reference internal" href="faq.html#faq"><span class="std std-ref">FAQ</span></a>. This chapter has close connection to the aforementioned recipes, and it will be extended with more content over time.</p>
+<hr class="docutils" />
+<p class="rubric">Footnotes</p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="f1" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">1</a><span class="fn-bracket">]</span></span>
+<p>PyMuPDF lets you also open several image file types just like normal documents. See section <a class="reference internal" href="pixmap.html#imagefiles"><span class="std std-ref">Supported Input Image Formats</span></a> in chapter <a class="reference internal" href="pixmap.html#pixmap"><span class="std std-ref">Pixmap</span></a> for more comments.</p>
+</aside>
+<aside class="footnote brackets" id="f2" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">2</a><span class="fn-bracket">]</span></span>
+<p><a class="reference internal" href="page.html#Page.get_text" title="Page.get_text"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Page.get_text()</span></code></a> is a convenience wrapper for several methods of another PyMuPDF class, <a class="reference internal" href="textpage.html#textpage"><span class="std std-ref">TextPage</span></a>. The names of these methods correspond to the argument string passed to <a class="reference internal" href="page.html#Page.get_text" title="Page.get_text"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Page.get_text()</span></code></a> :  <em>Page.get_text(“dict”)</em> is equivalent to <em>TextPage.extractDICT()</em> .</p>
+</aside>
+<aside class="footnote brackets" id="f3" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">3</a><span class="fn-bracket">]</span></span>
+<p>“Sequences” are Python objects conforming to the sequence protocol. These objects implement a method named <em>__getitem__()</em>. Best known examples are Python tuples and lists. But <em>array.array</em>, <em>numpy.array</em> and PyMuPDF’s “geometry” objects (<a class="reference internal" href="algebra.html#algebra"><span class="std std-ref">Operator Algebra for Geometry Objects</span></a>) are sequences, too. Refer to <a class="reference internal" href="app3.html#sequencetypes"><span class="std std-ref">Using Python Sequences as Arguments in PyMuPDF</span></a> for details.</p>
+</aside>
+</aside>
+<div class="feedbackLink"><a id="feedbackLinkBottom" target=_blank>Do you have any feedback on this page?</b></a></div><hr class="docutils" />
+<script>
+
+   var url_string = window.location.href;
+   var a = document.getElementById('feedbackLinkBottom');
+   a.setAttribute("href", "https://artifex.com/contributor/feedback.php?utm_source=rtd-pymupdf&utm_medium=rtd&utm_content=footer-link&url="+url_string);
+
+</script>
+
+<p style="color:#999" id="footerDisclaimer">This software is provided AS-IS with no warranty, either express or implied. This software is distributed under license and may not be copied, modified or distributed except as expressly authorized under the terms of that license. Refer to licensing information at <a href="https://www.artifex.com?utm_source=rtd-pymupdf&utm_medium=rtd&utm_content=footer-link">artifex.com</a> or contact Artifex Software Inc., 39 Mesa Street, Suite 108A, San Francisco CA 94129, United States for further information.</p>
+
+
+
+<script>
+
+   let docLanguage = document.getElementsByTagName('html')[0].getAttribute('lang');
+
+   function getHeaderAndFooterTranslation(str) {
+       if (docLanguage == "ja") {
+           if (str == "Do you have any feedback on this page?") {
+               return "このページに関するご意見はありますか？";
+           } else if (str == "Find <b>#pymupdf</b> on <b>Discord</b>") {
+               return "<b>Discord</b>の <b>#pymupdf</b> を見つける";
+           } else if (str == "This software is provided AS-IS with no warranty, either express or implied. This software is distributed under license and may not be copied, modified or distributed except as expressly authorized under the terms of that license. Refer to licensing information at <a href='https://www.artifex.com?utm_source=rtd-pymupdf&utm_medium=rtd&utm_content=footer-link'>artifex.com</a> or contact Artifex Software Inc., 39 Mesa Street, Suite 108A, San Francisco CA 94129, United States for further information.") {
+
+               return "このソフトウェアは無保証で提供されており、明示または黙示を問わず、いかなる保証もありません。このソフトウェアはライセンスの下で配布され、ライセンスの条件に明示的に許可されている場合を除き、コピー、変更、または配布してはなりません。ライセンシング情報については、<a href='https://www.artifex.com?utm_source=rtd-pymupdf&utm_medium=rtd&utm_content=footer-link'>artifex.com</a>でライセンス情報を参照するか、アメリカ合衆国カリフォルニア州サンフランシスコのArtifex Software Inc. までお問い合わせください。"
+
+           }
+       }
+
+       return str;
+   }
+
+   document.getElementById("findOnDiscord").innerHTML = getHeaderAndFooterTranslation("Find <b>#pymupdf</b> on <b>Discord</b>");
+   document.getElementById("feedbackLinkTop").innerHTML = getHeaderAndFooterTranslation("Do you have any feedback on this page?");
+   document.getElementById("feedbackLinkBottom").innerHTML = getHeaderAndFooterTranslation("Do you have any feedback on this page?");
+   document.getElementById("footerDisclaimer").innerHTML = getHeaderAndFooterTranslation("This software is provided AS-IS with no warranty, either express or implied. This software is distributed under license and may not be copied, modified or distributed except as expressly authorized under the terms of that license. Refer to licensing information at <a href='https://www.artifex.com?utm_source=rtd-pymupdf&utm_medium=rtd&utm_content=footer-link'>artifex.com</a> or contact Artifex Software Inc., 39 Mesa Street, Suite 108A, San Francisco CA 94129, United States for further information.");
+
+
+   // more translation for admonition-title as the in-built translation isn't great, needs: 注釈 -> 注
+   if (docLanguage == "ja") {
+       const collection = document.getElementsByClassName("admonition-title");
+       for (var i=0;i<collection.length;i++) {
+           collection[i].innerHTML = "注";
+       }
+   }
+
+
+</script><p class="footer-version">This documentation covers all versions up to 1.25.3.</p>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="rag.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">PyMuPDF, LLM &amp; RAG</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="the-basics.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">The Basics</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2015-2025, Artifex
+            </div>
+            Made with 
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            <div class="last-updated">
+              Last updated on 10. Mar 2025</div>
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Tutorial</a><ul>
+<li><a class="reference internal" href="#importing-the-bindings">Importing the Bindings</a><ul>
+<li><a class="reference internal" href="#note-on-the-name-fitz">Note on the Name <em>fitz</em></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#opening-a-document">Opening a Document</a></li>
+<li><a class="reference internal" href="#some-document-methods-and-attributes">Some <span class="xref std std-ref">Document</span> Methods and Attributes</a></li>
+<li><a class="reference internal" href="#accessing-meta-data">Accessing Meta Data</a></li>
+<li><a class="reference internal" href="#working-with-outlines">Working with Outlines</a></li>
+<li><a class="reference internal" href="#working-with-pages">Working with Pages</a><ul>
+<li><a class="reference internal" href="#inspecting-the-links-annotations-or-form-fields-of-a-page">Inspecting the Links, Annotations or Form Fields of a Page</a></li>
+<li><a class="reference internal" href="#rendering-a-page">Rendering a Page</a></li>
+<li><a class="reference internal" href="#saving-the-page-image-in-a-file">Saving the Page Image in a File</a></li>
+<li><a class="reference internal" href="#displaying-the-image-in-guis">Displaying the Image in GUIs</a><ul>
+<li><a class="reference internal" href="#wxpython">wxPython</a></li>
+<li><a class="reference internal" href="#tkinter">Tkinter</a></li>
+<li><a class="reference internal" href="#pyqt4-pyqt5-pyside">PyQt4, PyQt5, PySide</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#extracting-text-and-images">Extracting Text and Images</a></li>
+<li><a class="reference internal" href="#searching-for-text">Searching for Text</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#stories-generating-pdf-from-html-source">Stories: Generating PDF from HTML Source</a></li>
+<li><a class="reference internal" href="#pdf-maintenance">PDF Maintenance</a><ul>
+<li><a class="reference internal" href="#modifying-creating-re-arranging-and-deleting-pages">Modifying, Creating, Re-arranging and Deleting Pages</a></li>
+<li><a class="reference internal" href="#joining-and-splitting-pdf-documents">Joining and Splitting PDF Documents</a></li>
+<li><a class="reference internal" href="#embedding-data">Embedding Data</a></li>
+<li><a class="reference internal" href="#saving">Saving</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#closing">Closing</a></li>
+<li><a class="reference internal" href="#further-reading">Further Reading</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=9ddcf537"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    </body>
+</html>

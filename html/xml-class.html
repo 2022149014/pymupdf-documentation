@@ -1,0 +1,1394 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="Artifex" name="author" />
+<meta content="PyMuPDF is a high-performance Python library for data extraction, analysis, conversion &amp; manipulation of PDF (and other) documents." name="description" />
+<meta content="PDF Text Extraction, PDF Image Extraction, PDF Conversion, PDF Tables, PDF Splitting, PDF Creation, Pyodide, PyScript" name="keywords" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JZTN4VTL9M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JZTN4VTL9M');
+    </script>
+    <link rel="author" title="About these documents" href="about.html" /><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Operator Algebra for Geometry Objects" href="algebra.html" /><link rel="prev" title="Widget" href="widget.html" />
+
+    <link rel="shortcut icon" href="_static/PyMuPDF.ico"/><!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
+        <title>Xml - PyMuPDF 1.25.3 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=74643500" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">PyMuPDF 1.25.3 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo only-light" src="_static/sidebar-logo-dark.svg" alt="Light Logo"/>
+    <img class="sidebar-logo only-dark" src="_static/sidebar-logo-light.svg" alt="Dark Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">PyMuPDF 1.25.3 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="about.html">Features Comparison</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#performance">Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#license-and-copyright">License and Copyright</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pymupdf4llm/index.html">PyMuPDF4LLM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pymupdf-pro.html">PyMuPDF Pro</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="the-basics.html">The Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rag.html">PyMuPDF, LLM &amp; RAG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How to Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="how-to-open-a-file.html">Opening Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-text.html">Text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-images.html">Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-annotations.html">Annotations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-drawing-and-graphics.html">Drawing and Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-stories.html">Stories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-journalling.html">Journalling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-multiprocessing.html">Multiprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-ocr.html">OCR - Optical Character Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-optional-content.html">Optional Content Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-low-level-interfaces.html">Low-Level Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-common-issues-and-their-solutions.html">Common Issues and their Solutions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="module.html">Command line interface</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="classes.html">Classes</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Classes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="annot.html">Annot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archive-class.html">Archive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="colorspace.html">Colorspace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="displaylist.html">DisplayList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="document.html">Document</a></li>
+<li class="toctree-l2"><a class="reference internal" href="document-writer-class.html">DocumentWriter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="font.html">Font</a></li>
+<li class="toctree-l2"><a class="reference internal" href="identity.html">Identity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="irect.html">IRect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="link.html">Link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linkdest.html">linkDest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matrix.html">Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outline.html">Outline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page.html">Page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pixmap.html">Pixmap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="point.html">Point</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quad.html">Quad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rect.html">Rect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shape.html">Shape</a></li>
+<li class="toctree-l2"><a class="reference internal" href="story-class.html">Story</a></li>
+<li class="toctree-l2"><a class="reference internal" href="textpage.html">TextPage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="textwriter.html">TextWriter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="widget.html">Widget</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Xml</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="algebra.html">Operator Algebra for Geometry Objects</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="lowlevel.html">Low Level Functions and Classes</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Low Level Functions and Classes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="device.html">Device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coop_low.html">Working together: DisplayList and TextPage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vars.html">Constants and Enumerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="colors.html">Color Database</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="app1.html">Appendix 1: Details on Text Extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="app2.html">Appendix 2: Considerations on Embedded Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="app3.html">Appendix 3: Assorted Technical Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="app4.html">Appendix 4: Performance Comparison Methodology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changes.html">Change Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="znames.html">Deprecated Names</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="_sources/xml-class.rst" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <style>
+
+    #languageToggle {
+        width:25%;
+        margin:8px 10px 0;
+    }
+
+    #button-select-en {
+        padding: 5px 10px;
+        background-color: #fff;
+        border: 1px solid #000;
+        border-radius: 10px 0 0 10px;
+        font-size: 14px;
+    }
+
+    #button-select-ja {
+        padding: 5px 10px;
+        background-color: #fff;
+        border: 1px solid #000;
+        border-radius: 0px 10px 10px 0;
+        border-left: 0;
+        font-size: 14px;
+    }
+
+    #button-select-en , #button-select-ja, #button-select-en:hover , #button-select-ja:hover  {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    /* small screens */
+    @media all and (max-width : 768px)  {
+        #languageToggle {
+            width:50%;
+        }
+    }
+
+    @media all and (max-width : 400px)  {
+        #languageToggle {
+            width:70%;
+        }
+    }
+
+    @media all and (max-width : 375px)  {
+        #button-select-en , #button-select-ja {
+            font-size: 11px;
+        }
+    }
+
+</style>
+
+<div style="display:flex;justify-content:space-between;align-items: center;">
+    <form class="sidebar-search-container top" method="get" action="search.html" role="search" style="width:75%">
+      <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+      <input type="hidden" name="check_keywords" value="yes">
+      <input type="hidden" name="area" value="default">
+    </form>
+    <div id="languageToggle"><span><a id="button-select-en" href="javaScript:changeLanguage('en')">English</a></span><span><a id="button-select-ja" href="javaScript:changeLanguage('ja')">日本語</a></span></div>
+</div>
+
+<div style="display:flex;justify-content:space-between;align-items:center;margin-top:20px;">
+    <div class="discordLink" style="display:flex;align-items:center;margin-top: -5px;">
+        <a href="https://discord.gg/TSpYGBW4eq" id="findOnDiscord" target=_blank>Find <b>#pymupdf</b> on <b>Discord</b></a>
+        <a href="https://discord.gg/TSpYGBW4eq" target=_blank>
+            <div style="width:30px;height:30px;margin-left:5px;">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36">
+                    <defs>
+                        <style>.discordLogoFill{fill:#5865f2;}</style>
+                    </defs>
+                    <g id="Discord_Logo" data-name="Discord Logo">
+                        <path class="discordLogoFill" d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/>
+                    </g>
+                </svg>
+            </div>
+        </a>
+    </div>
+
+    <div class="feedbackLink"><a id="feedbackLinkTop" target=_blank>Do you have any feedback on this page?</b></a></div>
+</div>
+
+<script>
+    // highlightSelectedLanguage
+
+    if (document.getElementsByTagName('html')[0].getAttribute('lang')=="ja") {
+        document.getElementById("button-select-ja").style.backgroundColor = "#ff6600";
+        document.getElementById("button-select-en").style.color = "#000";
+    } else {
+        document.getElementById("button-select-en").style.backgroundColor = "#ff6600";
+        document.getElementById("button-select-ja").style.color = "#000";
+    }
+
+
+    var url_string = window.location.href;
+    var a = document.getElementById('feedbackLinkTop');
+    a.setAttribute("href", "https://artifex.com/contributor/feedback.php?utm_source=rtd-pymupdf&utm_medium=rtd&utm_content=header-link&url="+url_string);
+
+    function changeLanguage(lang) {
+        var new_url;
+
+        if (lang == "en") {
+            new_url = url_string.replace("/ja/", "/en/");
+        } else {
+            new_url = url_string.replace("/en/", "/ja/");
+        }
+
+        window.location.replace(new_url);
+    }
+
+</script><section id="xml">
+<span id="id1"></span><h1>Xml<a class="headerlink" href="#xml" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>New in v1.21.0</p></li>
+</ul>
+<p>This represents an HTML or an XML node. It is a helper class intended to access the DOM (Document Object Model) content of a <a class="reference internal" href="story-class.html#story"><span class="std std-ref">Story</span></a> object.</p>
+<p>There is no need to ever directly construct an <a class="reference internal" href="#xml"><span class="std std-ref">Xml</span></a> object: after creating a <a class="reference internal" href="story-class.html#story"><span class="std std-ref">Story</span></a>, simply take <a class="reference internal" href="story-class.html#Story.body" title="Story.body"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Story.body</span></code></a> – which is an Xml node – and use it to navigate your way through the story’s DOM.</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Method / Attribute</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#Xml.add_bullet_list" title="Xml.add_bullet_list"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_bullet_list()</span></code></a></p></td>
+<td><p>Add a <em class="htmltag">ul</em> tag - bulleted list, context manager.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Xml.add_codeblock" title="Xml.add_codeblock"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_codeblock()</span></code></a></p></td>
+<td><p>Add a <em class="htmltag">pre</em> tag, context manager.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Xml.add_description_list" title="Xml.add_description_list"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_description_list()</span></code></a></p></td>
+<td><p>Add a <em class="htmltag">dl</em> tag, context manager.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Xml.add_division" title="Xml.add_division"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_division()</span></code></a></p></td>
+<td><p>add a <em class="htmltag">div</em> tag (renamed from “section”), context manager.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Xml.add_header" title="Xml.add_header"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_header()</span></code></a></p></td>
+<td><p>Add a header tag (one of <em class="htmltag">h1</em> to <em class="htmltag">h6</em>), context manager.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Xml.add_horizontal_line" title="Xml.add_horizontal_line"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_horizontal_line()</span></code></a></p></td>
+<td><p>Add a <em class="htmltag">hr</em> tag.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Xml.add_image" title="Xml.add_image"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_image()</span></code></a></p></td>
+<td><p>Add a <em class="htmltag">img</em> tag.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Xml.add_link" title="Xml.add_link"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_link()</span></code></a></p></td>
+<td><p>Add a <em class="htmltag">a</em> tag.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Xml.add_number_list" title="Xml.add_number_list"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_number_list()</span></code></a></p></td>
+<td><p>Add a <em class="htmltag">ol</em> tag, context manager.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Xml.add_paragraph" title="Xml.add_paragraph"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_paragraph()</span></code></a></p></td>
+<td><p>Add a <em class="htmltag">p</em> tag.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Xml.add_span" title="Xml.add_span"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_span()</span></code></a></p></td>
+<td><p>Add a <em class="htmltag">span</em> tag, context manager.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Xml.add_subscript" title="Xml.add_subscript"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_subscript()</span></code></a></p></td>
+<td><p>Add subscript text(<em class="htmltag">sub</em> tag) - inline element, treated like text.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Xml.add_superscript" title="Xml.add_superscript"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_superscript()</span></code></a></p></td>
+<td><p>Add subscript text (<em class="htmltag">sup</em> tag) - inline element, treated like text.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Xml.add_code" title="Xml.add_code"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_code()</span></code></a></p></td>
+<td><p>Add code text (<em class="htmltag">code</em> tag) - inline element, treated like text.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Xml.add_var" title="Xml.add_var"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_var()</span></code></a></p></td>
+<td><p>Add code text (<em class="htmltag">code</em> tag) - inline element, treated like text.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Xml.add_samp" title="Xml.add_samp"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_samp()</span></code></a></p></td>
+<td><p>Add code text (<em class="htmltag">code</em> tag) - inline element, treated like text.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Xml.add_kbd" title="Xml.add_kbd"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_kbd()</span></code></a></p></td>
+<td><p>Add code text (<em class="htmltag">code</em> tag) - inline element, treated like text.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Xml.add_text" title="Xml.add_text"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_text()</span></code></a></p></td>
+<td><p>Add a text string. Line breaks <code class="docutils literal notranslate"><span class="pre">\n</span></code> are honored as <em class="htmltag">br</em> tags.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Xml.append_child" title="Xml.append_child"><code class="xref py py-meth docutils literal notranslate"><span class="pre">append_child()</span></code></a></p></td>
+<td><p>Append a child node.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Xml.clone" title="Xml.clone"><code class="xref py py-meth docutils literal notranslate"><span class="pre">clone()</span></code></a></p></td>
+<td><p>Make a copy if this node.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Xml.create_element" title="Xml.create_element"><code class="xref py py-meth docutils literal notranslate"><span class="pre">create_element()</span></code></a></p></td>
+<td><p>Make a new node with a given tag name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Xml.create_text_node" title="Xml.create_text_node"><code class="xref py py-meth docutils literal notranslate"><span class="pre">create_text_node()</span></code></a></p></td>
+<td><p>Create direct text for the current node.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Xml.find" title="Xml.find"><code class="xref py py-meth docutils literal notranslate"><span class="pre">find()</span></code></a></p></td>
+<td><p>Find a sub-node with given properties.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Xml.find_next" title="Xml.find_next"><code class="xref py py-meth docutils literal notranslate"><span class="pre">find_next()</span></code></a></p></td>
+<td><p>Repeat previous “find” with the same criteria.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Xml.insert_after" title="Xml.insert_after"><code class="xref py py-meth docutils literal notranslate"><span class="pre">insert_after()</span></code></a></p></td>
+<td><p>Insert an element after current node.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Xml.insert_before" title="Xml.insert_before"><code class="xref py py-meth docutils literal notranslate"><span class="pre">insert_before()</span></code></a></p></td>
+<td><p>Insert an element before current node.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Xml.remove" title="Xml.remove"><code class="xref py py-meth docutils literal notranslate"><span class="pre">remove()</span></code></a></p></td>
+<td><p>Remove this node.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Xml.set_align" title="Xml.set_align"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_align()</span></code></a></p></td>
+<td><p>Set the alignment using a CSS style spec. Only works for block-level tags.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Xml.set_attribute" title="Xml.set_attribute"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_attribute()</span></code></a></p></td>
+<td><p>Set an arbitrary key to some value (which may be empty).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Xml.set_bgcolor" title="Xml.set_bgcolor"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_bgcolor()</span></code></a></p></td>
+<td><p>Set the background color. Only works for block-level tags.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Xml.set_bold" title="Xml.set_bold"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_bold()</span></code></a></p></td>
+<td><p>Set bold on or off or to some string value.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Xml.set_color" title="Xml.set_color"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_color()</span></code></a></p></td>
+<td><p>Set text color.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Xml.set_columns" title="Xml.set_columns"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_columns()</span></code></a></p></td>
+<td><p>Set the number of columns. Argument may be any valid number or string.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Xml.set_font" title="Xml.set_font"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_font()</span></code></a></p></td>
+<td><p>Set the font-family, e.g. “sans-serif”.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Xml.set_fontsize" title="Xml.set_fontsize"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_fontsize()</span></code></a></p></td>
+<td><p>Set the font size. Either a float or a valid HTML/CSS string.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Xml.set_id" title="Xml.set_id"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_id()</span></code></a></p></td>
+<td><p>Set a <em class="htmltag">id</em>. A check for uniqueness is performed.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Xml.set_italic" title="Xml.set_italic"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_italic()</span></code></a></p></td>
+<td><p>Set italic on or off or to some string value.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Xml.set_leading" title="Xml.set_leading"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_leading()</span></code></a></p></td>
+<td><p>Set inter-block text distance (<code class="xref any docutils literal notranslate"><span class="pre">-mupdf-leading</span></code>), only works on block-level nodes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Xml.set_lineheight" title="Xml.set_lineheight"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_lineheight()</span></code></a></p></td>
+<td><p>Set height of a line. Float like 1.5, which sets to <code class="xref any docutils literal notranslate"><span class="pre">1.5</span> <span class="pre">*</span> <span class="pre">fontsize</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Xml.set_margins" title="Xml.set_margins"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_margins()</span></code></a></p></td>
+<td><p>Set the margin(s), float or string with up to 4 values.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Xml.set_pagebreak_after" title="Xml.set_pagebreak_after"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_pagebreak_after()</span></code></a></p></td>
+<td><p>Insert a page break after this node.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Xml.set_pagebreak_before" title="Xml.set_pagebreak_before"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_pagebreak_before()</span></code></a></p></td>
+<td><p>Insert a page break before this node.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Xml.set_properties" title="Xml.set_properties"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_properties()</span></code></a></p></td>
+<td><p>Set any or all desired properties in one call.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Xml.add_style" title="Xml.add_style"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_style()</span></code></a></p></td>
+<td><p>Set (add) a “style” that is not supported by its own <code class="xref any docutils literal notranslate"><span class="pre">set_</span></code> method.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Xml.add_class" title="Xml.add_class"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_class()</span></code></a></p></td>
+<td><p>Set (add) a “class” attribute.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Xml.set_text_indent" title="Xml.set_text_indent"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_text_indent()</span></code></a></p></td>
+<td><p>Set indentation for first textblock line. Only works for block-level nodes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Xml.tagname" title="Xml.tagname"><code class="xref py py-attr docutils literal notranslate"><span class="pre">tagname</span></code></a></p></td>
+<td><p>Either the HTML tag name like <em class="htmltag">p</em> or <code class="xref any docutils literal notranslate"><span class="pre">None</span></code> if a text node.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Xml.text" title="Xml.text"><code class="xref py py-attr docutils literal notranslate"><span class="pre">text</span></code></a></p></td>
+<td><p>Either the node’s text or <code class="xref any docutils literal notranslate"><span class="pre">None</span></code> if a tag node.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Xml.is_text" title="Xml.is_text"><code class="xref py py-attr docutils literal notranslate"><span class="pre">is_text</span></code></a></p></td>
+<td><p>Check if the node is a text.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Xml.first_child" title="Xml.first_child"><code class="xref py py-attr docutils literal notranslate"><span class="pre">first_child</span></code></a></p></td>
+<td><p>Contains the first node one level below this one (or <code class="xref any docutils literal notranslate"><span class="pre">None</span></code>).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Xml.last_child" title="Xml.last_child"><code class="xref py py-attr docutils literal notranslate"><span class="pre">last_child</span></code></a></p></td>
+<td><p>Contains the last node one level below this one (or <code class="xref any docutils literal notranslate"><span class="pre">None</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="annot.html#Annot.next" title="Annot.next"><code class="xref py py-attr docutils literal notranslate"><span class="pre">next</span></code></a></p></td>
+<td><p>The next node at the same level (or <code class="xref any docutils literal notranslate"><span class="pre">None</span></code>).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Xml.previous" title="Xml.previous"><code class="xref py py-attr docutils literal notranslate"><span class="pre">previous</span></code></a></p></td>
+<td><p>The previous node at the same level.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Xml.root" title="Xml.root"><code class="xref py py-attr docutils literal notranslate"><span class="pre">root</span></code></a></p></td>
+<td><p>The top node of the DOM, which hence has the tagname <em class="htmltag">html</em>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Class API</strong></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="Xml">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Xml</span></span><a class="headerlink" href="#Xml" title="Link to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="Xml.add_bullet_list">
+<span class="sig-name descname"><span class="pre">add_bullet_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Xml.add_bullet_list" title="Link to this definition">¶</a></dt>
+<dd><p>Add an <em class="htmltag">ul</em> tag - bulleted list, context manager. See <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul">ul</a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.add_codeblock">
+<span class="sig-name descname"><span class="pre">add_codeblock</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Xml.add_codeblock" title="Link to this definition">¶</a></dt>
+<dd><p>Add a <em class="htmltag">pre</em> tag, context manager. See <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre">pre</a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.add_description_list">
+<span class="sig-name descname"><span class="pre">add_description_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Xml.add_description_list" title="Link to this definition">¶</a></dt>
+<dd><p>Add a <em class="htmltag">dl</em> tag, context manager. See <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl">dl</a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.add_division">
+<span class="sig-name descname"><span class="pre">add_division</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Xml.add_division" title="Link to this definition">¶</a></dt>
+<dd><p>Add a <em class="htmltag">div</em> tag, context manager. See <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div">div</a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.add_header">
+<span class="sig-name descname"><span class="pre">add_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Xml.add_header" title="Link to this definition">¶</a></dt>
+<dd><p>Add a header tag (one of <em class="htmltag">h1</em> to <em class="htmltag">h6</em>), context manager. See <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements">headings</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>int</em>) – a value 1 - 6.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.add_horizontal_line">
+<span class="sig-name descname"><span class="pre">add_horizontal_line</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Xml.add_horizontal_line" title="Link to this definition">¶</a></dt>
+<dd><p>Add a <em class="htmltag">hr</em> tag. See <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr">hr</a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.add_image">
+<span class="sig-name descname"><span class="pre">add_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Xml.add_image" title="Link to this definition">¶</a></dt>
+<dd><p>Add an <em class="htmltag">img</em> tag. This causes the inclusion of the named image in the DOM.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – the filename of the image. This <strong>must be the member name</strong> of some entry of the <a class="reference internal" href="archive-class.html#archive"><span class="std std-ref">Archive</span></a> parameter of the <a class="reference internal" href="story-class.html#story"><span class="std std-ref">Story</span></a> constructor.</p></li>
+<li><p><strong>width</strong> – if provided, either an absolute (int) value, or a percentage string like “30%”. A percentage value refers to the width of the specified <code class="xref any docutils literal notranslate"><span class="pre">where</span></code> rectangle in <a class="reference internal" href="story-class.html#Story.place" title="Story.place"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Story.place()</span></code></a>. If this value is provided and <a class="reference internal" href="irect.html#IRect.height" title="IRect.height"><code class="xref any py py-attr docutils literal notranslate"><span class="pre">height</span></code></a> is omitted, the image will be included keeping its aspect ratio.</p></li>
+<li><p><strong>height</strong> – if provided, either an absolute (int) value, or a percentage string like “30%”. A percentage value refers to the height of the specified <code class="xref any docutils literal notranslate"><span class="pre">where</span></code> rectangle in <a class="reference internal" href="story-class.html#Story.place" title="Story.place"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Story.place()</span></code></a>. If this value is provided and <a class="reference internal" href="irect.html#IRect.width" title="IRect.width"><code class="xref any py py-attr docutils literal notranslate"><span class="pre">width</span></code></a> is omitted, the image’s aspect ratio will be honored.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.add_link">
+<span class="sig-name descname"><span class="pre">add_link</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">href</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Xml.add_link" title="Link to this definition">¶</a></dt>
+<dd><p>Add an <em class="htmltag">a</em> tag - inline element, treated like text.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>href</strong> (<em>str</em>) – the URL target.</p></li>
+<li><p><strong>text</strong> (<em>str</em>) – the text to display. If omitted, the <code class="xref any docutils literal notranslate"><span class="pre">href</span></code> text is shown instead.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.add_number_list">
+<span class="sig-name descname"><span class="pre">add_number_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Xml.add_number_list" title="Link to this definition">¶</a></dt>
+<dd><p>Add an <em class="htmltag">ol</em> tag, context manager.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.add_paragraph">
+<span class="sig-name descname"><span class="pre">add_paragraph</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Xml.add_paragraph" title="Link to this definition">¶</a></dt>
+<dd><p>Add a <em class="htmltag">p</em> tag, context manager.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.add_span">
+<span class="sig-name descname"><span class="pre">add_span</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Xml.add_span" title="Link to this definition">¶</a></dt>
+<dd><p>Add a <em class="htmltag">span</em> tag, context manager. See <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span">span</a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.add_subscript">
+<span class="sig-name descname"><span class="pre">add_subscript</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Xml.add_subscript" title="Link to this definition">¶</a></dt>
+<dd><p>Add “subscript” text(<em class="htmltag">sub</em> tag) - inline element, treated like text.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.add_superscript">
+<span class="sig-name descname"><span class="pre">add_superscript</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Xml.add_superscript" title="Link to this definition">¶</a></dt>
+<dd><p>Add “superscript” text (<em class="htmltag">sup</em> tag) - inline element, treated like text.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.add_code">
+<span class="sig-name descname"><span class="pre">add_code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Xml.add_code" title="Link to this definition">¶</a></dt>
+<dd><p>Add “code” text (<em class="htmltag">code</em> tag) - inline element, treated like text.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.add_var">
+<span class="sig-name descname"><span class="pre">add_var</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Xml.add_var" title="Link to this definition">¶</a></dt>
+<dd><p>Add “variable” text (<em class="htmltag">var</em> tag) - inline element, treated like text.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.add_samp">
+<span class="sig-name descname"><span class="pre">add_samp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Xml.add_samp" title="Link to this definition">¶</a></dt>
+<dd><p>Add “sample output” text (<em class="htmltag">samp</em> tag) - inline element, treated like text.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.add_kbd">
+<span class="sig-name descname"><span class="pre">add_kbd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Xml.add_kbd" title="Link to this definition">¶</a></dt>
+<dd><p>Add “keyboard input” text (<em class="htmltag">kbd</em> tag) - inline element, treated like text.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.add_text">
+<span class="sig-name descname"><span class="pre">add_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Xml.add_text" title="Link to this definition">¶</a></dt>
+<dd><p>Add a text string. Line breaks <code class="docutils literal notranslate"><span class="pre">\n</span></code> are honored as <em class="htmltag">br</em> tags.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.set_align">
+<span class="sig-name descname"><span class="pre">set_align</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Xml.set_align" title="Link to this definition">¶</a></dt>
+<dd><p>Set the text alignment. Only works for block-level tags.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> – either one of the <a class="reference internal" href="vars.html#textalign"><span class="std std-ref">Text Alignment</span></a> or the <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-align">text-align</a> values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.set_attribute">
+<span class="sig-name descname"><span class="pre">set_attribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Xml.set_attribute" title="Link to this definition">¶</a></dt>
+<dd><p>Set an arbitrary key to some value (which may be empty).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> (<em>str</em>) – the name of the attribute.</p></li>
+<li><p><strong>value</strong> (<em>str</em>) – the (optional) value of the attribute.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.get_attributes">
+<span class="sig-name descname"><span class="pre">get_attributes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Xml.get_attributes" title="Link to this definition">¶</a></dt>
+<dd><p>Retrieve all attributes of the current nodes as a dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a dictionary with the attributes and their values of the node.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.get_attribute_value">
+<span class="sig-name descname"><span class="pre">get_attribute_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Xml.get_attribute_value" title="Link to this definition">¶</a></dt>
+<dd><p>Get the attribute value of <code class="xref any docutils literal notranslate"><span class="pre">key</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>key</strong> (<em>str</em>) – the name of the attribute.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a string with the value of <code class="xref any docutils literal notranslate"><span class="pre">key</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.remove_attribute">
+<span class="sig-name descname"><span class="pre">remove_attribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Xml.remove_attribute" title="Link to this definition">¶</a></dt>
+<dd><p>Remove the attribute <code class="xref any docutils literal notranslate"><span class="pre">key</span></code> from the node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>key</strong> (<em>str</em>) – the name of the attribute.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.set_bgcolor">
+<span class="sig-name descname"><span class="pre">set_bgcolor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Xml.set_bgcolor" title="Link to this definition">¶</a></dt>
+<dd><p>Set the background color. Only works for block-level tags.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> – either an RGB value like (255, 0, 0) (for “red”) or a valid <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-color">background-color</a> value.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.set_bold">
+<span class="sig-name descname"><span class="pre">set_bold</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Xml.set_bold" title="Link to this definition">¶</a></dt>
+<dd><p>Set bold on or off or to some string value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> – <code class="xref any docutils literal notranslate"><span class="pre">True</span></code>, <code class="xref any docutils literal notranslate"><span class="pre">False</span></code> or a valid <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight">font-weight</a> value.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.set_color">
+<span class="sig-name descname"><span class="pre">set_color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Xml.set_color" title="Link to this definition">¶</a></dt>
+<dd><p>Set the color of the text following.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> – either an RGB value like (255, 0, 0) (for “red”) or a valid <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value">color</a> value.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.set_columns">
+<span class="sig-name descname"><span class="pre">set_columns</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Xml.set_columns" title="Link to this definition">¶</a></dt>
+<dd><p>Set the number of columns.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> – a valid <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/CSS/columns">columns</a> value.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Currently ignored - supported in a future MuPDF version.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.set_font">
+<span class="sig-name descname"><span class="pre">set_font</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Xml.set_font" title="Link to this definition">¶</a></dt>
+<dd><p>Set the font-family.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>str</em>) – e.g. “sans-serif”.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.set_fontsize">
+<span class="sig-name descname"><span class="pre">set_fontsize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Xml.set_fontsize" title="Link to this definition">¶</a></dt>
+<dd><p>Set the font size for text following.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> – a float or a valid <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-size">font-size</a> value.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.set_id">
+<span class="sig-name descname"><span class="pre">set_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unqid</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Xml.set_id" title="Link to this definition">¶</a></dt>
+<dd><p>Set a <em class="htmltag">id</em>. This serves as a unique identification of the node within the DOM. Use it to easily locate the node to inspect or modify it. A check for uniqueness is performed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>unqid</strong> (<em>str</em>) – id string of the node.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.set_italic">
+<span class="sig-name descname"><span class="pre">set_italic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Xml.set_italic" title="Link to this definition">¶</a></dt>
+<dd><p>Set italic on or off or to some string value for the text following it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> – <code class="xref any docutils literal notranslate"><span class="pre">True</span></code>, <code class="xref any docutils literal notranslate"><span class="pre">False</span></code> or some valid <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-style">font-style</a> value.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.set_leading">
+<span class="sig-name descname"><span class="pre">set_leading</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Xml.set_leading" title="Link to this definition">¶</a></dt>
+<dd><p>Set inter-block text distance (<code class="xref any docutils literal notranslate"><span class="pre">-mupdf-leading</span></code>), only works on block-level nodes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>float</em>) – the distance in points to the previous block.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.set_lineheight">
+<span class="sig-name descname"><span class="pre">set_lineheight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Xml.set_lineheight" title="Link to this definition">¶</a></dt>
+<dd><p>Set height of a line.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> – a float like 1.5 (which sets to <code class="xref any docutils literal notranslate"><span class="pre">1.5</span> <span class="pre">*</span> <span class="pre">fontsize</span></code>), or some valid <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/CSS/line-height">line-height</a> value.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.set_margins">
+<span class="sig-name descname"><span class="pre">set_margins</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Xml.set_margins" title="Link to this definition">¶</a></dt>
+<dd><p>Set the margin(s).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> – float or string with up to 4 values. See <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/CSS/margin">CSS documentation</a>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.set_pagebreak_after">
+<span class="sig-name descname"><span class="pre">set_pagebreak_after</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Xml.set_pagebreak_after" title="Link to this definition">¶</a></dt>
+<dd><p>Insert a page break after this node.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.set_pagebreak_before">
+<span class="sig-name descname"><span class="pre">set_pagebreak_before</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Xml.set_pagebreak_before" title="Link to this definition">¶</a></dt>
+<dd><p>Insert a page break before this node.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.set_properties">
+<span class="sig-name descname"><span class="pre">set_properties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">align</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bgcolor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fontsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">italic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leading</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lineheight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">margins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pagebreak_after</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pagebreak_before</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unqid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cls</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Xml.set_properties" title="Link to this definition">¶</a></dt>
+<dd><p>Set any or all desired properties in one call. The meaning of argument values equal the values of the corresponding <code class="xref any docutils literal notranslate"><span class="pre">set_</span></code> methods.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The properties set by this method are directly attached to the node, whereas every <code class="xref any docutils literal notranslate"><span class="pre">set_</span></code> method generates a new <em class="htmltag">span</em> below the current node that has the respective property. So to e.g. “globally” set some property for the <em class="htmltag">body</em>, this method must be used.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.add_style">
+<span class="sig-name descname"><span class="pre">add_style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Xml.add_style" title="Link to this definition">¶</a></dt>
+<dd><p>Set (add) some style attribute not supported by its own <code class="xref any docutils literal notranslate"><span class="pre">set_</span></code> method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>str</em>) – any valid CSS style value.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.add_class">
+<span class="sig-name descname"><span class="pre">add_class</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Xml.add_class" title="Link to this definition">¶</a></dt>
+<dd><p>Set (add) some “class” attribute.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>str</em>) – the name of the class. Must have been defined in either the HTML or the CSS source of the DOM.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.set_text_indent">
+<span class="sig-name descname"><span class="pre">set_text_indent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Xml.set_text_indent" title="Link to this definition">¶</a></dt>
+<dd><p>Set indentation for the first textblock line. Only works for block-level nodes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> – a valid <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-indent">text-indent</a> value. Please note that negative values do not work.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.append_child">
+<span class="sig-name descname"><span class="pre">append_child</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Xml.append_child" title="Link to this definition">¶</a></dt>
+<dd><p>Append a child node. This is a low-level method used by other methods like <a class="reference internal" href="#Xml.add_paragraph" title="Xml.add_paragraph"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Xml.add_paragraph()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>node</strong> – the <a class="reference internal" href="#xml"><span class="std std-ref">Xml</span></a> node to append.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.create_text_node">
+<span class="sig-name descname"><span class="pre">create_text_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Xml.create_text_node" title="Link to this definition">¶</a></dt>
+<dd><p>Create direct text for the current node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>text</strong> (<em>str</em>) – the text to append.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#xml"><span class="std std-ref">Xml</span></a></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the created element.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.create_element">
+<span class="sig-name descname"><span class="pre">create_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Xml.create_element" title="Link to this definition">¶</a></dt>
+<dd><p>Create a new node with a given tag. This a low-level method used by other methods like <a class="reference internal" href="#Xml.add_paragraph" title="Xml.add_paragraph"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Xml.add_paragraph()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tag</strong> (<em>str</em>) – the element tag.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#xml"><span class="std std-ref">Xml</span></a></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the created element. To actually bind it to the DOM, use <a class="reference internal" href="#Xml.append_child" title="Xml.append_child"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Xml.append_child()</span></code></a>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.insert_before">
+<span class="sig-name descname"><span class="pre">insert_before</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elem</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Xml.insert_before" title="Link to this definition">¶</a></dt>
+<dd><p>Insert the given element <code class="xref any docutils literal notranslate"><span class="pre">elem</span></code> before this node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>elem</strong> – some <a class="reference internal" href="#xml"><span class="std std-ref">Xml</span></a> element.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.insert_after">
+<span class="sig-name descname"><span class="pre">insert_after</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elem</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Xml.insert_after" title="Link to this definition">¶</a></dt>
+<dd><p>Insert the given element <code class="xref any docutils literal notranslate"><span class="pre">elem</span></code> after this node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>elem</strong> – some <a class="reference internal" href="#xml"><span class="std std-ref">Xml</span></a> element.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.clone">
+<span class="sig-name descname"><span class="pre">clone</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Xml.clone" title="Link to this definition">¶</a></dt>
+<dd><p>Make a copy of this node, which then may be appended (using <a class="reference internal" href="#Xml.append_child" title="Xml.append_child"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Xml.append_child()</span></code></a>) or inserted (using one of <a class="reference internal" href="#Xml.insert_before" title="Xml.insert_before"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Xml.insert_before()</span></code></a>, <a class="reference internal" href="#Xml.insert_after" title="Xml.insert_after"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Xml.insert_after()</span></code></a>) in this DOM.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the clone (<a class="reference internal" href="#xml"><span class="std std-ref">Xml</span></a>) of the current node.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.remove">
+<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Xml.remove" title="Link to this definition">¶</a></dt>
+<dd><p>Remove this node from the DOM.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.debug">
+<span class="sig-name descname"><span class="pre">debug</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Xml.debug" title="Link to this definition">¶</a></dt>
+<dd><p>For debugging purposes, print this node’s structure in a simplified form.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.find">
+<span class="sig-name descname"><span class="pre">find</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">att</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">match</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Xml.find" title="Link to this definition">¶</a></dt>
+<dd><p>Under the current node, find the first node with the given <code class="xref any docutils literal notranslate"><span class="pre">tag</span></code>, attribute <code class="xref any docutils literal notranslate"><span class="pre">att</span></code> and value <code class="xref any docutils literal notranslate"><span class="pre">match</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tag</strong> (<em>str</em>) – restrict search to this tag. May be <code class="xref any docutils literal notranslate"><span class="pre">None</span></code> for unrestricted searches.</p></li>
+<li><p><strong>att</strong> (<em>str</em>) – check this attribute. May be <code class="xref any docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>match</strong> (<em>str</em>) – the desired attribute value to match. May be <code class="xref any docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#xml"><span class="std std-ref">Xml</span></a>.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref any docutils literal notranslate"><span class="pre">None</span></code> if nothing found, otherwise the first matching node.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Xml.find_next">
+<span class="sig-name descname"><span class="pre">find_next</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">att</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">match</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Xml.find_next" title="Link to this definition">¶</a></dt>
+<dd><p>Continue a previous <a class="reference internal" href="#Xml.find" title="Xml.find"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Xml.find()</span></code></a> (or <a class="reference internal" href="#Xml.find_next" title="Xml.find_next"><code class="xref py py-meth docutils literal notranslate"><span class="pre">find_next()</span></code></a>) with the same values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#xml"><span class="std std-ref">Xml</span></a>.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="xref any docutils literal notranslate"><span class="pre">None</span></code> if none more found, otherwise the next matching node.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Xml.tagname">
+<span class="sig-name descname"><span class="pre">tagname</span></span><a class="headerlink" href="#Xml.tagname" title="Link to this definition">¶</a></dt>
+<dd><p>Either the HTML tag name like <em class="htmltag">p</em> or <code class="xref any docutils literal notranslate"><span class="pre">None</span></code> if a text node.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Xml.text">
+<span class="sig-name descname"><span class="pre">text</span></span><a class="headerlink" href="#Xml.text" title="Link to this definition">¶</a></dt>
+<dd><p>Either the node’s text or <code class="xref any docutils literal notranslate"><span class="pre">None</span></code> if a tag node.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Xml.is_text">
+<span class="sig-name descname"><span class="pre">is_text</span></span><a class="headerlink" href="#Xml.is_text" title="Link to this definition">¶</a></dt>
+<dd><p>Check if a text node.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Xml.first_child">
+<span class="sig-name descname"><span class="pre">first_child</span></span><a class="headerlink" href="#Xml.first_child" title="Link to this definition">¶</a></dt>
+<dd><p>Contains the first node one level below this one (or <code class="xref any docutils literal notranslate"><span class="pre">None</span></code>).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Xml.last_child">
+<span class="sig-name descname"><span class="pre">last_child</span></span><a class="headerlink" href="#Xml.last_child" title="Link to this definition">¶</a></dt>
+<dd><p>Contains the last node one level below this one (or <code class="xref any docutils literal notranslate"><span class="pre">None</span></code>).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Xml.next">
+<span class="sig-name descname"><span class="pre">next</span></span><a class="headerlink" href="#Xml.next" title="Link to this definition">¶</a></dt>
+<dd><p>The next node at the same level (or <code class="xref any docutils literal notranslate"><span class="pre">None</span></code>).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Xml.previous">
+<span class="sig-name descname"><span class="pre">previous</span></span><a class="headerlink" href="#Xml.previous" title="Link to this definition">¶</a></dt>
+<dd><p>The previous node at the same level.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Xml.root">
+<span class="sig-name descname"><span class="pre">root</span></span><a class="headerlink" href="#Xml.root" title="Link to this definition">¶</a></dt>
+<dd><p>The top node of the DOM, which hence has the tagname <em class="htmltag">html</em>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<section id="setting-text-properties">
+<h2>Setting Text properties<a class="headerlink" href="#setting-text-properties" title="Link to this heading">¶</a></h2>
+<p>In HTML tags can be nested such that innermost text <strong>inherits properties</strong> from the tag enveloping its parent tag. For example <code class="xref any docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code>.</p>
+<p>To achieve the same effect, methods like <a class="reference internal" href="#Xml.set_bold" title="Xml.set_bold"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Xml.set_bold()</span></code></a> and <a class="reference internal" href="#Xml.set_italic" title="Xml.set_italic"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Xml.set_italic()</span></code></a> each open a temporary <em class="htmltag">span</em> with the desired property underneath the current node.</p>
+<p>In addition, these methods return there parent node, so they can be concatenated with each other.</p>
+</section>
+<section id="context-manager-support">
+<h2>Context Manager support<a class="headerlink" href="#context-manager-support" title="Link to this heading">¶</a></h2>
+<p>The standard way to add nodes to a DOM is this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">body</span> <span class="o">=</span> <span class="n">story</span><span class="o">.</span><span class="n">body</span>
+<span class="n">para</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">add_paragraph</span><span class="p">()</span>  <span class="c1"># add a paragraph</span>
+<span class="n">para</span><span class="o">.</span><span class="n">set_bold</span><span class="p">()</span>  <span class="c1"># text that follows will be bold</span>
+<span class="n">para</span><span class="o">.</span><span class="n">add_text</span><span class="p">(</span><span class="s2">&quot;some bold text&quot;</span><span class="p">)</span>
+<span class="n">para</span><span class="o">.</span><span class="n">set_italic</span><span class="p">()</span>  <span class="c1"># text that follows will additionally be italic</span>
+<span class="n">para</span><span class="o">.</span><span class="n">add_txt</span><span class="p">(</span><span class="s2">&quot;this is bold and italic&quot;</span><span class="p">)</span>
+<span class="n">para</span><span class="o">.</span><span class="n">set_italic</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">set_bold</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># all following text will be regular</span>
+<span class="n">para</span><span class="o">.</span><span class="n">add_text</span><span class="p">(</span><span class="s2">&quot;regular text&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Methods that are flagged as “context managers” can conveniently be used in this way:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">body</span> <span class="o">=</span> <span class="n">story</span><span class="o">.</span><span class="n">body</span>
+<span class="k">with</span> <span class="n">body</span><span class="o">.</span><span class="n">add_paragraph</span><span class="p">()</span> <span class="k">as</span> <span class="n">para</span><span class="p">:</span>
+   <span class="n">para</span><span class="o">.</span><span class="n">set_bold</span><span class="p">()</span><span class="o">.</span><span class="n">add_text</span><span class="p">(</span><span class="s2">&quot;some bold text&quot;</span><span class="p">)</span>
+   <span class="n">para</span><span class="o">.</span><span class="n">set_italic</span><span class="p">()</span><span class="o">.</span><span class="n">add_text</span><span class="p">(</span><span class="s2">&quot;this is bold and italic&quot;</span><span class="p">)</span>
+   <span class="n">para</span><span class="o">.</span><span class="n">set_italic</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">set_bold</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">add_text</span><span class="p">(</span><span class="s2">&quot;regular text&quot;</span><span class="p">)</span>
+   <span class="n">para</span><span class="o">.</span><span class="n">add_text</span><span class="p">(</span><span class="s2">&quot;more regular text&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="feedbackLink"><a id="feedbackLinkBottom" target=_blank>Do you have any feedback on this page?</b></a></div><hr class="docutils" />
+<script>
+
+   var url_string = window.location.href;
+   var a = document.getElementById('feedbackLinkBottom');
+   a.setAttribute("href", "https://artifex.com/contributor/feedback.php?utm_source=rtd-pymupdf&utm_medium=rtd&utm_content=footer-link&url="+url_string);
+
+</script>
+
+<p style="color:#999" id="footerDisclaimer">This software is provided AS-IS with no warranty, either express or implied. This software is distributed under license and may not be copied, modified or distributed except as expressly authorized under the terms of that license. Refer to licensing information at <a href="https://www.artifex.com?utm_source=rtd-pymupdf&utm_medium=rtd&utm_content=footer-link">artifex.com</a> or contact Artifex Software Inc., 39 Mesa Street, Suite 108A, San Francisco CA 94129, United States for further information.</p>
+
+
+
+<script>
+
+   let docLanguage = document.getElementsByTagName('html')[0].getAttribute('lang');
+
+   function getHeaderAndFooterTranslation(str) {
+       if (docLanguage == "ja") {
+           if (str == "Do you have any feedback on this page?") {
+               return "このページに関するご意見はありますか？";
+           } else if (str == "Find <b>#pymupdf</b> on <b>Discord</b>") {
+               return "<b>Discord</b>の <b>#pymupdf</b> を見つける";
+           } else if (str == "This software is provided AS-IS with no warranty, either express or implied. This software is distributed under license and may not be copied, modified or distributed except as expressly authorized under the terms of that license. Refer to licensing information at <a href='https://www.artifex.com?utm_source=rtd-pymupdf&utm_medium=rtd&utm_content=footer-link'>artifex.com</a> or contact Artifex Software Inc., 39 Mesa Street, Suite 108A, San Francisco CA 94129, United States for further information.") {
+
+               return "このソフトウェアは無保証で提供されており、明示または黙示を問わず、いかなる保証もありません。このソフトウェアはライセンスの下で配布され、ライセンスの条件に明示的に許可されている場合を除き、コピー、変更、または配布してはなりません。ライセンシング情報については、<a href='https://www.artifex.com?utm_source=rtd-pymupdf&utm_medium=rtd&utm_content=footer-link'>artifex.com</a>でライセンス情報を参照するか、アメリカ合衆国カリフォルニア州サンフランシスコのArtifex Software Inc. までお問い合わせください。"
+
+           }
+       }
+
+       return str;
+   }
+
+   document.getElementById("findOnDiscord").innerHTML = getHeaderAndFooterTranslation("Find <b>#pymupdf</b> on <b>Discord</b>");
+   document.getElementById("feedbackLinkTop").innerHTML = getHeaderAndFooterTranslation("Do you have any feedback on this page?");
+   document.getElementById("feedbackLinkBottom").innerHTML = getHeaderAndFooterTranslation("Do you have any feedback on this page?");
+   document.getElementById("footerDisclaimer").innerHTML = getHeaderAndFooterTranslation("This software is provided AS-IS with no warranty, either express or implied. This software is distributed under license and may not be copied, modified or distributed except as expressly authorized under the terms of that license. Refer to licensing information at <a href='https://www.artifex.com?utm_source=rtd-pymupdf&utm_medium=rtd&utm_content=footer-link'>artifex.com</a> or contact Artifex Software Inc., 39 Mesa Street, Suite 108A, San Francisco CA 94129, United States for further information.");
+
+
+   // more translation for admonition-title as the in-built translation isn't great, needs: 注釈 -> 注
+   if (docLanguage == "ja") {
+       const collection = document.getElementsByClassName("admonition-title");
+       for (var i=0;i<collection.length;i++) {
+           collection[i].innerHTML = "注";
+       }
+   }
+
+
+</script><p class="footer-version">This documentation covers all versions up to 1.25.3.</p>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="algebra.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Operator Algebra for Geometry Objects</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="widget.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Widget</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2015-2025, Artifex
+            </div>
+            Made with 
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            <div class="last-updated">
+              Last updated on 10. Mar 2025</div>
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Xml</a><ul>
+<li><a class="reference internal" href="#Xml"><code class="docutils literal notranslate"><span class="pre">Xml</span></code></a><ul>
+<li><a class="reference internal" href="#Xml.add_bullet_list"><code class="docutils literal notranslate"><span class="pre">Xml.add_bullet_list()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.add_codeblock"><code class="docutils literal notranslate"><span class="pre">Xml.add_codeblock()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.add_description_list"><code class="docutils literal notranslate"><span class="pre">Xml.add_description_list()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.add_division"><code class="docutils literal notranslate"><span class="pre">Xml.add_division()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.add_header"><code class="docutils literal notranslate"><span class="pre">Xml.add_header()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.add_horizontal_line"><code class="docutils literal notranslate"><span class="pre">Xml.add_horizontal_line()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.add_image"><code class="docutils literal notranslate"><span class="pre">Xml.add_image()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.add_link"><code class="docutils literal notranslate"><span class="pre">Xml.add_link()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.add_number_list"><code class="docutils literal notranslate"><span class="pre">Xml.add_number_list()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.add_paragraph"><code class="docutils literal notranslate"><span class="pre">Xml.add_paragraph()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.add_span"><code class="docutils literal notranslate"><span class="pre">Xml.add_span()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.add_subscript"><code class="docutils literal notranslate"><span class="pre">Xml.add_subscript()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.add_superscript"><code class="docutils literal notranslate"><span class="pre">Xml.add_superscript()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.add_code"><code class="docutils literal notranslate"><span class="pre">Xml.add_code()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.add_var"><code class="docutils literal notranslate"><span class="pre">Xml.add_var()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.add_samp"><code class="docutils literal notranslate"><span class="pre">Xml.add_samp()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.add_kbd"><code class="docutils literal notranslate"><span class="pre">Xml.add_kbd()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.add_text"><code class="docutils literal notranslate"><span class="pre">Xml.add_text()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.set_align"><code class="docutils literal notranslate"><span class="pre">Xml.set_align()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.set_attribute"><code class="docutils literal notranslate"><span class="pre">Xml.set_attribute()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.get_attributes"><code class="docutils literal notranslate"><span class="pre">Xml.get_attributes()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.get_attribute_value"><code class="docutils literal notranslate"><span class="pre">Xml.get_attribute_value()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.remove_attribute"><code class="docutils literal notranslate"><span class="pre">Xml.remove_attribute()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.set_bgcolor"><code class="docutils literal notranslate"><span class="pre">Xml.set_bgcolor()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.set_bold"><code class="docutils literal notranslate"><span class="pre">Xml.set_bold()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.set_color"><code class="docutils literal notranslate"><span class="pre">Xml.set_color()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.set_columns"><code class="docutils literal notranslate"><span class="pre">Xml.set_columns()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.set_font"><code class="docutils literal notranslate"><span class="pre">Xml.set_font()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.set_fontsize"><code class="docutils literal notranslate"><span class="pre">Xml.set_fontsize()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.set_id"><code class="docutils literal notranslate"><span class="pre">Xml.set_id()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.set_italic"><code class="docutils literal notranslate"><span class="pre">Xml.set_italic()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.set_leading"><code class="docutils literal notranslate"><span class="pre">Xml.set_leading()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.set_lineheight"><code class="docutils literal notranslate"><span class="pre">Xml.set_lineheight()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.set_margins"><code class="docutils literal notranslate"><span class="pre">Xml.set_margins()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.set_pagebreak_after"><code class="docutils literal notranslate"><span class="pre">Xml.set_pagebreak_after()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.set_pagebreak_before"><code class="docutils literal notranslate"><span class="pre">Xml.set_pagebreak_before()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.set_properties"><code class="docutils literal notranslate"><span class="pre">Xml.set_properties()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.add_style"><code class="docutils literal notranslate"><span class="pre">Xml.add_style()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.add_class"><code class="docutils literal notranslate"><span class="pre">Xml.add_class()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.set_text_indent"><code class="docutils literal notranslate"><span class="pre">Xml.set_text_indent()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.append_child"><code class="docutils literal notranslate"><span class="pre">Xml.append_child()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.create_text_node"><code class="docutils literal notranslate"><span class="pre">Xml.create_text_node()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.create_element"><code class="docutils literal notranslate"><span class="pre">Xml.create_element()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.insert_before"><code class="docutils literal notranslate"><span class="pre">Xml.insert_before()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.insert_after"><code class="docutils literal notranslate"><span class="pre">Xml.insert_after()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.clone"><code class="docutils literal notranslate"><span class="pre">Xml.clone()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.remove"><code class="docutils literal notranslate"><span class="pre">Xml.remove()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.debug"><code class="docutils literal notranslate"><span class="pre">Xml.debug()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.find"><code class="docutils literal notranslate"><span class="pre">Xml.find()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.find_next"><code class="docutils literal notranslate"><span class="pre">Xml.find_next()</span></code></a></li>
+<li><a class="reference internal" href="#Xml.tagname"><code class="docutils literal notranslate"><span class="pre">Xml.tagname</span></code></a></li>
+<li><a class="reference internal" href="#Xml.text"><code class="docutils literal notranslate"><span class="pre">Xml.text</span></code></a></li>
+<li><a class="reference internal" href="#Xml.is_text"><code class="docutils literal notranslate"><span class="pre">Xml.is_text</span></code></a></li>
+<li><a class="reference internal" href="#Xml.first_child"><code class="docutils literal notranslate"><span class="pre">Xml.first_child</span></code></a></li>
+<li><a class="reference internal" href="#Xml.last_child"><code class="docutils literal notranslate"><span class="pre">Xml.last_child</span></code></a></li>
+<li><a class="reference internal" href="#Xml.next"><code class="docutils literal notranslate"><span class="pre">Xml.next</span></code></a></li>
+<li><a class="reference internal" href="#Xml.previous"><code class="docutils literal notranslate"><span class="pre">Xml.previous</span></code></a></li>
+<li><a class="reference internal" href="#Xml.root"><code class="docutils literal notranslate"><span class="pre">Xml.root</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#setting-text-properties">Setting Text properties</a></li>
+<li><a class="reference internal" href="#context-manager-support">Context Manager support</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=9ddcf537"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    </body>
+</html>

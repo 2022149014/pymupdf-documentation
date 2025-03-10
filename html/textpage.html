@@ -1,0 +1,1194 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="Artifex" name="author" />
+<meta content="PyMuPDF is a high-performance Python library for data extraction, analysis, conversion &amp; manipulation of PDF (and other) documents." name="description" />
+<meta content="PDF Text Extraction, PDF Image Extraction, PDF Conversion, PDF Tables, PDF Splitting, PDF Creation, Pyodide, PyScript" name="keywords" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JZTN4VTL9M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JZTN4VTL9M');
+    </script>
+    <link rel="author" title="About these documents" href="about.html" /><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="TextWriter" href="textwriter.html" /><link rel="prev" title="Story" href="story-class.html" />
+
+    <link rel="shortcut icon" href="_static/PyMuPDF.ico"/><!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
+        <title>TextPage - PyMuPDF 1.25.3 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=74643500" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">PyMuPDF 1.25.3 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo only-light" src="_static/sidebar-logo-dark.svg" alt="Light Logo"/>
+    <img class="sidebar-logo only-dark" src="_static/sidebar-logo-light.svg" alt="Dark Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">PyMuPDF 1.25.3 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="about.html">Features Comparison</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#performance">Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html#license-and-copyright">License and Copyright</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pymupdf4llm/index.html">PyMuPDF4LLM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pymupdf-pro.html">PyMuPDF Pro</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="the-basics.html">The Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rag.html">PyMuPDF, LLM &amp; RAG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How to Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="how-to-open-a-file.html">Opening Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-text.html">Text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-images.html">Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-annotations.html">Annotations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-drawing-and-graphics.html">Drawing and Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-stories.html">Stories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-journalling.html">Journalling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-multiprocessing.html">Multiprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-ocr.html">OCR - Optical Character Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-optional-content.html">Optional Content Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-low-level-interfaces.html">Low-Level Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes-common-issues-and-their-solutions.html">Common Issues and their Solutions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="module.html">Command line interface</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="classes.html">Classes</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Classes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="annot.html">Annot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archive-class.html">Archive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="colorspace.html">Colorspace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="displaylist.html">DisplayList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="document.html">Document</a></li>
+<li class="toctree-l2"><a class="reference internal" href="document-writer-class.html">DocumentWriter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="font.html">Font</a></li>
+<li class="toctree-l2"><a class="reference internal" href="identity.html">Identity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="irect.html">IRect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="link.html">Link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linkdest.html">linkDest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matrix.html">Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outline.html">Outline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="page.html">Page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pixmap.html">Pixmap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="point.html">Point</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quad.html">Quad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rect.html">Rect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shape.html">Shape</a></li>
+<li class="toctree-l2"><a class="reference internal" href="story-class.html">Story</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">TextPage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="textwriter.html">TextWriter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="widget.html">Widget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xml-class.html">Xml</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="algebra.html">Operator Algebra for Geometry Objects</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="lowlevel.html">Low Level Functions and Classes</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Low Level Functions and Classes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="device.html">Device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coop_low.html">Working together: DisplayList and TextPage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vars.html">Constants and Enumerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="colors.html">Color Database</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="app1.html">Appendix 1: Details on Text Extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="app2.html">Appendix 2: Considerations on Embedded Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="app3.html">Appendix 3: Assorted Technical Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="app4.html">Appendix 4: Performance Comparison Methodology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changes.html">Change Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="znames.html">Deprecated Names</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="_sources/textpage.rst" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <style>
+
+    #languageToggle {
+        width:25%;
+        margin:8px 10px 0;
+    }
+
+    #button-select-en {
+        padding: 5px 10px;
+        background-color: #fff;
+        border: 1px solid #000;
+        border-radius: 10px 0 0 10px;
+        font-size: 14px;
+    }
+
+    #button-select-ja {
+        padding: 5px 10px;
+        background-color: #fff;
+        border: 1px solid #000;
+        border-radius: 0px 10px 10px 0;
+        border-left: 0;
+        font-size: 14px;
+    }
+
+    #button-select-en , #button-select-ja, #button-select-en:hover , #button-select-ja:hover  {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    /* small screens */
+    @media all and (max-width : 768px)  {
+        #languageToggle {
+            width:50%;
+        }
+    }
+
+    @media all and (max-width : 400px)  {
+        #languageToggle {
+            width:70%;
+        }
+    }
+
+    @media all and (max-width : 375px)  {
+        #button-select-en , #button-select-ja {
+            font-size: 11px;
+        }
+    }
+
+</style>
+
+<div style="display:flex;justify-content:space-between;align-items: center;">
+    <form class="sidebar-search-container top" method="get" action="search.html" role="search" style="width:75%">
+      <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+      <input type="hidden" name="check_keywords" value="yes">
+      <input type="hidden" name="area" value="default">
+    </form>
+    <div id="languageToggle"><span><a id="button-select-en" href="javaScript:changeLanguage('en')">English</a></span><span><a id="button-select-ja" href="javaScript:changeLanguage('ja')">日本語</a></span></div>
+</div>
+
+<div style="display:flex;justify-content:space-between;align-items:center;margin-top:20px;">
+    <div class="discordLink" style="display:flex;align-items:center;margin-top: -5px;">
+        <a href="https://discord.gg/TSpYGBW4eq" id="findOnDiscord" target=_blank>Find <b>#pymupdf</b> on <b>Discord</b></a>
+        <a href="https://discord.gg/TSpYGBW4eq" target=_blank>
+            <div style="width:30px;height:30px;margin-left:5px;">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36">
+                    <defs>
+                        <style>.discordLogoFill{fill:#5865f2;}</style>
+                    </defs>
+                    <g id="Discord_Logo" data-name="Discord Logo">
+                        <path class="discordLogoFill" d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/>
+                    </g>
+                </svg>
+            </div>
+        </a>
+    </div>
+
+    <div class="feedbackLink"><a id="feedbackLinkTop" target=_blank>Do you have any feedback on this page?</b></a></div>
+</div>
+
+<script>
+    // highlightSelectedLanguage
+
+    if (document.getElementsByTagName('html')[0].getAttribute('lang')=="ja") {
+        document.getElementById("button-select-ja").style.backgroundColor = "#ff6600";
+        document.getElementById("button-select-en").style.color = "#000";
+    } else {
+        document.getElementById("button-select-en").style.backgroundColor = "#ff6600";
+        document.getElementById("button-select-ja").style.color = "#000";
+    }
+
+
+    var url_string = window.location.href;
+    var a = document.getElementById('feedbackLinkTop');
+    a.setAttribute("href", "https://artifex.com/contributor/feedback.php?utm_source=rtd-pymupdf&utm_medium=rtd&utm_content=header-link&url="+url_string);
+
+    function changeLanguage(lang) {
+        var new_url;
+
+        if (lang == "en") {
+            new_url = url_string.replace("/ja/", "/en/");
+        } else {
+            new_url = url_string.replace("/en/", "/ja/");
+        }
+
+        window.location.replace(new_url);
+    }
+
+</script><section id="textpage">
+<span id="id1"></span><h1>TextPage<a class="headerlink" href="#textpage" title="Link to this heading">¶</a></h1>
+<p>This class represents text and images shown on a document page. All <a class="reference internal" href="how-to-open-a-file.html#supported-file-types"><span class="std std-ref">MuPDF document types</span></a> are supported.</p>
+<p>The usual ways to create a textpage are <a class="reference internal" href="displaylist.html#DisplayList.get_textpage" title="DisplayList.get_textpage"><code class="xref py py-meth docutils literal notranslate"><span class="pre">DisplayList.get_textpage()</span></code></a> and <a class="reference internal" href="page.html#Page.get_textpage" title="Page.get_textpage"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Page.get_textpage()</span></code></a>. Because there is a limited set of methods in this class, there exist wrappers in <a class="reference internal" href="page.html#page"><span class="std std-ref">Page</span></a> which are handier to use. The last column of this table shows these corresponding <a class="reference internal" href="page.html#page"><span class="std std-ref">Page</span></a> methods.</p>
+<p>For a description of what this class is all about, see Appendix 2.</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Method</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+<th class="head"><p>page get_text or search method</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#TextPage.extractText" title="TextPage.extractText"><code class="xref py py-meth docutils literal notranslate"><span class="pre">extractText()</span></code></a></p></td>
+<td><p>extract plain text</p></td>
+<td><p>“text”</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#TextPage.extractTEXT" title="TextPage.extractTEXT"><code class="xref py py-meth docutils literal notranslate"><span class="pre">extractTEXT()</span></code></a></p></td>
+<td><p>synonym of previous</p></td>
+<td><p>“text”</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#TextPage.extractBLOCKS" title="TextPage.extractBLOCKS"><code class="xref py py-meth docutils literal notranslate"><span class="pre">extractBLOCKS()</span></code></a></p></td>
+<td><p>plain text grouped in blocks</p></td>
+<td><p>“blocks”</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#TextPage.extractWORDS" title="TextPage.extractWORDS"><code class="xref py py-meth docutils literal notranslate"><span class="pre">extractWORDS()</span></code></a></p></td>
+<td><p>all words with their bbox</p></td>
+<td><p>“words”</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#TextPage.extractHTML" title="TextPage.extractHTML"><code class="xref py py-meth docutils literal notranslate"><span class="pre">extractHTML()</span></code></a></p></td>
+<td><p>page content in HTML format</p></td>
+<td><p>“html”</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#TextPage.extractXHTML" title="TextPage.extractXHTML"><code class="xref py py-meth docutils literal notranslate"><span class="pre">extractXHTML()</span></code></a></p></td>
+<td><p>page content in XHTML format</p></td>
+<td><p>“xhtml”</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#TextPage.extractXML" title="TextPage.extractXML"><code class="xref py py-meth docutils literal notranslate"><span class="pre">extractXML()</span></code></a></p></td>
+<td><p>page text in XML format</p></td>
+<td><p>“xml”</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#TextPage.extractDICT" title="TextPage.extractDICT"><code class="xref py py-meth docutils literal notranslate"><span class="pre">extractDICT()</span></code></a></p></td>
+<td><p>page content in <em>dict</em> format</p></td>
+<td><p>“dict”</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#TextPage.extractJSON" title="TextPage.extractJSON"><code class="xref py py-meth docutils literal notranslate"><span class="pre">extractJSON()</span></code></a></p></td>
+<td><p>page content in JSON format</p></td>
+<td><p>“json”</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#TextPage.extractRAWDICT" title="TextPage.extractRAWDICT"><code class="xref py py-meth docutils literal notranslate"><span class="pre">extractRAWDICT()</span></code></a></p></td>
+<td><p>page content in <em>dict</em> format</p></td>
+<td><p>“rawdict”</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#TextPage.extractRAWJSON" title="TextPage.extractRAWJSON"><code class="xref py py-meth docutils literal notranslate"><span class="pre">extractRAWJSON()</span></code></a></p></td>
+<td><p>page content in JSON format</p></td>
+<td><p>“rawjson”</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#TextPage.search" title="TextPage.search"><code class="xref py py-meth docutils literal notranslate"><span class="pre">search()</span></code></a></p></td>
+<td><p>Search for a string in the page</p></td>
+<td><p><a class="reference internal" href="page.html#Page.search_for" title="Page.search_for"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Page.search_for()</span></code></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Class API</strong></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="TextPage">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">TextPage</span></span><a class="headerlink" href="#TextPage" title="Link to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="TextPage.extractText">
+<span class="sig-name descname"><span class="pre">extractText</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sort</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#TextPage.extractText" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="TextPage.extractTEXT">
+<span class="sig-name descname"><span class="pre">extractTEXT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sort</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#TextPage.extractTEXT" title="Link to this definition">¶</a></dt>
+<dd><p>Return a string of the page’s complete text. The text is UTF-8 unicode and in the same sequence as specified at the time of document creation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sort</strong> (<em>bool</em>) – (new in v1.19.1) sort the output by vertical, then horizontal coordinates. In many cases, this should suffice to generate a “natural” reading order.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="TextPage.extractBLOCKS">
+<span class="sig-name descname"><span class="pre">extractBLOCKS</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#TextPage.extractBLOCKS" title="Link to this definition">¶</a></dt>
+<dd><p>Textpage content as a list of text lines grouped by block. Each list items looks like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="s2">&quot;lines in the block&quot;</span><span class="p">,</span> <span class="n">block_no</span><span class="p">,</span> <span class="n">block_type</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The first four entries are the block’s bbox coordinates, <em>block_type</em> is 1 for an image block, 0 for text. <em>block_no</em> is the block sequence number. Multiple text lines are joined via line breaks.</p>
+<p>For an image block, its bbox and a text line with some image meta information is included – <strong>not the image content</strong>.</p>
+<p>This is a high-speed method with just enough information to output plain text in desired reading sequence.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="TextPage.extractWORDS">
+<span class="sig-name descname"><span class="pre">extractWORDS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delimiters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#TextPage.extractWORDS" title="Link to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>Changed in v1.23.5: added <code class="xref any docutils literal notranslate"><span class="pre">delimiters</span></code> parameter</p></li>
+</ul>
+<p>Textpage content as a list of single words with bbox information. An item of this list looks like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="s2">&quot;word&quot;</span><span class="p">,</span> <span class="n">block_no</span><span class="p">,</span> <span class="n">line_no</span><span class="p">,</span> <span class="n">word_no</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>delimiters</strong> (<em>str</em>) – (new in v1.23.5) use these characters as <em>additional</em> word separators. By default, all white spaces (including the non-breaking space <code class="xref any docutils literal notranslate"><span class="pre">0xA0</span></code>) indicate start and end of a word. Now you can specify more characters causing this. For instance, the default will return <code class="xref any docutils literal notranslate"><span class="pre">&quot;john.doe&#64;outlook.com&quot;</span></code> as <strong>one</strong> word. If you specify <code class="xref any docutils literal notranslate"><span class="pre">delimiters=&quot;&#64;.&quot;</span></code> then the <strong>four</strong> words <code class="xref any docutils literal notranslate"><span class="pre">&quot;john&quot;</span></code>, <code class="xref any docutils literal notranslate"><span class="pre">&quot;doe&quot;</span></code>, <code class="xref any docutils literal notranslate"><span class="pre">&quot;outlook&quot;</span></code>, <code class="xref any docutils literal notranslate"><span class="pre">&quot;com&quot;</span></code> will be returned. Other possible uses include ignoring punctuation characters <code class="xref any docutils literal notranslate"><span class="pre">delimiters=string.punctuation</span></code>. The “word” strings will not contain any delimiting character.</p>
+</dd>
+</dl>
+<p>This is a high-speed method which e.g. allows extracting text from within given areas or recovering the text reading sequence.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="TextPage.extractHTML">
+<span class="sig-name descname"><span class="pre">extractHTML</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#TextPage.extractHTML" title="Link to this definition">¶</a></dt>
+<dd><p>Textpage content as a string in HTML format. This version contains complete formatting and positioning information. Images are included (encoded as base64 strings). You need an HTML package to interpret the output in Python. Your internet browser should be able to adequately display this information, but see <a class="reference internal" href="app1.html#htmlquality"><span class="std std-ref">Controlling Quality of HTML Output</span></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="TextPage.extractDICT">
+<span class="sig-name descname"><span class="pre">extractDICT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sort</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#TextPage.extractDICT" title="Link to this definition">¶</a></dt>
+<dd><p>Textpage content as a Python dictionary. Provides same information detail as HTML. See below for the structure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sort</strong> (<em>bool</em>) – (new in v1.19.1) sort the output by vertical, then horizontal coordinates. In many cases, this should suffice to generate a “natural” reading order.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="TextPage.extractJSON">
+<span class="sig-name descname"><span class="pre">extractJSON</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sort</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#TextPage.extractJSON" title="Link to this definition">¶</a></dt>
+<dd><p>Textpage content as a JSON string. Created by <code class="xref any docutils literal notranslate"><span class="pre">json.dumps(TextPage.extractDICT())</span></code>. It is included for backlevel compatibility. You will probably use this method ever only for outputting the result to some file. The  method detects binary image data and converts them to base64 encoded strings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sort</strong> (<em>bool</em>) – (new in v1.19.1) sort the output by vertical, then horizontal coordinates. In many cases, this should suffice to generate a “natural” reading order.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="TextPage.extractXHTML">
+<span class="sig-name descname"><span class="pre">extractXHTML</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#TextPage.extractXHTML" title="Link to this definition">¶</a></dt>
+<dd><p>Textpage content as a string in XHTML format. Text information detail is comparable with <a class="reference internal" href="#TextPage.extractTEXT" title="TextPage.extractTEXT"><code class="xref py py-meth docutils literal notranslate"><span class="pre">extractTEXT()</span></code></a>, but also contains images (base64 encoded). This method makes no attempt to re-create the original visual appearance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="TextPage.extractXML">
+<span class="sig-name descname"><span class="pre">extractXML</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#TextPage.extractXML" title="Link to this definition">¶</a></dt>
+<dd><p>Textpage content as a string in XML format. This contains complete formatting information about every single character on the page: font, size, line, paragraph, location, color, etc. Contains no images. You need an XML package to interpret the output in Python.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="TextPage.extractRAWDICT">
+<span class="sig-name descname"><span class="pre">extractRAWDICT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sort</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#TextPage.extractRAWDICT" title="Link to this definition">¶</a></dt>
+<dd><p>Textpage content as a Python dictionary – technically similar to <a class="reference internal" href="#TextPage.extractDICT" title="TextPage.extractDICT"><code class="xref py py-meth docutils literal notranslate"><span class="pre">extractDICT()</span></code></a>, and it contains that information as a subset (including any images). It provides additional detail down to each character, which makes using XML obsolete in many cases. See below for the structure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sort</strong> (<em>bool</em>) – (new in v1.19.1) sort the output by vertical, then horizontal coordinates. In many cases, this should suffice to generate a “natural” reading order.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="TextPage.extractRAWJSON">
+<span class="sig-name descname"><span class="pre">extractRAWJSON</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sort</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#TextPage.extractRAWJSON" title="Link to this definition">¶</a></dt>
+<dd><p>Textpage content as a JSON string. Created by <code class="xref any docutils literal notranslate"><span class="pre">json.dumps(TextPage.extractRAWDICT())</span></code>. You will probably use this method ever only for outputting the result to some file. The  method detects binary image data and converts them to base64 encoded strings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sort</strong> (<em>bool</em>) – (new in v1.19.1) sort the output by vertical, then horizontal coordinates. In many cases, this should suffice to generate a “natural” reading order.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="TextPage.search">
+<span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">needle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#TextPage.search" title="Link to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>Changed in v1.18.2</p></li>
+</ul>
+<p>Search for <em>string</em> and return a list of found locations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>needle</strong> (<em>str</em>) – the string to search for. Upper and lower cases will all match if needle consists of ASCII letters only – it does not yet work for “Ä” versus “ä”, etc.</p></li>
+<li><p><strong>quads</strong> (<em>bool</em>) – return quadrilaterals instead of rectangles.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of <a class="reference internal" href="rect.html#rect"><span class="std std-ref">Rect</span></a> or <a class="reference internal" href="quad.html#quad"><span class="std std-ref">Quad</span></a> objects, each surrounding a found <em>needle</em> occurrence. As the search string may contain spaces, its parts may be found on different lines. In this case, more than one rectangle (resp. quadrilateral) are returned. <strong>(Changed in v1.18.2)</strong> The method <strong>now supports dehyphenation</strong>, so it will find e.g. “method”, even if it was hyphenated in two parts “meth-” and “od” across two lines. The two returned rectangles will contain “meth” (no hyphen) and “od”.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Overview of changes in v1.18.2:</strong></p>
+<ol class="arabic simple">
+<li><p>The <code class="xref any docutils literal notranslate"><span class="pre">hit_max</span></code> parameter has been removed: all hits are always returned.</p></li>
+<li><p>The <a class="reference internal" href="rect.html"><span class="doc">Rect</span></a> parameter of the <a class="reference internal" href="#textpage"><span class="std std-ref">TextPage</span></a> is now respected: only text inside this area is examined. Only characters with fully contained bboxes are considered. The wrapper method <a class="reference internal" href="page.html#Page.search_for" title="Page.search_for"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Page.search_for()</span></code></a> correspondingly supports a <em>clip</em> parameter.</p></li>
+<li><p><strong>Hyphenated words</strong> are now found.</p></li>
+<li><p><strong>Overlapping rectangles</strong> in the same line are now automatically joined. We assume that such separations are an artifact created by multiple marked content groups, containing parts of the same search needle.</p></li>
+</ol>
+</div>
+<p>Example Quad versus Rect: when searching for needle “pymupdf”, then the corresponding entry will either be the blue rectangle, or, if <em>quads</em> was specified, the quad <em>Quad(ul, ur, ll, lr)</em>.</p>
+<img alt="_images/img-quads.jpg" src="_images/img-quads.jpg" />
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="TextPage.rect">
+<span class="sig-name descname"><span class="pre">rect</span></span><a class="headerlink" href="#TextPage.rect" title="Link to this definition">¶</a></dt>
+<dd><p>The rectangle associated with the text page. This either equals the rectangle of the creating page or the <code class="xref any docutils literal notranslate"><span class="pre">clip</span></code> parameter of <a class="reference internal" href="page.html#Page.get_textpage" title="Page.get_textpage"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Page.get_textpage()</span></code></a> and text extraction / searching methods.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The output of text searching and most text extractions <strong>is restricted to this rectangle</strong>. (X)HTML and XML output will however always extract the full page.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<section id="structure-of-dictionary-outputs">
+<span id="textpagedict"></span><h2>Structure of Dictionary Outputs<a class="headerlink" href="#structure-of-dictionary-outputs" title="Link to this heading">¶</a></h2>
+<p>Methods <a class="reference internal" href="#TextPage.extractDICT" title="TextPage.extractDICT"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TextPage.extractDICT()</span></code></a>, <a class="reference internal" href="#TextPage.extractJSON" title="TextPage.extractJSON"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TextPage.extractJSON()</span></code></a>, <a class="reference internal" href="#TextPage.extractRAWDICT" title="TextPage.extractRAWDICT"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TextPage.extractRAWDICT()</span></code></a>, and <a class="reference internal" href="#TextPage.extractRAWJSON" title="TextPage.extractRAWJSON"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TextPage.extractRAWJSON()</span></code></a> return dictionaries, containing the page’s text and image content. The dictionary structures of all four methods are almost equal. They strive to map the text page’s information hierarchy of blocks, lines, spans and characters as precisely as possible, by representing each of these by its own sub-dictionary:</p>
+<ul class="simple">
+<li><p>A <strong>page</strong> consists of a list of <strong>block dictionaries</strong>.</p></li>
+<li><p>A (text) <strong>block</strong> consists of a list of <strong>line dictionaries</strong>.</p></li>
+<li><p>A <strong>line</strong> consists of a list of <strong>span dictionaries</strong>.</p></li>
+<li><p>A <strong>span</strong> either consists of the text itself or, for the RAW variants, a list of <strong>character dictionaries</strong>.</p></li>
+<li><p>RAW variants: a <strong>character</strong> is a dictionary of its origin, bbox and unicode.</p></li>
+</ul>
+<p>All PyMuPDF geometry objects herein (points, rectangles, matrices) are represented by there <strong>“like”</strong> formats: a <a class="reference internal" href="glossary.html#rect_like" title="rect_like"><code class="xref py py-data docutils literal notranslate"><span class="pre">rect_like</span></code></a> <em>tuple</em> is used instead of a <a class="reference internal" href="rect.html#rect"><span class="std std-ref">Rect</span></a>, etc. The reasons for this are performance and memory considerations:</p>
+<ul class="simple">
+<li><p>This code is written in C, where Python tuples can easily be generated. The geometry objects on the other hand are defined in Python source only. A conversion of each Python tuple into its corresponding geometry object would add significant – and largely unnecessary – execution time.</p></li>
+<li><p>A 4-tuple needs about 168 bytes, the corresponding <a class="reference internal" href="rect.html#rect"><span class="std std-ref">Rect</span></a> 472 bytes - almost three times the size. A “dict” dictionary for a text-heavy page contains 300+ bbox objects – which thus require about 50 KB storage as 4-tuples versus 140 KB as <a class="reference internal" href="rect.html#rect"><span class="std std-ref">Rect</span></a> objects. A “rawdict” output for such a page will however contain <strong>4 to 5 thousand</strong> bboxes, so in this case we talk about 750 KB versus 2 MB.</p></li>
+</ul>
+<p>Please also note, that only <strong>bboxes</strong> (= <a class="reference internal" href="glossary.html#rect_like" title="rect_like"><code class="xref py py-data docutils literal notranslate"><span class="pre">rect_like</span></code></a> 4-tuples) are returned, whereas a <a class="reference internal" href="#textpage"><span class="std std-ref">TextPage</span></a> actually has the <strong>full position information</strong> – in <a class="reference internal" href="quad.html#quad"><span class="std std-ref">Quad</span></a> format. The reason for this decision is again a memory consideration: a <a class="reference internal" href="glossary.html#quad_like" title="quad_like"><code class="xref py py-data docutils literal notranslate"><span class="pre">quad_like</span></code></a> needs 488 bytes (3 times the size of a <a class="reference internal" href="glossary.html#rect_like" title="rect_like"><code class="xref py py-data docutils literal notranslate"><span class="pre">rect_like</span></code></a>). Given the mentioned amounts of generated bboxes, returning <a class="reference internal" href="glossary.html#quad_like" title="quad_like"><code class="xref py py-data docutils literal notranslate"><span class="pre">quad_like</span></code></a> information would have a significant impact.</p>
+<p>In the vast majority of cases, we are dealing with <strong>horizontal text only</strong>, where bboxes provide entirely sufficient information.</p>
+<p>In addition, <strong>the full quad information is not lost</strong>: it can be recovered as needed for lines, spans, and characters by using the appropriate function from the following list:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="functions.html#recover_quad" title="recover_quad"><code class="xref py py-meth docutils literal notranslate"><span class="pre">recover_quad()</span></code></a> – the quad of a complete span</p></li>
+<li><p><a class="reference internal" href="functions.html#recover_span_quad" title="recover_span_quad"><code class="xref py py-meth docutils literal notranslate"><span class="pre">recover_span_quad()</span></code></a> – the quad of a character subset of a span</p></li>
+<li><p><a class="reference internal" href="functions.html#recover_line_quad" title="recover_line_quad"><code class="xref py py-meth docutils literal notranslate"><span class="pre">recover_line_quad()</span></code></a> – the quad of a line</p></li>
+<li><p><a class="reference internal" href="functions.html#recover_char_quad" title="recover_char_quad"><code class="xref py py-meth docutils literal notranslate"><span class="pre">recover_char_quad()</span></code></a> – the quad of a character</p></li>
+</ul>
+<p>As mentioned, using these functions is ever only needed, if the text is <strong>not written horizontally</strong> – <code class="xref any docutils literal notranslate"><span class="pre">line[&quot;dir&quot;]</span> <span class="pre">!=</span> <span class="pre">(1,</span> <span class="pre">0)</span></code> – and you need the quad for text marker annotations (<a class="reference internal" href="page.html#Page.add_highlight_annot" title="Page.add_highlight_annot"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Page.add_highlight_annot()</span></code></a> and friends).</p>
+<img alt="_images/img-textpage.png" src="_images/img-textpage.png" />
+<section id="page-dictionary">
+<h3>Page Dictionary<a class="headerlink" href="#page-dictionary" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Key</strong></p></th>
+<th class="head"><p><strong>Value</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>width</p></td>
+<td><p>width of the <code class="xref any docutils literal notranslate"><span class="pre">clip</span></code> rectangle <em>(float)</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>height</p></td>
+<td><p>height of the <code class="xref any docutils literal notranslate"><span class="pre">clip</span></code> rectangle <em>(float)</em></p></td>
+</tr>
+<tr class="row-even"><td><p>blocks</p></td>
+<td><p><em>list</em> of block dictionaries</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="block-dictionaries">
+<h3>Block Dictionaries<a class="headerlink" href="#block-dictionaries" title="Link to this heading">¶</a></h3>
+<p>Block dictionaries come in two different formats for <strong>image blocks</strong> and for <strong>text blocks</strong>.</p>
+<p><strong>Image block:</strong></p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Key</strong></p></th>
+<th class="head"><p><strong>Value</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>type</p></td>
+<td><p>1 = image (<code class="docutils literal notranslate"><span class="pre">int</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p>bbox</p></td>
+<td><p>image bbox on page (<a class="reference internal" href="glossary.html#rect_like" title="rect_like"><code class="xref py py-data docutils literal notranslate"><span class="pre">rect_like</span></code></a>)</p></td>
+</tr>
+<tr class="row-even"><td><p>number</p></td>
+<td><p>block count (<code class="docutils literal notranslate"><span class="pre">int</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p>ext</p></td>
+<td><p>image type (<code class="docutils literal notranslate"><span class="pre">str</span></code>), as file extension, see below</p></td>
+</tr>
+<tr class="row-even"><td><p>width</p></td>
+<td><p>original image width (<code class="docutils literal notranslate"><span class="pre">int</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p>height</p></td>
+<td><p>original image height (<code class="docutils literal notranslate"><span class="pre">int</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p>colorspace</p></td>
+<td><p>colorspace component count (<code class="docutils literal notranslate"><span class="pre">int</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p>xres</p></td>
+<td><p>resolution in x-direction (<code class="docutils literal notranslate"><span class="pre">int</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p>yres</p></td>
+<td><p>resolution in y-direction (<code class="docutils literal notranslate"><span class="pre">int</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p>bpc</p></td>
+<td><p>bits per component (<code class="docutils literal notranslate"><span class="pre">int</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p>transform</p></td>
+<td><p>matrix transforming image rect to bbox (<a class="reference internal" href="glossary.html#matrix_like" title="matrix_like"><code class="xref py py-data docutils literal notranslate"><span class="pre">matrix_like</span></code></a>)</p></td>
+</tr>
+<tr class="row-odd"><td><p>size</p></td>
+<td><p>size of the image in bytes (<code class="docutils literal notranslate"><span class="pre">int</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p>image</p></td>
+<td><p>image content (<code class="docutils literal notranslate"><span class="pre">bytes</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p>mask</p></td>
+<td><p>image mask content (<code class="docutils literal notranslate"><span class="pre">bytes</span></code>) for transparent images</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Possible values of the “ext” key are “bmp”, “gif”, “jpeg”, “jpx” (JPEG 2000), “jxr” (JPEG XR), “png”, “pnm”, and “tiff”.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ol class="arabic">
+<li><p>An image block is generated for <strong>all and every image occurrence</strong> on the page. Hence there may be duplicates, if an image is shown at different locations.</p></li>
+<li><p><a class="reference internal" href="#textpage"><span class="std std-ref">TextPage</span></a> and corresponding method <a class="reference internal" href="page.html#Page.get_text" title="Page.get_text"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Page.get_text()</span></code></a> are <strong>available for all document types</strong>. Only for PDF documents, methods <a class="reference internal" href="document.html#Document.get_page_images" title="Document.get_page_images"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Document.get_page_images()</span></code></a> / <a class="reference internal" href="page.html#Page.get_images" title="Page.get_images"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Page.get_images()</span></code></a> offer some overlapping functionality as far as image lists are concerned. But both lists <strong>may or may not</strong> contain the same items. Any differences are most probably caused by one of the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>“Inline” images (see page 214 of the <a class="reference internal" href="app3.html#adobemanual"><span class="std std-ref">Adobe PDF References</span></a>) of a PDF page are contained in a textpage, but <strong>do not appear</strong> in <a class="reference internal" href="page.html#Page.get_images" title="Page.get_images"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Page.get_images()</span></code></a>.</p></li>
+<li><p>Annotations may also contain images – these will <strong>not appear</strong> in <a class="reference internal" href="page.html#Page.get_images" title="Page.get_images"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Page.get_images()</span></code></a>.</p></li>
+<li><p>Image blocks in a textpage are generated for <strong>every</strong> image location – whether or not there are any duplicates. This is in contrast to <a class="reference internal" href="page.html#Page.get_images" title="Page.get_images"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Page.get_images()</span></code></a>, which will list each image only once (per reference name).</p></li>
+<li><p>Images mentioned in the page’s <a class="reference internal" href="glossary.html#object" title="object"><code class="xref py py-data docutils literal notranslate"><span class="pre">object</span></code></a> definition will <strong>always</strong> appear in <a class="reference internal" href="page.html#Page.get_images" title="Page.get_images"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Page.get_images()</span></code></a> <a class="footnote-reference brackets" href="#f1" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>. But it may happen, that there is no “display” command in the page’s <a class="reference internal" href="glossary.html#contents" title="contents"><code class="xref py py-data docutils literal notranslate"><span class="pre">contents</span></code></a> (erroneously or on purpose). In this case the image will <strong>not appear</strong> in the textpage.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>The image’s “transformation matrix” is defined as the matrix, for which the expression <code class="xref any docutils literal notranslate"><span class="pre">bbox</span> <span class="pre">/</span> <span class="pre">transform</span> <span class="pre">==</span> <span class="pre">pymupdf.Rect(0,</span> <span class="pre">0,</span> <span class="pre">1,</span> <span class="pre">1)</span></code> is true, lookup details here: <a class="reference internal" href="app3.html#imagetransformation"><span class="std std-ref">Image Transformation Matrix</span></a>.</p></li>
+<li><p>A transparent image may be accompanied by a mask image. This is stored under key <code class="xref any docutils literal notranslate"><span class="pre">&quot;mask&quot;</span></code> and has the format of a <code class="xref any docutils literal notranslate"><span class="pre">DeviceGray</span></code> PNG image. Otherwise the value of this key is <code class="docutils literal notranslate"><span class="pre">None</span></code>. If present, you may be able to recover (an equivalent of) the original image – i.e. with transparency – by creating <a class="reference internal" href="pixmap.html#pixmap"><span class="std std-ref">Pixmap</span></a> objects from the “image”, respectively “mask” values and overlay them. This is not guaranteed to always work because mask images come in multiple formats, of which not all qualify for the conditions under which overlaying Pixmaps are supported. Here is a code snippet:</p></li>
+</ol>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">base</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">Pixmap</span><span class="p">(</span><span class="n">block</span><span class="p">[</span><span class="s2">&quot;image&quot;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mask</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">Pixmap</span><span class="p">(</span><span class="n">block</span><span class="p">[</span><span class="s2">&quot;mask&quot;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">Pixmap</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">mask</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p><strong>Text block:</strong></p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Key</strong></p></th>
+<th class="head"><p><strong>Value</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>type</p></td>
+<td><p>0 = text <em>(int)</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>bbox</p></td>
+<td><p>block rectangle, <a class="reference internal" href="glossary.html#rect_like" title="rect_like"><code class="xref py py-data docutils literal notranslate"><span class="pre">rect_like</span></code></a></p></td>
+</tr>
+<tr class="row-even"><td><p>number</p></td>
+<td><p>block count <em>(int)</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>lines</p></td>
+<td><p><em>list</em> of text line dictionaries</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="line-dictionary">
+<h3>Line Dictionary<a class="headerlink" href="#line-dictionary" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Key</strong></p></th>
+<th class="head"><p><strong>Value</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bbox</p></td>
+<td><p>line rectangle, <a class="reference internal" href="glossary.html#rect_like" title="rect_like"><code class="xref py py-data docutils literal notranslate"><span class="pre">rect_like</span></code></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>wmode</p></td>
+<td><p>writing mode <em>(int)</em>: 0 = horizontal, 1 = vertical</p></td>
+</tr>
+<tr class="row-even"><td><p>dir</p></td>
+<td><p>writing direction, <a class="reference internal" href="glossary.html#point_like" title="point_like"><code class="xref py py-data docutils literal notranslate"><span class="pre">point_like</span></code></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>spans</p></td>
+<td><p><em>list</em> of span dictionaries</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The value of key <em>“dir”</em> is the <strong>unit vector</strong> <code class="xref any docutils literal notranslate"><span class="pre">dir</span> <span class="pre">=</span> <span class="pre">(cosine,</span> <span class="pre">-sine)</span></code> of the angle, which the text has relative to the x-axis <a class="footnote-reference brackets" href="#f2" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>. See the following picture: The word in each quadrant (counter-clockwise from top-right to bottom-right) is rotated by 30, 120, 210 and 300 degrees respectively.</p>
+<a class="reference internal image-reference" href="_images/img-line-dir.png"><img alt="_images/img-line-dir.png" src="_images/img-line-dir.png" style="width: 400.0px; height: 400.0px;" />
+</a>
+</section>
+<section id="span-dictionary">
+<h3>Span Dictionary<a class="headerlink" href="#span-dictionary" title="Link to this heading">¶</a></h3>
+<p>Spans contain the actual text. A line contains <strong>more than one span only</strong>, if it contains text with different font properties.</p>
+<ul class="simple">
+<li><p>Changed in version 1.14.17 Spans now also have a <em>bbox</em> key (again).</p></li>
+<li><p>Changed in version 1.17.6 Spans now also have an <em>origin</em> key.</p></li>
+</ul>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Key</strong></p></th>
+<th class="head"><p><strong>Value</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bbox</p></td>
+<td><p>span rectangle, <a class="reference internal" href="glossary.html#rect_like" title="rect_like"><code class="xref py py-data docutils literal notranslate"><span class="pre">rect_like</span></code></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>origin</p></td>
+<td><p>the first character’s origin, <a class="reference internal" href="glossary.html#point_like" title="point_like"><code class="xref py py-data docutils literal notranslate"><span class="pre">point_like</span></code></a></p></td>
+</tr>
+<tr class="row-even"><td><p>font</p></td>
+<td><p>font name <em>(str)</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>ascender</p></td>
+<td><p>ascender of the font <em>(float)</em></p></td>
+</tr>
+<tr class="row-even"><td><p>descender</p></td>
+<td><p>descender of the font <em>(float)</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>size</p></td>
+<td><p>font size <em>(float)</em></p></td>
+</tr>
+<tr class="row-even"><td><p>flags</p></td>
+<td><p>font characteristics <em>(int)</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>char_flags</p></td>
+<td><p>char characteristics <em>(int)</em></p></td>
+</tr>
+<tr class="row-even"><td><p>color</p></td>
+<td><p>text color in sRGB format 0xRRGGBB <em>(int)</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>alpha</p></td>
+<td><p>text opacity 0..255 <em>(int)</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p>text</p></td>
+<td><p>(only for <code class="xref py py-meth docutils literal notranslate"><span class="pre">extractDICT()</span></code>) text <em>(str)</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>chars</p></td>
+<td><p>(only for <code class="xref py py-meth docutils literal notranslate"><span class="pre">extractRAWDICT()</span></code>) <em>list</em> of character dictionaries</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><details>
+<summary><small style="cursor:pointer;">Show/hide history</small></summary><small></p>
+<p><em>(New in version 1.25.3.0):</em> Added <em>“alpha”</em> item.</p>
+<p><em>(New in version 1.16.0):</em> <em>“color”</em> is the text color encoded in sRGB (int) format, e.g. 0xFF0000 for red. There are functions for converting this integer back to formats (r, g, b) (PDF with float values from 0 to 1) <a class="reference internal" href="functions.html#sRGB_to_pdf" title="sRGB_to_pdf"><code class="xref py py-meth docutils literal notranslate"><span class="pre">sRGB_to_pdf()</span></code></a>, or (R, G, B), <a class="reference internal" href="functions.html#sRGB_to_rgb" title="sRGB_to_rgb"><code class="xref py py-meth docutils literal notranslate"><span class="pre">sRGB_to_rgb()</span></code></a> (with integer values from 0 to 255).</p>
+<p><em>(New in v1.18.5):</em> <em>“ascender”</em> and <em>“descender”</em> are font properties, provided relative to <a class="reference internal" href="glossary.html#fontsize" title="fontsize"><code class="xref py py-data docutils literal notranslate"><span class="pre">fontsize</span></code></a> 1. Note that descender is a negative value. The following picture shows the relationship to other values and properties.</p>
+<p></small></details></p>
+<a class="reference internal image-reference" href="_images/img-asc-desc.png"><img alt="_images/img-asc-desc.png" src="_images/img-asc-desc.png" style="width: 476.4px; height: 232.79999999999998px;" />
+</a>
+<p>These numbers may be used to compute the minimum height of a character (or span) – as opposed to the standard height provided in the “bbox” values (which actually represents the <strong>line height</strong>). The following code recalculates the span bbox to have a height of <strong>fontsize</strong> exactly fitting the text inside:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">span</span><span class="p">[</span><span class="s2">&quot;ascender&quot;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="n">span</span><span class="p">[</span><span class="s2">&quot;descender&quot;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">Rect</span><span class="p">(</span><span class="n">span</span><span class="p">[</span><span class="s2">&quot;bbox&quot;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">o</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="n">span</span><span class="p">[</span><span class="s2">&quot;origin&quot;</span><span class="p">])</span>  <span class="c1"># its y-value is the baseline</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="o">.</span><span class="n">y1</span> <span class="o">=</span> <span class="n">o</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">span</span><span class="p">[</span><span class="s2">&quot;size&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="n">d</span> <span class="o">/</span> <span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">d</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="o">.</span><span class="n">y0</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">y1</span> <span class="o">-</span> <span class="n">span</span><span class="p">[</span><span class="s2">&quot;size&quot;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># r now is a rectangle of height &#39;fontsize&#39;</span>
+</pre></div>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>The above calculation may deliver a <strong>larger</strong> height! This may e.g. happen for OCRed documents, where the risk of all sorts of text artifacts is high. MuPDF tries to come up with a reasonable bbox height, independently from the <a class="reference internal" href="glossary.html#fontsize" title="fontsize"><code class="xref py py-data docutils literal notranslate"><span class="pre">fontsize</span></code></a> found in the PDF. So please ensure that the height of <code class="xref any docutils literal notranslate"><span class="pre">span[&quot;bbox&quot;]</span></code> is <strong>larger</strong> than <code class="xref any docutils literal notranslate"><span class="pre">span[&quot;size&quot;]</span></code>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You may request PyMuPDF to do all of the above automatically by executing <code class="xref any docutils literal notranslate"><span class="pre">pymupdf.TOOLS.set_small_glyph_heights(True)</span></code>. This sets a global parameter so that all subsequent text searches and text extractions are based on reduced glyph heights, where meaningful.</p>
+</div>
+<p>The following shows the original span rectangle in red and the rectangle with re-computed height in blue.</p>
+<a class="reference internal image-reference" href="_images/img-span-rect.png"><img alt="_images/img-span-rect.png" src="_images/img-span-rect.png" style="width: 186.0px; height: 116.0px;" />
+</a>
+<p><em>“flags”</em> is an integer, which represents font properties except for the first bit 0. They are to be interpreted like this:</p>
+<ul class="simple">
+<li><p>bit 0: superscripted (<a class="reference internal" href="vars.html#TEXT_FONT_SUPERSCRIPT" title="TEXT_FONT_SUPERSCRIPT"><code class="xref py py-data docutils literal notranslate"><span class="pre">TEXT_FONT_SUPERSCRIPT</span></code></a>) – not a font property, detected by MuPDF code.</p></li>
+<li><p>bit 1: italic (<a class="reference internal" href="vars.html#TEXT_FONT_ITALIC" title="TEXT_FONT_ITALIC"><code class="xref py py-data docutils literal notranslate"><span class="pre">TEXT_FONT_ITALIC</span></code></a>)</p></li>
+<li><p>bit 2: serifed (<a class="reference internal" href="vars.html#TEXT_FONT_SERIFED" title="TEXT_FONT_SERIFED"><code class="xref py py-data docutils literal notranslate"><span class="pre">TEXT_FONT_SERIFED</span></code></a>)</p></li>
+<li><p>bit 3: monospaced (<a class="reference internal" href="vars.html#TEXT_FONT_MONOSPACED" title="TEXT_FONT_MONOSPACED"><code class="xref py py-data docutils literal notranslate"><span class="pre">TEXT_FONT_MONOSPACED</span></code></a>)</p></li>
+<li><p>bit 4: bold (<a class="reference internal" href="vars.html#TEXT_FONT_BOLD" title="TEXT_FONT_BOLD"><code class="xref py py-data docutils literal notranslate"><span class="pre">TEXT_FONT_BOLD</span></code></a>)</p></li>
+</ul>
+<p>Test these characteristics like so:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">flags</span> <span class="o">&amp;</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">TEXT_FONT_BOLD</span> <span class="o">&amp;</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">TEXT_FONT_ITALIC</span><span class="p">:</span>
+<span class="go">        print(f&quot;{span[&#39;text&#39;]=} is bold and italic&quot;)</span>
+</pre></div>
+</div>
+<p>Bits 1 thru 4 are font properties, i.e. encoded in the font program. Please note, that this information is not necessarily correct or complete: fonts quite often contain wrong data here.</p>
+<p><em>“char_flags”</em> is an integer, which represents extra character properties:</p>
+<ul class="simple">
+<li><p>bit 0: strikeout.</p></li>
+<li><p>bit 1: underline.</p></li>
+<li><p>bit 2: synthetic (always 0, see char dictionary).</p></li>
+<li><p>bit 3: filled.</p></li>
+<li><p>bit 4: stroked.</p></li>
+<li><p>bit 5: clipped.</p></li>
+</ul>
+<p>For example if not filled and not stroked (<code class="xref any docutils literal notranslate"><span class="pre">if</span> <span class="pre">not</span> <span class="pre">(char_flags</span> <span class="pre">&amp;</span> <span class="pre">2**3</span> <span class="pre">&amp;</span> <span class="pre">2**4):</span>
+<span class="pre">...</span></code>) then the text will be invisible.</p>
+<p>(<code class="xref any docutils literal notranslate"><span class="pre">char_flags</span></code> is new in v1.25.2.)</p>
+</section>
+<section id="character-dictionary-for-extractrawdict">
+<h3>Character Dictionary for <code class="xref py py-meth docutils literal notranslate"><span class="pre">extractRAWDICT()</span></code><a class="headerlink" href="#character-dictionary-for-extractrawdict" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Key</strong></p></th>
+<th class="head"><p><strong>Value</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>origin</p></td>
+<td><p>character’s left baseline point, <a class="reference internal" href="glossary.html#point_like" title="point_like"><code class="xref py py-data docutils literal notranslate"><span class="pre">point_like</span></code></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>bbox</p></td>
+<td><p>character rectangle, <a class="reference internal" href="glossary.html#rect_like" title="rect_like"><code class="xref py py-data docutils literal notranslate"><span class="pre">rect_like</span></code></a></p></td>
+</tr>
+<tr class="row-even"><td><p>synthetic</p></td>
+<td><p>bool.</p></td>
+</tr>
+<tr class="row-odd"><td><p>c</p></td>
+<td><p>the character (unicode)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>(<code class="xref any docutils literal notranslate"><span class="pre">synthetic</span></code> is new in v1.25.3.)</p>
+<p>This image shows the relationship between a character’s bbox and its quad: <a class="reference internal" href="_images/img-textpage-char.png"><img alt="textpagechar" class="align-top" src="_images/img-textpage-char.png" style="width: 173.58px; height: 97.02000000000001px;" /></a></p>
+<p class="rubric">Footnotes</p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="f1" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">1</a><span class="fn-bracket">]</span></span>
+<p>Image specifications for a PDF page are done in a page’s (sub-) <a class="reference internal" href="glossary.html#dictionary" title="dictionary"><code class="xref py py-data docutils literal notranslate"><span class="pre">dictionary</span></code></a>, called <code class="xref any docutils literal notranslate"><span class="pre">/Resources</span></code>. Resource dictionaries can be <strong>inherited</strong> from any of the page’s parent objects (usually the <a class="reference internal" href="glossary.html#catalog" title="catalog"><code class="xref py py-data docutils literal notranslate"><span class="pre">catalog</span></code></a> – the top-level parent). The PDF creator may e.g. define one <code class="xref any docutils literal notranslate"><span class="pre">/Resources</span></code> on file level, naming all images and / or all fonts ever used by any page. In these cases, <a class="reference internal" href="page.html#Page.get_images" title="Page.get_images"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Page.get_images()</span></code></a> and <a class="reference internal" href="page.html#Page.get_fonts" title="Page.get_fonts"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Page.get_fonts()</span></code></a> will consequently return the same lists for all pages. If desired, this situation can be reverted using <a class="reference internal" href="functions.html#Page.clean_contents" title="Page.clean_contents"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Page.clean_contents()</span></code></a>. After execution, the page’s object definition will show fonts and images that are actually used.</p>
+</aside>
+<aside class="footnote brackets" id="f2" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">2</a><span class="fn-bracket">]</span></span>
+<p>The coordinate systems of MuPDF and PDF are different in that MuPDF uses the page’s top-left point as <code class="xref any docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">0)</span></code>. In PDF, this is the bottom-left point. Therefore, the positive direction for MuPDF’s y-axis is <strong>from top to bottom</strong>. This causes the sign change for the sine value here: a <strong>negative</strong> value indicates anti-clockwise rotation of the text.</p>
+</aside>
+</aside>
+<div class="feedbackLink"><a id="feedbackLinkBottom" target=_blank>Do you have any feedback on this page?</b></a></div><hr class="docutils" />
+<script>
+
+   var url_string = window.location.href;
+   var a = document.getElementById('feedbackLinkBottom');
+   a.setAttribute("href", "https://artifex.com/contributor/feedback.php?utm_source=rtd-pymupdf&utm_medium=rtd&utm_content=footer-link&url="+url_string);
+
+</script>
+
+<p style="color:#999" id="footerDisclaimer">This software is provided AS-IS with no warranty, either express or implied. This software is distributed under license and may not be copied, modified or distributed except as expressly authorized under the terms of that license. Refer to licensing information at <a href="https://www.artifex.com?utm_source=rtd-pymupdf&utm_medium=rtd&utm_content=footer-link">artifex.com</a> or contact Artifex Software Inc., 39 Mesa Street, Suite 108A, San Francisco CA 94129, United States for further information.</p>
+
+
+
+<script>
+
+   let docLanguage = document.getElementsByTagName('html')[0].getAttribute('lang');
+
+   function getHeaderAndFooterTranslation(str) {
+       if (docLanguage == "ja") {
+           if (str == "Do you have any feedback on this page?") {
+               return "このページに関するご意見はありますか？";
+           } else if (str == "Find <b>#pymupdf</b> on <b>Discord</b>") {
+               return "<b>Discord</b>の <b>#pymupdf</b> を見つける";
+           } else if (str == "This software is provided AS-IS with no warranty, either express or implied. This software is distributed under license and may not be copied, modified or distributed except as expressly authorized under the terms of that license. Refer to licensing information at <a href='https://www.artifex.com?utm_source=rtd-pymupdf&utm_medium=rtd&utm_content=footer-link'>artifex.com</a> or contact Artifex Software Inc., 39 Mesa Street, Suite 108A, San Francisco CA 94129, United States for further information.") {
+
+               return "このソフトウェアは無保証で提供されており、明示または黙示を問わず、いかなる保証もありません。このソフトウェアはライセンスの下で配布され、ライセンスの条件に明示的に許可されている場合を除き、コピー、変更、または配布してはなりません。ライセンシング情報については、<a href='https://www.artifex.com?utm_source=rtd-pymupdf&utm_medium=rtd&utm_content=footer-link'>artifex.com</a>でライセンス情報を参照するか、アメリカ合衆国カリフォルニア州サンフランシスコのArtifex Software Inc. までお問い合わせください。"
+
+           }
+       }
+
+       return str;
+   }
+
+   document.getElementById("findOnDiscord").innerHTML = getHeaderAndFooterTranslation("Find <b>#pymupdf</b> on <b>Discord</b>");
+   document.getElementById("feedbackLinkTop").innerHTML = getHeaderAndFooterTranslation("Do you have any feedback on this page?");
+   document.getElementById("feedbackLinkBottom").innerHTML = getHeaderAndFooterTranslation("Do you have any feedback on this page?");
+   document.getElementById("footerDisclaimer").innerHTML = getHeaderAndFooterTranslation("This software is provided AS-IS with no warranty, either express or implied. This software is distributed under license and may not be copied, modified or distributed except as expressly authorized under the terms of that license. Refer to licensing information at <a href='https://www.artifex.com?utm_source=rtd-pymupdf&utm_medium=rtd&utm_content=footer-link'>artifex.com</a> or contact Artifex Software Inc., 39 Mesa Street, Suite 108A, San Francisco CA 94129, United States for further information.");
+
+
+   // more translation for admonition-title as the in-built translation isn't great, needs: 注釈 -> 注
+   if (docLanguage == "ja") {
+       const collection = document.getElementsByClassName("admonition-title");
+       for (var i=0;i<collection.length;i++) {
+           collection[i].innerHTML = "注";
+       }
+   }
+
+
+</script><p class="footer-version">This documentation covers all versions up to 1.25.3.</p>
+</section>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="textwriter.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">TextWriter</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="story-class.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Story</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2015-2025, Artifex
+            </div>
+            Made with 
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            <div class="last-updated">
+              Last updated on 10. Mar 2025</div>
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">TextPage</a><ul>
+<li><a class="reference internal" href="#TextPage"><code class="docutils literal notranslate"><span class="pre">TextPage</span></code></a><ul>
+<li><a class="reference internal" href="#TextPage.extractText"><code class="docutils literal notranslate"><span class="pre">TextPage.extractText()</span></code></a></li>
+<li><a class="reference internal" href="#TextPage.extractTEXT"><code class="docutils literal notranslate"><span class="pre">TextPage.extractTEXT()</span></code></a></li>
+<li><a class="reference internal" href="#TextPage.extractBLOCKS"><code class="docutils literal notranslate"><span class="pre">TextPage.extractBLOCKS()</span></code></a></li>
+<li><a class="reference internal" href="#TextPage.extractWORDS"><code class="docutils literal notranslate"><span class="pre">TextPage.extractWORDS()</span></code></a></li>
+<li><a class="reference internal" href="#TextPage.extractHTML"><code class="docutils literal notranslate"><span class="pre">TextPage.extractHTML()</span></code></a></li>
+<li><a class="reference internal" href="#TextPage.extractDICT"><code class="docutils literal notranslate"><span class="pre">TextPage.extractDICT()</span></code></a></li>
+<li><a class="reference internal" href="#TextPage.extractJSON"><code class="docutils literal notranslate"><span class="pre">TextPage.extractJSON()</span></code></a></li>
+<li><a class="reference internal" href="#TextPage.extractXHTML"><code class="docutils literal notranslate"><span class="pre">TextPage.extractXHTML()</span></code></a></li>
+<li><a class="reference internal" href="#TextPage.extractXML"><code class="docutils literal notranslate"><span class="pre">TextPage.extractXML()</span></code></a></li>
+<li><a class="reference internal" href="#TextPage.extractRAWDICT"><code class="docutils literal notranslate"><span class="pre">TextPage.extractRAWDICT()</span></code></a></li>
+<li><a class="reference internal" href="#TextPage.extractRAWJSON"><code class="docutils literal notranslate"><span class="pre">TextPage.extractRAWJSON()</span></code></a></li>
+<li><a class="reference internal" href="#TextPage.search"><code class="docutils literal notranslate"><span class="pre">TextPage.search()</span></code></a></li>
+<li><a class="reference internal" href="#TextPage.rect"><code class="docutils literal notranslate"><span class="pre">TextPage.rect</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#structure-of-dictionary-outputs">Structure of Dictionary Outputs</a><ul>
+<li><a class="reference internal" href="#page-dictionary">Page Dictionary</a></li>
+<li><a class="reference internal" href="#block-dictionaries">Block Dictionaries</a></li>
+<li><a class="reference internal" href="#line-dictionary">Line Dictionary</a></li>
+<li><a class="reference internal" href="#span-dictionary">Span Dictionary</a></li>
+<li><a class="reference internal" href="#character-dictionary-for-extractrawdict">Character Dictionary for <code class="xref py py-meth docutils literal notranslate"><span class="pre">extractRAWDICT()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=9ddcf537"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    </body>
+</html>
